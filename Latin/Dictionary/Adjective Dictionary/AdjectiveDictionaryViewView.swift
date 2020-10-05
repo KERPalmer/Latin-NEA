@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct AdjectiveView:View{
+struct AdjectiveDictionaryView:View{
     var body :some View{
         List(PROGRAMDATABASE.adjectiveClassList){adjective in
             Text(adjective.fileLine)
