@@ -1,5 +1,5 @@
 //
-//  PrepositionDictionaryView.swift
+//  prep.swift
 //  Latin
 //
 //  Created by Kenan Palmer on 05/10/2020.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PrepositionDictionaryView: View {
+struct prep: View {
     var body: some View {
         List(PROGRAMDATABASE.prepositionClassList){preposition in
             NavigationLink(destination: PrepositionInfoView(preposition: preposition)){
@@ -32,8 +32,8 @@ struct PrepositionDictionaryView: View {
     }
 }
 
-struct PrepositionDictionaryView_Previews: PreviewProvider {
+struct prep_Previews: PreviewProvider {
     static var previews: some View {
-        PrepositionDictionaryView()
+        prep()
     }
 }

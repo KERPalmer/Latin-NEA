@@ -45,8 +45,9 @@
 		E0154BA8252B7DAE0057827A /* practiseAdvancedSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B8E252B79C20057827A /* practiseAdvancedSettingsView.swift */; };
 		E0154BAA252B7DAF0057827A /* practiseVerbSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B8F252B79C20057827A /* practiseVerbSettings.swift */; };
 		E0154BC2252B9C580057827A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BC1252B9C580057827A /* ContentView.swift */; };
-		E0154BC6252BA2430057827A /* PrepositionDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BC5252BA2430057827A /* PrepositionDictionaryView.swift */; };
 		E0154BC9252BA2630057827A /* PrepositionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BC8252BA2630057827A /* PrepositionInfoView.swift */; };
+		E0154BCF252BAFA10057827A /* prep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BCE252BAFA10057827A /* prep.swift */; };
+		E0154BD3252BB03A0057827A /* PrepositionDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BD2252BB03A0057827A /* PrepositionDictionaryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,8 +91,9 @@
 		E0154BA0252B7CD50057827A /* DeponentInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeponentInfoView.swift; sourceTree = "<group>"; };
 		E0154BA1252B7CD60057827A /* VerbInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbInfoView.swift; sourceTree = "<group>"; };
 		E0154BC1252B9C580057827A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E0154BC5252BA2430057827A /* PrepositionDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionDictionaryView.swift; sourceTree = "<group>"; };
 		E0154BC8252BA2630057827A /* PrepositionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionInfoView.swift; sourceTree = "<group>"; };
+		E0154BCE252BAFA10057827A /* prep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prep.swift; sourceTree = "<group>"; };
+		E0154BD2252BB03A0057827A /* PrepositionDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionDictionaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,7 +269,8 @@
 		E0154BB4252B944D0057827A /* Preposition dictionary */ = {
 			isa = PBXGroup;
 			children = (
-				E0154BC5252BA2430057827A /* PrepositionDictionaryView.swift */,
+				E0154BCE252BAFA10057827A /* prep.swift */,
+				E0154BD2252BB03A0057827A /* PrepositionDictionaryView.swift */,
 				E0154BC8252BA2630057827A /* PrepositionInfoView.swift */,
 			);
 			path = "Preposition dictionary";
@@ -374,8 +377,10 @@
 				E0154B85252B79BA0057827A /* PractiseStartView.swift in Sources */,
 				E0154B8B252B79BE0057827A /* practiseView.swift in Sources */,
 				E0154B0E252B3B910057827A /* DictionaryView.swift in Sources */,
+				E0154BCF252BAFA10057827A /* prep.swift in Sources */,
 				E0154B31252B3E800057827A /* irregularNouns.swift in Sources */,
 				E0154BA4252B7CD60057827A /* VerbInfoView.swift in Sources */,
+				E0154BD3252BB03A0057827A /* PrepositionDictionaryView.swift in Sources */,
 				E0154BC9252BA2630057827A /* PrepositionInfoView.swift in Sources */,
 				E0154B28252B3DC10057827A /* adjectives.swift in Sources */,
 				E0154BA2252B7CD60057827A /* VerbRowView.swift in Sources */,
@@ -387,7 +392,6 @@
 				E0154B58252B43BD0057827A /* Format.swift in Sources */,
 				E0154BA3252B7CD60057827A /* DeponentInfoView.swift in Sources */,
 				E0154B76252B79B10057827A /* IncorrectView.swift in Sources */,
-				E0154BC6252BA2430057827A /* PrepositionDictionaryView.swift in Sources */,
 				E0154B95252B7A250057827A /* VerbDictionaryView.swift in Sources */,
 				E0154B5D252B4FCA0057827A /* DecisionView.swift in Sources */,
 				E0154B27252B3DC10057827A /* AdjectiveDictionaryViewView.swift in Sources */,
@@ -521,7 +525,7 @@
 		E0154ADA252B39470057827A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Latin/Preview Content\"";
@@ -543,7 +547,7 @@
 		E0154ADB252B39470057827A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Latin/Preview Content\"";
