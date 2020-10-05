@@ -19,7 +19,6 @@ class Verb:Codable,Identifiable{
     public var fileLine:String
     public var isUsed:Bool
     init(line:String, id_:   Int){
-        print("hi")
         isUsed=true
         id=id_
         fileLine = line

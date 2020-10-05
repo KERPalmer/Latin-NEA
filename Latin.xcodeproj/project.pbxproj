@@ -20,11 +20,10 @@
 		E0154B1F252B3C960057827A /* verbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B1A252B3C960057827A /* verbs.swift */; };
 		E0154B20252B3C960057827A /* preposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B1B252B3C960057827A /* preposition.swift */; };
 		E0154B23252B3CEF0057827A /* changes to orginal ocr text.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E0154B22252B3CEF0057827A /* changes to orginal ocr text.rtf */; };
-		E0154B27252B3DC10057827A /* adjectiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B25252B3DC10057827A /* adjectiveView.swift */; };
+		E0154B27252B3DC10057827A /* AdjectiveDictionaryViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B25252B3DC10057827A /* AdjectiveDictionaryViewView.swift */; };
 		E0154B28252B3DC10057827A /* adjectives.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B26252B3DC10057827A /* adjectives.swift */; };
 		E0154B30252B3E800057827A /* irregularVerbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B2E252B3E7F0057827A /* irregularVerbs.swift */; };
 		E0154B31252B3E800057827A /* irregularNouns.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B2F252B3E800057827A /* irregularNouns.swift */; };
-		E0154B46252B41B60057827A /* prepostionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B45252B41B50057827A /* prepostionView.swift */; };
 		E0154B4D252B41F10057827A /* NounViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B4B252B41F10057827A /* NounViews.swift */; };
 		E0154B4E252B41F10057827A /* nouns.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B4C252B41F10057827A /* nouns.swift */; };
 		E0154B58252B43BD0057827A /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B57252B43BC0057827A /* Format.swift */; };
@@ -47,6 +46,7 @@
 		E0154BA4252B7CD60057827A /* VerbInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BA1252B7CD60057827A /* VerbInfoView.swift */; };
 		E0154BA8252B7DAE0057827A /* practiseAdvancedSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B8E252B79C20057827A /* practiseAdvancedSettingsView.swift */; };
 		E0154BAA252B7DAF0057827A /* practiseVerbSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B8F252B79C20057827A /* practiseVerbSettings.swift */; };
+		E0154BB2252B933A0057827A /* PrepostionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BB1252B933A0057827A /* PrepostionInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,11 +65,10 @@
 		E0154B1A252B3C960057827A /* verbs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = verbs.swift; sourceTree = "<group>"; };
 		E0154B1B252B3C960057827A /* preposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = preposition.swift; sourceTree = "<group>"; };
 		E0154B22252B3CEF0057827A /* changes to orginal ocr text.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "changes to orginal ocr text.rtf"; sourceTree = "<group>"; };
-		E0154B25252B3DC10057827A /* adjectiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adjectiveView.swift; sourceTree = "<group>"; };
+		E0154B25252B3DC10057827A /* AdjectiveDictionaryViewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjectiveDictionaryViewView.swift; sourceTree = "<group>"; };
 		E0154B26252B3DC10057827A /* adjectives.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adjectives.swift; sourceTree = "<group>"; };
 		E0154B2E252B3E7F0057827A /* irregularVerbs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = irregularVerbs.swift; sourceTree = "<group>"; };
 		E0154B2F252B3E800057827A /* irregularNouns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = irregularNouns.swift; sourceTree = "<group>"; };
-		E0154B45252B41B50057827A /* prepostionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = prepostionView.swift; sourceTree = "<group>"; };
 		E0154B4B252B41F10057827A /* NounViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NounViews.swift; sourceTree = "<group>"; };
 		E0154B4C252B41F10057827A /* nouns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nouns.swift; sourceTree = "<group>"; };
 		E0154B57252B43BC0057827A /* Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		E0154B9F252B7CD50057827A /* VerbRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbRowView.swift; sourceTree = "<group>"; };
 		E0154BA0252B7CD50057827A /* DeponentInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeponentInfoView.swift; sourceTree = "<group>"; };
 		E0154BA1252B7CD60057827A /* VerbInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbInfoView.swift; sourceTree = "<group>"; };
+		E0154BB1252B933A0057827A /* PrepostionInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepostionInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,15 +124,13 @@
 		E0154ACC252B39460057827A /* Latin */ = {
 			isa = PBXGroup;
 			children = (
-				E0154B63252B52350057827A /* Vocab */,
-				E0154B5A252B43EE0057827A /* multi */,
-				E0154B62252B51C10057827A /* Dictionary */,
 				E0154ACD252B39460057827A /* LatinApp.swift */,
 				E0154ADD252B39730057827A /* ContentView.swift */,
 				E0154B5C252B4FCA0057827A /* DecisionView.swift */,
+				E0154B63252B52350057827A /* Vocab */,
+				E0154B5A252B43EE0057827A /* multi */,
+				E0154B62252B51C10057827A /* Dictionary */,
 				E0154B91252B79CC0057827A /* practise test */,
-				E0154B22252B3CEF0057827A /* changes to orginal ocr text.rtf */,
-				E0154B02252B3B2A0057827A /* GCSE latin.csv */,
 				E0154AE4252B39CB0057827A /* Backgrounds */,
 				E0154AD1252B39470057827A /* Assets.xcassets */,
 				E0154AD6252B39470057827A /* Info.plist */,
@@ -180,7 +178,6 @@
 		E0154B54252B42E60057827A /* Adjectives */ = {
 			isa = PBXGroup;
 			children = (
-				E0154B25252B3DC10057827A /* adjectiveView.swift */,
 				E0154B26252B3DC10057827A /* adjectives.swift */,
 			);
 			path = Adjectives;
@@ -190,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				E0154B1B252B3C960057827A /* preposition.swift */,
-				E0154B45252B41B50057827A /* prepostionView.swift */,
 			);
 			path = Prepostions;
 			sourceTree = "<group>";
@@ -207,10 +203,11 @@
 		E0154B62252B51C10057827A /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
-				E0154BA6252B7CF10057827A /* verb Dictionary */,
 				E0154B0D252B3B910057827A /* DictionaryView.swift */,
-				E0154B97252B7A6A0057827A /* NounDictionaryView.swift */,
-				E0154B9C252B7AC40057827A /* PrepositionDictionaryView.swift */,
+				E0154BA6252B7CF10057827A /* Verb Dictionary */,
+				E0154BB9252B99DF0057827A /* Noun Dictionary */,
+				E0154BB4252B944D0057827A /* Preposition dictionary */,
+				E0154BBA252B99F50057827A /* Adjective Dictionary */,
 			);
 			path = Dictionary;
 			sourceTree = "<group>";
@@ -218,6 +215,8 @@
 		E0154B63252B52350057827A /* Vocab */ = {
 			isa = PBXGroup;
 			children = (
+				E0154B02252B3B2A0057827A /* GCSE latin.csv */,
+				E0154B22252B3CEF0057827A /* changes to orginal ocr text.rtf */,
 				E0154B19252B3C960057827A /* load.swift */,
 				E0154B56252B43330057827A /* Prepostions */,
 				E0154B54252B42E60057827A /* Adjectives */,
@@ -245,7 +244,7 @@
 			path = "practise test";
 			sourceTree = "<group>";
 		};
-		E0154BA6252B7CF10057827A /* verb Dictionary */ = {
+		E0154BA6252B7CF10057827A /* Verb Dictionary */ = {
 			isa = PBXGroup;
 			children = (
 				E0154B94252B7A240057827A /* VerbDictionaryView.swift */,
@@ -253,7 +252,7 @@
 				E0154B9F252B7CD50057827A /* VerbRowView.swift */,
 				E0154BA0252B7CD50057827A /* DeponentInfoView.swift */,
 			);
-			path = "verb Dictionary";
+			path = "Verb Dictionary";
 			sourceTree = "<group>";
 		};
 		E0154BAC252B7DB70057827A /* Advanced settings */ = {
@@ -263,6 +262,31 @@
 				E0154B8F252B79C20057827A /* practiseVerbSettings.swift */,
 			);
 			path = "Advanced settings";
+			sourceTree = "<group>";
+		};
+		E0154BB4252B944D0057827A /* Preposition dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				E0154B9C252B7AC40057827A /* PrepositionDictionaryView.swift */,
+				E0154BB1252B933A0057827A /* PrepostionInfoView.swift */,
+			);
+			path = "Preposition dictionary";
+			sourceTree = "<group>";
+		};
+		E0154BB9252B99DF0057827A /* Noun Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				E0154B97252B7A6A0057827A /* NounDictionaryView.swift */,
+			);
+			path = "Noun Dictionary";
+			sourceTree = "<group>";
+		};
+		E0154BBA252B99F50057827A /* Adjective Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				E0154B25252B3DC10057827A /* AdjectiveDictionaryViewView.swift */,
+			);
+			path = "Adjective Dictionary";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,13 +386,13 @@
 				E0154B58252B43BD0057827A /* Format.swift in Sources */,
 				E0154BA3252B7CD60057827A /* DeponentInfoView.swift in Sources */,
 				E0154B76252B79B10057827A /* IncorrectView.swift in Sources */,
+				E0154BB2252B933A0057827A /* PrepostionInfoView.swift in Sources */,
 				E0154B9D252B7AC40057827A /* PrepositionDictionaryView.swift in Sources */,
 				E0154B95252B7A250057827A /* VerbDictionaryView.swift in Sources */,
 				E0154B5D252B4FCA0057827A /* DecisionView.swift in Sources */,
-				E0154B27252B3DC10057827A /* adjectiveView.swift in Sources */,
+				E0154B27252B3DC10057827A /* AdjectiveDictionaryViewView.swift in Sources */,
 				E0154B73252B79AA0057827A /* correctView.swift in Sources */,
 				E0154B7C252B79B40057827A /* practiseEndView.swift in Sources */,
-				E0154B46252B41B60057827A /* prepostionView.swift in Sources */,
 				E0154B30252B3E800057827A /* irregularVerbs.swift in Sources */,
 				E0154B98252B7A6A0057827A /* NounDictionaryView.swift in Sources */,
 				E0154B88252B79BC0057827A /* PractiseQuestionView.swift in Sources */,

@@ -33,7 +33,6 @@ class ProgramDatabase:ObservableObject{
     init(file:[String]){
         var id:Int=0
         for line in file{
-            print(line)
             //prepositions
             if line.contains("prepostion"){
                 self.prepositionClassList.append(Preposition(string: line))
