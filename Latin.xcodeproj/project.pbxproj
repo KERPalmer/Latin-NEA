@@ -1,0 +1,477 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E0154ACE252B39460057827A /* LatinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154ACD252B39460057827A /* LatinApp.swift */; };
+		E0154AD2252B39470057827A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0154AD1252B39470057827A /* Assets.xcassets */; };
+		E0154AD5252B39470057827A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0154AD4252B39470057827A /* Preview Assets.xcassets */; };
+		E0154ADE252B39730057827A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154ADD252B39730057827A /* ContentView.swift */; };
+		E0154AE2252B39B50057827A /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154AE1252B39B50057827A /* Background.swift */; };
+		E0154AE6252B3A060057827A /* wordRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154AE5252B3A060057827A /* wordRowView.swift */; };
+		E0154B04252B3B2B0057827A /* GCSE latin.csv in Resources */ = {isa = PBXBuildFile; fileRef = E0154B02252B3B2A0057827A /* GCSE latin.csv */; };
+		E0154B05252B3B2B0057827A /* test in Resources */ = {isa = PBXBuildFile; fileRef = E0154B03252B3B2B0057827A /* test */; };
+		E0154B0E252B3B910057827A /* DictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B0D252B3B910057827A /* DictionaryView.swift */; };
+		E0154B1D252B3C960057827A /* Deponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B18252B3C950057827A /* Deponent.swift */; };
+		E0154B1E252B3C960057827A /* load.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B19252B3C960057827A /* load.swift */; };
+		E0154B1F252B3C960057827A /* verbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B1A252B3C960057827A /* verbs.swift */; };
+		E0154B20252B3C960057827A /* preposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B1B252B3C960057827A /* preposition.swift */; };
+		E0154B23252B3CEF0057827A /* changes to orginal ocr text.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E0154B22252B3CEF0057827A /* changes to orginal ocr text.rtf */; };
+		E0154B27252B3DC10057827A /* adjectiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B25252B3DC10057827A /* adjectiveView.swift */; };
+		E0154B28252B3DC10057827A /* adjectives.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B26252B3DC10057827A /* adjectives.swift */; };
+		E0154B30252B3E800057827A /* irregularVerbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B2E252B3E7F0057827A /* irregularVerbs.swift */; };
+		E0154B31252B3E800057827A /* irregularNouns.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B2F252B3E800057827A /* irregularNouns.swift */; };
+		E0154B46252B41B60057827A /* prepostionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B45252B41B50057827A /* prepostionView.swift */; };
+		E0154B4D252B41F10057827A /* NounViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B4B252B41F10057827A /* NounViews.swift */; };
+		E0154B4E252B41F10057827A /* nouns.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B4C252B41F10057827A /* nouns.swift */; };
+		E0154B58252B43BD0057827A /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B57252B43BC0057827A /* Format.swift */; };
+		E0154B5D252B4FCA0057827A /* DecisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B5C252B4FCA0057827A /* DecisionView.swift */; };
+		E0154B6D252B78C50057827A /* VerbDictionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B6C252B78C50057827A /* VerbDictionView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E0154ACA252B39460057827A /* Latin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Latin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0154ACD252B39460057827A /* LatinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatinApp.swift; sourceTree = "<group>"; };
+		E0154AD1252B39470057827A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E0154AD4252B39470057827A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E0154AD6252B39470057827A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0154ADD252B39730057827A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../FUCKED/ContentView.swift; sourceTree = "<group>"; };
+		E0154AE1252B39B50057827A /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		E0154AE5252B3A060057827A /* wordRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wordRowView.swift; sourceTree = "<group>"; };
+		E0154B02252B3B2A0057827A /* GCSE latin.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "GCSE latin.csv"; sourceTree = "<group>"; };
+		E0154B03252B3B2B0057827A /* test */ = {isa = PBXFileReference; lastKnownFileType = folder; name = test; path = Latin/test; sourceTree = SOURCE_ROOT; };
+		E0154B0D252B3B910057827A /* DictionaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryView.swift; sourceTree = "<group>"; };
+		E0154B18252B3C950057827A /* Deponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deponent.swift; sourceTree = "<group>"; };
+		E0154B19252B3C960057827A /* load.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = load.swift; sourceTree = "<group>"; };
+		E0154B1A252B3C960057827A /* verbs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = verbs.swift; sourceTree = "<group>"; };
+		E0154B1B252B3C960057827A /* preposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = preposition.swift; sourceTree = "<group>"; };
+		E0154B22252B3CEF0057827A /* changes to orginal ocr text.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "changes to orginal ocr text.rtf"; sourceTree = "<group>"; };
+		E0154B25252B3DC10057827A /* adjectiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adjectiveView.swift; sourceTree = "<group>"; };
+		E0154B26252B3DC10057827A /* adjectives.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adjectives.swift; sourceTree = "<group>"; };
+		E0154B2E252B3E7F0057827A /* irregularVerbs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = irregularVerbs.swift; sourceTree = "<group>"; };
+		E0154B2F252B3E800057827A /* irregularNouns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = irregularNouns.swift; sourceTree = "<group>"; };
+		E0154B45252B41B50057827A /* prepostionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = prepostionView.swift; sourceTree = "<group>"; };
+		E0154B4B252B41F10057827A /* NounViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NounViews.swift; sourceTree = "<group>"; };
+		E0154B4C252B41F10057827A /* nouns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nouns.swift; sourceTree = "<group>"; };
+		E0154B57252B43BC0057827A /* Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
+		E0154B5C252B4FCA0057827A /* DecisionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecisionView.swift; sourceTree = "<group>"; };
+		E0154B6C252B78C50057827A /* VerbDictionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbDictionView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E0154AC7252B39460057827A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E0154AC1252B39460057827A = {
+			isa = PBXGroup;
+			children = (
+				E0154ACC252B39460057827A /* Latin */,
+				E0154ACB252B39460057827A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E0154ACB252B39460057827A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E0154ACA252B39460057827A /* Latin.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E0154ACC252B39460057827A /* Latin */ = {
+			isa = PBXGroup;
+			children = (
+				E0154B63252B52350057827A /* Vocab */,
+				E0154B5A252B43EE0057827A /* multi */,
+				E0154B62252B51C10057827A /* Dictionary */,
+				E0154ACD252B39460057827A /* LatinApp.swift */,
+				E0154B5C252B4FCA0057827A /* DecisionView.swift */,
+				E0154ADD252B39730057827A /* ContentView.swift */,
+				E0154B22252B3CEF0057827A /* changes to orginal ocr text.rtf */,
+				E0154B02252B3B2A0057827A /* GCSE latin.csv */,
+				E0154B03252B3B2B0057827A /* test */,
+				E0154AE4252B39CB0057827A /* Backgrounds */,
+				E0154AD1252B39470057827A /* Assets.xcassets */,
+				E0154AD6252B39470057827A /* Info.plist */,
+				E0154AD3252B39470057827A /* Preview Content */,
+			);
+			path = Latin;
+			sourceTree = "<group>";
+		};
+		E0154AD3252B39470057827A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E0154AD4252B39470057827A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E0154AE4252B39CB0057827A /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				E0154AE1252B39B50057827A /* Background.swift */,
+			);
+			path = Backgrounds;
+			sourceTree = "<group>";
+		};
+		E0154B50252B41FB0057827A /* verbs */ = {
+			isa = PBXGroup;
+			children = (
+				E0154B2E252B3E7F0057827A /* irregularVerbs.swift */,
+				E0154B1A252B3C960057827A /* verbs.swift */,
+				E0154B18252B3C950057827A /* Deponent.swift */,
+			);
+			path = verbs;
+			sourceTree = "<group>";
+		};
+		E0154B52252B42200057827A /* Nouns */ = {
+			isa = PBXGroup;
+			children = (
+				E0154B4B252B41F10057827A /* NounViews.swift */,
+				E0154B2F252B3E800057827A /* irregularNouns.swift */,
+				E0154B4C252B41F10057827A /* nouns.swift */,
+			);
+			path = Nouns;
+			sourceTree = "<group>";
+		};
+		E0154B54252B42E60057827A /* Adjectives */ = {
+			isa = PBXGroup;
+			children = (
+				E0154B25252B3DC10057827A /* adjectiveView.swift */,
+				E0154B26252B3DC10057827A /* adjectives.swift */,
+			);
+			path = Adjectives;
+			sourceTree = "<group>";
+		};
+		E0154B56252B43330057827A /* Prepostions */ = {
+			isa = PBXGroup;
+			children = (
+				E0154B1B252B3C960057827A /* preposition.swift */,
+				E0154B45252B41B50057827A /* prepostionView.swift */,
+			);
+			path = Prepostions;
+			sourceTree = "<group>";
+		};
+		E0154B5A252B43EE0057827A /* multi */ = {
+			isa = PBXGroup;
+			children = (
+				E0154B57252B43BC0057827A /* Format.swift */,
+				E0154AE5252B3A060057827A /* wordRowView.swift */,
+			);
+			path = multi;
+			sourceTree = "<group>";
+		};
+		E0154B62252B51C10057827A /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				E0154B0D252B3B910057827A /* DictionaryView.swift */,
+				E0154B6C252B78C50057827A /* VerbDictionView.swift */,
+			);
+			path = Dictionary;
+			sourceTree = "<group>";
+		};
+		E0154B63252B52350057827A /* Vocab */ = {
+			isa = PBXGroup;
+			children = (
+				E0154B19252B3C960057827A /* load.swift */,
+				E0154B56252B43330057827A /* Prepostions */,
+				E0154B54252B42E60057827A /* Adjectives */,
+				E0154B50252B41FB0057827A /* verbs */,
+				E0154B52252B42200057827A /* Nouns */,
+			);
+			path = Vocab;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E0154AC9252B39460057827A /* Latin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0154AD9252B39470057827A /* Build configuration list for PBXNativeTarget "Latin" */;
+			buildPhases = (
+				E0154AC6252B39460057827A /* Sources */,
+				E0154AC7252B39460057827A /* Frameworks */,
+				E0154AC8252B39460057827A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Latin;
+			productName = Latin;
+			productReference = E0154ACA252B39460057827A /* Latin.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E0154AC2252B39460057827A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					E0154AC9252B39460057827A = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
+				};
+			};
+			buildConfigurationList = E0154AC5252B39460057827A /* Build configuration list for PBXProject "Latin" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E0154AC1252B39460057827A;
+			productRefGroup = E0154ACB252B39460057827A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E0154AC9252B39460057827A /* Latin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E0154AC8252B39460057827A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0154B23252B3CEF0057827A /* changes to orginal ocr text.rtf in Resources */,
+				E0154B05252B3B2B0057827A /* test in Resources */,
+				E0154B04252B3B2B0057827A /* GCSE latin.csv in Resources */,
+				E0154AD5252B39470057827A /* Preview Assets.xcassets in Resources */,
+				E0154AD2252B39470057827A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E0154AC6252B39460057827A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0154B1D252B3C960057827A /* Deponent.swift in Sources */,
+				E0154B1E252B3C960057827A /* load.swift in Sources */,
+				E0154B4E252B41F10057827A /* nouns.swift in Sources */,
+				E0154ACE252B39460057827A /* LatinApp.swift in Sources */,
+				E0154ADE252B39730057827A /* ContentView.swift in Sources */,
+				E0154AE6252B3A060057827A /* wordRowView.swift in Sources */,
+				E0154B6D252B78C50057827A /* VerbDictionView.swift in Sources */,
+				E0154B0E252B3B910057827A /* DictionaryView.swift in Sources */,
+				E0154B31252B3E800057827A /* irregularNouns.swift in Sources */,
+				E0154B28252B3DC10057827A /* adjectives.swift in Sources */,
+				E0154B20252B3C960057827A /* preposition.swift in Sources */,
+				E0154B1F252B3C960057827A /* verbs.swift in Sources */,
+				E0154B4D252B41F10057827A /* NounViews.swift in Sources */,
+				E0154AE2252B39B50057827A /* Background.swift in Sources */,
+				E0154B58252B43BD0057827A /* Format.swift in Sources */,
+				E0154B5D252B4FCA0057827A /* DecisionView.swift in Sources */,
+				E0154B27252B3DC10057827A /* adjectiveView.swift in Sources */,
+				E0154B46252B41B60057827A /* prepostionView.swift in Sources */,
+				E0154B30252B3E800057827A /* irregularVerbs.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E0154AD7252B39470057827A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E0154AD8252B39470057827A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E0154ADA252B39470057827A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Latin/Preview Content\"";
+				DEVELOPMENT_TEAM = PWZ52ZST2F;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Latin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kenan-palmer.Latin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E0154ADB252B39470057827A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Latin/Preview Content\"";
+				DEVELOPMENT_TEAM = PWZ52ZST2F;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Latin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kenan-palmer.Latin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E0154AC5252B39460057827A /* Build configuration list for PBXProject "Latin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0154AD7252B39470057827A /* Debug */,
+				E0154AD8252B39470057827A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0154AD9252B39470057827A /* Build configuration list for PBXNativeTarget "Latin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0154ADA252B39470057827A /* Debug */,
+				E0154ADB252B39470057827A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E0154AC2252B39460057827A /* Project object */;
+}
