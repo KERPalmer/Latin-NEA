@@ -1,9 +1,8 @@
 //
-//  prepostionView.swift
-//  GCSE Latin Buddy
+//  PrepositionInfoView.swift
+//  Latin
 //
-//  Created by Kenan Palmer on 27/07/2020.
-//  Copyright © 2020 Kenan Palmer. All rights reserved.
+//  Created by Kenan Palmer on 05/10/2020.
 //
 
 import SwiftUI
