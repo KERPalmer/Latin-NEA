@@ -46,7 +46,6 @@
 		E0154BAA252B7DAF0057827A /* practiseVerbSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B8F252B79C20057827A /* practiseVerbSettings.swift */; };
 		E0154BC2252B9C580057827A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BC1252B9C580057827A /* ContentView.swift */; };
 		E0154BC9252BA2630057827A /* PrepositionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BC8252BA2630057827A /* PrepositionInfoView.swift */; };
-		E0154BCF252BAFA10057827A /* prep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BCE252BAFA10057827A /* prep.swift */; };
 		E0154BD3252BB03A0057827A /* PrepositionDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BD2252BB03A0057827A /* PrepositionDictionaryView.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,7 +91,6 @@
 		E0154BA1252B7CD60057827A /* VerbInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbInfoView.swift; sourceTree = "<group>"; };
 		E0154BC1252B9C580057827A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E0154BC8252BA2630057827A /* PrepositionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionInfoView.swift; sourceTree = "<group>"; };
-		E0154BCE252BAFA10057827A /* prep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prep.swift; sourceTree = "<group>"; };
 		E0154BD2252BB03A0057827A /* PrepositionDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionDictionaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -269,7 +267,6 @@
 		E0154BB4252B944D0057827A /* Preposition dictionary */ = {
 			isa = PBXGroup;
 			children = (
-				E0154BCE252BAFA10057827A /* prep.swift */,
 				E0154BD2252BB03A0057827A /* PrepositionDictionaryView.swift */,
 				E0154BC8252BA2630057827A /* PrepositionInfoView.swift */,
 			);
@@ -377,7 +374,6 @@
 				E0154B85252B79BA0057827A /* PractiseStartView.swift in Sources */,
 				E0154B8B252B79BE0057827A /* practiseView.swift in Sources */,
 				E0154B0E252B3B910057827A /* DictionaryView.swift in Sources */,
-				E0154BCF252BAFA10057827A /* prep.swift in Sources */,
 				E0154B31252B3E800057827A /* irregularNouns.swift in Sources */,
 				E0154BA4252B7CD60057827A /* VerbInfoView.swift in Sources */,
 				E0154BD3252BB03A0057827A /* PrepositionDictionaryView.swift in Sources */,

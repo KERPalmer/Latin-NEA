@@ -34,7 +34,7 @@ class ProgramDatabase:ObservableObject{
         var id:Int=0
         for line in file{
             //prepositions
-            if line.contains("prepostion"){
+            if line.contains("preposition"){
                 self.prepositionClassList.append(Preposition(string: line))
             }
             //nouns, irregular and normal
