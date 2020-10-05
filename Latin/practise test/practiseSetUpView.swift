@@ -1,3 +1,12 @@
+//
+//  Dictionary.swift
+//  GCSE Latin Buddy
+//
+//  Created by Kenan Palmer on 04/10/2020.
+//  Copyright © 2020 Kenan Palmer. All rights reserved.
+//
+
+import SwiftUI
 struct PractiseSetUpView: View {
     @ObservedObject var newPractise:Practise = Practise()
     @State var InPractise:Bool = false

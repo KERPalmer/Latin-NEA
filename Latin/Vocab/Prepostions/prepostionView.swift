@@ -35,27 +35,3 @@ struct PrepositionInfoView:View{
         }
     }
 }
-struct PrepositionDictionaryView: View {
-    var body: some View{
-        List(PROGRAMDATABASE.prepositionClassList){preposition in
-            NavigationLink(destination: PrepositionInfoView(preposition: preposition)){
-                HStack{
-                    Text(preposition.word)
-                        .bold()
-                    if (preposition.isAccusative){
-                        Text(" + Accusative")
-                        .bold()
-                    }else{
-                        Text(" + Ablative")
-                        .bold()
-                    }
-                    Spacer()
-                    if (preposition.isPrefix){
-                        Text(" prefix ")
-                        .bold()
-                    }
-                }
-            }
-        }
-    }
-}

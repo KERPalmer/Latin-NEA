@@ -21,7 +21,7 @@ struct DictionaryView: View {
                         .font(.system(size: 40))
                     
                 }
-                NavigationLink(destination: nounDictionaryView()){
+                NavigationLink(destination: NounDictionaryView()){
                     Text("Nouns")
                         .bold()
                         .font(.system(size: 40))
