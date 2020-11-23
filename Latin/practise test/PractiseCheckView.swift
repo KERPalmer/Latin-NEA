@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct PractiseCheckView: View {
+    @EnviromentObject var env:Data
     @Binding var InPractise:Bool
     @ObservedObject var practise:Practise
-    @ObservedObject var programDatabase:ProgramDatabase=PROGRAMDATABASE
     @Binding var isAnswering:Bool
     @Binding var answer:String
     @Binding var isFinish:Bool

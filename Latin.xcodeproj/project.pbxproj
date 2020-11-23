@@ -15,7 +15,6 @@
 		E0154B04252B3B2B0057827A /* GCSE latin.csv in Resources */ = {isa = PBXBuildFile; fileRef = E0154B02252B3B2A0057827A /* GCSE latin.csv */; };
 		E0154B0E252B3B910057827A /* DictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B0D252B3B910057827A /* DictionaryView.swift */; };
 		E0154B1D252B3C960057827A /* Deponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B18252B3C950057827A /* Deponent.swift */; };
-		E0154B1E252B3C960057827A /* load.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B19252B3C960057827A /* load.swift */; };
 		E0154B1F252B3C960057827A /* verbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B1A252B3C960057827A /* verbs.swift */; };
 		E0154B20252B3C960057827A /* preposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B1B252B3C960057827A /* preposition.swift */; };
 		E0154B23252B3CEF0057827A /* changes to orginal ocr text.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E0154B22252B3CEF0057827A /* changes to orginal ocr text.rtf */; };
@@ -27,26 +26,22 @@
 		E0154B4E252B41F10057827A /* nouns.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B4C252B41F10057827A /* nouns.swift */; };
 		E0154B58252B43BD0057827A /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B57252B43BC0057827A /* Format.swift */; };
 		E0154B5D252B4FCA0057827A /* DecisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B5C252B4FCA0057827A /* DecisionView.swift */; };
-		E0154B70252B79780057827A /* practiseSetUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B6F252B79780057827A /* practiseSetUpView.swift */; };
-		E0154B73252B79AA0057827A /* correctView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B72252B79AA0057827A /* correctView.swift */; };
-		E0154B76252B79B10057827A /* IncorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B75252B79B00057827A /* IncorrectView.swift */; };
-		E0154B79252B79B20057827A /* Practise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B78252B79B20057827A /* Practise.swift */; };
-		E0154B7C252B79B40057827A /* practiseEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B7B252B79B40057827A /* practiseEndView.swift */; };
-		E0154B7F252B79B60057827A /* practiseMultipleChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B7E252B79B60057827A /* practiseMultipleChoiceView.swift */; };
-		E0154B82252B79B70057827A /* PractiseCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B81252B79B70057827A /* PractiseCheckView.swift */; };
-		E0154B85252B79BA0057827A /* PractiseStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B84252B79BA0057827A /* PractiseStartView.swift */; };
-		E0154B88252B79BC0057827A /* PractiseQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B87252B79BB0057827A /* PractiseQuestionView.swift */; };
-		E0154B8B252B79BE0057827A /* practiseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B8A252B79BE0057827A /* practiseView.swift */; };
 		E0154B95252B7A250057827A /* VerbDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B94252B7A240057827A /* VerbDictionaryView.swift */; };
 		E0154B98252B7A6A0057827A /* NounDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B97252B7A6A0057827A /* NounDictionaryView.swift */; };
 		E0154BA2252B7CD60057827A /* VerbRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B9F252B7CD50057827A /* VerbRowView.swift */; };
 		E0154BA3252B7CD60057827A /* DeponentInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BA0252B7CD50057827A /* DeponentInfoView.swift */; };
 		E0154BA4252B7CD60057827A /* VerbInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BA1252B7CD60057827A /* VerbInfoView.swift */; };
-		E0154BA8252B7DAE0057827A /* practiseAdvancedSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B8E252B79C20057827A /* practiseAdvancedSettingsView.swift */; };
-		E0154BAA252B7DAF0057827A /* practiseVerbSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154B8F252B79C20057827A /* practiseVerbSettings.swift */; };
 		E0154BC2252B9C580057827A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BC1252B9C580057827A /* ContentView.swift */; };
 		E0154BC9252BA2630057827A /* PrepositionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BC8252BA2630057827A /* PrepositionInfoView.swift */; };
 		E0154BD3252BB03A0057827A /* PrepositionDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BD2252BB03A0057827A /* PrepositionDictionaryView.swift */; };
+		E054DC34256A927C00302ADF /* logInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DC33256A927C00302ADF /* logInView.swift */; };
+		E054DC37256A928200302ADF /* resetTestDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DC36256A928200302ADF /* resetTestDatabase.swift */; };
+		E054DC3E256A9C0600302ADF /* connectDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DC3D256A9C0600302ADF /* connectDB.swift */; };
+		E054DC42256A9C1900302ADF /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DC41256A9C1900302ADF /* Database.swift */; };
+		E054DC46256AA07C00302ADF /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DC45256AA07C00302ADF /* Profile.swift */; };
+		E054DC49256AA0A700302ADF /* table protocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DC48256AA0A700302ADF /* table protocal.swift */; };
+		E054DC4D256AC16800302ADF /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = E054DC4C256AC16800302ADF /* TODO */; };
+		E0B11C1F2530B29700CD3561 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B11C1E2530B29700CD3561 /* Word.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +55,6 @@
 		E0154B02252B3B2A0057827A /* GCSE latin.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "GCSE latin.csv"; sourceTree = "<group>"; };
 		E0154B0D252B3B910057827A /* DictionaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryView.swift; sourceTree = "<group>"; };
 		E0154B18252B3C950057827A /* Deponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deponent.swift; sourceTree = "<group>"; };
-		E0154B19252B3C960057827A /* load.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = load.swift; sourceTree = "<group>"; };
 		E0154B1A252B3C960057827A /* verbs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = verbs.swift; sourceTree = "<group>"; };
 		E0154B1B252B3C960057827A /* preposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = preposition.swift; sourceTree = "<group>"; };
 		E0154B22252B3CEF0057827A /* changes to orginal ocr text.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "changes to orginal ocr text.rtf"; sourceTree = "<group>"; };
@@ -72,18 +66,6 @@
 		E0154B4C252B41F10057827A /* nouns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nouns.swift; sourceTree = "<group>"; };
 		E0154B57252B43BC0057827A /* Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		E0154B5C252B4FCA0057827A /* DecisionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecisionView.swift; sourceTree = "<group>"; };
-		E0154B6F252B79780057827A /* practiseSetUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiseSetUpView.swift; sourceTree = "<group>"; };
-		E0154B72252B79AA0057827A /* correctView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = correctView.swift; sourceTree = "<group>"; };
-		E0154B75252B79B00057827A /* IncorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncorrectView.swift; sourceTree = "<group>"; };
-		E0154B78252B79B20057827A /* Practise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Practise.swift; sourceTree = "<group>"; };
-		E0154B7B252B79B40057827A /* practiseEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiseEndView.swift; sourceTree = "<group>"; };
-		E0154B7E252B79B60057827A /* practiseMultipleChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiseMultipleChoiceView.swift; sourceTree = "<group>"; };
-		E0154B81252B79B70057827A /* PractiseCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PractiseCheckView.swift; sourceTree = "<group>"; };
-		E0154B84252B79BA0057827A /* PractiseStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PractiseStartView.swift; sourceTree = "<group>"; };
-		E0154B87252B79BB0057827A /* PractiseQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PractiseQuestionView.swift; sourceTree = "<group>"; };
-		E0154B8A252B79BE0057827A /* practiseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiseView.swift; sourceTree = "<group>"; };
-		E0154B8E252B79C20057827A /* practiseAdvancedSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiseAdvancedSettingsView.swift; sourceTree = "<group>"; };
-		E0154B8F252B79C20057827A /* practiseVerbSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiseVerbSettings.swift; sourceTree = "<group>"; };
 		E0154B94252B7A240057827A /* VerbDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbDictionaryView.swift; sourceTree = "<group>"; };
 		E0154B97252B7A6A0057827A /* NounDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NounDictionaryView.swift; sourceTree = "<group>"; };
 		E0154B9F252B7CD50057827A /* VerbRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbRowView.swift; sourceTree = "<group>"; };
@@ -92,6 +74,14 @@
 		E0154BC1252B9C580057827A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E0154BC8252BA2630057827A /* PrepositionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionInfoView.swift; sourceTree = "<group>"; };
 		E0154BD2252BB03A0057827A /* PrepositionDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionDictionaryView.swift; sourceTree = "<group>"; };
+		E054DC33256A927C00302ADF /* logInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logInView.swift; sourceTree = "<group>"; };
+		E054DC36256A928200302ADF /* resetTestDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resetTestDatabase.swift; sourceTree = "<group>"; };
+		E054DC3D256A9C0600302ADF /* connectDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connectDB.swift; sourceTree = "<group>"; };
+		E054DC41256A9C1900302ADF /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		E054DC45256AA07C00302ADF /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		E054DC48256AA0A700302ADF /* table protocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "table protocal.swift"; sourceTree = "<group>"; };
+		E054DC4C256AC16800302ADF /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		E0B11C1E2530B29700CD3561 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,12 +115,14 @@
 			isa = PBXGroup;
 			children = (
 				E0154ACD252B39460057827A /* LatinApp.swift */,
+				E054DC4C256AC16800302ADF /* TODO */,
 				E0154BC1252B9C580057827A /* ContentView.swift */,
 				E0154B5C252B4FCA0057827A /* DecisionView.swift */,
+				E054DC3C256A9BDC00302ADF /* Database */,
+				E054DC32256A921F00302ADF /* Login Page */,
 				E0154B63252B52350057827A /* Vocab */,
 				E0154B5A252B43EE0057827A /* multi */,
 				E0154B62252B51C10057827A /* Dictionary */,
-				E0154B91252B79CC0057827A /* practise test */,
 				E0154AE4252B39CB0057827A /* Backgrounds */,
 				E0154AD1252B39470057827A /* Assets.xcassets */,
 				E0154AD6252B39470057827A /* Info.plist */,
@@ -217,31 +209,13 @@
 			children = (
 				E0154B02252B3B2A0057827A /* GCSE latin.csv */,
 				E0154B22252B3CEF0057827A /* changes to orginal ocr text.rtf */,
-				E0154B19252B3C960057827A /* load.swift */,
+				E0B11C1E2530B29700CD3561 /* Word.swift */,
 				E0154B56252B43330057827A /* Prepostions */,
 				E0154B54252B42E60057827A /* Adjectives */,
 				E0154B50252B41FB0057827A /* verbs */,
 				E0154B52252B42200057827A /* Nouns */,
 			);
 			path = Vocab;
-			sourceTree = "<group>";
-		};
-		E0154B91252B79CC0057827A /* practise test */ = {
-			isa = PBXGroup;
-			children = (
-				E0154B6F252B79780057827A /* practiseSetUpView.swift */,
-				E0154B72252B79AA0057827A /* correctView.swift */,
-				E0154B75252B79B00057827A /* IncorrectView.swift */,
-				E0154B7B252B79B40057827A /* practiseEndView.swift */,
-				E0154B7E252B79B60057827A /* practiseMultipleChoiceView.swift */,
-				E0154B81252B79B70057827A /* PractiseCheckView.swift */,
-				E0154B78252B79B20057827A /* Practise.swift */,
-				E0154B84252B79BA0057827A /* PractiseStartView.swift */,
-				E0154B87252B79BB0057827A /* PractiseQuestionView.swift */,
-				E0154B8A252B79BE0057827A /* practiseView.swift */,
-				E0154BAC252B7DB70057827A /* Advanced settings */,
-			);
-			path = "practise test";
 			sourceTree = "<group>";
 		};
 		E0154BA6252B7CF10057827A /* Verb Dictionary */ = {
@@ -253,15 +227,6 @@
 				E0154BA0252B7CD50057827A /* DeponentInfoView.swift */,
 			);
 			path = "Verb Dictionary";
-			sourceTree = "<group>";
-		};
-		E0154BAC252B7DB70057827A /* Advanced settings */ = {
-			isa = PBXGroup;
-			children = (
-				E0154B8E252B79C20057827A /* practiseAdvancedSettingsView.swift */,
-				E0154B8F252B79C20057827A /* practiseVerbSettings.swift */,
-			);
-			path = "Advanced settings";
 			sourceTree = "<group>";
 		};
 		E0154BB4252B944D0057827A /* Preposition dictionary */ = {
@@ -287,6 +252,34 @@
 				E0154B25252B3DC10057827A /* AdjectiveDictionaryViewView.swift */,
 			);
 			path = "Adjective Dictionary";
+			sourceTree = "<group>";
+		};
+		E054DC32256A921F00302ADF /* Login Page */ = {
+			isa = PBXGroup;
+			children = (
+				E054DC33256A927C00302ADF /* logInView.swift */,
+				E054DC36256A928200302ADF /* resetTestDatabase.swift */,
+			);
+			path = "Login Page";
+			sourceTree = "<group>";
+		};
+		E054DC3C256A9BDC00302ADF /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				E054DC3D256A9C0600302ADF /* connectDB.swift */,
+				E054DC41256A9C1900302ADF /* Database.swift */,
+				E054DC48256AA0A700302ADF /* table protocal.swift */,
+				E054DC44256A9C3100302ADF /* Profile */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		E054DC44256A9C3100302ADF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E054DC45256AA07C00302ADF /* Profile.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0154B23252B3CEF0057827A /* changes to orginal ocr text.rtf in Resources */,
+				E054DC4D256AC16800302ADF /* TODO in Resources */,
 				E0154B04252B3B2B0057827A /* GCSE latin.csv in Resources */,
 				E0154AD5252B39470057827A /* Preview Assets.xcassets in Resources */,
 				E0154AD2252B39470057827A /* Assets.xcassets in Resources */,
@@ -360,19 +354,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0154B82252B79B70057827A /* PractiseCheckView.swift in Sources */,
-				E0154BA8252B7DAE0057827A /* practiseAdvancedSettingsView.swift in Sources */,
+				E054DC42256A9C1900302ADF /* Database.swift in Sources */,
+				E054DC37256A928200302ADF /* resetTestDatabase.swift in Sources */,
 				E0154B1D252B3C960057827A /* Deponent.swift in Sources */,
-				E0154B1E252B3C960057827A /* load.swift in Sources */,
 				E0154B4E252B41F10057827A /* nouns.swift in Sources */,
 				E0154ACE252B39460057827A /* LatinApp.swift in Sources */,
-				E0154B70252B79780057827A /* practiseSetUpView.swift in Sources */,
-				E0154BAA252B7DAF0057827A /* practiseVerbSettings.swift in Sources */,
+				E054DC34256A927C00302ADF /* logInView.swift in Sources */,
 				E0154AE6252B3A060057827A /* wordRowView.swift in Sources */,
-				E0154B7F252B79B60057827A /* practiseMultipleChoiceView.swift in Sources */,
 				E0154BC2252B9C580057827A /* ContentView.swift in Sources */,
-				E0154B85252B79BA0057827A /* PractiseStartView.swift in Sources */,
-				E0154B8B252B79BE0057827A /* practiseView.swift in Sources */,
 				E0154B0E252B3B910057827A /* DictionaryView.swift in Sources */,
 				E0154B31252B3E800057827A /* irregularNouns.swift in Sources */,
 				E0154BA4252B7CD60057827A /* VerbInfoView.swift in Sources */,
@@ -383,19 +372,18 @@
 				E0154B20252B3C960057827A /* preposition.swift in Sources */,
 				E0154B1F252B3C960057827A /* verbs.swift in Sources */,
 				E0154B4D252B41F10057827A /* NounViews.swift in Sources */,
-				E0154B79252B79B20057827A /* Practise.swift in Sources */,
+				E0B11C1F2530B29700CD3561 /* Word.swift in Sources */,
+				E054DC49256AA0A700302ADF /* table protocal.swift in Sources */,
+				E054DC3E256A9C0600302ADF /* connectDB.swift in Sources */,
 				E0154AE2252B39B50057827A /* Background.swift in Sources */,
 				E0154B58252B43BD0057827A /* Format.swift in Sources */,
+				E054DC46256AA07C00302ADF /* Profile.swift in Sources */,
 				E0154BA3252B7CD60057827A /* DeponentInfoView.swift in Sources */,
-				E0154B76252B79B10057827A /* IncorrectView.swift in Sources */,
 				E0154B95252B7A250057827A /* VerbDictionaryView.swift in Sources */,
 				E0154B5D252B4FCA0057827A /* DecisionView.swift in Sources */,
 				E0154B27252B3DC10057827A /* AdjectiveDictionaryViewView.swift in Sources */,
-				E0154B73252B79AA0057827A /* correctView.swift in Sources */,
-				E0154B7C252B79B40057827A /* practiseEndView.swift in Sources */,
 				E0154B30252B3E800057827A /* irregularVerbs.swift in Sources */,
 				E0154B98252B7A6A0057827A /* NounDictionaryView.swift in Sources */,
-				E0154B88252B79BC0057827A /* PractiseQuestionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

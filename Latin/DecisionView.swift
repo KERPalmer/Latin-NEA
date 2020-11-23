@@ -20,7 +20,7 @@ struct DecisionView:View{
                     }
                 }
                 .tag(0)
-                PractiseSetUpView()
+                Text("hi")
                 .tabItem {
                     VStack {
                         Text("Practise")

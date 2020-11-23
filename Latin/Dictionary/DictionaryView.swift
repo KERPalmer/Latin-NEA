@@ -10,43 +10,40 @@ import SwiftUI
 
 struct DictionaryView: View {
     var body: some View{
-        VStack{
-            Text("Dictionary")
-                .font(.title)
-                .multilineTextAlignment(.center)
-            List{
-                NavigationLink(destination: VerbDictionaryView()){
-                    Text("Verbs")
-                        .bold()
-                        .font(.system(size: 40))
-                    
+        NavigationView{
+                List{
+                    NavigationLink(destination: VerbDictionaryView()){
+                        Text("Verbs")
+                            .bold()
+                            .font(.system(size: 20))
+                        
+                    }
+                    NavigationLink(destination: NounDictionaryView()){
+                        Text("Nouns")
+                            .bold()
+                            .font(.system(size: 20))
+                    }
+                    NavigationLink(destination: PrepositionDictionaryView()){
+                        Text("Prepostions")
+                            .bold()
+                            .font(.system(size: 20))
+                    }
+                    NavigationLink(destination: AdjectiveDictionaryView()){
+                        Text("Adjectives")
+                            .bold()
+                            .font(.system(size: 20))
+                    }
+                    NavigationLink(destination: Text("Adverbs")){
+                        Text("Adverbs")
+                            .bold()
+                            .font(.system(size: 20))
+                    }
+                    NavigationLink(destination: Text("All")){
+                        Text("All")
+                            .bold()
+                            .font(.system(size: 20))
                 }
-                NavigationLink(destination: NounDictionaryView()){
-                    Text("Nouns")
-                        .bold()
-                        .font(.system(size: 40))
-                }
-                NavigationLink(destination: PrepositionDictionaryView()){
-                    Text("Prepostions")
-                        .bold()
-                        .font(.system(size: 40))
-                }
-                NavigationLink(destination: AdjectiveDictionaryView()){
-                    Text("Adjectives")
-                        .bold()
-                        .font(.system(size: 40))
-                }
-                NavigationLink(destination: Text("Adverbs")){
-                    Text("Adverbs")
-                        .bold()
-                        .font(.system(size: 40))
-                }
-                NavigationLink(destination: Text("All")){
-                    Text("All")
-                        .bold()
-                        .font(.system(size: 40))
-                }
-            }
+                }.navigationTitle("word types:")
         }
     }
 }

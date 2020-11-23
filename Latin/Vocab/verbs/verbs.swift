@@ -6,8 +6,7 @@
 //  Copyright © 2020 Kenan Palmer. All rights reserved.
 //
 
-class Verb:Codable,Identifiable{
-    var id: Int
+class Verb:Word, Codable,Identifiable{
     // using the pricipal parts we should in theory be able to derive any tense, person or voice
     public let present1S:String
     public let infinitive:String
@@ -20,7 +19,6 @@ class Verb:Codable,Identifiable{
     public var isUsed:Bool
     init(line:String, id_:   Int){
         isUsed=true
-        id=id_
         fileLine = line
         let trimmed:String=fileLine.replacingOccurrences(of: "\r", with: "")
         let seperated=(trimmed.split(separator: "\"", omittingEmptySubsequences: true)).map { String($0) }

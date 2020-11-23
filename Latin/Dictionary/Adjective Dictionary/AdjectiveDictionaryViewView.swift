@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct AdjectiveDictionaryView:View{
+    @EnvironmentObject var env:Data
     var body :some View{
-        List(PROGRAMDATABASE.adjectiveClassList){adjective in
+        List(env.programData.adjectiveClassList){adjective in
             Text(adjective.fileLine)
         }
     }

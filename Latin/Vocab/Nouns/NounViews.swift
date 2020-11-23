@@ -201,8 +201,9 @@ struct nounInfoView:View{
     }
 }
 struct nounDictionaryView: View {
+    @EnvironmentObject var env:Data
     var body: some View{
-        List(PROGRAMDATABASE.nounClassList){ Noun in
+        List(env.programData.nounClassList){ Noun in
             NavigationLink(destination: nounInfoView(noun:Noun)){
                 HStack{
                     Text(Noun.nominativeS)

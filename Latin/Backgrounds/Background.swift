@@ -18,12 +18,12 @@ struct Background: View{
                 .fill(Color.blue)
                 .rotationEffect(.degrees(120))
                 .edgesIgnoringSafeArea(.all)
-                .frame(width: 500,height: 1000)
+                    
             Rectangle()
                 .fill(Color.red)
                 .rotationEffect(.degrees(30))
                 .edgesIgnoringSafeArea(.all)
-                .frame(width: 300,height: 1000)
+                
         }
     }
 }

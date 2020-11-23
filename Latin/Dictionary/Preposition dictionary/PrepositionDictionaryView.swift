@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct PrepositionDictionaryView: View {
+    @EnvironmentObject var env:Data
     var body: some View {
-        List(PROGRAMDATABASE.prepositionClassList){preposition in
+        List(env.programData.prepositionClassList){preposition in
             NavigationLink(destination: PrepositionInfoView(preposition: preposition)){
                 HStack{
                     Text(preposition.word)
