@@ -8,38 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var env:Data
+    @State var loaded:Bool=false
+    private var debug:Bool = true
     var body: some View {
-        NavigationView{
-            ZStack{
-                Background()
-                VStack(alignment: .center){
-                    Spacer()
-                    NavigationLink(destination: DecisionView()){
-                        Text("GCSE")
-                            .font(.system(size: 100))
-                            .foregroundColor(.black)
-                            .bold()
-                            .padding(20)
-                            .background(Color.white)
-                            .cornerRadius(20)
-                            .opacity(0.8)
-                    }
-                    Spacer()
-                    NavigationLink(destination: Text("work in progress")){
-                        Text("Alevel")
-                            .font(.system(size: 100))
-                            .foregroundColor(.black)
-                            .bold()
-                            .padding(20)
-                            .background(Color.white)
-                            .cornerRadius(20)
-                            .opacity(0.8)
-                        
-                    }
-                    Spacer()
-                    Spacer()
-                }
+        VStack{
+            if  !env.isLoggedIn{
+                logInView()
+                
             }
+            else{
+                DecisionView()
+            }
+            Spacer()
         }
     }
 }
@@ -47,6 +28,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().padding().environmentObject(Data())
     }
 }

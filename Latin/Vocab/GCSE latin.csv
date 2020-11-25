@@ -46,13 +46,13 @@ castra ,"castrorum, n plural",noun 2,camp
 celer ,"celeris, celere",adjective 3,"quick, fast"
 celo ,"celare, celavi, celatus",verb 1,hide
 cena ,"cenae, f",noun 1,"dinner, meal"
-ceteri ,"ceterae, cetera",adjective 1/2,"the rest, the others"
+ceteri ,"ceterae, cetera",adjective 1/2 plural,"the rest, the others"
 cibus ,"cibi, m",noun 2,food
 circum ,/+ accusative,preposition,around
 civis ,"civis, m and f",noun 3,citizen
 clamo ,"clamare, clamavi, clamatus",verb 1,shout
 clamor ,"clamoris, m",noun 3,"shout, shouting, noise"
-clarus,"clara, clarum",adjective,"famous, clear"
+clarus,"clara, clarum",adjective 1/2,"famous, clear"
 coepi,"coepisse",verb irregular,began
 cogito ,"cogitare, cogitavi, cogitatus",verb 1,"think, consider"
 cognosco ,"cognoscere, cognovi, cognitus",verb 3,"get to know, find out"
@@ -71,7 +71,7 @@ copiae ,"copiarum, f plural",noun 1 plural,"forces, troops"
 corpus ,"corporis, n",noun 3,body
 cras,indeclinable,adverb,tomorrow
 credo ,"credere, credidi, creditus",verb 3,"believe, trust"
-crudelis ,crudele,adjective,cruel
+crudelis ,crudele,adjective 3,cruel
 cum ,+ ablative,preposition,with
 cum ,indeclinable,conjunction,"when, since"
 cupio ,"cupere, cupivi, cupitus",verb 3,"want, desire"
@@ -90,9 +90,9 @@ descendo ,"descendere, descendi, descensus",verb 3,"go down, come down"
 deus ,"dei, m",noun 2,god
 dico ,"dicere, dixi, dictus",verb 3,"say, speak, tell"
 dies ,"diei, m",noun 5,day
-difficilis ,difficile,adjective,difficult
-diligens,diligentis,adjective,careful
-dirus ,"dira, dirum",adjective,dreadful
+difficilis ,difficile,adjective 3,difficult
+diligens,diligentis,adjective 3,careful
+dirus ,"dira, dirum",adjective 1/2,dreadful
 discedo ,"discedere, discessi",verb 3,"depart, leave"
 diu ,indeclinable,adverb,for a long time
 do ,"dare, dedi, datus",verb 1,give
@@ -120,20 +120,20 @@ et ... et ,indeclinable,,both ... and
 etiam ,indeclinable,adverb,"also, even"
 exercitus ,"exercitus, m",noun 4,army
 exspecto ,"exspectare, exspectavi, exspectatus",verb 1,"wait for, expect"
-facilis ,facile,adjective,easy
+facilis ,facile,adjective 3,easy
 facio ,"facere, feci, factus",verb 3,"make, do"
 faveo,"favere, favi, fautus",verb 2,"favour, support"
-felix ,felicis,adjective,"fortunate, happy"
+felix ,felicis,adjective 3,"fortunate, happy"
 femina ,"feminae, f",noun 1,woman
 fero,"ferre, tuli, latus",verb irregular,"bring, carry, bear"
-ferox ,ferocis,adjective,"fierce, ferocious"
+ferox ,ferocis,adjective 3,"fierce, ferocious"
 festino ,"festinare, festinavi",verb 1,hurry
-fidelis ,fidele,adjective,"faithful, loyal"
+fidelis ,fidele,adjective 3,"faithful, loyal"
 filia ,"filiae, f",noun 1,daughter
 filius ,"filii, m",noun 2,son
 flumen ,"fluminis, n",noun 3,river
 forte,indeclinable,adverb,by chance
-fortis ,forte,adjective,brave
+fortis ,forte,adjective 3,brave
 forum ,"fori, n",noun 2,"forum, market place"
 frater ,"fratris, m",noun 3,brother
 frustra,indeclinable,adverb,in vain
@@ -143,7 +143,7 @@ gaudium,"gaudii, n",noun 2,"joy, pleasure"
 gens ,"gentis, f",noun 3,"family, tribe, race, people"
 gero,"gerere, gessi, gestus",verb 3,"wear (clothes), wage (war)"
 gladius ,"gladii, m",noun 2,sword
-gravis ,grave,adjective,"heavy, serious"
+gravis ,grave,adjective 3,"heavy, serious"
 habeo ,"habere, habui, habitus",verb 2,"have, hold"
 habito ,"habitare, habitavi, habitatus",verb 1,live
 heri,indeclinable,adverb,yesterday
@@ -168,8 +168,8 @@ impero ,"imperare, imperavi, imperatus",verb 1,"order, command"
 in ,/+ ablative (also used as prefix with verbs),preposition,"in, on"
 in ,/+ accusative (also used as prefix with verbs),preposition,"into, onto"
 incendo ,"incendere, incendi, incensus",verb 3,"burn, set on fire"
-infelix ,infelicis,adjective,"unlucky, unhappy"
-ingens ,ingentis,adjective,huge
+infelix ,infelicis,adjective 3,"unlucky, unhappy"
+ingens ,ingentis,adjective 3,huge
 ingredior ,"ingredi, ingressus sum",verb 3 deponent,enter
 inimicus ,"inimici, m",noun 2,enemy
 inquit ,"inquit",verb irregular,"he/she says, said"
@@ -183,7 +183,7 @@ invenio ,"invenire, inveni, inventus",verb 4,find
 invito,"invitare, invitavi, invitatus",verb 1,invite
 ipse ,"ipsa, ipsum",pronoun,"himself, herself, itself, themselves"
 ira ,"irae, f",noun 1,anger
-iratus ,"irata, iratum",adjective,angry
+iratus ,"irata, iratum",adjective 1/2,angry
 is ,"ea, id",pronoun,"this, that, he, she, it, them"
 ita ,indeclinable,adverb,"in this way, to such an extent, so"
 itaque ,indeclinable,adverb,"and so, therefore"
@@ -194,35 +194,35 @@ iuvenis ,"iuvenis, m",noun 3,young man
 labor ,"laboris, m",noun 3 ,"work, toil"
 laboro ,"laborare, laboravi",verb 1,"work, toil"
 lacrimo,"lacrimare, lacrimavi",verb 1,"weep, cry"
-laetus ,"laeta, laetum",adjective,happy
+laetus ,"laeta, laetum",adjective 1/2,happy
 laudo ,"laudare, laudavi, laudatus",verb 1,praise
 legio ,"legionis, f",noun 3,legion
 lego ,"legere, legi, lectus",verb 3,"read, choose"
-lentus,"lenta, lentum",adjective,slow
+lentus,"lenta, lentum",adjective 1/2,slow
 libenter ,indeclinable,adverb,"willingly, gladly"
 liber ,"libri, m",noun 2,book
 liberi ,"liberorum, m plural",noun 2,children
 libero ,"liberare, liberavi, liberatus",verb 1,set free
 libertus ,"liberti, m",noun 2,"freedman, ex-slave"
 locus ,"loci, m",noun 2,place
-longus ,"longa, longum",adjective,long
+longus ,"longa, longum",adjective 1/2,long
 loquor ,"loqui, locutus sum",verb 3 deponent,"speak, talk"
 lux ,"lucis, f",noun 3,"light, daylight"
-magnus ,"magna, magnum",adjective,"big, large, great"
+magnus ,"magna, magnum",adjective 1/2,"big, large, great"
 malo ,"malle, malui",verb irregular,prefer
-malus ,"mala, malum",adjective,"evil, bad"
+malus ,"mala, malum",adjective 1/2,"evil, bad"
 maneo ,"manere, mansi",verb 2,"remain, stay"
 manus ,"manus, f",noun 4,"hand, group of people"
 mare ,"maris, n",noun 3,sea
 maritus,"mariti, m",noun 2,husband
 mater ,"matris, f",noun 3,mother
 maxime,indeclinable,adverb,very greatly
-medius ,"media, medium",adjective,middle
+medius ,"media, medium",adjective 1/2,middle
 meus ,"mea, meum",pronoun,my
 miles ,"militis, m",noun 3,soldier
 minime ,indeclinable,adverb,"very little, least, no"
 miror ,"mirari, miratus sum",verb 1 deponent,"wonder at, admire"
-miser ,"misera, miserum",adjective,"miserable, wretched, sad"
+miser ,"misera, miserum",adjective 1/2,"miserable, wretched, sad"
 mitto ,"mittere, misi, missus",verb 3,send
 modus ,"modi, m",noun 2,"manner, way, kind"
 moneo ,"monere, monui, monitus",verb 2,"warn, advise"
@@ -232,7 +232,7 @@ mors ,"mortis, f",noun 3,death
 moveo ,"movere, movi, motus",verb 2,move
 mox ,indeclinable,adverb,soon
 multo,indeclinable,adverb,much
-multus ,"multa, multum",adjective,"much, many"
+multus ,"multa, multum",adjective 1/2,"much, many"
 murus ,"muri, m",noun 2,wall
 nam ,indeclinable,conjunction,for
 narro ,"narrare, narravi, narratus",verb 1,"tell, relate"
@@ -251,12 +251,12 @@ nolo ,"nolle, nolui",verb irregular,"not want, refuse"
 nomen ,"nominis, n",noun 3,name
 non ,indeclinable,adverb,not
 nonne …? ,indeclinable,adverb,surely ... ?
-nonnulli,"nonnullae, nonnulla",adjective,"some, several"
+nonnulli,"nonnullae, nonnulla",adjective 1/2 plural,"some, several"
 nos ,nostrum,pronoun,"we, us"
 noster ,"nostra, nostrum",pronoun,our
-novus ,"nova, novum",adjective,new
+novus ,"nova, novum",adjective 1/2,new
 nox ,"noctis, f",noun 3,night
-nullus ,"nulla, nullum",adjective,"not any, no"
+nullus ,"nulla, nullum",adjective 1/2,"not any, no"
 num ,indeclinable,particle,whether
 num ... ? ,indeclinable,particle,surely … not? 
 numquam ,indeclinable,adverb,never
@@ -266,7 +266,7 @@ nuntius ,"nuntii, m",noun 2,"messenger, message, news"
 occido ,"occidere, occidi, occisus",verb 3,kill
 offero ,"offerre, obtuli, oblatus",verb irregular,offer
 olim ,indeclinable,adverb,"once, some time ago"
-omnis ,omne,adjective,"all, every"
+omnis ,omne,adjective 3,"all, every"
 opprimo,"opprimere, oppressi, oppressus",verb 3,"crush, overwhelm"
 oppugno ,"oppugnare, oppugnavi, oppugnatus",verb 1,attack
 oro ,"orare, oravi, oratus",verb 1,beg
@@ -274,11 +274,11 @@ ostendo ,"ostendere, ostendi, ostentus",verb 3,show
 paene ,indeclinable,adverb,"almost, nearly"
 paro ,"parare, paravi, paratus",verb 1,"prepare, provide"
 pars ,"partis, f",noun 3,part
-parvus ,"parva, parvum",adjective,small
+parvus ,"parva, parvum",adjective 1/2,small
 pater ,"patris, m",noun 3,father
 patior ,"pati, passus sum",verb 3 deponent,"suffer, endure"
 patria ,"patriae, f",noun 1,"country, homeland"
-pauci ,"paucae, pauca",adjective plural,"few, a few"
+pauci ,"paucae, pauca",adjective 1/2 plural,"few, a few"
 pax ,"pacis, f",noun 3,peace
 pecunia ,"pecuniae, f",noun 1,money
 pello,"pellere, pepuli, pulsus",verb 3,drive
@@ -286,7 +286,7 @@ per ,/+ accusative,preposition,"through, along"
 pereo ,"perire, perii",verb irregular,"die, perish"
 periculum ,"periculi, n",noun 2,danger
 persuadeo ,"persuadere, persuasi",verb 2,persuade
-perterritus ,"perterrita, perterritum",adjective,terrified
+perterritus ,"perterrita, perterritum",adjective 1/2,terrified
 pes ,"pedis, m",noun 3,foot
 peto ,"petere, petivi, petitus",verb 3,"make for, seek, beg/ask for"
 poena ,"poenae, f",noun 1,punishment
@@ -301,7 +301,7 @@ postquam ,indeclinable,conjunction,"after, when"
 postridie ,indeclinable,adverb,on the next day
 praemium ,"praemii, n",noun 2,"prize, reward, profit"
 primo ,indeclinable,adverb,at first
-primus ,"prima, primum",adjective,first
+primus ,"prima, primum",adjective 1/2,first
 princeps,"principis, m",noun 3,"chief, emperor"
 pro ,/+ ablative,preposition,"in front of, for, in return for"
 procedo ,"procedere, processi",verb 3,"advance, proceed"
@@ -311,20 +311,20 @@ progredior ,"progredi, progressus sum",verb 3 deponent,advance
 promitto ,"promittere, promisi, promissus",verb 3,promise
 prope,/+ accusative,preposition,near
 propter ,/+ accusative,preposition,"on account of, because of"
-proximus ,"proxima, proximum",adjective,"nearest, next to"
+proximus ,"proxima, proximum",adjective 1/2,"nearest, next to"
 puella ,"puellae, f",noun 1,girl
 puer ,"pueri, m",noun 2,boy
 pugno ,"pugnare, pugnavi",verb 1,fight
-pulcher ,"pulchra, pulchrum",adjective,"beautiful, handsome"
+pulcher ,"pulchra, pulchrum",adjective 1/2,"beautiful, handsome"
 punio,"punire, punivi, punitus",verb 4,punish
 puto ,"putare, putavi, putatus",verb 1,think
 quaero ,"quaerere, quaesivi, quaesitus",verb 3,"search for, look for, ask"
-qualis? ,quale,adjective,what sort of?
+qualis? ,quale,adjective 3,what sort of?
 quam, + superlative adverb,,as … as possible
 quam ,indeclinable,adverb,"than, how … ? how … !"
 quamquam ,indeclinable,conjunction,although
 quando?,indeclinable,adverb,when?
-quantus? ,quanta? quantum?,adjective,how big? how much?
+quantus? ,"quanta?, quantum?",adjective 1/2,how big? how much?
 -que,indeclinable,conjunction,and
 qui ,"quae, quod",pronoun,"who, which"
 quidam ,"quaedam, quoddam",pronoun,"one, a certain, some"
@@ -351,13 +351,13 @@ rex ,"regis, m",noun 3,king
 rideo ,"ridere, risi",verb 2,"laugh, smile"
 rogo ,"rogare, rogavi, rogatus",verb 1,"ask, ask for"
 Roma ,"Romae, f (Romae: at/in Rome)",noun 1,Rome
-Romanus ,"Romana, Romanum",adjective,Roman
-sacer ,"sacra, sacrum",adjective,sacred
+Romanus ,"Romana, Romanum",adjective 1/2,Roman
+sacer ,"sacra, sacrum",adjective 1/2,sacred
 saepe ,indeclinable,adverb,often
-saevus ,"saeva, saevum",adjective,"savage, cruel"
+saevus ,"saeva, saevum",adjective 1/2,"savage, cruel"
 saluto ,"salutare, salutavi, salutatus",verb 1,greet
 sanguis ,"sanguinis, m",noun 3,blood
-scelestus ,"scelesta, scelestum",adjective,wicked
+scelestus ,"scelesta, scelestum",adjective 1/2,wicked
 scelus ,"sceleris, n",noun 3,crime
 scio ,"scire, scivi, scitus",verb 4,know
 scribo ,"scribere, scripsi, scriptus",verb 3,write
@@ -378,27 +378,27 @@ simul ,indeclinable,adverb,at the same time
 "simulac, simulatque ",indeclinable,conjunction,as soon as
 sine ,/+ ablative,preposition,without
 soleo,"solere, solitus sum",verb 2,be accustomed
-solus ,"sola, solum",adjective,"alone, lonely, only, on one's own"
+solus ,"sola, solum",adjective 1/2,"alone, lonely, only, on one's own"
 specto ,"spectare, spectavi, spectatus",verb 1,"look at, watch"
 spero ,"sperare, speravi, speratus",verb 1,"hope, expect"
 spes ,"spei, f",noun 5,hope
 statim ,indeclinable,adverb,"at once, immediately"
 sto ,"stare, steti",verb 1,stand
-stultus ,"stulta, stultum",adjective,"stupid, foolish"
+stultus ,"stulta, stultum",adjective 1/2,"stupid, foolish"
 sub ,+ accusative/ablative,preposition,"under, beneath"
 subito ,indeclinable,adverb,suddenly
 sum ,"esse, fui",verb irregular,be
-summus ,"summa, summum",adjective,"highest, greatest, top (of)"
+summus ,"summa, summum",adjective 1/2,"highest, greatest, top (of)"
 supero ,"superare, superavi, superatus",verb 1,"overcome, overpower"
 surgo ,"surgere, surrexi",verb 3,"get up, stand up, rise"
 suus ,"sua, suum",pronoun,"his, her, its, their (own)"
 taberna ,"tabernae, f",noun 1,"shop, inn"
 taceo ,"tacere, tacui, tacitus",verb 2,"be silent, be quiet"
-talis ,tale,adjective,"such, of such a kind"
+talis ,tale,adjective 3,"such, of such a kind"
 tam ,indeclinable,adverb,so
 tamen ,indeclinable,adverb,however
 tandem ,indeclinable,adverb,"at last, finally"
-tantus ,"tanta, tantum",adjective,"so great, such a great"
+tantus ,"tanta, tantum",adjective 1/2,"so great, such a great"
 tempestas,"tempestatis, f",noun 3,storm
 templum ,"templi, n",noun 2,temple
 tempus ,"temporis, n",noun 3,time
@@ -408,11 +408,11 @@ terreo ,"terrere, terrui, territus",verb 2,frighten
 timeo ,"timere, timui",verb 2,"fear, be afraid"
 tollo,"tollere, sustuli, sublatus",verb 3,"raise, lift up, hold up"
 tot ,indeclinable,adjective,so many
-totus ,"tota, totum",adjective,whole
+totus ,"tota, totum",adjective 1/2,whole
 trado ,"tradere, tradidi, traditus",verb 3,"hand over, hand down"
 traho ,"trahere, traxi, tractus",verb 3,drag
 trans ,/+ accusative (also used as prefix with verbs),preposition,across
-tristis ,triste,adjective,sad
+tristis ,triste,adjective 3,sad
 tu ,tui,pronoun,you (singular)
 tum ,indeclinable,adverb,then
 turba ,"turbae, f",noun 1,crowd
@@ -424,7 +424,7 @@ urbs ,"urbis, f",noun 3,city
 ut ,indeclinable + subjunctive,conjunction,"that, so that, in order that"
 ut ,indeclinable + indicative,conjunction,"as, when"
 uxor ,"uxoris, f",noun 3,wife
-validus ,"valida, validum",adjective,strong
+validus ,"valida, validum",adjective 1/2,strong
 vehementer ,indeclinable,adverb,"violently, loudly"
 vendo ,"vendere, vendidi, venditus",verb 3 ,sell
 venio ,"venire, veni ",verb 4,come

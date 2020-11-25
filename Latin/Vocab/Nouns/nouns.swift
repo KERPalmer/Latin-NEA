@@ -25,20 +25,15 @@ person:
  declension:
     1,2,3,4,5
  */
-class Noun : Codable,Identifiable{
-    let id:Int
-    let fileLine:String
+class Noun :Word{
     let nominativeS:String
     let genativeS:String
     let gender:String
     let declension:String
-    let translation:[String]
-    init(fileLine_:String,id_:Int) {
-        fileLine=fileLine_
-        id=id_
+    override init(line:String,id_:Int) {
         // form 1 :nominative singular,"genative singular, gender", declension,"translation 1,translation 2..."
         // form 2 :nominative singular,"genative singular, gender", declennsion,translation 1
-        let trimmed:String=fileLine.replacingOccurrences(of: "\r", with: "")
+        let trimmed:String=line.replacingOccurrences(of: "\r", with: "")
         let seperated=(trimmed.split(separator: "\"", omittingEmptySubsequences: true)).map { String($0) }
         if seperated.count==4{
             //form 1
@@ -47,7 +42,6 @@ class Noun : Codable,Identifiable{
             genativeS = format(str:genativeAndGender[0])
             gender=format(str: genativeAndGender[1])
             declension=format(str: seperated[2])
-            translation=seperated[3].split(separator: ",", omittingEmptySubsequences: true).map { String($0) }
         }
         else{
             //form 2
@@ -57,8 +51,12 @@ class Noun : Codable,Identifiable{
             gender=format(str: genativeAndGender[1])
             let declensionAndTranslation = seperated[2].split(separator: ",", omittingEmptySubsequences: true).map { String($0) }
             declension=format(str: declensionAndTranslation[0])
-            translation=[format(str: declensionAndTranslation[1])]
         }
+        super.init(line: line, id_: id_)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
     }
     func GetDeclension(choice:String)->String{
         //need to get declension then gender, then
@@ -419,9 +417,6 @@ class Noun : Codable,Identifiable{
         default:
             return "cant find declension"
         }
-    }
-    func GetTranslationIndex(index:Int)->String{
-        return translation[index]
     }
 }
 

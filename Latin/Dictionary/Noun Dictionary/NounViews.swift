@@ -32,7 +32,7 @@ struct nounInfoView:View{
                 Text(noun.declension)
                 Text(noun.gender)
             }
-            Text(noun.GetTranslationIndex(index: translationIndex))
+            Text(noun.get_translation())
             Text("singular")
                 .bold()
                 .underline()
@@ -45,7 +45,7 @@ struct nounInfoView:View{
                         .frame(width: 20)
                     Text("nominative singular")
                     Spacer()
-                    Text("subject:  \(noun.GetTranslationIndex(index: translationIndex))")
+                    Text("subject:  \(noun.get_translation())")
                     Spacer()
                         .frame(width: 20)
                 }
@@ -57,7 +57,7 @@ struct nounInfoView:View{
                         .frame(width: 20)
                     Text("vocative singular")
                     Spacer()
-                    Text( "O  \(noun.GetTranslationIndex(index: translationIndex))")
+                    Text( "O  \(noun.get_translation())")
                     Spacer()
                         .frame(width: 20)
                 }
@@ -69,7 +69,7 @@ struct nounInfoView:View{
                         .frame(width: 20)
                     Text("accusative singular")
                     Spacer()
-                    Text( "object:  \(noun.GetTranslationIndex(index: translationIndex))")
+                    Text( "object:  \(noun.get_translation())")
                     Spacer()
                         .frame(width: 20)
                 }
@@ -81,7 +81,7 @@ struct nounInfoView:View{
                         .frame(width: 20)
                     Text("genative singular")
                     Spacer()
-                    Text( "of the   \(noun.GetTranslationIndex(index: translationIndex))")
+                    Text( "of the   \(noun.get_translation())")
                     Spacer()
                         .frame(width: 20)
                 }
@@ -93,7 +93,7 @@ struct nounInfoView:View{
                         .frame(width: 20)
                     Text("dative singular")
                     Spacer()
-                    Text( "to/for the   \(noun.GetTranslationIndex(index: translationIndex))")
+                    Text( "to/for the   \(noun.get_translation())")
                     Spacer()
                         .frame(width: 20)
                 }
@@ -105,7 +105,7 @@ struct nounInfoView:View{
                         .frame(width: 20)
                     Text("ablative singular")
                     Spacer()
-                    Text( "by/with/from   \(noun.GetTranslationIndex(index: translationIndex))")
+                    Text( "by/with/from   \(noun.get_translation())")
                     Spacer()
                         .frame(width: 20)
                 }
@@ -123,7 +123,7 @@ struct nounInfoView:View{
                         .frame(width: 20)
                     Text("nominative plural")
                     Spacer()
-                    Text( "subject:  \(noun.GetTranslationIndex(index: translationIndex))")
+                    Text( "subject:  \(noun.get_translation())")
                     Spacer()
                         .frame(width: 20)
                 }
@@ -135,7 +135,7 @@ struct nounInfoView:View{
                         .frame(width: 20)
                     Text("vocative plural")
                     Spacer()
-                    Text( "O  \(noun.GetTranslationIndex(index: translationIndex))")
+                    Text( "O  \(noun.get_translation())")
                     Spacer()
                         .frame(width: 20)
                 }
@@ -147,7 +147,7 @@ struct nounInfoView:View{
                         .frame(width: 20)
                     Text("accusative plural")
                     Spacer()
-                    Text( "objects:  \(noun.GetTranslationIndex(index: translationIndex))")
+                    Text( "objects:  \(noun.get_translation())")
                     Spacer()
                         .frame(width: 20)
                 }
@@ -159,7 +159,7 @@ struct nounInfoView:View{
                         .frame(width: 20)
                     Text("genative plural")
                     Spacer()
-                    Text( "of the   \(noun.GetTranslationIndex(index: translationIndex))")
+                    Text( "of the   \(noun.get_translation())")
                     Spacer()
                         .frame(width: 20)
                 }
@@ -171,7 +171,7 @@ struct nounInfoView:View{
                         .frame(width: 20)
                     Text("dative plural")
                     Spacer()
-                    Text( "to/for the \(noun.GetTranslationIndex(index: translationIndex))")
+                    Text( "to/for the \(noun.get_translation())")
                     Spacer()
                         .frame(width: 20)
                 }
@@ -183,12 +183,12 @@ struct nounInfoView:View{
                         .frame(width: 20)
                     Text("ablative plural")
                     Spacer()
-                    Text( "by/with/from  \(noun.GetTranslationIndex(index: translationIndex))")
+                    Text( "by/with/from  \(noun.get_translation())")
                     Spacer()
                         .frame(width: 20)
                 }
                 Spacer()
-                Button(action: {self.translationIndex=(self.translationIndex+1)%self.noun.translation.count}){
+                Button(action: {self.translationIndex=(self.translationIndex+1)%self.noun.translations.count}){
                     Text("next translation")
                         .padding()
                         .background(Color.black)

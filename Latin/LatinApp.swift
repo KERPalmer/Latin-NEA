@@ -10,7 +10,7 @@ import SQLite3
 // this will be where the data base and other important data will be stored to be used through out the program
 //this will store all the list of objects of the different word types
 class ProgramDatabase:ObservableObject{
-    @Published var verbClassList:[Verb]=[]
+    var verbClassList:[Verb]=[]
     @Published var nounClassList:[Noun]=[]
     @Published var prepositionClassList:[Preposition]=[]
     @Published var adjectiveClassList:[Adjective]=[]
@@ -19,14 +19,14 @@ class ProgramDatabase:ObservableObject{
         for line in file{
             //prepositions
             if line.contains("preposition"){
-                self.prepositionClassList.append(Preposition(string: line))
+                self.prepositionClassList.append(Preposition(line:line,id_:id))
             }
             //nouns, irregular and normal
             else if line.contains(",noun"){
                 if line.contains("irregular"){
-                    self.nounClassList.append(IrregularNoun(fileLine_: line, id_: id))
+                    self.nounClassList.append(IrregularNoun(line: line, id_: id))
                 }else{
-                    self.nounClassList.append(Noun(fileLine_: line, id_: id))
+                    self.nounClassList.append(Noun(line: line, id_: id))
                 }
             }
             //verb,deponent, irregular and normal
@@ -40,12 +40,33 @@ class ProgramDatabase:ObservableObject{
                 }
                 //adjectives
             }else if line.contains("adjective"){
-                self.adjectiveClassList.append(Adjective(line:line,id_: id))
+                if line.contains("indeclineable"){
+                    self.adjectiveClassList.append(IndeclinableAdjective(line: line, id_: id))
+                }
+                else if line.contains("1/2"){
+                    self.adjectiveClassList.append(FirstSecondAdjective(line:line,id_: id))
+                }
+                else if line.contains("3"){
+                    self.adjectiveClassList.append(ThirdAdjective(line:line,id_: id))
+                }
             }else{
                 
             }
             id+=1
         }
+    }
+    func printVerbs(){
+        for verb in self.verbClassList{
+            print(verb.present1S)
+        }
+    }
+    func GetVerbs()->[Verb]{
+        var verbs:[Verb]=[]
+        for verb in verbClassList{
+            print(verb.present1S)
+            verbs.append(verb)
+        }
+        return verbs
     }
 }
 class Data: ObservableObject{

@@ -42,6 +42,7 @@
 		E054DC49256AA0A700302ADF /* table protocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DC48256AA0A700302ADF /* table protocal.swift */; };
 		E054DC4D256AC16800302ADF /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = E054DC4C256AC16800302ADF /* TODO */; };
 		E0B11C1F2530B29700CD3561 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B11C1E2530B29700CD3561 /* Word.swift */; };
+		E0E97C0C256C2EA5008C73CF /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E97C0B256C2EA5008C73CF /* tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		E054DC48256AA0A700302ADF /* table protocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "table protocal.swift"; sourceTree = "<group>"; };
 		E054DC4C256AC16800302ADF /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		E0B11C1E2530B29700CD3561 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		E0E97C0B256C2EA5008C73CF /* tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				E054DC4C256AC16800302ADF /* TODO */,
 				E0154BC1252B9C580057827A /* ContentView.swift */,
 				E0154B5C252B4FCA0057827A /* DecisionView.swift */,
+				E0E97C0B256C2EA5008C73CF /* tests.swift */,
 				E054DC3C256A9BDC00302ADF /* Database */,
 				E054DC32256A921F00302ADF /* Login Page */,
 				E0154B63252B52350057827A /* Vocab */,
@@ -160,7 +163,6 @@
 		E0154B52252B42200057827A /* Nouns */ = {
 			isa = PBXGroup;
 			children = (
-				E0154B4B252B41F10057827A /* NounViews.swift */,
 				E0154B2F252B3E800057827A /* irregularNouns.swift */,
 				E0154B4C252B41F10057827A /* nouns.swift */,
 			);
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				E0154B97252B7A6A0057827A /* NounDictionaryView.swift */,
+				E0154B4B252B41F10057827A /* NounViews.swift */,
 			);
 			path = "Noun Dictionary";
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				E0B11C1F2530B29700CD3561 /* Word.swift in Sources */,
 				E054DC49256AA0A700302ADF /* table protocal.swift in Sources */,
 				E054DC3E256A9C0600302ADF /* connectDB.swift in Sources */,
+				E0E97C0C256C2EA5008C73CF /* tests.swift in Sources */,
 				E0154AE2252B39B50057827A /* Background.swift in Sources */,
 				E0154B58252B43BD0057827A /* Format.swift in Sources */,
 				E054DC46256AA07C00302ADF /* Profile.swift in Sources */,

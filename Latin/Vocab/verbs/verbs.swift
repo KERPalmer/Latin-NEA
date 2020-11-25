@@ -6,21 +6,18 @@
 //  Copyright © 2020 Kenan Palmer. All rights reserved.
 //
 
-class Verb:Word, Codable,Identifiable{
+class Verb:Word{
     // using the pricipal parts we should in theory be able to derive any tense, person or voice
     public let present1S:String
     public let infinitive:String
     public let future1S:String
     public let perfectParticipal:String
     public var conjugation:String
-    public var translation:[String]=[]
     public var stem:String
-    public var fileLine:String
     public var isUsed:Bool
-    init(line:String, id_:   Int){
+    override init(line:String, id_:Int){
         isUsed=true
-        fileLine = line
-        let trimmed:String=fileLine.replacingOccurrences(of: "\r", with: "")
+        let trimmed:String=line.replacingOccurrences(of: "\r", with: "")
         let seperated=(trimmed.split(separator: "\"", omittingEmptySubsequences: true)).map { String($0) }
         // form 1: present1s,"infinitive, furture1s?, pastParticipal?",verb (int),"translation1,translation2,..."
         // form 2: present1s,"infinitive, furture1s?, pastParticipal?",verb (int), only translation
@@ -53,12 +50,6 @@ class Verb:Word, Codable,Identifiable{
             }
             // look for conjugation
             conjugation=format(str:seperated[2])
-            //translations
-            let synonims:String=String(seperated[3])
-            let synonimsSplit=synonims.split(separator: ",", omittingEmptySubsequences: true).map { String($0) }
-            for synonim in synonimsSplit{
-                translation.append(synonim)
-            }
         }
         else if seperated.count==3{
             //form 2
@@ -90,7 +81,6 @@ class Verb:Word, Codable,Identifiable{
             // seperate the conjugation and translation
             let splitTypeAndTrans = seperated[2].split(separator: ",", omittingEmptySubsequences: true).map { String($0) }
             conjugation=format(str:splitTypeAndTrans[0])
-            translation.append(format(str: splitTypeAndTrans[1]))
         }
         else{
             // prevents crashing
@@ -99,16 +89,17 @@ class Verb:Word, Codable,Identifiable{
             future1S=""
             perfectParticipal="null"
             conjugation="null"
-            translation=[]
             stem="null"
         }
         // stem is drop the "re" and the letter for each conjugation
         stem=String(infinitive.dropLast(3))
+        super.init(line: line, id_: id_)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
     }
     // translation should be in the form of a list, with each element a different translation/synonim
-    func GetTranslationIndex(index:Int)->String{
-        return self.translation[index]
-    }
     /*
      1s = 1st person singular: I
      2s = 2nd person singular: you

@@ -20,10 +20,10 @@ struct PrepositionInfoView:View{
             Spacer().frame(height: 50)
             Text(preposition.followedBy)
             Spacer().frame(height: 50)
-            Text(format(str: preposition.translation[translationIndex]))
+            Text(format(str: preposition.translations[translationIndex]))
                 .font(.system(size: 60))
             Spacer().frame(height: 50)
-            Button(action: {self.translationIndex=(self.translationIndex+1)%self.preposition.translation.count}){
+            Button(action: {self.translationIndex=(self.translationIndex+1)%self.preposition.translations.count}){
                 Text("next translation")
                     .padding()
                     .background(Color.black)

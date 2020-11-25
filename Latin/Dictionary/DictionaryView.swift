@@ -12,7 +12,7 @@ struct DictionaryView: View {
     var body: some View{
         NavigationView{
                 List{
-                    NavigationLink(destination: VerbDictionaryView()){
+                    NavigationLink(destination: tests()){
                         Text("Verbs")
                             .bold()
                             .font(.system(size: 20))
