@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct VerbDictionaryView: View {
+    @EnvironmentObject var env: Data
     var body: some View{
-        List(PROGRAMDATABASE.verbClassList){ verb in
+        List(env.programData.verbClassList){verb in
+            Text(verb.present1S)
+            /*
             if verb.fileLine.contains("deponent"){
                 NavigationLink(destination: DeponentInfoView(verb: verb)){
                     HStack{
@@ -33,7 +36,16 @@ struct VerbDictionaryView: View {
         .onAppear(){
                 UITableView.appearance().separatorStyle = .singleLine
                 }
+            }*/
+        }.onAppear{
+            for verb in env.programData.verbClassList{
+                print(verb.present1S)
             }
         }
+    }
+}
+struct VerbDictionaryView_Previews: PreviewProvider {
+    static var previews: some View {
+        VerbDictionaryView().environmentObject(Data())
     }
 }
