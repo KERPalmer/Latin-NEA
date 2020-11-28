@@ -6,7 +6,7 @@
 //  Copyright © 2020 Kenan Palmer. All rights reserved.
 //
 
-class Verb:Word{
+class Verb:Word,Codable{
     // using the pricipal parts we should in theory be able to derive any tense, person or voice
     public let present1S:String
     public let infinitive:String

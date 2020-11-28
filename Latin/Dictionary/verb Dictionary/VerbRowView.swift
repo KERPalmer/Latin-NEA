@@ -10,14 +10,14 @@ import SwiftUI
 
 struct VerbRowView: View{
     var word:String
-    var translation:String
+    var grammar:String
     var body: some View{
         HStack{
             Spacer()
                 .frame(width: 20)
             Text(word)
             Spacer()
-            Text(translation)
+            Text(grammar)
             Spacer()
                 .frame(width: 20)
         }
@@ -26,6 +26,6 @@ struct VerbRowView: View{
 
 struct VerbRowView_Previews: PreviewProvider {
     static var previews: some View {
-        VerbRowView(word: "test word", translation: "test translation")
+        VerbRowView(word: "test word", grammar: "test grammar")
     }
 }

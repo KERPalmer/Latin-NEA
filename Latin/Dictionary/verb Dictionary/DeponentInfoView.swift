@@ -10,7 +10,6 @@ import SwiftUI
 
 struct DeponentInfoView:View{
     var verb:Verb
-    @State var translationIndex:Int = 0
     var body:some View{
         VStack{
             List{
@@ -23,7 +22,7 @@ struct DeponentInfoView:View{
                         .font(.headline)
                         .bold()
                         .multilineTextAlignment(.center)
-                    Text("to \(verb.GetTranslationIndex(index: translationIndex))")
+                    Text("to \(verb.get_translation())")
                 }
                 VStack{
                     Text("HI")
@@ -33,20 +32,6 @@ struct DeponentInfoView:View{
             }
             .onDisappear(){
                 UITableView.appearance().separatorStyle = .singleLine
-            }
-            //button to change the translation if there are multiple translations
-            Button(action: {self.translationIndex=(self.translationIndex+1)%self.verb.translation.count}){
-                HStack{
-                    Spacer()
-                    Text("next translation")
-                        .padding(10)
-                        .background(Color.black)
-                        .foregroundColor(.white)
-                        .cornerRadius(20)
-                        .opacity(0.8)
-                        .multilineTextAlignment(.center)
-                    Spacer()
-                }
             }
             Spacer().frame( height: 10)
         }    }

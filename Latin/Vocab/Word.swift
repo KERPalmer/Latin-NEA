@@ -6,15 +6,13 @@
 //
 
 import Foundation
-class Word:Codable,Identifiable{
-    
-
+class Word:Identifiable{
     public var id:Int
     public var translations:[String]=[]
     public let fileLine:String
-    private var translationIndex=0
+    @Published private var translationIndex=0
     init(line:String,id_:Int){
-        self.id=0
+        self.id=id_
         self.fileLine = line
         let trimmed:String=line.replacingOccurrences(of: "\r", with: "")
         //setting the translations
@@ -31,10 +29,8 @@ class Word:Codable,Identifiable{
             // 1 translation
             let commaSplit = trimmed.split(separator: ",", omittingEmptySubsequences: true)
             let size = commaSplit.count
-            let translationSub=commaSplit[size-1]
-            for translation in translationSub{
-                translations.append(format(str: String(translation)))
-            }
+            let translation=commaSplit[size-1]
+            translations.append(format(str: String(translation)))
         }
     }
     func get_translation() -> String{
@@ -44,4 +40,12 @@ class Word:Codable,Identifiable{
         translationIndex+=1
         translationIndex %= translations.count
     }
+    func get_all_translations()->String{
+    var all = ""
+        for translation in translations{
+            all = all + "/ " + translation
+        }
+        return all
+    }
+    
 }

@@ -25,7 +25,7 @@ person:
  declension:
     1,2,3,4,5
  */
-class Noun :Word{
+class Noun :Word,Codable{
     let nominativeS:String
     let genativeS:String
     let gender:String

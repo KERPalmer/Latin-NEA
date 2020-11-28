@@ -10,7 +10,6 @@ import SwiftUI
 
 struct nounInfoView:View{
     var noun:Noun
-    @State var translationIndex:Int = 0
     var body:some View{
         VStack{
             HStack{
@@ -32,7 +31,10 @@ struct nounInfoView:View{
                 Text(noun.declension)
                 Text(noun.gender)
             }
-            Text(noun.get_translation())
+            Text(noun.get_all_translations())
+                .font(.subheadline)
+                .bold()
+                .multilineTextAlignment(.center)
             Text("singular")
                 .bold()
                 .underline()
@@ -188,14 +190,6 @@ struct nounInfoView:View{
                         .frame(width: 20)
                 }
                 Spacer()
-                Button(action: {self.translationIndex=(self.translationIndex+1)%self.noun.translations.count}){
-                    Text("next translation")
-                        .padding()
-                        .background(Color.black)
-                        .foregroundColor(.white)
-                        .cornerRadius(20)
-                        .opacity(0.8)
-                }
             }
         }
     }

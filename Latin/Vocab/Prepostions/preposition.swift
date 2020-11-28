@@ -7,11 +7,11 @@
 //
 
 import Foundation
-class Preposition: Word{
-    let word:String
-    let followedBy:String
-    var isAccusative:Bool = false
-    var isPrefix:Bool = false
+class Preposition: Word,Codable{
+    public let word:String
+    public let followedBy:String
+    public var isAccusative:Bool = false
+    public var isPrefix:Bool = false
     override init(line: String, id_: Int){
         //from 1: word, +ablative?/accusative?(prefix)?, preposition, translation
         //form 2: word, +ablative?/accusative?(prefix)?, preposition, "translation,translation..."

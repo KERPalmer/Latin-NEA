@@ -34,6 +34,7 @@
 		E0154BC2252B9C580057827A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BC1252B9C580057827A /* ContentView.swift */; };
 		E0154BC9252BA2630057827A /* PrepositionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BC8252BA2630057827A /* PrepositionInfoView.swift */; };
 		E0154BD3252BB03A0057827A /* PrepositionDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BD2252BB03A0057827A /* PrepositionDictionaryView.swift */; };
+		E04DB8AE256E8143000B26CE /* AdjectiveInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB8AD256E8143000B26CE /* AdjectiveInfoView.swift */; };
 		E054DC34256A927C00302ADF /* logInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DC33256A927C00302ADF /* logInView.swift */; };
 		E054DC37256A928200302ADF /* resetTestDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DC36256A928200302ADF /* resetTestDatabase.swift */; };
 		E054DC3E256A9C0600302ADF /* connectDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DC3D256A9C0600302ADF /* connectDB.swift */; };
@@ -75,6 +76,7 @@
 		E0154BC1252B9C580057827A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E0154BC8252BA2630057827A /* PrepositionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionInfoView.swift; sourceTree = "<group>"; };
 		E0154BD2252BB03A0057827A /* PrepositionDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionDictionaryView.swift; sourceTree = "<group>"; };
+		E04DB8AD256E8143000B26CE /* AdjectiveInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjectiveInfoView.swift; sourceTree = "<group>"; };
 		E054DC33256A927C00302ADF /* logInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logInView.swift; sourceTree = "<group>"; };
 		E054DC36256A928200302ADF /* resetTestDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resetTestDatabase.swift; sourceTree = "<group>"; };
 		E054DC3D256A9C0600302ADF /* connectDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = connectDB.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				E0154B25252B3DC10057827A /* AdjectiveDictionaryViewView.swift */,
+				E04DB8AD256E8143000B26CE /* AdjectiveInfoView.swift */,
 			);
 			path = "Adjective Dictionary";
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				E054DC34256A927C00302ADF /* logInView.swift in Sources */,
 				E0154AE6252B3A060057827A /* wordRowView.swift in Sources */,
 				E0154BC2252B9C580057827A /* ContentView.swift in Sources */,
+				E04DB8AE256E8143000B26CE /* AdjectiveInfoView.swift in Sources */,
 				E0154B0E252B3B910057827A /* DictionaryView.swift in Sources */,
 				E0154B31252B3E800057827A /* irregularNouns.swift in Sources */,
 				E0154BA4252B7CD60057827A /* VerbInfoView.swift in Sources */,

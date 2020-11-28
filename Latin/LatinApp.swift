@@ -10,7 +10,7 @@ import SQLite3
 // this will be where the data base and other important data will be stored to be used through out the program
 //this will store all the list of objects of the different word types
 class ProgramDatabase:ObservableObject{
-    var verbClassList:[Verb]=[]
+    @Published var verbClassList:[Verb]=[]
     @Published var nounClassList:[Noun]=[]
     @Published var prepositionClassList:[Preposition]=[]
     @Published var adjectiveClassList:[Adjective]=[]
@@ -40,7 +40,7 @@ class ProgramDatabase:ObservableObject{
                 }
                 //adjectives
             }else if line.contains("adjective"){
-                if line.contains("indeclineable"){
+                if line.contains("indeclinable"){
                     self.adjectiveClassList.append(IndeclinableAdjective(line: line, id_: id))
                 }
                 else if line.contains("1/2"){
