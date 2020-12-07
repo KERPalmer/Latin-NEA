@@ -26,7 +26,6 @@ struct VerbInfoView: View {
                     .bold()
                     .multilineTextAlignment(.center)
             }
-            
             VStack{
                 List{
                     VStack{

@@ -38,6 +38,11 @@ struct DictionaryView: View {
                             .bold()
                             .font(.system(size: 20))
                     }
+                    NavigationLink(destination: ConjunctionDictionaryView()){
+                        Text("Conjunctions")
+                            .bold()
+                            .font(.system(size: 20))
+                    }
                     NavigationLink(destination: Text("All")){
                         Text("All")
                             .bold()

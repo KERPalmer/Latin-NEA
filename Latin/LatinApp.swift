@@ -14,6 +14,7 @@ class ProgramDatabase:ObservableObject{
     @Published var nounClassList:[Noun]=[]
     @Published var prepositionClassList:[Preposition]=[]
     @Published var adjectiveClassList:[Adjective]=[]
+    @Published var conjunctionClassList:[Conjunction]=[]
     init(file:[String]){
         var id:Int=0
         for line in file{
@@ -49,8 +50,8 @@ class ProgramDatabase:ObservableObject{
                 else if line.contains("3"){
                     self.adjectiveClassList.append(ThirdAdjective(line:line,id_: id))
                 }
-            }else{
-                
+            }else if line.contains("conjunction"){
+                self.conjunctionClassList.append(Conjunction(line: line, id_:id))
             }
             id+=1
         }

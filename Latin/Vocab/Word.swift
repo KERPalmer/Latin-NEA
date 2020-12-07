@@ -45,7 +45,7 @@ class Word:Identifiable{
         for translation in translations{
             all = all + "/ " + translation
         }
-        return all
+        return String(all.dropFirst(2))
     }
     
 }
