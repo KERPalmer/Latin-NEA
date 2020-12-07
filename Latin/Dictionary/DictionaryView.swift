@@ -33,7 +33,7 @@ struct DictionaryView: View {
                             .bold()
                             .font(.system(size: 20))
                     }
-                    NavigationLink(destination: Text("Adverbs")){
+                    NavigationLink(destination: AdverbDictionaryView()){
                         Text("Adverbs")
                             .bold()
                             .font(.system(size: 20))

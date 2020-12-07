@@ -46,6 +46,9 @@
 		E0B11C1F2530B29700CD3561 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B11C1E2530B29700CD3561 /* Word.swift */; };
 		E0C1BFC2257E74490041238F /* ConjunctionDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1BFC1257E74490041238F /* ConjunctionDictionaryView.swift */; };
 		E0C1BFC7257E79690041238F /* ConjunctionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1BFC6257E79690041238F /* ConjunctionInfoView.swift */; };
+		E0C1BFCA257E93B60041238F /* adverb.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1BFC9257E93B60041238F /* adverb.swift */; };
+		E0C1BFCE257E9D280041238F /* AdverbDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1BFCD257E9D280041238F /* AdverbDictionaryView.swift */; };
+		E0C1BFD1257E9DF40041238F /* AdverbInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1BFD0257E9DF40041238F /* AdverbInfoView.swift */; };
 		E0E97C0C256C2EA5008C73CF /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E97C0B256C2EA5008C73CF /* tests.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +94,9 @@
 		E0B11C1E2530B29700CD3561 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		E0C1BFC1257E74490041238F /* ConjunctionDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConjunctionDictionaryView.swift; sourceTree = "<group>"; };
 		E0C1BFC6257E79690041238F /* ConjunctionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConjunctionInfoView.swift; sourceTree = "<group>"; };
+		E0C1BFC9257E93B60041238F /* adverb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adverb.swift; sourceTree = "<group>"; };
+		E0C1BFCD257E9D280041238F /* AdverbDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdverbDictionaryView.swift; sourceTree = "<group>"; };
+		E0C1BFD0257E9DF40041238F /* AdverbInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdverbInfoView.swift; sourceTree = "<group>"; };
 		E0E97C0B256C2EA5008C73CF /* tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -210,7 +216,8 @@
 				E0154BB9252B99DF0057827A /* Noun Dictionary */,
 				E0154BB4252B944D0057827A /* Preposition dictionary */,
 				E0154BBA252B99F50057827A /* Adjective Dictionary */,
-				E0C1BFC0257E742C0041238F /* Conjunction */,
+				E0C1BFCC257E9D100041238F /* Adverbs Dictionary */,
+				E0C1BFC0257E742C0041238F /* Conjunction Dictionary */,
 			);
 			path = Dictionary;
 			sourceTree = "<group>";
@@ -285,6 +292,7 @@
 				E054DC41256A9C1900302ADF /* Database.swift */,
 				E054DC48256AA0A700302ADF /* table protocal.swift */,
 				E054DC44256A9C3100302ADF /* Profile */,
+				E0C1BFD4257E9F7F0041238F /* New Group */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -308,17 +316,34 @@
 		E0C1BFB9257E59130041238F /* adverbs */ = {
 			isa = PBXGroup;
 			children = (
+				E0C1BFC9257E93B60041238F /* adverb.swift */,
 			);
 			path = adverbs;
 			sourceTree = "<group>";
 		};
-		E0C1BFC0257E742C0041238F /* Conjunction */ = {
+		E0C1BFC0257E742C0041238F /* Conjunction Dictionary */ = {
 			isa = PBXGroup;
 			children = (
 				E0C1BFC1257E74490041238F /* ConjunctionDictionaryView.swift */,
 				E0C1BFC6257E79690041238F /* ConjunctionInfoView.swift */,
 			);
-			path = Conjunction;
+			path = "Conjunction Dictionary";
+			sourceTree = "<group>";
+		};
+		E0C1BFCC257E9D100041238F /* Adverbs Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				E0C1BFCD257E9D280041238F /* AdverbDictionaryView.swift */,
+				E0C1BFD0257E9DF40041238F /* AdverbInfoView.swift */,
+			);
+			path = "Adverbs Dictionary";
+			sourceTree = "<group>";
+		};
+		E0C1BFD4257E9F7F0041238F /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,6 +433,7 @@
 				E0154BA4252B7CD60057827A /* VerbInfoView.swift in Sources */,
 				E0154BD3252BB03A0057827A /* PrepositionDictionaryView.swift in Sources */,
 				E06F40B4257994DE006C1A23 /* conjunctions.swift in Sources */,
+				E0C1BFCA257E93B60041238F /* adverb.swift in Sources */,
 				E0154BC9252BA2630057827A /* PrepositionInfoView.swift in Sources */,
 				E0154B28252B3DC10057827A /* adjectives.swift in Sources */,
 				E0154BA2252B7CD60057827A /* VerbRowView.swift in Sources */,
@@ -416,12 +442,14 @@
 				E0154B1F252B3C960057827A /* verbs.swift in Sources */,
 				E0154B4D252B41F10057827A /* NounViews.swift in Sources */,
 				E0B11C1F2530B29700CD3561 /* Word.swift in Sources */,
+				E0C1BFD1257E9DF40041238F /* AdverbInfoView.swift in Sources */,
 				E054DC49256AA0A700302ADF /* table protocal.swift in Sources */,
 				E054DC3E256A9C0600302ADF /* connectDB.swift in Sources */,
 				E0E97C0C256C2EA5008C73CF /* tests.swift in Sources */,
 				E0154AE2252B39B50057827A /* Background.swift in Sources */,
 				E0154B58252B43BD0057827A /* Format.swift in Sources */,
 				E054DC46256AA07C00302ADF /* Profile.swift in Sources */,
+				E0C1BFCE257E9D280041238F /* AdverbDictionaryView.swift in Sources */,
 				E0154BA3252B7CD60057827A /* DeponentInfoView.swift in Sources */,
 				E0154B95252B7A250057827A /* VerbDictionaryView.swift in Sources */,
 				E0154B5D252B4FCA0057827A /* DecisionView.swift in Sources */,

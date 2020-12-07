@@ -377,6 +377,9 @@ class FirstSecondAdjective:Adjective{
         return mascStem + superlativeInfix + "us"
     }
 }
+    func get_adverb()->String{
+        return femStem + "e"
+    }
 }
 //brevis ,breve,adjective 3,"short, brief" 1      (2 termination)
 //tristis ,triste,adjective 3,sad                 (2 termination)
@@ -402,7 +405,6 @@ class ThirdAdjective:Adjective{
         }
         super.init(line: line, id_: id_)
     }
-    
     required init(from decoder: Decoder) throws {
         fatalError("init(from:) has not been implemented")
     }
@@ -738,6 +740,9 @@ class ThirdAdjective:Adjective{
         return stem + superlativeInfix + "us"
     }
 }
+    func get_adverb()->String{
+        return stem+"ter"
+    }
     
 }
 //quot? ,indeclinable,adjective,how many?
