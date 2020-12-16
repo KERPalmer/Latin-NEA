@@ -124,6 +124,18 @@ class SQLiteDatabase: ObservableObject {
         }
         print("Successfully inserted row.")
     }
+    //insert a row into the confidence table
+    func insertConfidence(confidence: Confidence, insertSQL: String)throws{
+        let insertStatement = try prepareStatement(sqlStatement: insertSQL)
+        // will do at the end always
+        defer {
+            sqlite3_finalize(insertStatement)
+        }
+        guard sqlite3_bind_int(insertStatement, 1, confidence.id) == SQLITE_OK && sqlite3_bind_int(insertStatement, 2, confidence.profile_id) == SQLITE_OK && sqlite3_bind_int(insertStatement, 3, confidence.word_id) == SQLITE_OK && sqlite3_bind_text(insertStatement, 4, confidence.form.utf8String, -1, nil) == SQLITE_OK && sqlite3_bind_int(insertStatement, 5, confidence.attempts[0]) == SQLITE_OK && sqlite3_bind_int(insertStatement, 6, confidence.totalCorrect) == SQLITE_OK && sqlite3_bind_int(insertStatement, 7, confidence.total) == SQLITE_OK
+        else{
+            throw SQLiteError.Bind(message: errorMessage)
+        }
+    }
     //returns all the usernames in the profiles table
     func GetUsernames()->String?{
         let querysql = Profile.GetUsernamesQueryStatement
@@ -154,12 +166,14 @@ class SQLiteDatabase: ObservableObject {
         guard sqlite3_step(queryStatement) == SQLITE_ROW else {
             return nil
         }
-        guard let result = sqlite3_column_text(queryStatement, 0) else{
+        let id = sqlite3_column_int(queryStatement, 0)
+        guard let result = sqlite3_column_text(queryStatement, 1) else{
             print("Cannot find username")
             return false
         }
         let truePassword = String(cString: result) as String
         if Password as String == truePassword{
+            
             return true
         }
         return false
@@ -231,6 +245,23 @@ class SQLiteDatabase: ObservableObject {
         }
         sqlite3_finalize(queryStatement)
       }
+    func SetCurrentUserID(username:NSString) throws -> Int32{
+        let querySql = Profile.GetUserIDQueryStatement
+        guard let queryStatement = try? prepareStatement(sqlStatement: querySql) else {
+            throw SQLiteError.Prepare(message: errorMessage)
+        }
+        defer {
+            sqlite3_finalize(queryStatement)
+        }
+        guard sqlite3_bind_text(queryStatement, 1, username.utf8String, -1, nil) == SQLITE_OK else {
+            throw SQLiteError.Bind(message: errorMessage)
+        }
+        guard sqlite3_step(queryStatement) == SQLITE_ROW else {
+            throw SQLiteError.Step(message: errorMessage)
+        }
+        let id = sqlite3_column_int(queryStatement, 0)
+        return id
+    }
     func GetErrorMessage()->String{
         return errorMessage
     }

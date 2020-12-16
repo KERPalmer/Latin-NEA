@@ -34,6 +34,17 @@
 		E0154BC2252B9C580057827A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BC1252B9C580057827A /* ContentView.swift */; };
 		E0154BC9252BA2630057827A /* PrepositionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BC8252BA2630057827A /* PrepositionInfoView.swift */; };
 		E0154BD3252BB03A0057827A /* PrepositionDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BD2252BB03A0057827A /* PrepositionDictionaryView.swift */; };
+		E04A3CFF25823146005A21BC /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A3CFE25823146005A21BC /* Quiz.swift */; };
+		E04A3D03258231B4005A21BC /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A3D02258231B4005A21BC /* Question.swift */; };
+		E04A3D0825823388005A21BC /* TestSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A3D0725823388005A21BC /* TestSetupView.swift */; };
+		E04A3D0F258236E1005A21BC /* Forms.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A3D0E258236E1005A21BC /* Forms.swift */; };
+		E04A3D1225823FA2005A21BC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A3D1125823FA2005A21BC /* SettingsView.swift */; };
+		E04A3D1B25827653005A21BC /* ConjugationFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A3D1A25827653005A21BC /* ConjugationFilterView.swift */; };
+		E04A3D2625827EB5005A21BC /* TenseFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A3D2525827EB5005A21BC /* TenseFilterView.swift */; };
+		E04A3D2A25827FF6005A21BC /* NounDeclensionFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A3D2925827FF6005A21BC /* NounDeclensionFilter.swift */; };
+		E04A3D2F258280D4005A21BC /* AdjectiveFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A3D2E258280D4005A21BC /* AdjectiveFilterView.swift */; };
+		E04A3D3A25828165005A21BC /* AdverbFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A3D3925828165005A21BC /* AdverbFilterView.swift */; };
+		E04A3D3D258281CE005A21BC /* ConjunctionFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A3D3C258281CE005A21BC /* ConjunctionFilterView.swift */; };
 		E04DB8AE256E8143000B26CE /* AdjectiveInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DB8AD256E8143000B26CE /* AdjectiveInfoView.swift */; };
 		E054DC34256A927C00302ADF /* logInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DC33256A927C00302ADF /* logInView.swift */; };
 		E054DC37256A928200302ADF /* resetTestDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DC36256A928200302ADF /* resetTestDatabase.swift */; };
@@ -42,7 +53,9 @@
 		E054DC46256AA07C00302ADF /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DC45256AA07C00302ADF /* Profile.swift */; };
 		E054DC49256AA0A700302ADF /* table protocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054DC48256AA0A700302ADF /* table protocal.swift */; };
 		E054DC4D256AC16800302ADF /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = E054DC4C256AC16800302ADF /* TODO */; };
+		E06E27BD258384D600499DF2 /* VerbFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06E27BC258384D600499DF2 /* VerbFilterView.swift */; };
 		E06F40B4257994DE006C1A23 /* conjunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F40B3257994DE006C1A23 /* conjunctions.swift */; };
+		E0A0882A257FA03200641EC6 /* Confidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A08829257FA03200641EC6 /* Confidence.swift */; };
 		E0B11C1F2530B29700CD3561 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B11C1E2530B29700CD3561 /* Word.swift */; };
 		E0C1BFC2257E74490041238F /* ConjunctionDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1BFC1257E74490041238F /* ConjunctionDictionaryView.swift */; };
 		E0C1BFC7257E79690041238F /* ConjunctionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1BFC6257E79690041238F /* ConjunctionInfoView.swift */; };
@@ -82,6 +95,17 @@
 		E0154BC1252B9C580057827A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E0154BC8252BA2630057827A /* PrepositionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionInfoView.swift; sourceTree = "<group>"; };
 		E0154BD2252BB03A0057827A /* PrepositionDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionDictionaryView.swift; sourceTree = "<group>"; };
+		E04A3CFE25823146005A21BC /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		E04A3D02258231B4005A21BC /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		E04A3D0725823388005A21BC /* TestSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSetupView.swift; sourceTree = "<group>"; };
+		E04A3D0E258236E1005A21BC /* Forms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forms.swift; sourceTree = "<group>"; };
+		E04A3D1125823FA2005A21BC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E04A3D1A25827653005A21BC /* ConjugationFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConjugationFilterView.swift; sourceTree = "<group>"; };
+		E04A3D2525827EB5005A21BC /* TenseFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenseFilterView.swift; sourceTree = "<group>"; };
+		E04A3D2925827FF6005A21BC /* NounDeclensionFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NounDeclensionFilter.swift; sourceTree = "<group>"; };
+		E04A3D2E258280D4005A21BC /* AdjectiveFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjectiveFilterView.swift; sourceTree = "<group>"; };
+		E04A3D3925828165005A21BC /* AdverbFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdverbFilterView.swift; sourceTree = "<group>"; };
+		E04A3D3C258281CE005A21BC /* ConjunctionFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConjunctionFilterView.swift; sourceTree = "<group>"; };
 		E04DB8AD256E8143000B26CE /* AdjectiveInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjectiveInfoView.swift; sourceTree = "<group>"; };
 		E054DC33256A927C00302ADF /* logInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logInView.swift; sourceTree = "<group>"; };
 		E054DC36256A928200302ADF /* resetTestDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resetTestDatabase.swift; sourceTree = "<group>"; };
@@ -90,7 +114,9 @@
 		E054DC45256AA07C00302ADF /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		E054DC48256AA0A700302ADF /* table protocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "table protocal.swift"; sourceTree = "<group>"; };
 		E054DC4C256AC16800302ADF /* TODO */ = {isa = PBXFileReference; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		E06E27BC258384D600499DF2 /* VerbFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbFilterView.swift; sourceTree = "<group>"; };
 		E06F40B3257994DE006C1A23 /* conjunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = conjunctions.swift; sourceTree = "<group>"; };
+		E0A08829257FA03200641EC6 /* Confidence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confidence.swift; sourceTree = "<group>"; };
 		E0B11C1E2530B29700CD3561 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		E0C1BFC1257E74490041238F /* ConjunctionDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConjunctionDictionaryView.swift; sourceTree = "<group>"; };
 		E0C1BFC6257E79690041238F /* ConjunctionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConjunctionInfoView.swift; sourceTree = "<group>"; };
@@ -140,6 +166,7 @@
 				E0154B63252B52350057827A /* Vocab */,
 				E0154B5A252B43EE0057827A /* multi */,
 				E0154B62252B51C10057827A /* Dictionary */,
+				E04A3CFD25823114005A21BC /* Test */,
 				E0154AE4252B39CB0057827A /* Backgrounds */,
 				E0154AD1252B39470057827A /* Assets.xcassets */,
 				E0154AD6252B39470057827A /* Info.plist */,
@@ -228,6 +255,7 @@
 				E0154B02252B3B2A0057827A /* GCSE latin.csv */,
 				E0154B22252B3CEF0057827A /* changes to orginal ocr text.rtf */,
 				E0B11C1E2530B29700CD3561 /* Word.swift */,
+				E04A3D0E258236E1005A21BC /* Forms.swift */,
 				E0154B50252B41FB0057827A /* verbs */,
 				E0154B52252B42200057827A /* Nouns */,
 				E0154B54252B42E60057827A /* Adjectives */,
@@ -276,6 +304,80 @@
 			path = "Adjective Dictionary";
 			sourceTree = "<group>";
 		};
+		E04A3CFD25823114005A21BC /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				E04A3D0625823367005A21BC /* Views */,
+				E04A3CFE25823146005A21BC /* Quiz.swift */,
+				E04A3D02258231B4005A21BC /* Question.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		E04A3D0625823367005A21BC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E04A3D0725823388005A21BC /* TestSetupView.swift */,
+				E04A3D1125823FA2005A21BC /* SettingsView.swift */,
+				E04A3D1425827613005A21BC /* verb Filter */,
+				E04A3D2825827F8A005A21BC /* Noun Filter */,
+				E04A3D2D258280B8005A21BC /* Adjective Filter */,
+				E04A3D3225828115005A21BC /* AdverbFilter */,
+				E04A3D3325828125005A21BC /* ConjunctionFilter */,
+				E04A3D382582814D005A21BC /* PrepositionFilter */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E04A3D1425827613005A21BC /* verb Filter */ = {
+			isa = PBXGroup;
+			children = (
+				E04A3D1A25827653005A21BC /* ConjugationFilterView.swift */,
+				E04A3D2525827EB5005A21BC /* TenseFilterView.swift */,
+				E06E27BC258384D600499DF2 /* VerbFilterView.swift */,
+			);
+			path = "verb Filter";
+			sourceTree = "<group>";
+		};
+		E04A3D2825827F8A005A21BC /* Noun Filter */ = {
+			isa = PBXGroup;
+			children = (
+				E04A3D2925827FF6005A21BC /* NounDeclensionFilter.swift */,
+			);
+			path = "Noun Filter";
+			sourceTree = "<group>";
+		};
+		E04A3D2D258280B8005A21BC /* Adjective Filter */ = {
+			isa = PBXGroup;
+			children = (
+				E04A3D2E258280D4005A21BC /* AdjectiveFilterView.swift */,
+			);
+			path = "Adjective Filter";
+			sourceTree = "<group>";
+		};
+		E04A3D3225828115005A21BC /* AdverbFilter */ = {
+			isa = PBXGroup;
+			children = (
+				E04A3D3925828165005A21BC /* AdverbFilterView.swift */,
+			);
+			path = AdverbFilter;
+			sourceTree = "<group>";
+		};
+		E04A3D3325828125005A21BC /* ConjunctionFilter */ = {
+			isa = PBXGroup;
+			children = (
+				E04A3D3C258281CE005A21BC /* ConjunctionFilterView.swift */,
+			);
+			path = ConjunctionFilter;
+			sourceTree = "<group>";
+		};
+		E04A3D382582814D005A21BC /* PrepositionFilter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PrepositionFilter;
+			sourceTree = "<group>";
+		};
 		E054DC32256A921F00302ADF /* Login Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,7 +394,7 @@
 				E054DC41256A9C1900302ADF /* Database.swift */,
 				E054DC48256AA0A700302ADF /* table protocal.swift */,
 				E054DC44256A9C3100302ADF /* Profile */,
-				E0C1BFD4257E9F7F0041238F /* New Group */,
+				E0A08828257FA00B00641EC6 /* Confidence */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -311,6 +413,14 @@
 				E06F40B3257994DE006C1A23 /* conjunctions.swift */,
 			);
 			path = Conjuncions;
+			sourceTree = "<group>";
+		};
+		E0A08828257FA00B00641EC6 /* Confidence */ = {
+			isa = PBXGroup;
+			children = (
+				E0A08829257FA03200641EC6 /* Confidence.swift */,
+			);
+			path = Confidence;
 			sourceTree = "<group>";
 		};
 		E0C1BFB9257E59130041238F /* adverbs */ = {
@@ -337,13 +447,6 @@
 				E0C1BFD0257E9DF40041238F /* AdverbInfoView.swift */,
 			);
 			path = "Adverbs Dictionary";
-			sourceTree = "<group>";
-		};
-		E0C1BFD4257E9F7F0041238F /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,42 +522,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				E054DC42256A9C1900302ADF /* Database.swift in Sources */,
+				E04A3D03258231B4005A21BC /* Question.swift in Sources */,
 				E054DC37256A928200302ADF /* resetTestDatabase.swift in Sources */,
 				E0154B1D252B3C960057827A /* Deponent.swift in Sources */,
 				E0154B4E252B41F10057827A /* nouns.swift in Sources */,
 				E0154ACE252B39460057827A /* LatinApp.swift in Sources */,
+				E04A3D3A25828165005A21BC /* AdverbFilterView.swift in Sources */,
 				E0C1BFC7257E79690041238F /* ConjunctionInfoView.swift in Sources */,
+				E04A3D1B25827653005A21BC /* ConjugationFilterView.swift in Sources */,
 				E054DC34256A927C00302ADF /* logInView.swift in Sources */,
 				E0154AE6252B3A060057827A /* wordRowView.swift in Sources */,
 				E0154BC2252B9C580057827A /* ContentView.swift in Sources */,
+				E04A3D0825823388005A21BC /* TestSetupView.swift in Sources */,
 				E04DB8AE256E8143000B26CE /* AdjectiveInfoView.swift in Sources */,
 				E0154B0E252B3B910057827A /* DictionaryView.swift in Sources */,
 				E0154B31252B3E800057827A /* irregularNouns.swift in Sources */,
+				E06E27BD258384D600499DF2 /* VerbFilterView.swift in Sources */,
 				E0154BA4252B7CD60057827A /* VerbInfoView.swift in Sources */,
 				E0154BD3252BB03A0057827A /* PrepositionDictionaryView.swift in Sources */,
 				E06F40B4257994DE006C1A23 /* conjunctions.swift in Sources */,
 				E0C1BFCA257E93B60041238F /* adverb.swift in Sources */,
+				E04A3D0F258236E1005A21BC /* Forms.swift in Sources */,
+				E04A3D2F258280D4005A21BC /* AdjectiveFilterView.swift in Sources */,
 				E0154BC9252BA2630057827A /* PrepositionInfoView.swift in Sources */,
 				E0154B28252B3DC10057827A /* adjectives.swift in Sources */,
+				E04A3D1225823FA2005A21BC /* SettingsView.swift in Sources */,
 				E0154BA2252B7CD60057827A /* VerbRowView.swift in Sources */,
 				E0C1BFC2257E74490041238F /* ConjunctionDictionaryView.swift in Sources */,
 				E0154B20252B3C960057827A /* preposition.swift in Sources */,
+				E04A3D2625827EB5005A21BC /* TenseFilterView.swift in Sources */,
 				E0154B1F252B3C960057827A /* verbs.swift in Sources */,
+				E0A0882A257FA03200641EC6 /* Confidence.swift in Sources */,
 				E0154B4D252B41F10057827A /* NounViews.swift in Sources */,
 				E0B11C1F2530B29700CD3561 /* Word.swift in Sources */,
 				E0C1BFD1257E9DF40041238F /* AdverbInfoView.swift in Sources */,
 				E054DC49256AA0A700302ADF /* table protocal.swift in Sources */,
 				E054DC3E256A9C0600302ADF /* connectDB.swift in Sources */,
 				E0E97C0C256C2EA5008C73CF /* tests.swift in Sources */,
+				E04A3D3D258281CE005A21BC /* ConjunctionFilterView.swift in Sources */,
 				E0154AE2252B39B50057827A /* Background.swift in Sources */,
 				E0154B58252B43BD0057827A /* Format.swift in Sources */,
 				E054DC46256AA07C00302ADF /* Profile.swift in Sources */,
 				E0C1BFCE257E9D280041238F /* AdverbDictionaryView.swift in Sources */,
+				E04A3D2A25827FF6005A21BC /* NounDeclensionFilter.swift in Sources */,
 				E0154BA3252B7CD60057827A /* DeponentInfoView.swift in Sources */,
 				E0154B95252B7A250057827A /* VerbDictionaryView.swift in Sources */,
 				E0154B5D252B4FCA0057827A /* DecisionView.swift in Sources */,
 				E0154B27252B3DC10057827A /* AdjectiveDictionaryViewView.swift in Sources */,
 				E0154B30252B3E800057827A /* irregularVerbs.swift in Sources */,
+				E04A3CFF25823146005A21BC /* Quiz.swift in Sources */,
 				E0154B98252B7A6A0057827A /* NounDictionaryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

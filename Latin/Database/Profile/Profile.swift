@@ -40,8 +40,13 @@ class Profile: SQLTable {
     }
     static var CheckPasswordQueryStatement: String{
         return"""
-            SELECT Password FROM Profiles WHERE Username = (?);
+            SELECT id, Password FROM Profiles WHERE Username = (?);
             """
+    }
+    static var GetUserIDQueryStatement:String{
+        return"""
+SELECT id FROM Profiles WHERE Username = (?);
+"""
     }
     init(id: Int32, Username: NSString, Password: NSString){
         self.id = id

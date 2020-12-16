@@ -78,9 +78,12 @@ class Data: ObservableObject{
     @Published var programData:ProgramDatabase = ProgramDatabase(file: vocabData)
     @Published var debug:Bool = true
     @Published var isLoggedIn = false
+    @Published var profileID: Int32 = -1
+    @Published var quizSettings:QuizSettings = QuizSettings()
     init(){
         if debug == true{
             resetTestDatabase(db: db)
+            
         }
     }
 }
@@ -99,7 +102,47 @@ func readDataFromFile(file:String)-> String!{
         return nil
     }
 }
-
+class QuizSettings: ObservableObject{
+    //WordTypes
+    @Published public var verbs:Bool = true
+    @Published public var nouns:Bool = true
+    @Published public var adjectives:Bool = false
+    @Published public var adverbs:Bool = false
+    @Published public var prepositions:Bool = false
+    @Published public var conjuctions:Bool = false
+    
+    //verb conjugations
+    @Published public var ConjugationOne:Bool = true
+    @Published public var ConjugationTwo:Bool = true
+    @Published public var ConjugationThree:Bool = true
+    @Published public var ConjugationFour:Bool = true
+    
+    //verb tense
+    @Published public var present:Bool = true
+    @Published public var imperfect:Bool = true
+    @Published public var perfect:Bool = true
+    @Published public var pluperfect:Bool = true
+    @Published public var future:Bool = true
+    @Published public var imperative:Bool = true
+    @Published public var infinitive:Bool = true
+    
+    //noun declensions
+    @Published public var DeclensionOne:Bool = false
+    @Published public var DeclensionTwo:Bool = false
+    @Published public var DeclensionThree:Bool = false
+    @Published public var DeclensionFour:Bool = false
+    @Published public var DeclensionFive:Bool = false
+    
+    //adjective declension
+    @Published public var AdjectiveTwoOne:Bool = false
+    @Published public var AdjectiveThree:Bool = false
+    @Published public var Prepositions:Bool = false
+    @Published public var Conjunctions:Bool = true
+    @Published public var Adverb:Bool = false
+    
+    init(){
+    }
+}
 //load the data in the csv file
 let CSVstring: String = readDataFromFile(file: "GCSE latin")
 //turn the file into a list where each element is a line in the file

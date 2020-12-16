@@ -14,9 +14,7 @@ class Verb:Word,Codable{
     public let perfectParticipal:String
     public var conjugation:String
     public var stem:String
-    public var isUsed:Bool
     override init(line:String, id_:Int){
-        isUsed=true
         let trimmed:String=line.replacingOccurrences(of: "\r", with: "")
         let seperated=(trimmed.split(separator: "\"", omittingEmptySubsequences: true)).map { String($0) }
         // form 1: present1s,"infinitive, furture1s?, pastParticipal?",verb (int),"translation1,translation2,..."
@@ -238,11 +236,7 @@ class Verb:Word,Codable{
             }
         case "3":
             //3rd conjugation
-            if present1S.suffix(2)=="io"{
-                infix="ie"
-            }else{
-                infix="i"
-            }
+            infix="i"
             switch str {
             case "1s":
                 return present1S
@@ -332,7 +326,7 @@ class Verb:Word,Codable{
             if present1S.suffix(2)=="io"{
                 infix="i"
             }else{
-                infix="e"
+                infix=""
             }
             switch str {
             case "1s":

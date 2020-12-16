@@ -21,9 +21,17 @@ struct logInView: View {
                 .padding()
             Button("log in"){
                 if env.db?.CheckPassword(Username: Username as NSString, Password: Password as NSString) == true{
+                    do{
+                        print("correct username and password")
+                        try env.profileID = (env.db?.SetCurrentUserID(username: Username as NSString))!
+                    }catch{
+                        print("set id error")
+                    }
+                    
                     env.isLoggedIn.toggle()
                 }
                 else{
+                    print("incorrect username or password")
                     inncorrect=true
                 }
             }

@@ -10,6 +10,7 @@ class Word:Identifiable{
     public var id:Int
     public var translations:[String]=[]
     public let fileLine:String
+    @Published public var inQuiz: Bool = true
     @Published private var translationIndex=0
     init(line:String,id_:Int){
         self.id=id_
