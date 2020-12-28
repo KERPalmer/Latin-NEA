@@ -8,19 +8,13 @@
 import SwiftUI
 
 struct ConjunctionFilterView: View {
-    @EnvironmentObject var env:Data
+    @Binding var quiz: Quiz
     var body: some View {
         HStack{
-            Toggle(isOn:$env.quizSettings.Conjunctions){
+            Toggle(isOn:$quiz.settings.conjuctions){
                 Text("Conjunctions")
             }
             Spacer()
         }
-    }
-}
-
-struct ConjunctionFilterView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConjunctionFilterView()
     }
 }

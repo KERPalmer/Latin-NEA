@@ -7,16 +7,16 @@
 
 import Foundation
 class Question{
-    public var latin: String
-    public var form: String
+    public var latin: String = ""
+    public var form: String = ""
     public var vocabTranslations: [String]
     public var formTranslation: String
     public var correct:Bool = false
-    init(word:Word, form:String){
+    init(){
         //vocabTranslations = word.get_all_translations()
         //let wordType = String(describing: type(of: word))
-        self.latin = word.fileLine
-        self.form = "testForm"
+        self.latin = "test word"
+        self.form = "test Form"
         self.vocabTranslations = ["testTranslation1","testTranslation2"]
         self.formTranslation = "testFormTranslation"
     }

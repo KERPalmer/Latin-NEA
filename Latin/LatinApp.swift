@@ -80,6 +80,7 @@ class Data: ObservableObject{
     @Published var isLoggedIn = false
     @Published var profileID: Int32 = -1
     @Published var quizSettings:QuizSettings = QuizSettings()
+    @Published var inQuiz: Bool = false
     init(){
         if debug == true{
             resetTestDatabase(db: db)
@@ -127,20 +128,37 @@ class QuizSettings: ObservableObject{
     @Published public var infinitive:Bool = true
     
     //noun declensions
-    @Published public var DeclensionOne:Bool = false
-    @Published public var DeclensionTwo:Bool = false
-    @Published public var DeclensionThree:Bool = false
-    @Published public var DeclensionFour:Bool = false
-    @Published public var DeclensionFive:Bool = false
+    @Published public var declensionOne:Bool = false
+    @Published public var declensionTwo:Bool = false
+    @Published public var declensionThree:Bool = false
+    @Published public var declensionFour:Bool = false
+    @Published public var declensionFive:Bool = false
     
     //adjective declension
-    @Published public var AdjectiveTwoOne:Bool = false
-    @Published public var AdjectiveThree:Bool = false
-    @Published public var Prepositions:Bool = false
-    @Published public var Conjunctions:Bool = true
-    @Published public var Adverb:Bool = false
+    @Published public var adjectiveTwoOne:Bool = false
+    @Published public var adjectiveThree:Bool = false
+    @Published public var adjectivePrepositions:Bool = false
     
     init(){
+    }
+    func GetRandomWordType()->WordTypes{
+        let fin = false
+        while !fin {
+            let number = Int.random(in: 1...6)
+            if number == 1 && verbs{
+                return WordTypes.Verb
+            }else if number == 2 && nouns{
+                return WordTypes.Noun
+            }else if number == 3 && adjectives{
+                return WordTypes.Adjective
+            }else if number == 4 && adverbs{
+                return WordTypes.Adverb
+            }else if number == 5 && prepositions{
+                return WordTypes.Preposition
+            }else if number == 6 && conjuctions{
+                return WordTypes.Conjunction
+            }
+        }
     }
 }
 //load the data in the csv file

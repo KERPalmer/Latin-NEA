@@ -48,7 +48,7 @@ struct VerbInfoView: View {
                             VerbRowView(word: verb.GetPresent(str: "2s"), grammar: "you (singualr) are")
                             VerbRowView(word: verb.GetPresent(str: "3s"), grammar: "he/she/it is")
                             VerbRowView(word: verb.GetPresent(str: "1p"), grammar: "we are")
-                            VerbRowView(word: verb.GetPresent(str: "2p"), grammar: "you (pliral) are")
+                            VerbRowView(word: verb.GetPresent(str: "2p"), grammar: "you (plural) are")
                             VerbRowView(word: verb.GetPresent(str: "3p"), grammar:"they are")
                         }.frame(height: 270)
                         HStack{

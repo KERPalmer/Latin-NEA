@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct DecisionView:View{
+    @EnvironmentObject var env:Data
     @State private var selection = 0
     var body : some View{
         TabView(selection: $selection){
@@ -20,7 +21,7 @@ struct DecisionView:View{
                     }
                 }
                 .tag(0)
-                TestSetupView()
+            QuizView(quiz: Quiz(Quizsettings: env.quizSettings))
                 .tabItem {
                     VStack {
                         Text("Practise")

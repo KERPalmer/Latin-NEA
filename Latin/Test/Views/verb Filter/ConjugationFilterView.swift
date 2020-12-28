@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct ConjugationFilterView: View {
-    @EnvironmentObject var env:Data
+    @Binding var quiz:Quiz
     var body: some View {
         List(){
-            Toggle(isOn:$env.quizSettings.ConjugationOne){
+            Toggle(isOn:$quiz.settings.ConjugationOne){
                 Text("First Conjugation Verbs")
             }
-            Toggle(isOn:$env.quizSettings.ConjugationTwo){
+            Toggle(isOn:$quiz.settings.ConjugationTwo){
                 Text("Second Conjugation Verbs")
             }
-            Toggle(isOn:$env.quizSettings.ConjugationThree){
+            Toggle(isOn:$quiz.settings.ConjugationThree){
                 Text("Third Conjugation Verbs")
             }
-            Toggle(isOn:$env.quizSettings.ConjugationFour){
+            Toggle(isOn:$quiz.settings.ConjugationFour){
                 Text("Fourth Conjugation Verbs")
             }
         }

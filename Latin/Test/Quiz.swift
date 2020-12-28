@@ -8,10 +8,18 @@
 import Foundation
 class Quiz{
     public var questions:[Question]=[]
-    private var questionNum:Int = 0
-    init(){
+    public var settings:QuizSettings
+    private var questionNum:Int = -1
+    init(Quizsettings:QuizSettings){
+        settings = Quizsettings
+        generateNextQuestion(settings: settings)
     }
-    func generateNextQuestion(){
+    func generateNextQuestion(settings:QuizSettings){
+        let wordType : WordTypes = settings.GetRandomWordType()
+        questions.append(Question())
         questionNum += 1
+    }
+    func getQuestion()->Question{
+        return questions[questionNum]
     }
 }

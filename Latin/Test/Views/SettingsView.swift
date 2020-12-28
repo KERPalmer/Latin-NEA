@@ -9,53 +9,45 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var env:Data
+    @Binding var quiz:Quiz
     var body: some View {
-        List{
-            VStack{
-                Toggle(isOn: $env.quizSettings.verbs){
+        VStack{
+            List{
+                Toggle(isOn: $quiz.settings.verbs){
                     Text("Test Verbs")
                 }
-                Toggle(isOn: $env.quizSettings.nouns){
+                Toggle(isOn: $quiz.settings.nouns){
                     Text("Test Nouns")
                 }
-                Toggle(isOn:$env.quizSettings.adjectives){
+                Toggle(isOn:$quiz.settings.adjectives){
                     Text("Test Adjectives")
                 }
-                Toggle(isOn: $env.quizSettings.adverbs){
+                Toggle(isOn: $quiz.settings.adverbs){
                     Text("Test Adverbs")
                 }
-                Toggle(isOn: $env.quizSettings.prepositions){
+                Toggle(isOn: $quiz.settings.prepositions){
                     Text("Test Prepositions")
                 }
-                Toggle(isOn: $env.quizSettings.conjuctions){
+                Toggle(isOn: $quiz.settings.conjuctions){
                     Text("Test conjunctions")
                 }
             }
-            VStack{
-                NavigationLink(destination: ConjugationFilterView()){
+            List{
+                Text("Filters")
+                    .bold()
+                NavigationLink(destination: ConjugationFilterView(quiz: $quiz)){
                     Text("Verb Conjugation Filter")
                 }
-                NavigationLink(destination: TenseFilterView()){
+                NavigationLink(destination: TenseFilterView(quiz: $quiz)){
                     Text("Verb Tense Filter")
                 }
-                NavigationLink(destination: NounDeclensionFilter()){
+                NavigationLink(destination: NounDeclensionFilter(quiz: $quiz)){
                     Text("Noun Declension Filter")
                 }
-                NavigationLink(destination: AdjectiveDeclensionFilterView()){
+                NavigationLink(destination: AdjectiveDeclensionFilterView(quiz: $quiz)){
                     Text("Adjective Declension Filter")
                 }
             }
-            VStack{
-                NavigationLink(destination: Text("Verb Filter")){
-                    Text("Verb Filter")
-                }
-            }
         }
-    }
-}
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
     }
 }

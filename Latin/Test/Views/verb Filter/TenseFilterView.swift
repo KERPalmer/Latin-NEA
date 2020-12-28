@@ -8,28 +8,28 @@
 import SwiftUI
 
 struct TenseFilterView: View {
-    @EnvironmentObject var env:Data
+    @Binding var quiz:Quiz
     var body: some View {
         List(){
-            Toggle(isOn:$env.quizSettings.infinitive){
+            Toggle(isOn:$quiz.settings.infinitive){
                 Text("Infinitive ")
             }
-            Toggle(isOn:$env.quizSettings.present){
+            Toggle(isOn:$quiz.settings.present){
                 Text("Present Tense")
             }
-            Toggle(isOn:$env.quizSettings.imperfect){
+            Toggle(isOn:$quiz.settings.imperfect){
                 Text("Imperfect Tense")
             }
-            Toggle(isOn:$env.quizSettings.perfect){
+            Toggle(isOn:$quiz.settings.perfect){
                 Text("Perfect Tense")
             }
-            Toggle(isOn:$env.quizSettings.pluperfect){
+            Toggle(isOn:$quiz.settings.pluperfect){
                 Text("Pluperfect Tense")
             }
-            Toggle(isOn:$env.quizSettings.future){
+            Toggle(isOn:$quiz.settings.future){
                 Text("Future Tense")
             }
-            Toggle(isOn:$env.quizSettings.imperative){
+            Toggle(isOn:$quiz.settings.imperative){
                 Text("imperative Tense")
             }
         }

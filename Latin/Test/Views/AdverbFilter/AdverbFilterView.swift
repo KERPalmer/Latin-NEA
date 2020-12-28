@@ -8,19 +8,13 @@
 import SwiftUI
 
 struct AdverbFilterView: View {
-    @EnvironmentObject var env:Data
+    @Binding var quiz:Quiz
     var body: some View {
         HStack{
-            Toggle(isOn:$env.quizSettings.Adverb){
+            Toggle(isOn:$quiz.settings.adverbs){
                 Text("Adverbs")
             }
             Spacer()
         }
-    }
-}
-
-struct AdverbFilterView_Previews: PreviewProvider {
-    static var previews: some View {
-        AdverbFilterView()
     }
 }

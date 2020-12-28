@@ -7,23 +7,21 @@
 
 import SwiftUI
 
-struct TestSetupView: View {
+struct QuizSetupView: View {
     @EnvironmentObject var env:Data
+    @Binding var quiz: Quiz
     
     var body: some View {
         NavigationView{
             VStack{
-                NavigationLink(destination: SettingsView()){
+                NavigationLink(destination: SettingsView(quiz:$quiz)){
                     Text("settings")
                         .bold()
                 }
+                Button("Start Quiz"){
+                    env.inQuiz=true
+                }
             }
         }
-    }
-}
-
-struct TestSetupView_Previews: PreviewProvider {
-    static var previews: some View {
-        TestSetupView()
     }
 }
