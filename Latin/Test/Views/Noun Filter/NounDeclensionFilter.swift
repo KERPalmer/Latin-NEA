@@ -11,19 +11,19 @@ struct NounDeclensionFilter: View {
     @Binding var quiz:Quiz
     var body: some View {
         List(){
-            Toggle(isOn:$quiz.settings.declensionOne){
+            Toggle(isOn:$quiz.env.quizSettings.declensionOne){
                 Text("First Declension")
             }
-            Toggle(isOn:$quiz.settings.declensionTwo){
+            Toggle(isOn:$quiz.env.quizSettings.declensionTwo){
                 Text("Second Declension")
             }
-            Toggle(isOn:$quiz.settings.declensionThree){
+            Toggle(isOn:$quiz.env.quizSettings.declensionThree){
                 Text("Thrid Declension")
             }
-            Toggle(isOn:$quiz.settings.declensionFour){
+            Toggle(isOn:$quiz.env.quizSettings.declensionFour){
                 Text("Fourth Declension")
             }
-            Toggle(isOn:$quiz.settings.declensionFive){
+            Toggle(isOn:$quiz.env.quizSettings.declensionFive){
                 Text("Fifth Declension")
             }
         }

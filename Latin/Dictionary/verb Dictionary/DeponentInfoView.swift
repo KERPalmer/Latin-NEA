@@ -18,7 +18,7 @@ struct DeponentInfoView:View{
                         .font(.largeTitle)
                         .bold()
                         .multilineTextAlignment(.center)
-                    Text(verb.conjugation)
+                    Text(verb.conjugation.rawValue)
                         .font(.headline)
                         .bold()
                         .multilineTextAlignment(.center)

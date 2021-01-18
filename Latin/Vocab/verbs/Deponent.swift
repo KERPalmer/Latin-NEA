@@ -9,44 +9,40 @@
 import Foundation
 // deponantVerbs are active verbs but are in passive form...becasue humans are weird
 class DeponantVerb : Verb{
-    override func GetImperfect(str: String)->String{
-        if conjugation.suffix(1)=="1" {
-            switch str.lowercased(){
-            case "1s":
+    override func GetImperfect(personNum: PersonNum)->String{
+        if conjugation == .First {
+            switch personNum{
+            case .FirstSingular:
                 return stem+"bar"
-            case "2s":
+            case .SecondSingular:
                 return stem+"baris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+"batur"
-            case "1p":
+            case .FirstPlural:
                 return stem+"bamur"
-            case "2p":
+            case .SecondPlural:
                 return stem+"bamini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+"bantur"
-            default:
-                return "cant find number and person"
             }
         }else{
-            switch str.lowercased(){
-            case "1s":
+            switch personNum{
+            case .FirstSingular:
                 return stem+"ebar"
-            case "2s":
+            case .SecondSingular:
                 return stem+"ebaris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+"ebatur"
-            case "1p":
+            case .FirstPlural:
                 return stem+"ebamur"
-            case "2p":
+            case .SecondPlural:
                 return stem+"ebamini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+"ebantur"
-            default:
-                return "cant find number and person"
             }
         }
     }
-    override func GetPresent(str: String) -> String {
+    override func GetPresent(personNum: PersonNum) -> String {
         var infix:String
         /*
          1s = 1st person singular: I
@@ -56,92 +52,84 @@ class DeponantVerb : Verb{
          2p = 2nd person plural: you all
          3p = 3rd persin plural: they
          */
-        switch conjugation.prefix(6){
-        case "verb 1":
+        switch conjugation{
+        case .First:
             //1st conjugation
             infix="a"
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"ris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"tur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"mur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"mini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"ntur"
-            default:
-                return "not 1st "
             }
-        case "verb 2":
+        case .Second:
             //2nd conjugation
             infix="e"
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"ris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"tur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"mur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"mini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"ntur"
-            default:
-                return "not 2nd "
             }
-        case "verb 3":
+        case .Third:
             //3rd conjugation
             if present1S.suffix(2)=="ie"{
                 infix="ie"
             }else{
                 infix="e"
             }
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"ris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"tur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"mur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"mini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"ntur"
-            default:
-                return "not 3rd "
             }
-        case "verb 4":
+        case .Fourth:
             //4th conjugation
             infix = "i"
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"ris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"tur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"mur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"mini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"ntur"
-            default:
-                return "not 4th "
             }
         default:
             return "can't find conjugation"
         }
     }
-    override func GetFuture(str: String) -> String{
+    override func GetFuture(personNum: PersonNum) -> String{
         var infix:String
         /*
          1s = 1st person singular: I
@@ -151,69 +139,63 @@ class DeponantVerb : Verb{
          2p = 2nd person plural: you all
          3p = 3rd persin plural: they
          */
-        switch conjugation.prefix(6){
-        case "verb 1":
+        switch conjugation{
+        case .First:
             //1st conjugation
             infix="a"
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+infix+"bor"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"beris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"bitur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"bimur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"bimini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"buntur"
-            default:
-                return "not 1st "
             }
-        case "verb 2":
+        case .Second:
             //2nd conjugation
             infix="e"
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+infix+"bor"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"boris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"bitur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"bimur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"bimini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"buntur"
-            default:
-                return "not 2nd "
             }
-        case "verb 3":
+        case .Third:
             //3rd conjugation
             if present1S.suffix(2)=="ie"{
                 infix="ie"
             }else{
                 infix="e"
             }
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+"i"+"ar"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"eris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"etur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"emur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"emini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"entur"
-            default:
-                return "not 3rd "
             }
-        case "verb 4":
+        case .Fourth:
             return "no 4th"
         default:
             return "cant find declenlsion"
@@ -221,52 +203,52 @@ class DeponantVerb : Verb{
         }
     }
     // need to sort out semi deponent and deponent verbs for perfect and such
-    override func GetPerfect(str: String) -> String {
+    override func GetPerfect(personNum: PersonNum) -> String {
         return "not implimented"
     }
-    override func GetPluperfect(str: String) -> String {
+    override func GetPluperfect(personNum: PersonNum) -> String {
         return "not implimented"
     }
     override func GetSubjunctiveVowel() -> String {
         return "not implimented"
     }
-    override func GetSubjunctivePresent(str: String) -> String {
+    override func GetSubjunctivePresent(personNum: PersonNum) -> String {
         return "not implimented"
     }
-    override func GetSubjunctiveImperfect(str: String) -> String {
+    override func GetSubjunctiveImperfect(personNum: PersonNum) -> String {
         return "not implimented"
     }
-    override func GetSubjunctivePerfect(str: String) -> String {
+    override func GetSubjunctivePerfect(personNum: PersonNum) -> String {
         return "not implimented"
     }
-    override func GetSubjunctivePluperfect(str: String) -> String {
+    override func GetSubjunctivePluperfect(personNum: PersonNum) -> String {
         return "not yet implimented"
     }
-    override func GetPassiveIndicitivePresent(str:String) -> String{
+    override func GetPassiveIndicitivePresent(personNum:PersonNum) -> String{
         return "not implimented"
     }
-    override func GetPassiveIndicitiveImperfect(str:String)-> String{
+    override func GetPassiveIndicitiveImperfect(personNum:PersonNum)-> String{
         return "not implimented"
     }
-    override func GetPassiveIndicitiveFuture(str:String)-> String{
+    override func GetPassiveIndicitiveFuture(personNum:PersonNum)-> String{
         return "not impliemented"
     }
-    override func GetPassiveIndicitivePerfect(str:String,gender:String)-> String{
+    override func GetPassiveIndicitivePerfect(personNum:PersonNum,gender:String)-> String{
         return "not implimented"
     }
-    override func GetPassiveIndicitivePluperfect(str:String,gender:String)-> String{
+    override func GetPassiveIndicitivePluperfect(personNum:PersonNum,gender:String)-> String{
         return "not implimented"
     }
-    override func GetPassiveSubjunctivePerfect(str:String,gender:String)-> String{
+    override func GetPassiveSubjunctivePerfect(personNum:PersonNum,gender:String)-> String{
         return "not implimented"
     }
-    override func GetPassiveSubjunctivePluperfect(str:String,gender:String)-> String{
+    override func GetPassiveSubjunctivePluperfect(personNum:PersonNum,gender:String)-> String{
         return "not implimented"
     }
-    override func GetPassiveSubjunctivePresent(str:String)->String{
+    override func GetPassiveSubjunctivePresent(personNum:PersonNum)->String{
         return "not implimented"
     }
-    override func GetPassiveSubjunctiveImperfect(str:String)->String{
+    override func GetPassiveSubjunctiveImperfect(personNum:PersonNum)->String{
         return "not implimented"
     }
 }

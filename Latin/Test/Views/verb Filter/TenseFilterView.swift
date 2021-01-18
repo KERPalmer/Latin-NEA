@@ -11,25 +11,25 @@ struct TenseFilterView: View {
     @Binding var quiz:Quiz
     var body: some View {
         List(){
-            Toggle(isOn:$quiz.settings.infinitive){
+            Toggle(isOn:$quiz.env.quizSettings.infinitive){
                 Text("Infinitive ")
             }
-            Toggle(isOn:$quiz.settings.present){
+            Toggle(isOn:$quiz.env.quizSettings.present){
                 Text("Present Tense")
             }
-            Toggle(isOn:$quiz.settings.imperfect){
+            Toggle(isOn:$quiz.env.quizSettings.imperfect){
                 Text("Imperfect Tense")
             }
-            Toggle(isOn:$quiz.settings.perfect){
+            Toggle(isOn:$quiz.env.quizSettings.perfect){
                 Text("Perfect Tense")
             }
-            Toggle(isOn:$quiz.settings.pluperfect){
+            Toggle(isOn:$quiz.env.quizSettings.pluperfect){
                 Text("Pluperfect Tense")
             }
-            Toggle(isOn:$quiz.settings.future){
+            Toggle(isOn:$quiz.env.quizSettings.future){
                 Text("Future Tense")
             }
-            Toggle(isOn:$quiz.settings.imperative){
+            Toggle(isOn:$quiz.env.quizSettings.imperative){
                 Text("imperative Tense")
             }
         }

@@ -48,5 +48,8 @@ class Word:Identifiable{
         }
         return String(all.dropFirst(2))
     }
+    func GetForm(formString:[String]) -> String{
+        return "ERROR: GET FORM CALLED FROM CLASS WITH NO GET FORM OF ITS OWN"
+    }
     
 }

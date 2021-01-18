@@ -9,7 +9,7 @@
 import Foundation
 class IrregularVerb : Verb{
     // for irregular verbs we have define it case by case becuase humans are weird
-    override func GetImperfect(str: String) -> String {
+    override func GetImperfect(personNum:PersonNum) -> String {
         /*
          1s = 1st person singular: I
          2s = 2nd person singular: you
@@ -20,916 +20,828 @@ class IrregularVerb : Verb{
          */
         switch present1S {
         case "sum":
-            switch str.lowercased() {
-            case "1s":
+            switch  personNum{
+            case .FirstSingular:
                 return "eram"
-            case "2s":
+            case .SecondSingular:
                 return "eras"
-            case "3s":
+            case .ThirdSingular:
                 return "erat"
-            case "1p":
+            case .FirstPlural:
                 return "eramus"
-            case "2p":
+            case .SecondPlural:
                 return "eratis"
-            case "3p":
+            case .ThirdPlural:
                 return "erant"
-            default:
-                return "cant find number and person"
             }
         case "absum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "aberam"
-            case "2s":
+            case .SecondSingular:
                 return "aberas"
-            case "3s":
+            case .ThirdSingular:
                 return "aberat"
-            case "1p":
+            case .FirstPlural:
                 return "aberamus"
-            case "2p":
+            case .SecondPlural:
                 return "aberatis"
-            case "3p":
+            case .ThirdPlural:
                 return "aberant"
-            default:
-                return "cant find number and person"
             }
         case "adsum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "aderam"
-            case "2s":
+            case .SecondSingular:
                 return "aderas"
-            case "3s":
+            case .ThirdSingular:
                 return "aderat"
-            case "1p":
+            case .FirstPlural:
                 return "aderamus"
-            case "2p":
+            case .SecondPlural:
                 return "aderatis"
-            case "3p":
+            case .ThirdPlural:
                 return "aderant"
-            default:
-                return "cant find number and person"
             }
         case "possum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "poteram"
-            case "2s":
+            case .SecondSingular:
                 return "poteras"
-            case "3s":
+            case .ThirdSingular:
                 return "poterat"
-            case "1p":
+            case .FirstPlural:
                 return "poteramus"
-            case "2p":
+            case .SecondPlural:
                 return "poteratis"
-            case "3p":
+            case .ThirdPlural:
                 return "poterant"
-            default:
-                return "cant find number and person"
             }
         case "aufero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "auferebam"
-            case "2s":
+            case .SecondSingular:
                 return "auferebas"
-            case "3s":
+            case .ThirdSingular:
                 return "auferebat"
-            case "1p":
+            case .FirstPlural:
                 return "auferebamus"
-            case "2p":
+            case .SecondPlural:
                 return "auferebatis"
-            case "3p":
+            case .ThirdPlural:
                 return "auferebant"
-            default:
-                return "cant find number and person"
             }
         case "copei":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "coepebam"
-            case "3s":
+            case .ThirdSingular:
                 return "coepebas"
-            case "1p":
+            case .FirstPlural:
                 return "coepebat"
-            case "2p":
+            case .SecondPlural:
                 return "coepebamus"
-            case "3p":
+            case .ThirdPlural:
                 return "coepebant"
-            default:
-                return "cant find number and person"
             }
         case "eo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "ibam"
-            case "2s":
+            case .SecondSingular:
                 return "ibas"
-            case "3s":
+            case .ThirdSingular:
                 return "ibat"
-            case "1p":
+            case .FirstPlural:
                 return "ibamus"
-            case "2p":
+            case .SecondPlural:
                 return "ibatis"
-            case "3p":
+            case .ThirdPlural:
                 return "ibant"
-            default:
-                return "cant find number and person"
             }
         case "":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "fers"
-            case "3s":
+            case .ThirdSingular:
                 return "fert"
-            case "1p":
+            case .FirstPlural:
                 return "ferimus"
-            case "2p":
+            case .SecondPlural:
                 return "fertis"
-            case "3p":
+            case .ThirdPlural:
                 return "ferunt"
-            default:
-                return "cant find number and person"
             }
         case "inquit":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "not needed"
-            case "2s":
+            case .SecondSingular:
                 return "not needed"
-            case "3s":
+            case .ThirdSingular:
                 return "not needed"
-            case "1p":
+            case .FirstPlural:
                 return "not needed"
-            case "2p":
+            case .SecondPlural:
                 return "not needed"
-            case "3p":
+            case .ThirdPlural:
                 return "not needed"
-            default:
-                return "cant find number and person"
             }
         case "malo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "malebam"
-            case "2s":
+            case .SecondSingular:
                 return "malebas"
-            case "3s":
+            case .ThirdSingular:
                 return "malebat"
-            case "1p":
+            case .FirstPlural:
                 return "malebamus"
-            case "2p":
+            case .SecondPlural:
                 return "malebatis"
-            case "3p":
+            case .ThirdPlural:
                 return "malebant"
-            default:
-                return "cant find number and person"
             }
         case "nolo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "nolebam"
-            case "2s":
+            case .SecondSingular:
                 return "nolebas"
-            case "3s":
+            case .ThirdSingular:
                 return "nolebat"
-            case "1p":
+            case .FirstPlural:
                 return "nolebamus"
-            case "2p":
+            case .SecondPlural:
                 return "nolebatis"
-            case "3p":
+            case .ThirdPlural:
                 return "nolebant"
-            default:
-                return "cant find number and person"
             }
         case "offero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "offerebam"
-            case "2s":
+            case .SecondSingular:
                 return "offerebas"
-            case "3s":
+            case .ThirdSingular:
                 return "offerebat"
-            case "1p":
+            case .FirstPlural:
                 return "offerebamus"
-            case "2p":
+            case .SecondPlural:
                 return "offerebatis"
-            case "3p":
+            case .ThirdPlural:
                 return "offerebant"
-            default:
-                return "cant find number and person"
             }
         case "pereo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "peribam"
-            case "2s":
+            case .SecondSingular:
                 return "peribas"
-            case "3s":
+            case .ThirdSingular:
                 return "peribat"
-            case "1p":
+            case .FirstPlural:
                 return "peribamus"
-            case "2p":
+            case .SecondPlural:
                 return "peribatis"
-            case "3p":
+            case .ThirdPlural:
                 return "peribant"
-            default:
-                return "cant find number and person"
             }
         case "redeo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "redibam"
-            case "2s":
+            case .SecondSingular:
                 return "redibas"
-            case "3s":
+            case .ThirdSingular:
                 return "redibat"
-            case "1p":
+            case .FirstPlural:
                 return "redibamus"
-            case "2p":
+            case .SecondPlural:
                 return "redibatis"
-            case "3p":
+            case .ThirdPlural:
                 return "redibant"
-            default:
-                return "cant find number and person"
             }
         case "volo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "vis"
-            case "3s":
+            case .ThirdSingular:
                 return "vult"
-            case "1p":
+            case .FirstPlural:
                 return "volumus"
-            case "2p":
+            case .SecondPlural:
                 return "vultis"
-            case "3p":
+            case .ThirdPlural:
                 return "volunt"
-            default:
-                return "cant find number and person"
             }
         default:
             return "cant find verb"
         }
     }
-    override func GetPresent(str: String) -> String {
+    override func GetPresent(personNum: PersonNum) -> String {
         switch present1S {
         case "sum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "es"
-            case "3s":
+            case .ThirdSingular:
                 return "est"
-            case "1p":
+            case .FirstPlural:
                 return "summus"
-            case "2p":
+            case .SecondPlural:
                 return "estis"
-            case "3p":
+            case .ThirdPlural:
                 return "sunt"
-            default:
-                return "cant find number and person"
             }
         case "absum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "abes"
-            case "3s":
+            case .ThirdSingular:
                 return "abest"
-            case "1p":
+            case .FirstPlural:
                 return "absummus"
-            case "2p":
+            case .SecondPlural:
                 return "abestis"
-            case "3p":
+            case .ThirdPlural:
                 return "absunt"
-            default:
-                return "cant find number and person"
             }
         case "adsum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "adses"
-            case "3s":
+            case .ThirdSingular:
                 return "adest"
-            case "1p":
+            case .FirstPlural:
                 return "adsummus"
-            case "2p":
+            case .SecondPlural:
                 return "adestis"
-            case "3p":
+            case .ThirdPlural:
                 return "adsunt"
-            default:
-                return "cant find number and person"
             }
         case "possum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "potes"
-            case "3s":
+            case .ThirdSingular:
                 return "potest"
-            case "1p":
+            case .FirstPlural:
                 return "posummus"
-            case "2p":
+            case .SecondPlural:
                 return "potestis"
-            case "3p":
+            case .ThirdPlural:
                 return "potsunt"
-            default:
-                return "cant find number and person"
             }
         case "aufero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "aufers"
-            case "3s":
+            case .ThirdSingular:
                 return "aufert"
-            case "1p":
+            case .FirstPlural:
                 return "auferimus"
-            case "2p":
+            case .SecondPlural:
                 return "aufertis"
-            case "3p":
+            case .ThirdPlural:
                 return "auferunt"
-            default:
-                return "cant find number and person"
             }
         case "copei":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "coepis"
-            case "3s":
+            case .ThirdSingular:
                 return "coepit"
-            case "1p":
+            case .FirstPlural:
                 return "coepimus"
-            case "2p":
+            case .SecondPlural:
                 return "coepistis"
-            case "3p":
+            case .ThirdPlural:
                 return "coepiunt"
-            default:
-                return "cant find number and person"
             }
         case "eo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "is"
-            case "3s":
+            case .ThirdSingular:
                 return "it"
-            case "1p":
+            case .FirstPlural:
                 return "imus"
-            case "2p":
+            case .SecondPlural:
                 return "isti"
-            case "3p":
+            case .ThirdPlural:
                 return "eunt"
-            default:
-                return "cant find number and person"
             }
         case "":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "fers"
-            case "3s":
+            case .ThirdSingular:
                 return "fert"
-            case "1p":
+            case .FirstPlural:
                 return "ferimus"
-            case "2p":
+            case .SecondPlural:
                 return "fertis"
-            case "3p":
+            case .ThirdPlural:
                 return "ferunt"
-            default:
-                return "cant find number and person"
             }
         case "inquit":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "not needed"
-            case "2s":
+            case .SecondSingular:
                 return "not needed"
-            case "3s":
+            case .ThirdSingular:
                 return present1S
-            case "1p":
+            case .FirstPlural:
                 return "not needed"
-            case "2p":
+            case .SecondPlural:
                 return "not needed"
-            case "3p":
+            case .ThirdPlural:
                 return "not needed"
-            default:
-                return "cant find number and person"
             }
         case "malo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "mavis"
-            case "3s":
+            case .ThirdSingular:
                 return "mavult"
-            case "1p":
+            case .FirstPlural:
                 return "malumus"
-            case "2p":
+            case .SecondPlural:
                 return "mavultis"
-            case "3p":
+            case .ThirdPlural:
                 return "malunt"
-            default:
-                return "cant find number and person"
             }
         case "nolo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "novis"
-            case "3s":
+            case .ThirdSingular:
                 return "novult"
-            case "1p":
+            case .FirstPlural:
                 return "nolumus"
-            case "2p":
+            case .SecondPlural:
                 return "nolitis"
-            case "3p":
+            case .ThirdPlural:
                 return "nolunt"
-            default:
-                return "cant find number and person"
             }
         case "offero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "offers"
-            case "3s":
+            case .ThirdSingular:
                 return "offert"
-            case "1p":
+            case .FirstPlural:
                 return "offerimus"
-            case "2p":
+            case .SecondPlural:
                 return "offertis"
-            case "3p":
+            case .ThirdPlural:
                 return "offerunt"
-            default:
-                return "cant find number and person"
             }
         case "pereo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "peris"
-            case "3s":
+            case .ThirdSingular:
                 return "perit"
-            case "1p":
+            case .FirstPlural:
                 return "perimus"
-            case "2p":
+            case .SecondPlural:
                 return "peritis"
-            case "3p":
+            case .ThirdPlural:
                 return "pereunt"
-            default:
-                return "cant find number and person"
             }
         case "redeo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "redis"
-            case "3s":
+            case .ThirdSingular:
                 return "redit"
-            case "1p":
+            case .FirstPlural:
                 return "redimus"
-            case "2p":
+            case .SecondPlural:
                 return "reditis"
-            case "3p":
+            case .ThirdPlural:
                 return "redeunt"
-            default:
-                return "cant find number and person"
             }
         case "volo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "vis"
-            case "3s":
+            case .ThirdSingular:
                 return "vult"
-            case "1p":
+            case .FirstPlural:
                 return "volumus"
-            case "2p":
+            case .SecondPlural:
                 return "vultis"
-            case "3p":
+            case .ThirdPlural:
                 return "volunt"
-            default:
-                return "cant find number and person"
             }
             
         default:
             return "cant find verb"
         }
     }
-    override func GetFuture(str: String) -> String {
+    override func GetFuture(personNum: PersonNum) -> String {
         switch present1S {
         case "sum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "ero"
-            case "2s":
+            case .SecondSingular:
                 return "eris"
-            case "3s":
+            case .ThirdSingular:
                 return "erit"
-            case "1p":
+            case .FirstPlural:
                 return "erimus"
-            case "2p":
+            case .SecondPlural:
                 return "eritis"
-            case "3p":
+            case .ThirdPlural:
                 return "erunt"
-            default:
-                return "cant find number and person"
             }
         case "absum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "abero"
-            case "2s":
+            case .SecondSingular:
                 return "aberis"
-            case "3s":
+            case .ThirdSingular:
                 return "aberit"
-            case "1p":
+            case .FirstPlural:
                 return "aberimus"
-            case "2p":
+            case .SecondPlural:
                 return "aberitis"
-            case "3p":
+            case .ThirdPlural:
                 return "aberunt"
-            default:
-                return "cant find number and person"
             }
         case "adsum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "adero"
-            case "2s":
+            case .SecondSingular:
                 return "aderis"
-            case "3s":
+            case .ThirdSingular:
                 return "aderit"
-            case "1p":
+            case .FirstPlural:
                 return "aderimus"
-            case "2p":
+            case .SecondPlural:
                 return "aderitis"
-            case "3p":
+            case .ThirdPlural:
                 return "aderunt"
-            default:
-                return "cant find number and person"
             }
         case "possum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "potero"
-            case "2s":
+            case .SecondSingular:
                 return "poteris"
-            case "3s":
+            case .ThirdSingular:
                 return "poterit"
-            case "1p":
+            case .FirstPlural:
                 return "poterimus"
-            case "2p":
+            case .SecondPlural:
                 return "poteritis"
-            case "3p":
+            case .ThirdPlural:
                 return "poterunt"
-            default:
-                return "cant find number and person"
             }
         case "aufero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "auferam"
-            case "2s":
+            case .SecondSingular:
                 return "auferes"
-            case "3s":
+            case .ThirdSingular:
                 return "auferet"
-            case "1p":
+            case .FirstPlural:
                 return "auferemus"
-            case "2p":
+            case .SecondPlural:
                 return "auferetis"
-            case "3p":
+            case .ThirdPlural:
                 return "auferent"
-            default:
-                return "cant find number and person"
             }
         case "copei":
             return "can not find"
         case "eo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "ibo"
-            case "2s":
+            case .SecondSingular:
                 return "ibis"
-            case "3s":
+            case .ThirdSingular:
                 return "ibit"
-            case "1p":
+            case .FirstPlural:
                 return "ibimus"
-            case "2p":
+            case .SecondPlural:
                 return "ibisti"
-            case "3p":
+            case .ThirdPlural:
                 return "ibunt"
-            default:
-                return "cant find number and person"
+                
             }
         case "":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "feram"
-            case "2s":
+            case .SecondSingular:
                 return "feres"
-            case "3s":
+            case .ThirdSingular:
                 return "feret"
-            case "1p":
+            case .FirstPlural:
                 return "feremus"
-            case "2p":
+            case .SecondPlural:
                 return "feretis"
-            case "3p":
+            case .ThirdPlural:
                 return "ferent"
-            default:
-                return "cant find number and person"
+                
             }
         case "inquit":
             return "not needed"
         case "malo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "malam"
-            case "2s":
+            case .SecondSingular:
                 return "males"
-            case "3s":
+            case .ThirdSingular:
                 return "malet"
-            case "1p":
+            case .FirstPlural:
                 return "malemus"
-            case "2p":
+            case .SecondPlural:
                 return "maletis"
-            case "3p":
+            case .ThirdPlural:
                 return "malent"
-            default:
-                return "cant find number and person"
+                
             }
         case "nolo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "nolam"
-            case "3s":
+            case .ThirdSingular:
                 return "noles"
-            case "1p":
+            case .FirstPlural:
                 return "nolet"
-            case "2p":
+            case .SecondPlural:
                 return "noletis"
-            case "3p":
+            case .ThirdPlural:
                 return "nolent"
-            default:
-                return "cant find number and person"
+                
             }
         case "offero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "offeram"
-            case "2s":
+            case .SecondSingular:
                 return "offeres"
-            case "3s":
+            case .ThirdSingular:
                 return "offeret"
-            case "1p":
+            case .FirstPlural:
                 return "offeremus"
-            case "2p":
+            case .SecondPlural:
                 return "offeretis"
-            case "3p":
+            case .ThirdPlural:
                 return "offerent"
-            default:
-                return "cant find number and person"
+                
             }
         case "pereo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "peribo"
-            case "2s":
+            case .SecondSingular:
                 return "peribis"
-            case "3s":
+            case .ThirdSingular:
                 return "peribit"
-            case "1p":
+            case .FirstPlural:
                 return "peribimus"
-            case "2p":
+            case .SecondPlural:
                 return "peribitis"
-            case "3p":
+            case .ThirdPlural:
                 return "peribunt"
-            default:
-                return "cant find number and person"
+                
             }
         case "redeo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "redibo"
-            case "2s":
+            case .SecondSingular:
                 return "redibis"
-            case "3s":
+            case .ThirdSingular:
                 return "redibit"
-            case "1p":
+            case .FirstPlural:
                 return "redibimus"
-            case "2p":
+            case .SecondPlural:
                 return "redibitis"
-            case "3p":
+            case .ThirdPlural:
                 return "redibunt"
-            default:
-                return "cant find number and person"
+                
             }
         case "volo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "volam"
-            case "2s":
+            case .SecondSingular:
                 return "voles"
-            case "3s":
+            case .ThirdSingular:
                 return "volet"
-            case "1p":
+            case .FirstPlural:
                 return "volemus"
-            case "2p":
+            case .SecondPlural:
                 return "vuletis"
-            case "3p":
+            case .ThirdPlural:
                 return "volent"
-            default:
-                return "cant find number and person"
+                
             }
             
         default:
             return "cant find verb"
         }
     }
-    override func GetPerfect(str: String) -> String {
+    override func GetPerfect(personNum: PersonNum) -> String {
         switch present1S {
         case "sum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "fui"
-            case "2s":
+            case .SecondSingular:
                 return "fuisti"
-            case "3s":
+            case .ThirdSingular:
                 return "fuit"
-            case "1p":
+            case .FirstPlural:
                 return "fuimus"
-            case "2p":
+            case .SecondPlural:
                 return "fuistis"
-            case "3p":
+            case .ThirdPlural:
                 return "fuerunt"
-            default:
-                return "cant find number and person"
+                
             }
         case "absum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "abfui"
-            case "2s":
+            case .SecondSingular:
                 return "abfuisti"
-            case "3s":
+            case .ThirdSingular:
                 return "abfuit"
-            case "1p":
+            case .FirstPlural:
                 return "abfuimus"
-            case "2p":
+            case .SecondPlural:
                 return "abfuitis"
-            case "3p":
+            case .ThirdPlural:
                 return "abferunt"
-            default:
-                return "cant find number and person"
+                
             }
         case "adsum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "adfui"
-            case "2s":
+            case .SecondSingular:
                 return "adfuisti"
-            case "3s":
+            case .ThirdSingular:
                 return "adfuit"
-            case "1p":
+            case .FirstPlural:
                 return "adfuimus"
-            case "2p":
+            case .SecondPlural:
                 return "adfuistis"
-            case "3p":
+            case .ThirdPlural:
                 return "adfuerunt"
-            default:
-                return "cant find number and person"
+                
             }
         case "possum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "potui"
-            case "2s":
+            case .SecondSingular:
                 return "potuisti"
-            case "3s":
+            case .ThirdSingular:
                 return "potuit"
-            case "1p":
+            case .FirstPlural:
                 return "potuimus"
-            case "2p":
+            case .SecondPlural:
                 return "potuitis"
-            case "3p":
+            case .ThirdPlural:
                 return "potuerunt"
-            default:
-                return "cant find number and person"
             }
         case "aufero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "autbsli"
-            case "2s":
+            case .SecondSingular:
                 return "autbslisti"
-            case "3s":
+            case .ThirdSingular:
                 return "autbsit"
-            case "1p":
+            case .FirstPlural:
                 return "autbslimus"
-            case "2p":
+            case .SecondPlural:
                 return "autbslistis"
-            case "3p":
+            case .ThirdPlural:
                 return "autbslerunt"
-            default:
-                return "cant find number and person"
+                
             }
         case "copei":
             return "can not find"
         case "eo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "ii"
-            case "2s":
+            case .SecondSingular:
                 return "iisti"
-            case "3s":
+            case .ThirdSingular:
                 return "iit"
-            case "1p":
+            case .FirstPlural:
                 return "iimus"
-            case "2p":
+            case .SecondPlural:
                 return "isitis"
-            case "3p":
+            case .ThirdPlural:
                 return "ierunt"
-            default:
-                return "cant find number and person"
+                
             }
         case "fero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "tuli"
-            case "2s":
+            case .SecondSingular:
                 return "tulisti"
-            case "3s":
+            case .ThirdSingular:
                 return "tulit"
-            case "1p":
+            case .FirstPlural:
                 return "tulimus"
-            case "2p":
+            case .SecondPlural:
                 return "tulistis"
-            case "3p":
+            case .ThirdPlural:
                 return "tulerunt"
-            default:
-                return "cant find number and person"
+                
             }
         case "inquit":
             return "not needed"
         case "malo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "malui"
-            case "2s":
+            case .SecondSingular:
                 return "maluisti"
-            case "3s":
+            case .ThirdSingular:
                 return "maluit"
-            case "1p":
+            case .FirstPlural:
                 return "maluimus"
-            case "2p":
+            case .SecondPlural:
                 return "maluisitis"
-            case "3p":
+            case .ThirdPlural:
                 return "maluerunt"
-            default:
-                return "cant find number and person"
+                
             }
         case "nolo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "nolui"
-            case "2s":
+            case .SecondSingular:
                 return "noluisti"
-            case "3s":
+            case .ThirdSingular:
                 return "noluit"
-            case "1p":
+            case .FirstPlural:
                 return "noluimus"
-            case "2p":
+            case .SecondPlural:
                 return "noluistis"
-            case "3p":
+            case .ThirdPlural:
                 return "noluerunt"
-            default:
-                return "cant find number and person"
+                
             }
         case "offero":
             /*
@@ -940,771 +852,725 @@ class IrregularVerb : Verb{
              vōs    tulístis
              iī    tulḗrunt
              */
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "oftuli"
-            case "2s":
+            case .SecondSingular:
                 return "oftulisti"
-            case "3s":
+            case .ThirdSingular:
                 return "oftulit"
-            case "1p":
+            case .FirstPlural:
                 return "oftulimus"
-            case "2p":
+            case .SecondPlural:
                 return "oftulistis"
-            case "3p":
+            case .ThirdPlural:
                 return "oftulerunt"
-            default:
-                return "cant find number and person"
+                
             }
         case "pereo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "perii"
-            case "2s":
+            case .SecondSingular:
                 return "peristi"
-            case "3s":
+            case .ThirdSingular:
                 return "periit"
-            case "1p":
+            case .FirstPlural:
                 return "perimus"
-            case "2p":
+            case .SecondPlural:
                 return "peristis"
-            case "3p":
+            case .ThirdPlural:
                 return "perierunt"
-            default:
-                return "cant find number and person"
+                
             }
         case "redeo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "redii"
-            case "2s":
+            case .SecondSingular:
                 return "redisti"
-            case "3s":
+            case .ThirdSingular:
                 return "rediit"
-            case "1p":
+            case .FirstPlural:
                 return "redimus"
-            case "2p":
+            case .SecondPlural:
                 return "redistis"
-            case "3p":
+            case .ThirdPlural:
                 return "redierunt"
-            default:
-                return "cant find number and person"
+                
             }
         case "volo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "volui"
-            case "2s":
+            case .SecondSingular:
                 return "voluisti"
-            case "3s":
+            case .ThirdSingular:
                 return "voluit"
-            case "1p":
+            case .FirstPlural:
                 return "voluimus"
-            case "2p":
+            case .SecondPlural:
                 return "vuluistis"
-            case "3p":
+            case .ThirdPlural:
                 return "voluierunt"
-            default:
-                return "cant find number and person"
+                
             }
             
         default:
             return "cant find verb"
         }
     }
-    override func GetPluperfect(str: String) -> String {
+    override func GetPluperfect(personNum: PersonNum) -> String{
         switch present1S {
         case "sum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "sim"
-            case "2s":
+            case .SecondSingular:
                 return "sis"
-            case "3s":
+            case .ThirdSingular:
                 return "sit"
-            case "1p":
+            case .FirstPlural:
                 return "simus"
-            case "2p":
+            case .SecondPlural:
                 return "sitis"
-            case "3p":
+            case .ThirdPlural:
                 return "sint"
-            default:
-                return "cant find number and person"
+                
             }
         case "absum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "absim"
-            case "2s":
+            case .SecondSingular:
                 return "absis"
-            case "3s":
+            case .ThirdSingular:
                 return "absit"
-            case "1p":
+            case .FirstPlural:
                 return "absimus"
-            case "2p":
+            case .SecondPlural:
                 return "absitis"
-            case "3p":
+            case .ThirdPlural:
                 return "absint"
-            default:
-                return "cant find number and person"
+                
             }
         case "adsum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "adsim"
-            case "2s":
+            case .SecondSingular:
                 return "adsis"
-            case "3s":
+            case .ThirdSingular:
                 return "adsit"
-            case "1p":
+            case .FirstPlural:
                 return "adsimus"
-            case "2p":
+            case .SecondPlural:
                 return "adsitis"
-            case "3p":
+            case .ThirdPlural:
                 return "adsint"
-            default:
-                return "cant find number and person"
             }
         case "possum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "possim"
-            case "2s":
+            case .SecondSingular:
                 return "possis"
-            case "3s":
+            case .ThirdSingular:
                 return "possit"
-            case "1p":
+            case .FirstPlural:
                 return "possimus"
-            case "2p":
+            case .SecondPlural:
                 return "possitis"
-            case "3p":
+            case .ThirdPlural:
                 return "possint"
-            default:
-                return "cant find number and person"
             }
         case "aufero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "autbsleram"
-            case "2s":
+            case .SecondSingular:
                 return "autbsleras"
-            case "3s":
+            case .ThirdSingular:
                 return "autbslerat"
-            case "1p":
+            case .FirstPlural:
                 return "autbsleramus"
-            case "2p":
+            case .SecondPlural:
                 return "autbsleratis"
-            case "3p":
+            case .ThirdPlural:
                 return "autbslerant"
-            default:
-                return "cant find number and person"
+                
             }
         case "copei":
             return "can not find"
         case "eo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "eam"
-            case "2s":
+            case .SecondSingular:
                 return "eas"
-            case "3s":
+            case .ThirdSingular:
                 return "eat"
-            case "1p":
+            case .FirstPlural:
                 return "eamus"
-            case "2p":
+            case .SecondPlural:
                 return "eates"
-            case "3p":
+            case .ThirdPlural:
                 return "eant"
-            default:
-                return "cant find number and person"
+                
             }
         case "fero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "feram"
-            case "2s":
+            case .SecondSingular:
                 return "feras"
-            case "3s":
+            case .ThirdSingular:
                 return "ferat"
-            case "1p":
+            case .FirstPlural:
                 return "feramus"
-            case "2p":
+            case .SecondPlural:
                 return "feratis"
-            case "3p":
+            case .ThirdPlural:
                 return "ferant"
-            default:
-                return "cant find number and person"
+                
             }
         case "inquit":
             return "not needed"
         case "malo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "malim"
-            case "2s":
+            case .SecondSingular:
                 return "malis"
-            case "3s":
+            case .ThirdSingular:
                 return "malit"
-            case "1p":
+            case .FirstPlural:
                 return "malimus"
-            case "2p":
+            case .SecondPlural:
                 return "malitis"
-            case "3p":
+            case .ThirdPlural:
                 return "malint"
-            default:
-                return "cant find number and person"
+                
             }
         case "nolo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "nolim"
-            case "2s":
+            case .SecondSingular:
                 return "nolis"
-            case "3s":
+            case .ThirdSingular:
                 return "nolit"
-            case "1p":
+            case .FirstPlural:
                 return "nolimus"
-            case "2p":
+            case .SecondPlural:
                 return "nolitis"
-            case "3p":
+            case .ThirdPlural:
                 return "nolint"
-            default:
-                return "cant find number and person"
+                
             }
         case "offero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "offeram"
-            case "2s":
+            case .SecondSingular:
                 return "offeras"
-            case "3s":
+            case .ThirdSingular:
                 return "offerat"
-            case "1p":
+            case .FirstPlural:
                 return "offeramus"
-            case "2p":
+            case .SecondPlural:
                 return "offeratis"
-            case "3p":
+            case .ThirdPlural:
                 return "offerant"
-            default:
-                return "cant find number and person"
+                
             }
             
         case "pereo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "peream"
-            case "2s":
+            case .SecondSingular:
                 return "pereas"
-            case "3s":
+            case .ThirdSingular:
                 return "pereat"
-            case "1p":
+            case .FirstPlural:
                 return "pereamus"
-            case "2p":
+            case .SecondPlural:
                 return "perwates"
-            case "3p":
+            case .ThirdPlural:
                 return "pereant"
-            default:
-                return "cant find number and person"
+                
             }
         case "redeo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "redeam"
-            case "2s":
+            case .SecondSingular:
                 return "redeas"
-            case "3s":
+            case .ThirdSingular:
                 return "redeat"
-            case "1p":
+            case .FirstPlural:
                 return "redeamus"
-            case "2p":
+            case .SecondPlural:
                 return "redeates"
-            case "3p":
+            case .ThirdPlural:
                 return "redeant"
-            default:
-                return "cant find number and person"
+                
             }
         case "volo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "volim"
-            case "2s":
+            case .SecondSingular:
                 return "volis"
-            case "3s":
+            case .ThirdSingular:
                 return "volit"
-            case "1p":
+            case .FirstPlural:
                 return "volimus"
-            case "2p":
+            case .SecondPlural:
                 return "volitis"
-            case "3p":
+            case .ThirdPlural:
                 return "volint"
-            default:
-                return "cant find number and person"
+                
             }
             
         default:
             return "cant find verb"
         }
     }
-    override func GetSubjunctivePresent(str: String) -> String {
+    override func GetSubjunctivePresent(personNum: PersonNum) -> String{
         switch present1S {
         case "sum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "fueram"
-            case "2s":
+            case .SecondSingular:
                 return "fueras"
-            case "3s":
+            case .ThirdSingular:
                 return "fuerat"
-            case "1p":
+            case .FirstPlural:
                 return "fueramus"
-            case "2p":
+            case .SecondPlural:
                 return "fueratis"
-            case "3p":
+            case .ThirdPlural:
                 return "fuerant"
-            default:
-                return "cant find number and person"
+                
             }
         case "absum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "abfueram"
-            case "2s":
+            case .SecondSingular:
                 return "abfueras"
-            case "3s":
+            case .ThirdSingular:
                 return "abfuerat"
-            case "1p":
+            case .FirstPlural:
                 return "abfueramus"
-            case "2p":
+            case .SecondPlural:
                 return "abfueratis"
-            case "3p":
+            case .ThirdPlural:
                 return "abfuerant"
-            default:
-                return "cant find number and person"
+                
             }
         case "adsum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "adfueram"
-            case "2s":
+            case .SecondSingular:
                 return "adfueras"
-            case "3s":
+            case .ThirdSingular:
                 return "adfuerat"
-            case "1p":
+            case .FirstPlural:
                 return "adfueramus"
-            case "2p":
+            case .SecondPlural:
                 return "adfueratis"
-            case "3p":
+            case .ThirdPlural:
                 return "adfuerant"
-            default:
-                return "cant find number and person"
+                
             }
         case "possum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "potueram"
-            case "2s":
+            case .SecondSingular:
                 return "potueras"
-            case "3s":
+            case .ThirdSingular:
                 return "potuerat"
-            case "1p":
+            case .FirstPlural:
                 return "potueramus"
-            case "2p":
+            case .SecondPlural:
                 return "potueratis"
-            case "3p":
+            case .ThirdPlural:
                 return "potuerant"
-            default:
-                return "cant find number and person"
             }
         case "aufero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "autuleram"
-            case "2s":
+            case .SecondSingular:
                 return "autuleras"
-            case "3s":
+            case .ThirdSingular:
                 return "autulerat"
-            case "1p":
+            case .FirstPlural:
                 return "autuleramus"
-            case "2p":
+            case .SecondPlural:
                 return "autuleratis"
-            case "3p":
+            case .ThirdPlural:
                 return "autulerant"
-            default:
-                return "cant find number and person"
+                
             }
         case "copei":
             return "can not find"
         case "eo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "ieram"
-            case "2s":
+            case .SecondSingular:
                 return "ieras"
-            case "3s":
+            case .ThirdSingular:
                 return "ierat"
-            case "1p":
+            case .FirstPlural:
                 return "ieramus"
-            case "2p":
+            case .SecondPlural:
                 return "ieratis"
-            case "3p":
+            case .ThirdPlural:
                 return "ierant"
-            default:
-                return "cant find number and person"
+                
             }
         case "fero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "tuleram"
-            case "2s":
+            case .SecondSingular:
                 return "tuleras"
-            case "3s":
+            case .ThirdSingular:
                 return "tulerat"
-            case "1p":
+            case .FirstPlural:
                 return "tuleramus"
-            case "2p":
+            case .SecondPlural:
                 return "tuleratis"
-            case "3p":
+            case .ThirdPlural:
                 return "tulerant"
-            default:
-                return "cant find number and person"
+                
             }
         case "inquit":
             return "not needed"
         case "malo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "malueram"
-            case "2s":
+            case .SecondSingular:
                 return "malueras"
-            case "3s":
+            case .ThirdSingular:
                 return "maluerat"
-            case "1p":
+            case .FirstPlural:
                 return "malueramus"
-            case "2p":
+            case .SecondPlural:
                 return "malueratis"
-            case "3p":
+            case .ThirdPlural:
                 return "maluerant"
-            default:
-                return "cant find number and person"
+                
             }
         case "nolo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "nolueram"
-            case "2s":
+            case .SecondSingular:
                 return "nolueras"
-            case "3s":
+            case .ThirdSingular:
                 return "noluerat"
-            case "1p":
+            case .FirstPlural:
                 return "nolueramus"
-            case "2p":
+            case .SecondPlural:
                 return "nolueratis"
-            case "3p":
+            case .ThirdPlural:
                 return "noluerant"
-            default:
-                return "cant find number and person"
+                
             }
         case "offero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "obtuleram"
-            case "2s":
+            case .SecondSingular:
                 return "obtuleras"
-            case "3s":
+            case .ThirdSingular:
                 return "obtulerat"
-            case "1p":
+            case .FirstPlural:
                 return "obtuleramus"
-            case "2p":
+            case .SecondPlural:
                 return "obtuleratis"
-            case "3p":
+            case .ThirdPlural:
                 return "obtulerant"
-            default:
-                return "cant find number and person"
+                
             }
             
         case "pereo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "perieram"
-            case "2s":
+            case .SecondSingular:
                 return "perieras"
-            case "3s":
+            case .ThirdSingular:
                 return "perierat"
-            case "1p":
+            case .FirstPlural:
                 return "perieramus"
-            case "2p":
+            case .SecondPlural:
                 return "perieratis"
-            case "3p":
+            case .ThirdPlural:
                 return "perierant"
-            default:
-                return "cant find number and person"
+                
             }
         case "redeo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "redieram"
-            case "2s":
+            case .SecondSingular:
                 return "redieras"
-            case "3s":
+            case .ThirdSingular:
                 return "redierat"
-            case "1p":
+            case .FirstPlural:
                 return "redieramus"
-            case "2p":
+            case .SecondPlural:
                 return "redieratis"
-            case "3p":
+            case .ThirdPlural:
                 return "redierant"
-            default:
-                return "cant find number and person"
+                
             }
         case "volo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "volueram"
-            case "2s":
+            case .SecondSingular:
                 return "volueras"
-            case "3s":
+            case .ThirdSingular:
                 return "voluerat"
-            case "1p":
+            case .FirstPlural:
                 return "volueramus"
-            case "2p":
+            case .SecondPlural:
                 return "vulueratis"
-            case "3p":
+            case .ThirdPlural:
                 return "voluerant"
-            default:
-                return "cant find number and person"
+                
             }
             
         default:
             return "cant find verb"
         }
     }
-    override func GetSubjunctiveImperfect(str: String) -> String {
+    override func GetSubjunctiveImperfect(personNum: PersonNum) -> String {
         switch present1S {
         case "sum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "essem"
-            case "2s":
+            case .SecondSingular:
                 return "esses"
-            case "3s":
+            case .ThirdSingular:
                 return "esset"
-            case "1p":
+            case .FirstPlural:
                 return "essemus"
-            case "2p":
+            case .SecondPlural:
                 return "essetis"
-            case "3p":
+            case .ThirdPlural:
                 return "essent"
-            default:
-                return "cant find number and person"
+                
             }
         case "absum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "abessem"
-            case "2s":
+            case .SecondSingular:
                 return "abesses"
-            case "3s":
+            case .ThirdSingular:
                 return "abesset"
-            case "1p":
+            case .FirstPlural:
                 return "abessemus"
-            case "2p":
+            case .SecondPlural:
                 return "abessetis"
-            case "3p":
+            case .ThirdPlural:
                 return "abessent"
-            default:
-                return "cant find number and person"
+                
             }
         case "adsum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "adessem"
-            case "2s":
+            case .SecondSingular:
                 return "adesses"
-            case "3s":
+            case .ThirdSingular:
                 return "adesset"
-            case "1p":
+            case .FirstPlural:
                 return "adessemus"
-            case "2p":
+            case .SecondPlural:
                 return "adessetis"
-            case "3p":
+            case .ThirdPlural:
                 return "adessent"
-            default:
-                return "cant find number and person"
+                
             }
         case "possum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "possem"
-            case "2s":
+            case .SecondSingular:
                 return "posses"
-            case "3s":
+            case .ThirdSingular:
                 return "posset"
-            case "1p":
+            case .FirstPlural:
                 return "possemus"
-            case "2p":
+            case .SecondPlural:
                 return "possetis"
-            case "3p":
+            case .ThirdPlural:
                 return "possent"
-            default:
-                return "cant find number and person"
+                
             }
         case "aufero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "auferem"
-            case "2s":
+            case .SecondSingular:
                 return "auferes"
-            case "3s":
+            case .ThirdSingular:
                 return "auferet"
-            case "1p":
+            case .FirstPlural:
                 return "auferemus"
-            case "2p":
+            case .SecondPlural:
                 return "auferetis"
-            case "3p":
+            case .ThirdPlural:
                 return "auferent"
-            default:
-                return "cant find number and person"
+                
             }
         case "copei":
             return "can not find"
         case "eo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "irem"
-            case "2s":
+            case .SecondSingular:
                 return "ires"
-            case "3s":
+            case .ThirdSingular:
                 return "iret"
-            case "1p":
+            case .FirstPlural:
                 return "iremus"
-            case "2p":
+            case .SecondPlural:
                 return "iretis"
-            case "3p":
+            case .ThirdPlural:
                 return "irent"
-            default:
-                return "cant find number and person"
+                
             }
         case "fero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "ferem"
-            case "2s":
+            case .SecondSingular:
                 return "feres"
-            case "3s":
+            case .ThirdSingular:
                 return "feret"
-            case "1p":
+            case .FirstPlural:
                 return "feremus"
-            case "2p":
+            case .SecondPlural:
                 return "feretis"
-            case "3p":
+            case .ThirdPlural:
                 return "ferent"
-            default:
-                return "cant find number and person"
+                
             }
         case "inquit":
             return "not needed"
         case "malo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "mallem"
-            case "2s":
+            case .SecondSingular:
                 return "malles"
-            case "3s":
+            case .ThirdSingular:
                 return "mallet"
-            case "1p":
+            case .FirstPlural:
                 return "mallemus"
-            case "2p":
+            case .SecondPlural:
                 return "malletis"
-            case "3p":
+            case .ThirdPlural:
                 return "mallent"
-            default:
-                return "cant find number and person"
+                
             }
         case "nolo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "nollem"
-            case "2s":
+            case .SecondSingular:
                 return "nolles"
-            case "3s":
+            case .ThirdSingular:
                 return "nollet"
-            case "1p":
+            case .FirstPlural:
                 return "nollemus"
-            case "2p":
+            case .SecondPlural:
                 return "nolletis"
-            case "3p":
+            case .ThirdPlural:
                 return "nollent"
-            default:
-                return "cant find number and person"
+                
             }
         case "offero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "offerem"
-            case "2s":
+            case .SecondSingular:
                 return "offeres"
-            case "3s":
+            case .ThirdSingular:
                 return "offeret"
-            case "1p":
+            case .FirstPlural:
                 return "offeremus"
-            case "2p":
+            case .SecondPlural:
                 return "offeretis"
-            case "3p":
+            case .ThirdPlural:
                 return "offerent"
-            default:
-                return "cant find number and person"
+                
             }
             
         case "pereo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "perirem"
-            case "2s":
+            case .SecondSingular:
                 return "perires"
-            case "3s":
+            case .ThirdSingular:
                 return "periret"
-            case "1p":
+            case .FirstPlural:
                 return "periremus"
-            case "2p":
+            case .SecondPlural:
                 return "periretis"
-            case "3p":
+            case .ThirdPlural:
                 return "perirent"
-            default:
-                return "cant find number and person"
+                
             }
         case "redeo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "redirem"
-            case "2s":
+            case .SecondSingular:
                 return "redires"
-            case "3s":
+            case .ThirdSingular:
                 return "rediremus"
-            case "1p":
+            case .FirstPlural:
                 return "rediremus"
-            case "2p":
+            case .SecondPlural:
                 return "rediretis"
-            case "3p":
+            case .ThirdPlural:
                 return "redirent"
-            default:
-                return "cant find number and person"
+                
             }
         case "volo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "vellem"
-            case "2s":
+            case .SecondSingular:
                 return "velles"
-            case "3s":
+            case .ThirdSingular:
                 return "vellet"
-            case "1p":
+            case .FirstPlural:
                 return "vellemus"
-            case "2p":
+            case .SecondPlural:
                 return "velletis"
-            case "3p":
+            case .ThirdPlural:
                 return "vellent"
-            default:
-                return "cant find number and person"
+                
             }
             
         default:
@@ -1712,474 +1578,448 @@ class IrregularVerb : Verb{
         }
         
     }
-    override func GetSubjunctivePerfect(str: String) -> String {
+    override func GetSubjunctivePerfect(personNum: PersonNum) -> String {
         switch present1S {
         case "sum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "fuerim"
-            case "2s":
+            case .SecondSingular:
                 return "fueris"
-            case "3s":
+            case .ThirdSingular:
                 return "fuerit"
-            case "1p":
+            case .FirstPlural:
                 return "fuerimus"
-            case "2p":
+            case .SecondPlural:
                 return "fueritis"
-            case "3p":
+            case .ThirdPlural:
                 return "fuerint"
-            default:
-                return "cant find number and person"
+                
             }
         case "absum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "abfuerim"
-            case "2s":
+            case .SecondSingular:
                 return "abfueris"
-            case "3s":
+            case .ThirdSingular:
                 return "abfuerit"
-            case "1p":
+            case .FirstPlural:
                 return "abfuerimus"
-            case "2p":
+            case .SecondPlural:
                 return "abfueritis"
-            case "3p":
+            case .ThirdPlural:
                 return "abfuerint"
-            default:
-                return "cant find number and person"
+                
             }
         case "adsum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "adfuerim"
-            case "2s":
+            case .SecondSingular:
                 return "adfueris"
-            case "3s":
+            case .ThirdSingular:
                 return "adfuerit"
-            case "1p":
+            case .FirstPlural:
                 return "adfuerimus"
-            case "2p":
+            case .SecondPlural:
                 return "adfueritis"
-            case "3p":
+            case .ThirdPlural:
                 return "adfuerint"
-            default:
-                return "cant find number and person"
+                
             }
         case "possum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "potuerim"
-            case "2s":
+            case .SecondSingular:
                 return "potueris"
-            case "3s":
+            case .ThirdSingular:
                 return "potuerit"
-            case "1p":
+            case .FirstPlural:
                 return "potuerimus"
-            case "2p":
+            case .SecondPlural:
                 return "potueritis"
-            case "3p":
+            case .ThirdPlural:
                 return "potuerint"
-            default:
-                return "cant find number and person"
+                
             }
         case "aufero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "autbslerim"
-            case "2s":
+            case .SecondSingular:
                 return "autbsleris"
-            case "3s":
+            case .ThirdSingular:
                 return "autbslerimus"
-            case "1p":
+            case .FirstPlural:
                 return "autbsleritis"
-            case "2p":
+            case .SecondPlural:
                 return "autbsleritis"
-            case "3p":
+            case .ThirdPlural:
                 return "autbslerint"
-            default:
-                return "cant find number and person"
+                
             }
         case "copei":
             return "can not find"
         case "eo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "ierim"
-            case "2s":
+            case .SecondSingular:
                 return "ieris"
-            case "3s":
+            case .ThirdSingular:
                 return "ierit"
-            case "1p":
+            case .FirstPlural:
                 return "ierimus"
-            case "2p":
+            case .SecondPlural:
                 return "ieritis"
-            case "3p":
+            case .ThirdPlural:
                 return "ierint"
-            default:
-                return "cant find number and person"
+                
             }
             
         case "fero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "tulerim"
-            case "2s":
+            case .SecondSingular:
                 return "tuleris"
-            case "3s":
+            case .ThirdSingular:
                 return "tulerit"
-            case "1p":
+            case .FirstPlural:
                 return "tulerimus"
-            case "2p":
+            case .SecondPlural:
                 return "tuleritis"
-            case "3p":
+            case .ThirdPlural:
                 return "tulerint"
-            default:
-                return "cant find number and person"
+                
             }
         case "inquit":
             return "not needed"
         case "malo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "maluerim"
-            case "2s":
+            case .SecondSingular:
                 return "malueris"
-            case "3s":
+            case .ThirdSingular:
                 return "maluerit"
-            case "1p":
+            case .FirstPlural:
                 return "maluerimus"
-            case "2p":
+            case .SecondPlural:
                 return "malueritis"
-            case "3p":
+            case .ThirdPlural:
                 return "maluerint"
-            default:
-                return "cant find number and person"
+                
             }
         case "nolo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "noluerim"
-            case "2s":
+            case .SecondSingular:
                 return "nolueris"
-            case "3s":
+            case .ThirdSingular:
                 return "noluerit"
-            case "1p":
+            case .FirstPlural:
                 return "noluerimus"
-            case "2p":
+            case .SecondPlural:
                 return "nolueritis"
-            case "3p":
+            case .ThirdPlural:
                 return "noluerint"
-            default:
-                return "cant find number and person"
+                
             }
         case "offero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "obtulerim"
-            case "2s":
+            case .SecondSingular:
                 return "obtuleris"
-            case "3s":
+            case .ThirdSingular:
                 return "obtulerit"
-            case "1p":
+            case .FirstPlural:
                 return "obtulerimus"
-            case "2p":
+            case .SecondPlural:
                 return "obtuleritis"
-            case "3p":
+            case .ThirdPlural:
                 return "obtulerint"
-            default:
-                return "cant find number and person"
+                
             }
             
         case "pereo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "perierim"
-            case "2s":
+            case .SecondSingular:
                 return "perieris"
-            case "3s":
+            case .ThirdSingular:
                 return "perierit"
-            case "1p":
+            case .FirstPlural:
                 return "perierimus"
-            case "2p":
+            case .SecondPlural:
                 return "perieritis"
-            case "3p":
+            case .ThirdPlural:
                 return "perierint"
-            default:
-                return "cant find number and person"
+                
             }
         case "redeo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "redierim"
-            case "2s":
+            case .SecondSingular:
                 return "redieris"
-            case "3s":
+            case .ThirdSingular:
                 return "redierit"
-            case "1p":
+            case .FirstPlural:
                 return "redierimus"
-            case "2p":
+            case .SecondPlural:
                 return "redieritis"
-            case "3p":
+            case .ThirdPlural:
                 return "redierint"
-            default:
-                return "cant find number and person"
+                
             }
         case "volo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "voluerim"
-            case "2s":
+            case .SecondSingular:
                 return "volueris"
-            case "3s":
+            case .ThirdSingular:
                 return "voluerit"
-            case "1p":
+            case .FirstPlural:
                 return "voluerimus"
-            case "2p":
+            case .SecondPlural:
                 return "volueritis"
-            case "3p":
+            case .ThirdPlural:
                 return "voluerint"
-            default:
-                return "cant find number and person"
+                
             }
             
         default:
             return "cant find verb"
         }
     }
-    override func GetSubjunctivePluperfect(str:String) -> String {
+    override func GetSubjunctivePluperfect(personNum: PersonNum) -> String {
         switch present1S {
         case "sum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "fuissem"
-            case "2s":
+            case .SecondSingular:
                 return "fuisses"
-            case "3s":
+            case .ThirdSingular:
                 return "fuisset"
-            case "1p":
+            case .FirstPlural:
                 return "fuissemus"
-            case "2p":
+            case .SecondPlural:
                 return "fuissetis"
-            case "3p":
+            case .ThirdPlural:
                 return "fuissent"
-            default:
-                return "cant find number and person"
+
+                
             }
         case "absum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "sbfuissem"
-            case "2s":
+            case .SecondSingular:
                 return "abfuisses"
-            case "3s":
+            case .ThirdSingular:
                 return "abuisset"
-            case "1p":
+            case .FirstPlural:
                 return "abfuissemus"
-            case "2p":
+            case .SecondPlural:
                 return "abfuissetis"
-            case "3p":
+            case .ThirdPlural:
                 return "abfuissent"
-            default:
-                return "cant find number and person"
+                
             }
         case "adsum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "adfuissem"
-            case "2s":
+            case .SecondSingular:
                 return "adfuisses"
-            case "3s":
+            case .ThirdSingular:
                 return "adfuisset"
-            case "1p":
+            case .FirstPlural:
                 return "adfuissemus"
-            case "2p":
+            case .SecondPlural:
                 return "adfuissetis"
-            case "3p":
+            case .ThirdPlural:
                 return "adfuissent"
-            default:
-                return "cant find number and person"
+                
             }
         case "possum":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "potuissem"
-            case "2s":
+            case .SecondSingular:
                 return "potuisses"
-            case "3s":
+            case .ThirdSingular:
                 return "potuisset"
-            case "1p":
+            case .FirstPlural:
                 return "potuissemus"
-            case "2p":
+            case .SecondPlural:
                 return "potuissetis"
-            case "3p":
+            case .ThirdPlural:
                 return "potuissent"
-            default:
-                return "cant find number and person"
+                
             }
         case "aufero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "autbslissem"
-            case "2s":
+            case .SecondSingular:
                 return "autbslisses"
-            case "3s":
+            case .ThirdSingular:
                 return "autbslissemus"
-            case "1p":
+            case .FirstPlural:
                 return "autbslissetis"
-            case "2p":
+            case .SecondPlural:
                 return "autbslissetis"
-            case "3p":
+            case .ThirdPlural:
                 return "autbslissent"
-            default:
-                return "cant find number and person"
+                
             }
         case "copei":
             return "can not find"
         case "eo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "issem"
-            case "2s":
+            case .SecondSingular:
                 return "isses"
-            case "3s":
+            case .ThirdSingular:
                 return "isset"
-            case "1p":
+            case .FirstPlural:
                 return "issemus"
-            case "2p":
+            case .SecondPlural:
                 return "issetis"
-            case "3p":
+            case .ThirdPlural:
                 return "issent"
-            default:
-                return "cant find number and person"
+                
             }
         case "fero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "tulissem"
-            case "2s":
+            case .SecondSingular:
                 return "tulisses"
-            case "3s":
+            case .ThirdSingular:
                 return "tulisset"
-            case "1p":
+            case .FirstPlural:
                 return "tulissemus"
-            case "2p":
+            case .SecondPlural:
                 return "tulissetis"
-            case "3p":
+            case .ThirdPlural:
                 return "tulissent"
-            default:
-                return "cant find number and person"
+                
             }
         case "inquit":
             return "not needed"
         case "malo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "maluissem"
-            case "2s":
+            case .SecondSingular:
                 return "maluisses"
-            case "3s":
+            case .ThirdSingular:
                 return "maluisset"
-            case "1p":
+            case .FirstPlural:
                 return "maluissemus"
-            case "2p":
+            case .SecondPlural:
                 return "maluissetis"
-            case "3p":
+            case .ThirdPlural:
                 return "maluissent"
-            default:
-                return "cant find number and person"
+                
             }
         case "nolo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "noluissem"
-            case "2s":
+            case .SecondSingular:
                 return "noluisses"
-            case "3s":
+            case .ThirdSingular:
                 return "noluisset"
-            case "1p":
+            case .FirstPlural:
                 return "noluissemus"
-            case "2p":
+            case .SecondPlural:
                 return "noluissetis"
-            case "3p":
+            case .ThirdPlural:
                 return "noluissent"
-            default:
-                return "cant find number and person"
+                
             }
         case "offero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "obtulissem"
-            case "2s":
+            case .SecondSingular:
                 return "obtulisses"
-            case "3s":
+            case .ThirdSingular:
                 return "obtulisset"
-            case "1p":
+            case .FirstPlural:
                 return "obtulissemus"
-            case "2p":
+            case .SecondPlural:
                 return "obtulissetis"
-            case "3p":
+            case .ThirdPlural:
                 return "obtulissent"
-            default:
-                return "cant find number and person"
+                
             }
             
         case "pereo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "perissem"
-            case "2s":
+            case .SecondSingular:
                 return "perisses"
-            case "3s":
+            case .ThirdSingular:
                 return "perisset"
-            case "1p":
+            case .FirstPlural:
                 return "perissemus"
-            case "2p":
+            case .SecondPlural:
                 return "perissetis"
-            case "3p":
+            case .ThirdPlural:
                 return "perissent"
-            default:
-                return "cant find number and person"
             }
         case "redeo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "redissem"
-            case "2s":
+            case .SecondSingular:
                 return "redisses"
-            case "3s":
+            case .ThirdSingular:
                 return "redisset"
-            case "1p":
+            case .FirstPlural:
                 return "redissemus"
-            case "2p":
+            case .SecondPlural:
                 return "redissetis"
-            case "3p":
+            case .ThirdPlural:
                 return "redissent"
-            default:
-                return "cant find number and person"
+                
             }
         case "volo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "voluissem"
-            case "2s":
+            case .SecondSingular:
                 return "voluisses"
-            case "3s":
+            case .ThirdSingular:
                 return "volisset"
-            case "1p":
+            case .FirstPlural:
                 return "voluissemus"
-            case "2p":
+            case .SecondPlural:
                 return "voluissetis"
-            case "3p":
+            case .ThirdPlural:
                 return "voluissent"
-            default:
-                return "cant find number and person"
+                
             }
             
         default:
             return "cant find verb"
         }
     }
-    override func GetPassiveIndicitivePresent(str: String) -> String {
+    override func GetPassiveIndicitivePresent(personNum: PersonNum) -> String {
         switch present1S {
         case "sum":
             return "none"
@@ -2190,57 +2030,54 @@ class IrregularVerb : Verb{
         case "possum":
             return "none"
         case "aufero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return "auferor"
-            case "3s":
+            case .ThirdSingular:
                 return "auferis"
-            case "1p":
+            case .FirstPlural:
                 return "aufermur"
-            case "2p":
+            case .SecondPlural:
                 return "aufermini"
-            case "3p":
+            case .ThirdPlural:
                 return "auferuntur"
-            default:
-                return "cant find number and person"
+                
             }
         case "copei":
             return "none"
         case "eo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "eor"
-            case "2s":
+            case .SecondSingular:
                 return "iris"
-            case "3s":
+            case .ThirdSingular:
                 return "itur"
-            case "1p":
+            case .FirstPlural:
                 return "imur"
-            case "2p":
+            case .SecondPlural:
                 return "imini"
-            case "3p":
+            case .ThirdPlural:
                 return "euntur"
-            default:
-                return "cant find number and person"
+                
             }
         case "":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "feror"
-            case "2s":
+            case .SecondSingular:
                 return "feris"
-            case "3s":
+            case .ThirdSingular:
                 return "fertur"
-            case "1p":
+            case .FirstPlural:
                 return "fermur"
-            case "2p":
+            case .SecondPlural:
                 return "fermini"
-            case "3p":
+            case .ThirdPlural:
                 return "feruntur"
-            default:
-                return "cant find number and person"
+                
             }
         case "inquit":
             return "none"
@@ -2249,79 +2086,74 @@ class IrregularVerb : Verb{
         case "nolo":
             return "none"
         case "offero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "offeror"
-            case "2s":
+            case .SecondSingular:
                 return "offerris"
-            case "3s":
+            case .ThirdSingular:
                 return "offertur"
-            case "1p":
+            case .FirstPlural:
                 return "offermur"
-            case "2p":
+            case .SecondPlural:
                 return "offerimini"
-            case "3p":
+            case .ThirdPlural:
                 return "offeruntur"
-            default:
-                return "cant find number and person"
             }
         case "pereo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "pereor"
-            case "2s":
+            case .SecondSingular:
                 return "periris"
-            case "3s":
+            case .ThirdSingular:
                 return "peritur"
-            case "1p":
+            case .FirstPlural:
                 return "perimur"
-            case "2p":
+            case .SecondPlural:
                 return "perimini"
-            case "3p":
+            case .ThirdPlural:
                 return "pereuntur"
-            default:
-                return "cant find number and person"
+                
             }
         case "redeo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "redeor"
-            case "2s":
+            case .SecondSingular:
                 return "rediris"
-            case "3s":
+            case .ThirdSingular:
                 return "reditur"
-            case "1p":
+            case .FirstPlural:
                 return "redimur"
-            case "2p":
+            case .SecondPlural:
                 return "redimini"
-            case "3p":
+            case .ThirdPlural:
                 return "redeuntur"
-            default:
-                return "cant find number and person"
+                
             }
         case "volo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "volor"
-            case "2s":
+            case .SecondSingular:
                 return "volaris"
-            case "3s":
+            case .ThirdSingular:
                 return "volatur"
-            case "1p":
+            case .FirstPlural:
                 return "volamur"
-            case "2p":
+            case .SecondPlural:
                 return "volamini"
-            case "3p":
+            case .ThirdPlural:
                 return "volamini"
-            default:
-                return "cant find number and person"
+                
             }
             
         default:
             return "cant find verb"
         }
     }
-    override func GetPassiveIndicitiveImperfect(str: String) -> String {
+    override func GetPassiveIndicitiveImperfect(personNum: PersonNum) -> String {
         switch present1S {
         case "sum":
             return "none"
@@ -2332,57 +2164,54 @@ class IrregularVerb : Verb{
         case "possum":
             return "none"
         case "aufero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "auferebar"
-            case "2s":
+            case .SecondSingular:
                 return "auferebaris"
-            case "3s":
+            case .ThirdSingular:
                 return "auferebatur"
-            case "1p":
+            case .FirstPlural:
                 return "auferebamur"
-            case "2p":
+            case .SecondPlural:
                 return "auferebamini"
-            case "3p":
+            case .ThirdPlural:
                 return "auferuntur"
-            default:
-                return "cant find number and person"
+                
             }
         case "copei":
             return "none"
         case "eo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "ibar"
-            case "2s":
+            case .SecondSingular:
                 return "ibaris"
-            case "3s":
+            case .ThirdSingular:
                 return "ibatur"
-            case "1p":
+            case .FirstPlural:
                 return "ibamur"
-            case "2p":
+            case .SecondPlural:
                 return "ibamini"
-            case "3p":
+            case .ThirdPlural:
                 return "ibantur"
-            default:
-                return "cant find number and person"
+                
             }
         case "fero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "ferebar"
-            case "2s":
+            case .SecondSingular:
                 return "ferebaris"
-            case "3s":
+            case .ThirdSingular:
                 return "ferebatur"
-            case "1p":
+            case .FirstPlural:
                 return "ferebamur"
-            case "2p":
+            case .SecondPlural:
                 return "ferebamini"
-            case "3p":
+            case .ThirdPlural:
                 return "ferebantur"
-            default:
-                return "cant find number and person"
+                
             }
         case "inquit":
             return "none"
@@ -2391,81 +2220,76 @@ class IrregularVerb : Verb{
         case "nolo":
             return "none"
         case "offero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "offerebar"
-            case "2s":
+            case .SecondSingular:
                 return "offerebaris"
-            case "3s":
+            case .ThirdSingular:
                 return "offerebatur"
-            case "1p":
+            case .FirstPlural:
                 return "offerebamur"
-            case "2p":
+            case .SecondPlural:
                 return "offerebamini"
-            case "3p":
+            case .ThirdPlural:
                 return "offerebantur"
-            default:
-                return "cant find number and person"
+                
             }
         case "pereo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "peribar"
-            case "2s":
+            case .SecondSingular:
                 return "peribaris"
-            case "3s":
+            case .ThirdSingular:
                 return "peribatur"
-            case "1p":
+            case .FirstPlural:
                 return "peribamur"
-            case "2p":
+            case .SecondPlural:
                 return "peribamini"
-            case "3p":
+            case .ThirdPlural:
                 return "peribantur"
-            default:
-                return "cant find number and person"
+                
             }
         case "redeo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "redibar"
-            case "2s":
+            case .SecondSingular:
                 return "redibaris"
-            case "3s":
+            case .ThirdSingular:
                 return "redibatur"
-            case "1p":
+            case .FirstPlural:
                 return "redibamur"
-            case "2p":
+            case .SecondPlural:
                 return "redibamini"
-            case "3p":
+            case .ThirdPlural:
                 return "redibantur"
-            default:
-                return "cant find number and person"
+                
             }
         case "volo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "volabar"
-            case "2s":
+            case .SecondSingular:
                 return "volaris"
-            case "3s":
+            case .ThirdSingular:
                 return "volabatur"
-            case "1p":
+            case .FirstPlural:
                 return "volabamur"
-            case "2p":
+            case .SecondPlural:
                 return "volabamini"
-            case "3p":
+            case .ThirdPlural:
                 return "volabantur"
-            default:
-                return "cant find number and person"
             }
             
         default:
             return "cant find verb"
         }
     }
-    // no need to as all of the verbs follow the pattern override func GetPassiveIndicitiveFuture(str: String)
+    // no need to as all of the verbs follow the pattern override func GetPassiveIndicitiveFuture(personNum: personNum)
     // same for passive indicitive pluperfect and passive subjective perfect and pluperfect
-    override func GetPassiveSubjunctivePresent(str: String) -> String {
+    override func GetPassiveSubjunctivePresent(personNum: PersonNum) -> String {
         switch present1S {
         case "sum":
             return "none"
@@ -2476,57 +2300,54 @@ class IrregularVerb : Verb{
         case "possum":
             return "none"
         case "aufero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "auferar"
-            case "2s":
+            case .SecondSingular:
                 return "auferaris"
-            case "3s":
+            case .ThirdSingular:
                 return "auferatur"
-            case "1p":
+            case .FirstPlural:
                 return "auferamur"
-            case "2p":
+            case .SecondPlural:
                 return "auferamini"
-            case "3p":
+            case .ThirdPlural:
                 return "auferantur"
-            default:
-                return "cant find number and person"
+                
             }
         case "copei":
             return "none"
         case "eo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "ear"
-            case "2s":
+            case .SecondSingular:
                 return "eares"
-            case "3s":
+            case .ThirdSingular:
                 return "eatur"
-            case "1p":
+            case .FirstPlural:
                 return "eamur"
-            case "2p":
+            case .SecondPlural:
                 return "eameni"
-            case "3p":
+            case .ThirdPlural:
                 return "eantur"
-            default:
-                return "cant find number and person"
+                
             }
         case "fero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "ferar"
-            case "2s":
+            case .SecondSingular:
                 return "feraris"
-            case "3s":
+            case .ThirdSingular:
                 return "feratur"
-            case "1p":
+            case .FirstPlural:
                 return "feramur"
-            case "2p":
+            case .SecondPlural:
                 return "feramini"
-            case "3p":
+            case .ThirdPlural:
                 return "ferantur"
-            default:
-                return "cant find number and person"
+                
             }
         case "inquit":
             return "none"
@@ -2535,79 +2356,75 @@ class IrregularVerb : Verb{
         case "nolo":
             return "none"
         case "offero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "offerar"
-            case "2s":
+            case .SecondSingular:
                 return "offeraris"
-            case "3s":
+            case .ThirdSingular:
                 return "offeratur"
-            case "1p":
+            case .FirstPlural:
                 return "offeramur"
-            case "2p":
+            case .SecondPlural:
                 return "offeramini"
-            case "3p":
+            case .ThirdPlural:
                 return "offerantur"
-            default:
-                return "cant find number and person"
+                
             }
         case "pereo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "perear"
-            case "2s":
+            case .SecondSingular:
                 return "pereares"
-            case "3s":
+            case .ThirdSingular:
                 return "pereatur"
-            case "1p":
+            case .FirstPlural:
                 return "pereamur"
-            case "2p":
+            case .SecondPlural:
                 return "pereameni"
-            case "3p":
+            case .ThirdPlural:
                 return "pereantur"
-            default:
-                return "cant find number and person"
+                
             }
         case "redeo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "redear"
-            case "2s":
+            case .SecondSingular:
                 return "redeares"
-            case "3s":
+            case .ThirdSingular:
                 return "redeatur"
-            case "1p":
+            case .FirstPlural:
                 return "redeamur"
-            case "2p":
+            case .SecondPlural:
                 return "redeameni"
-            case "3p":
+            case .ThirdPlural:
                 return "redeantur"
-            default:
-                return "cant find number and person"
+                
             }
         case "volo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "voler"
-            case "2s":
+            case .SecondSingular:
                 return "voleris"
-            case "3s":
+            case .ThirdSingular:
                 return "voletur"
-            case "1p":
+            case .FirstPlural:
                 return "volemur"
-            case "2p":
+            case .SecondPlural:
                 return "volemini"
-            case "3p":
+            case .ThirdPlural:
                 return "volentur"
-            default:
-                return "cant find number and person"
+                
             }
             
         default:
             return "cant find verb"
         }
     }
-    override func GetPassiveSubjunctiveImperfect(str: String) -> String {
+    override func GetPassiveSubjunctiveImperfect(personNum: PersonNum) -> String {
         switch present1S {
         case "sum":
             return "none"
@@ -2618,57 +2435,54 @@ class IrregularVerb : Verb{
         case "possum":
             return "none"
         case "aufero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "aufererer"
-            case "2s":
+            case .SecondSingular:
                 return "auferereris"
-            case "3s":
+            case .ThirdSingular:
                 return "aufereretur"
-            case "1p":
+            case .FirstPlural:
                 return "aufereremur"
-            case "2p":
+            case .SecondPlural:
                 return "aufereremini"
-            case "3p":
+            case .ThirdPlural:
                 return "aufererentur"
-            default:
-                return "cant find number and person"
+                
             }
         case "copei":
             return "none"
         case "eo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "irer"
-            case "2s":
+            case .SecondSingular:
                 return "ireris"
-            case "3s":
+            case .ThirdSingular:
                 return "iretur"
-            case "1p":
+            case .FirstPlural:
                 return "iremur"
-            case "2p":
+            case .SecondPlural:
                 return "iremini"
-            case "3p":
+            case .ThirdPlural:
                 return "irentur"
-            default:
-                return "cant find number and person"
+                
             }
         case "fero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "fererer"
-            case "2s":
+            case .SecondSingular:
                 return "ferereris"
-            case "3s":
+            case .ThirdSingular:
                 return "fereretur"
-            case "1p":
+            case .FirstPlural:
                 return "fereremur"
-            case "2p":
+            case .SecondPlural:
                 return "fereremini"
-            case "3p":
+            case .ThirdPlural:
                 return "fererentur"
-            default:
-                return "cant find number and person"
+                
             }
         case "inquit":
             return "none"
@@ -2677,72 +2491,68 @@ class IrregularVerb : Verb{
         case "nolo":
             return "none"
         case "offero":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "offererer"
-            case "2s":
+            case .SecondSingular:
                 return "offerereris"
-            case "3s":
+            case .ThirdSingular:
                 return "offereretur"
-            case "1p":
+            case .FirstPlural:
                 return "offereremur"
-            case "2p":
+            case .SecondPlural:
                 return "offereremini"
-            case "3p":
+            case .ThirdPlural:
                 return "offererentur"
-            default:
-                return "cant find number and person"
+                
             }
         case "pereo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "perirer"
-            case "2s":
+            case .SecondSingular:
                 return "perireris"
-            case "3s":
+            case .ThirdSingular:
                 return "periretur"
-            case "1p":
+            case .FirstPlural:
                 return "periremur"
-            case "2p":
+            case .SecondPlural:
                 return "periremini"
-            case "3p":
+            case .ThirdPlural:
                 return "pereirentur"
-            default:
-                return "cant find number and person"
+                
             }
         case "redeo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "redirer"
-            case "2s":
+            case .SecondSingular:
                 return "redireris"
-            case "3s":
+            case .ThirdSingular:
                 return "rediretur"
-            case "1p":
+            case .FirstPlural:
                 return "rediremur"
-            case "2p":
+            case .SecondPlural:
                 return "rediremini"
-            case "3p":
+            case .ThirdPlural:
                 return "redeirentur"
-            default:
-                return "cant find number and person"
+                
             }
         case "volo":
-            switch str.lowercased() {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return "volarer"
-            case "2s":
+            case .SecondSingular:
                 return "volareris"
-            case "3s":
+            case .ThirdSingular:
                 return "volaretur"
-            case "1p":
+            case .FirstPlural:
                 return "volaremur"
-            case "2p":
+            case .SecondPlural:
                 return "volaremini"
-            case "3p":
+            case .ThirdPlural:
                 return "volarentur"
-            default:
-                return "cant find number and person"
+                
             }
             
         default:

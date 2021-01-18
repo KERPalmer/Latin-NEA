@@ -11,10 +11,10 @@ struct AdjectiveDeclensionFilterView: View {
     @Binding var quiz : Quiz
     var body: some View {
         List(){
-            Toggle(isOn:$quiz.settings.adjectiveTwoOne){
+            Toggle(isOn:$quiz.env.quizSettings.adjectiveTwoOne){
                 Text("First and Second Declension Adjectives")
             }
-            Toggle(isOn:$quiz.settings.adjectiveThree){
+            Toggle(isOn:$quiz.env.quizSettings.adjectiveThree){
                 Text("First and Second Declension Adjectives")
             }
             

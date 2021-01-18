@@ -13,14 +13,24 @@ struct QuestionView: View {
     @State var isCorrect = false
     @State var isAnswered = false
     var body: some View {
-        VStack{
-            Text("What is the translation of")
-            Text(quiz.getQuestion().latin)
-            TextField("Enter answer here",text: $answer)
-            Button("submit"){
-                isAnswered = true
-                if quiz.getQuestion().vocabTranslations.contains(answer.lowercased()){
-                    isCorrect = true
+        //TO MUCH STUFF
+        ZStack{
+            if isAnswered{
+                if isCorrect{
+                    //CorrectView(quiz: quiz, isAnswered: isAnswered, isCorrect: isCorrect)
+                }
+                else{
+                    IncorrectView()
+                }
+            }else{
+                if quiz.env.quizSettings.vocabOnly{
+                    if quiz.env.quizSettings.multipleChoice{
+                        VocabMultipleChoiceView()
+                    }else{
+                        VocabWrittenInputView(question: quiz.getQuestion() as! VocabQuestion, isCorrect: $isCorrect, isAnswered: $isAnswered)
+                    }
+                }else{
+                    FormInputView(question: quiz.getQuestion()  as! FormQuestion, isCorrect: $isCorrect, isAnswered: $isAnswered)
                 }
             }
         }

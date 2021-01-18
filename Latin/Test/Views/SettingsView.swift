@@ -13,22 +13,30 @@ struct SettingsView: View {
     var body: some View {
         VStack{
             List{
-                Toggle(isOn: $quiz.settings.verbs){
+                Toggle(isOn:$quiz.env.quizSettings.vocabOnly){
+                    Text("vocabulary only")
+                }
+                Toggle(isOn:$quiz.env.quizSettings.multipleChoice){
+                    Text("multiple choice")
+                }
+            }
+            List{
+                Toggle(isOn: $quiz.env.quizSettings.verbs){
                     Text("Test Verbs")
                 }
-                Toggle(isOn: $quiz.settings.nouns){
+                Toggle(isOn: $quiz.env.quizSettings.nouns){
                     Text("Test Nouns")
                 }
-                Toggle(isOn:$quiz.settings.adjectives){
+                Toggle(isOn:$quiz.env.quizSettings.adjectives){
                     Text("Test Adjectives")
                 }
-                Toggle(isOn: $quiz.settings.adverbs){
+                Toggle(isOn: $quiz.env.quizSettings.adverbs){
                     Text("Test Adverbs")
                 }
-                Toggle(isOn: $quiz.settings.prepositions){
+                Toggle(isOn: $quiz.env.quizSettings.prepositions){
                     Text("Test Prepositions")
                 }
-                Toggle(isOn: $quiz.settings.conjuctions){
+                Toggle(isOn: $quiz.env.quizSettings.conjuctions){
                     Text("Test conjunctions")
                 }
             }

@@ -21,7 +21,7 @@ struct DecisionView:View{
                     }
                 }
                 .tag(0)
-            QuizView(quiz: Quiz(Quizsettings: env.quizSettings))
+            QuizView(quiz: Quiz(enviroment: env))
                 .tabItem {
                     VStack {
                         Text("Practise")

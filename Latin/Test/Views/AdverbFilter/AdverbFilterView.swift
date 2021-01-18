@@ -11,7 +11,7 @@ struct AdverbFilterView: View {
     @Binding var quiz:Quiz
     var body: some View {
         HStack{
-            Toggle(isOn:$quiz.settings.adverbs){
+            Toggle(isOn:$quiz.env.quizSettings.adverbs){
                 Text("Adverbs")
             }
             Spacer()

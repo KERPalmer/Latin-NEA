@@ -11,16 +11,16 @@ struct ConjugationFilterView: View {
     @Binding var quiz:Quiz
     var body: some View {
         List(){
-            Toggle(isOn:$quiz.settings.ConjugationOne){
+            Toggle(isOn:$quiz.env.quizSettings.ConjugationOne){
                 Text("First Conjugation Verbs")
             }
-            Toggle(isOn:$quiz.settings.ConjugationTwo){
+            Toggle(isOn:$quiz.env.quizSettings.ConjugationTwo){
                 Text("Second Conjugation Verbs")
             }
-            Toggle(isOn:$quiz.settings.ConjugationThree){
+            Toggle(isOn:$quiz.env.quizSettings.ConjugationThree){
                 Text("Third Conjugation Verbs")
             }
-            Toggle(isOn:$quiz.settings.ConjugationFour){
+            Toggle(isOn:$quiz.env.quizSettings.ConjugationFour){
                 Text("Fourth Conjugation Verbs")
             }
         }

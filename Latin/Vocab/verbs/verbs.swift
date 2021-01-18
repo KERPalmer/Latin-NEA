@@ -8,11 +8,11 @@
 
 class Verb:Word,Codable{
     // using the pricipal parts we should in theory be able to derive any tense, person or voice
-    public let present1S:String
+    public let present1S:String // this is for ease of access, you could just use the function
     public let infinitive:String
     public let future1S:String
     public let perfectParticipal:String
-    public var conjugation:String
+    public var conjugation:VerbConjugation
     public var stem:String
     override init(line:String, id_:Int){
         let trimmed:String=line.replacingOccurrences(of: "\r", with: "")
@@ -47,7 +47,8 @@ class Verb:Word,Codable{
                 perfectParticipal=format(str:splitParts[2])
             }
             // look for conjugation
-            conjugation=format(str:seperated[2])
+            let conjunctionString = format(str:seperated[2])
+            conjugation = VerbConjugation(rawValue: conjunctionString) ?? VerbConjugation.unknown
         }
         else if seperated.count==3{
             //form 2
@@ -78,7 +79,7 @@ class Verb:Word,Codable{
             }
             // seperate the conjugation and translation
             let splitTypeAndTrans = seperated[2].split(separator: ",", omittingEmptySubsequences: true).map { String($0) }
-            conjugation=format(str:splitTypeAndTrans[0])
+            conjugation = VerbConjugation(rawValue: format(str:splitTypeAndTrans[0]))  ?? VerbConjugation.unknown
         }
         else{
             // prevents crashing
@@ -86,7 +87,7 @@ class Verb:Word,Codable{
             infinitive=""
             future1S=""
             perfectParticipal="null"
-            conjugation="null"
+            conjugation = VerbConjugation.unknown
             stem="null"
         }
         // stem is drop the "re" and the letter for each conjugation
@@ -106,698 +107,742 @@ class Verb:Word,Codable{
      2p = 2nd person plural: you all
      3p = 3rd persin plural: they
      */
-    func GetImperfect(str: String)->String{
+    override func GetForm(formString:[String])->String{
+        //form string should be in the form of mood, voice, tense, personNum, gender
+        if formString[0] == Mood.indicative.rawValue{
+            if formString[1] == Voice.active.rawValue{
+                if formString[2] == Tense.Present.rawValue{
+                    return GetPresent(personNum: PersonNum.init(rawValue: formString[3])!)
+                }
+                else if formString[2] == Tense.imperfect.rawValue{
+                    return GetImperfect(personNum: PersonNum.init(rawValue: formString[3])!)
+                }
+                else if formString[2] == Tense.perfect.rawValue{
+                    return GetPerfect(personNum: PersonNum.init(rawValue: formString[3])!)
+                }
+                else if formString[2] == Tense.pluperfect.rawValue{
+                    return GetPluperfect(personNum: PersonNum.init(rawValue: formString[3])!)
+                }
+                else if formString[2] == Tense.future.rawValue{
+                    return GetFuture(personNum: PersonNum.init(rawValue: formString[3])!)
+                }
+                else if formString[2] == Tense.infinitive.rawValue{
+                    return infinitive
+                }
+                else {
+                    return "ERROR INVALID TENSE"
+                }
+            }
+            else if formString[1] == Voice.passive.rawValue{
+                    if formString[2] == Tense.Present.rawValue{
+                        return GetPassiveIndicitivePresent(personNum: PersonNum.init(rawValue: formString[3])!)
+                    }
+                    else if formString[2] == Tense.imperfect.rawValue{
+                        return GetPassiveIndicitiveImperfect(personNum: PersonNum.init(rawValue: formString[3])!)
+                    }
+                    else if formString[2] == Tense.perfect.rawValue{
+                        return GetPassiveIndicitivePerfect(personNum: PersonNum.init(rawValue: formString[3])!, gender: formString[4])
+                    }
+                    else if formString[2] == Tense.pluperfect.rawValue{
+                        return GetPassiveIndicitivePluperfect(personNum: PersonNum.init(rawValue: formString[3])!, gender: formString[4])
+                    }
+                    else if formString[2] == Tense.future.rawValue{
+                        return GetPassiveIndicitiveFuture(personNum: PersonNum.init(rawValue: formString[3])!)
+                    }
+                    else if formString[2] == Tense.infinitive.rawValue{
+                        //TODO ADD PASSIVE INFINITIVES
+                        return infinitive
+                    }
+                    else{
+                        return "ERROR INVALID TENSE"
+                    }
+                }
+            else{
+                return "ERROR INVALID VOICE"
+            }
+        }
+        else if formString[0] == Mood.subjunctive.rawValue{
+            if formString[1] == Voice.active.rawValue{
+                if formString[2] == Tense.Present.rawValue{
+                    return GetSubjunctivePresent(personNum: PersonNum.init(rawValue: formString[3])!)
+                }
+                else if formString[2] == Tense.imperfect.rawValue{
+                    return GetSubjunctiveImperfect(personNum: PersonNum.init(rawValue: formString[3])!)
+                }
+                else if formString[2] == Tense.perfect.rawValue{
+                    return GetSubjunctivePerfect(personNum: PersonNum.init(rawValue: formString[3])!)
+                }
+                else if formString[2] == Tense.pluperfect.rawValue{
+                    return GetSubjunctivePluperfect(personNum: PersonNum.init(rawValue: formString[3])!)
+                }
+                else if formString[2] == Tense.infinitive.rawValue{
+                    //TODO INFINITIVE SUBJUNCTIVES
+                    return infinitive
+                }
+                else{
+                    return "ERROR INVALID VOICE"
+                }
+            }
+            else if formString[1] == Voice.passive.rawValue{
+                    if formString[2] == Tense.Present.rawValue{
+                        return GetPassiveSubjunctivePresent(personNum: PersonNum.init(rawValue: formString[3])!)
+                    }
+                    else if formString[2] == Tense.imperfect.rawValue{
+                        return GetPassiveSubjunctiveImperfect(personNum: PersonNum.init(rawValue: formString[3])!)
+                    }
+                    else if formString[2] == Tense.perfect.rawValue{
+                        return GetPassiveSubjunctivePerfect(personNum: PersonNum.init(rawValue: formString[3])!, gender: formString[4])
+                    }
+                    else if formString[2] == Tense.pluperfect.rawValue{
+                        return GetPassiveSubjunctivePluperfect(personNum: PersonNum.init(rawValue: formString[3])!, gender: formString[4])
+                    }
+                    else if formString[2] == Tense.infinitive.rawValue{
+                        //TODO ADD PASSIVE INFINITIVES
+                        return infinitive
+                    }
+                    else{
+                        return "ERROR INVALID TENSE"
+                    }
+                }
+            else{
+                return "ERROR INVALID VOICE"
+            }
+        }
+        else{
+            return "ERROR INVALID MOOD"
+        }
+    }
+    func GetImperfect(personNum:PersonNum)->String{
         var infix:String
-        switch conjugation.suffix(1) {
-        case "1":
+        switch conjugation {
+        case .First:
             //1st conjugation
             infix="a"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+infix+"bam"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"bas"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"bat"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"bamus"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"batis"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"bant"
-            default:
-                return "not valid input "
             }
-        case "2":
+        case .Second:
             //2nd conjugation
             infix="e"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+infix+"bam"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"bas"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"bat"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"bamus"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"batis"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"bant"
-            default:
-                return "not valid input "
             }
-        case "3":
+        case .Third:
             //3rd conjugation
             if present1S.suffix(2)=="io"{
                 infix="ie"
             }else{
                 infix="e"
             }
-            switch str {
-            case "1s":
+            switch personNum{
+            case .FirstSingular:
                 return stem+infix+"bam"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"bas"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"bat"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"bamus"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"batis"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"bant"
-            default:
-                return "not valid input "
             }
-        case "4":
+        case .Fourth:
             //4th conjugation
             infix="ie"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+infix+"bam"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"bas"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"bat"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"bamus"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"batis"
-            case "3p":
+            case .ThirdPlural:
                 return stem+"i"+"bant"
-            default:
-                return "not valid input "
             }
         default:
             return "not valid input"
         }
     }
-    func GetPresent(str:String)->String{
+    func GetPresent(personNum:PersonNum)->String{
         var infix:String
-        switch conjugation.suffix(1) {
-        case "1":
+        switch conjugation {
+        case .First:
             //1st conjugation
             infix="a"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"s"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"t"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"mus"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"tis"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"nt"
-            default:
-                return "not valid input "
             }
-        case "2":
+        case .Second:
             //2nd conjugation
             infix="e"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"s"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"t"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"mus"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"tis"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"nt"
-            default:
-                return "not valid input "
             }
-        case "3":
+        case .Third:
             //3rd conjugation
             infix="i"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"s"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"t"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"mus"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"tis"
-            case "3p":
+            case .ThirdPlural:
                 if String(present1S.suffix(2))=="io"{
                     return stem+"iu"+"nt"
                 }else{
                     return stem+"u"+"nt"
                 }
-            default:
-                return "not valid input "
             }
-        case "4":
+        case .Fourth:
             //4th conjugation
             infix="i"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return present1S
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"s"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"t"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"mus"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"tis"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"nt"
-            default:
-                return "not valid input "
             }
         default:
             return "not valid input"
         }
     }
-    func GetFuture(str:String)->String{
+    func GetFuture(personNum:PersonNum)->String{
         var infix:String
-        switch conjugation.suffix(1) {
-        case "1":
+        switch conjugation {
+        case .First:
             //1st conjugation
             infix="a"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+infix+"bo"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"bis"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"bit"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"bimus"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"bitis"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"bunt"
-            default:
-                return "not valid input "
             }
-        case "2":
+        case .Second:
             //2nd conjugation
             infix="e"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+infix+"bo"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"bis"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"bit"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"bimus"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"bitis"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"bunt"
-            default:
-                return "not valid input "
             }
-        case "3":
+        case .Third:
             //3rd conjugation
             if present1S.suffix(2)=="io"{
                 infix="i"
             }else{
                 infix=""
             }
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+"am"
-            case "2s":
+            case .SecondSingular:
                 return stem+"es"
-            case "3s":
+            case .ThirdSingular:
                 return stem+"et"
-            case "1p":
+            case .FirstPlural:
                 return stem+"emus"
-            case "2p":
+            case .SecondPlural:
                 return stem+"etis"
-            case "3p":
+            case .ThirdPlural:
                 return stem+"ent"
-            default:
-                return "not valid input "
             }
-        case "4":
+        case .Fourth:
             //4th conjugation
             infix="i"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+infix+"am"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"es"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"et"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"emus"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"etis"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"ent"
-            default:
-                return "not valid input "
             }
         default:
             return "not valid input"
         }
     }
-    func GetPerfect(str:String)->String{
+    func GetPerfect(personNum:PersonNum)->String{
         let futureStem=future1S.dropLast()
-        switch str {
-        case "1s":
+        switch personNum {
+        case .FirstSingular:
             return future1S
-        case "2s":
+        case .SecondSingular:
             return futureStem + "isti"
-        case "3s":
+        case .ThirdSingular:
             return futureStem + "it"
-        case "1p":
+        case .FirstPlural:
             return futureStem + "imus"
-        case "2p":
+        case .SecondPlural:
             return futureStem + "istis"
-        case "3p":
+        case .ThirdPlural:
             return futureStem + "erunt"
-        default:
-            return "not valid input "
         }
     }
-    func GetPluperfect(str:String)->String{
+    func GetPluperfect(personNum:PersonNum)->String{
         let futureStem=future1S.dropLast()
-        switch str {
-        case "1s":
+        switch personNum {
+        case .FirstSingular:
             return futureStem + "ero"
-        case "2s":
+        case .SecondSingular:
             return futureStem + "eris"
-        case "3s":
+        case .ThirdSingular:
             return futureStem + "erit"
-        case "1p":
+        case .FirstPlural:
             return futureStem + "erimus"
-        case "2p":
+        case .SecondPlural:
             return futureStem + "eristis"
-        case "3p":
+        case .ThirdPlural:
             return futureStem + "erant"
-        default:
-            return "not valid input "
         }
     }
     func GetSubjunctiveVowel()->String{
-        switch conjugation.suffix(1) {
-        case "1":
+        switch conjugation {
+        case .First:
             return "e"
-        case "2":
+        case .Second:
             return "ea"
-        case "3":
+        case .Third:
             if (present1S.suffix(2)=="io"){
                 //it is an 3rd io verb
                 return"ia"
             }else{
                 return "a"
             }
-        case"4":
+        case.Fourth:
             return "ia"
         default:
             return "cant find conjugation"
         }
     }
-    func GetSubjunctivePresent(str:String)->String{
+    func GetSubjunctivePresent(personNum:PersonNum)->String{
         let subjuntiveVowel:String = GetSubjunctiveVowel()
         let StemWithVowel=stem+subjuntiveVowel
-        switch str{
-        case"1s":
+        switch personNum{
+        case .FirstSingular:
             return StemWithVowel + "m"
-        case"2s":
+        case .SecondSingular:
             return StemWithVowel + "s"
-        case"3s":
+        case .ThirdSingular:
             return StemWithVowel + "t"
-        case"1p":
+        case .FirstPlural:
             return StemWithVowel + "mus"
-        case"2p":
+        case .SecondPlural:
             return StemWithVowel + "tis"
-        case"3p":
+        case .ThirdPlural:
             return StemWithVowel + "nt"
-        default:
-            return "can't find person/number"
         }
     }
-    func GetSubjunctiveImperfect(str:String)->String{
-        switch str {
-        case "1s":
+    func GetSubjunctiveImperfect(personNum:PersonNum)->String{
+        switch personNum{
+        case .FirstSingular:
             return infinitive+"m"
-        case "2s":
+        case .SecondSingular:
             return infinitive+"s"
-        case "3s":
+        case .ThirdSingular:
             return infinitive+"t"
-        case "1p":
+        case .FirstPlural:
             return infinitive+"mus"
-        case "2p":
+        case .SecondPlural:
             return infinitive+"tis"
-        case "3p":
+        case .ThirdPlural:
             return infinitive+"nt"
-        default:
-            return "cant find person/number"
         }
     }
-    func GetSubjunctivePerfect(str:String)->String{
+    func GetSubjunctivePerfect(personNum:PersonNum)->String{
         let futureStem=future1S.dropLast()
-        switch str {
-        case "1s":
+        switch personNum {
+        case .FirstSingular:
             return  futureStem+"eri"+"m"
-        case "2s":
+        case .SecondSingular:
             return futureStem+"eri"+"s"
-        case "3s":
+        case .ThirdSingular:
             return futureStem+"eri"+"t"
-        case "1p":
+        case .FirstPlural:
             return futureStem+"eri"+"mus"
-        case "2p":
+        case .SecondPlural:
             return futureStem+"eri"+"tis"
-        case "3p":
+        case .ThirdPlural:
             return futureStem+"eri"+"m"
-        default:
-            return "cant find person/number"
         }
     }
-    func GetSubjunctivePluperfect(str:String) -> String {
+    func GetSubjunctivePluperfect(personNum:PersonNum) -> String {
         let futureStem=future1S.dropLast()
-        switch str {
-        case "1s":
+        switch personNum {
+        case .FirstSingular:
             return  futureStem+"isse"+"m"
-        case "2s":
+        case .SecondSingular:
             return futureStem+"isse"+"s"
-        case "3s":
+        case .ThirdSingular:
             return futureStem+"isse"+"t"
-        case "1p":
+        case .FirstPlural:
             return futureStem+"isse"+"mus"
-        case "2p":
+        case .SecondPlural:
             return futureStem+"isse"+"tis"
-        case "3p":
+        case .ThirdPlural:
             return futureStem+"isse"+"m"
-        default:
-            return "cant find person/number"
         }
     }
-    func GetPassiveIndicitivePresent(str:String) -> String{
+    func GetPassiveIndicitivePresent(personNum:PersonNum) -> String{
         var infix:String
-        switch conjugation.suffix(1) {
-        case "1":
+        switch conjugation {
+        case .First:
             //1st conjugation
             infix="a"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+"or"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"ris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"tur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"mur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"mini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"ntur"
-            default:
-                return "not valid input "
             }
-        case "2":
+        case .Second:
             //2nd conjugation
             infix="e"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+infix+"or"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"ris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"tur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"mur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"mini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"ntur"
-            default:
-                return "not valid input "
             }
-        case "3":
+        case .Third:
             //3rd conjugation
             if present1S.suffix(2)=="io"{
                 infix = "i"
-                switch str {
-                case "1s":
+                switch personNum {
+                case .FirstSingular:
                     return stem + infix + "or"
-                case "2s":
+                case .SecondSingular:
                     return stem+infix+"ris"
-                case "3s":
+                case .ThirdSingular:
                     return stem+infix+"tur"
-                case "1p":
+                case .FirstPlural:
                     return stem+infix+"mur"
-                case "2p":
+                case .SecondPlural:
                     return stem+infix+"mini"
-                case "3p":
+                case .ThirdPlural:
                     return stem+infix+"untur"
-                default:
-                    return "not valid input "
                 }
             }else{
                 infix = "e"
-                switch str {
-                case "1s":
+                switch personNum {
+                case .FirstSingular:
                     return stem + "or"
-                case "2s":
+                case .SecondSingular:
                     return stem+infix+"ris"
-                case "3s":
+                case .ThirdSingular:
                     return stem+"i"+"tur"
-                case "1p":
+                case .FirstPlural:
                     return stem+"i"+"mur"
-                case "2p":
+                case .SecondPlural:
                     return stem+"i"+"mini"
-                case "3p":
+                case .ThirdPlural:
                     return stem+"untur"
-                default:
-                    return "not valid input "
                 }
             }
-        case "4":
+        case .Fourth:
             //4th conjugation
             infix="i"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+infix+"or"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"ris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"tur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"mur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"mini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"untur"
-            default:
-                return "not valid input "
             }
         default:
             return "not valid input"
         }
     }
-    func GetPassiveIndicitiveImperfect(str:String)-> String{
+    func GetPassiveIndicitiveImperfect(personNum:PersonNum)-> String{
         var infix:String
-        switch conjugation.suffix(1) {
-        case "1":
+        switch conjugation {
+        case .First:
             //1st conjugation
             infix="a"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+infix+"bar"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"baris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"batur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"bamur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"batmini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"bantur"
-            default:
-                return "not valid input "
             }
-        case "2":
+        case .Second:
             //2nd conjugation
             infix="e"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+infix+"bar"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"baris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"batur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"bamur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"batmini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"bantur"
-            default:
-                return "not valid input "
             }
-        case "3":
+        case .Third:
             //3rd conjugation
             if present1S.suffix(2)=="io"{
                 infix="ie"
             }else{
                 infix="e"
             }
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+infix+"bar"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"baris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"batur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"bamur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"bamini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"bantur"
-            default:
-                return "not valid input "
             }
-        case "4":
+        case .Fourth:
             //4th conjugation
             infix="ie"
-            switch str {
-            case "1s":
+            switch personNum {
+            case .FirstSingular:
                 return stem+infix+"bar"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"baris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"batur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"bamur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"bamini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+"i"+"bantur"
-            default:
-                return "not valid input "
             }
         default:
             return "not valid input"
         }
     }
-    func GetPassiveIndicitiveFuture(str:String)-> String{
+    func GetPassiveIndicitiveFuture(personNum:PersonNum)-> String{
         var infix:String
-        switch conjugation.suffix(1) {
-        case "1":
+        switch conjugation {
+        case .First:
             //1st conjugation
             infix="a"
-            switch str {
-            case "1s":
+            switch personNum{
+            case .FirstSingular:
                 return stem+infix+"bor"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"beris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"bitur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"bimur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"bimini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"buntur"
-            default:
-                return "not valid input "
             }
-        case "2":
+        case .Second:
             //2nd conjugation
             infix="e"
-            switch str {
-            case "1s":
+            switch personNum{
+            case .FirstSingular:
                 return stem+infix+"bor"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"beris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"bitur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"bimur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"bimini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"buntur"
-            default:
-                return "not valid input "
             }
-        case "3":
+        case .Third:
             //3rd conjugation
             if present1S.suffix(2)=="io"{
                 infix="i"
             }else{
                 infix="e"
             }
-            switch str {
-            case "1s":
+            switch personNum{
+            case .FirstSingular:
                 return stem+"ar"
-            case "2s":
+            case .SecondSingular:
                 return stem+"eris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+"etur"
-            case "1p":
+            case .FirstPlural:
                 return stem+"emur"
-            case "2p":
+            case .SecondPlural:
                 return stem+"emini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+"entur"
-            default:
-                return "not valid input "
             }
-        case "4":
+        case .Fourth:
             //4th conjugation
             infix="i"
-            switch str {
-            case "1s":
+            switch personNum{
+            case .FirstSingular:
                 return stem+infix+"ar"
-            case "2s":
+            case .SecondSingular:
                 return stem+infix+"eris"
-            case "3s":
+            case .ThirdSingular:
                 return stem+infix+"etur"
-            case "1p":
+            case .FirstPlural:
                 return stem+infix+"emur"
-            case "2p":
+            case .SecondPlural:
                 return stem+infix+"emini"
-            case "3p":
+            case .ThirdPlural:
                 return stem+infix+"entur"
-            default:
-                return "not valid input "
             }
         default:
             return "not valid input"
         }
         
     }
-    func GetPassiveIndicitivePerfect(str:String,gender:String)-> String{
+    func GetPassiveIndicitivePerfect(personNum:PersonNum,gender:String)-> String{
         if perfectParticipal.count==0{
             return "not needed"
         }
         var suffix:String
         switch gender.lowercased(){
         case "m":
-            if conjugation.contains("p"){
+            // contains p so needs plural ending
+            if personNum.rawValue.contains("p"){
                 suffix="i"
             }else{
                 suffix = "us"
             }
         case "f":
-            if conjugation.contains("p"){
+            if personNum.rawValue.contains("p"){
                 suffix="ae"
             }else{
                 suffix = "a"
             }
         case "n":
-            if conjugation.contains("p"){
+            if personNum.rawValue.contains("p"){
                 suffix="a"
             }else{
                 suffix = "um"
@@ -806,43 +851,42 @@ class Verb:Word,Codable{
             suffix = "us"
         }
         let adjectiveForm:String = perfectParticipal.dropLast(2)+suffix
-        switch str{
-        case "1s":
+        switch personNum{
+        case .FirstSingular:
             return adjectiveForm+" sum"
-        case "2s":
+        case .SecondSingular:
             return adjectiveForm+" es"
-        case "3s":
+        case .ThirdSingular:
             return adjectiveForm+" est"
-        case "1p":
+        case .FirstPlural:
             return adjectiveForm+" summus"
-        case "2p":
+        case .SecondPlural:
             return adjectiveForm+" estsis"
-        case "3p":
+        case .ThirdPlural:
             return adjectiveForm+" sunt"
-        default:
-            return "cannot find person/number"
         }
     }
-    func GetPassiveIndicitivePluperfect(str:String,gender:String)-> String{
+    func GetPassiveIndicitivePluperfect(personNum:PersonNum,gender:String)-> String{
         if perfectParticipal.count==0{
             return "not needed"
         }
         var suffix:String
         switch gender.lowercased(){
         case "m":
-            if conjugation.contains("p"){
+            // contains p so needs plural ending
+            if personNum.rawValue.contains("p"){
                 suffix="i"
             }else{
                 suffix = "us"
             }
         case "f":
-            if conjugation.contains("p"){
+            if personNum.rawValue.contains("p"){
                 suffix="ae"
             }else{
                 suffix = "a"
             }
         case "n":
-            if conjugation.contains("p"){
+            if personNum.rawValue.contains("p"){
                 suffix="a"
             }else{
                 suffix = "um"
@@ -851,43 +895,42 @@ class Verb:Word,Codable{
             suffix = "us"
         }
         let adjectiveForm:String = perfectParticipal.dropLast(2)+suffix
-        switch str{
-        case "1s":
+        switch personNum{
+        case .FirstSingular:
             return adjectiveForm+" eram"
-        case "2s":
+        case .SecondSingular:
             return adjectiveForm+" eras"
-        case "3s":
+        case .ThirdSingular:
             return adjectiveForm+" erat"
-        case "1p":
+        case .FirstPlural:
             return adjectiveForm+" eramus"
-        case "2p":
+        case .SecondPlural:
             return adjectiveForm+" eratis"
-        case "3p":
+        case .ThirdPlural:
             return adjectiveForm+" erant"
-        default:
-            return "cannot find person/number"
         }
     }
-    func GetPassiveSubjunctivePerfect(str:String,gender:String)-> String{
+    func GetPassiveSubjunctivePerfect(personNum: PersonNum,gender:String)-> String{
         if perfectParticipal.count==0{
             return "not needed"
         }
         var suffix:String
         switch gender.lowercased(){
         case "m":
-            if conjugation.contains("p"){
+            // contains p is plural so plural ending
+            if personNum.rawValue.contains("p"){
                 suffix="i"
             }else{
                 suffix = "us"
             }
         case "f":
-            if conjugation.contains("p"){
+            if personNum.rawValue.contains("p"){
                 suffix="ae"
             }else{
                 suffix = "a"
             }
         case "n":
-            if conjugation.contains("p"){
+            if personNum.rawValue.contains("p"){
                 suffix="a"
             }else{
                 suffix = "um"
@@ -896,43 +939,41 @@ class Verb:Word,Codable{
             suffix = "us"
         }
         let adjectiveForm:String = perfectParticipal.dropLast(2)+suffix
-        switch str{
-        case "1s":
+        switch personNum{
+        case .FirstSingular:
             return adjectiveForm+" sim"
-        case "2s":
+        case .SecondSingular:
             return adjectiveForm+" sis"
-        case "3s":
+        case .ThirdSingular:
             return adjectiveForm+" sit"
-        case "1p":
+        case .FirstPlural:
             return adjectiveForm+" simus"
-        case "2p":
+        case .SecondPlural:
             return adjectiveForm+" sitis"
-        case "3p":
+        case .ThirdPlural:
             return adjectiveForm+" sint"
-        default:
-            return "cannot find person/number"
         }
     }
-    func GetPassiveSubjunctivePluperfect(str:String,gender:String)-> String{
+    func GetPassiveSubjunctivePluperfect(personNum:PersonNum,gender:String)-> String{
         if perfectParticipal.count==0{
             return "not needed"
         }
         var suffix:String
         switch gender.lowercased(){
         case "m":
-            if conjugation.contains("p"){
+            if personNum.rawValue.contains("p"){
                 suffix="i"
             }else{
                 suffix = "us"
             }
         case "f":
-            if conjugation.contains("p"){
+            if personNum.rawValue.contains("p"){
                 suffix="ae"
             }else{
                 suffix = "a"
             }
         case "n":
-            if conjugation.contains("p"){
+            if personNum.rawValue.contains("p"){
                 suffix="a"
             }else{
                 suffix = "um"
@@ -941,59 +982,53 @@ class Verb:Word,Codable{
             suffix = "us"
         }
         let adjectiveForm:String = perfectParticipal.dropLast(2)+suffix
-        switch str{
-        case "1s":
+        switch personNum{
+        case .FirstSingular:
             return adjectiveForm+" essem"
-        case "2s":
+        case .SecondSingular:
             return adjectiveForm+" esses"
-        case "3s":
+        case .ThirdSingular:
             return adjectiveForm+" esset"
-        case "1p":
+        case .FirstPlural:
             return adjectiveForm+" essemus"
-        case "2p":
+        case .SecondPlural:
             return adjectiveForm+" essetis"
-        case "3p":
+        case .ThirdPlural:
             return adjectiveForm+" essent"
-        default:
-            return "cannot find person/number"
         }
     }
-    func GetPassiveSubjunctivePresent(str:String)->String{
+    func GetPassiveSubjunctivePresent(personNum: PersonNum)->String{
         let subjuntiveVowel:String = GetSubjunctiveVowel()
         let StemWithVowel=stem+subjuntiveVowel
-        switch str{
-        case"1s":
+        switch personNum{
+        case .FirstSingular:
             return StemWithVowel + "r"
-        case"2s":
+        case .SecondSingular:
             return StemWithVowel + "ris"
-        case"3s":
+        case .ThirdSingular:
             return StemWithVowel + "tur"
-        case"1p":
+        case .FirstPlural:
             return StemWithVowel + "mur"
-        case"2p":
+        case .SecondPlural:
             return StemWithVowel + "mini"
-        case"3p":
+        case .ThirdPlural:
             return StemWithVowel + "ntur"
-        default:
-            return "can't find person/number"
         }
     }
-    func GetPassiveSubjunctiveImperfect(str:String)->String{
-        switch str {
-        case "1s":
+    func GetPassiveSubjunctiveImperfect(personNum:PersonNum)->String{
+        switch personNum{
+        case .FirstSingular:
             return infinitive+"r"
-        case "2s":
+        case .SecondSingular:
             return infinitive+"ris"
-        case "3s":
+        case .ThirdSingular:
             return infinitive+"tur"
-        case "1p":
+        case .FirstPlural:
             return infinitive+"mur"
-        case "2p":
+        case .SecondPlural:
             return infinitive+"mini"
-        case "3p":
+        case .ThirdPlural:
             return infinitive+"ntur"
-        default:
-            return "cant find person/number"
         }
     }
 }

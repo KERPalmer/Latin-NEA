@@ -12,7 +12,7 @@ struct tests: View {
     var body: some View {
         HStack{
             List(env.programData.GetVerbs()){verb in
-                Text(verb.GetPresent(str: "3s"))
+                Text("hi")
             }
         }.onAppear(){
             //env.programData.printVerbs()
