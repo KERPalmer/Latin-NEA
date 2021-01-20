@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct QuizSetupView: View {
-    @EnvironmentObject var env:Data
-    @Binding var quiz: Quiz
+    @EnvironmentObject var quiz: Quiz
     
     var body: some View {
         NavigationView{
             VStack{
-                NavigationLink(destination: SettingsView(quiz:$quiz)){
+                NavigationLink(destination: SettingsView()){
                     Text("settings")
                         .bold()
                 }
                 Button("Start Quiz"){
-                    env.inQuiz=true
+                    quiz.generateNextQuestion()
+                    quiz.inQuiz=true
                 }
             }
         }

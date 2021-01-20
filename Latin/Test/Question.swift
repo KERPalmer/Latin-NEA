@@ -6,13 +6,18 @@
 //
 
 import Foundation
-class Question{
+import SwiftUI //for colours
+class Question: Identifiable{
     public let latin: Word
     public let latinString: String
     public let translations: [String]
     public var answer: String = ""
     //isCorrect would be protected but no such protection level
+    
     public var isCorrect: Bool = false
+    private let correctColor = Color.green
+    private let wrongColor = Color.red
+    
     init(latinWord: Word ,wordString: String){
         latin = latinWord
         translations = latin.translations
@@ -25,6 +30,12 @@ class Question{
             return true
         }
         return false
+    }
+    func GetColor()->Color{
+        if isCorrect{
+            return correctColor
+        }
+        return wrongColor
     }
 }
 //the user will type in the vocab and the different forms will be shown, they will select one

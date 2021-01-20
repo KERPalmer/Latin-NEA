@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E0057EE825B8B46B00953F75 /* ResultRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0057EE725B8B46B00953F75 /* ResultRowView.swift */; };
 		E0154ACE252B39460057827A /* LatinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154ACD252B39460057827A /* LatinApp.swift */; };
 		E0154AD2252B39470057827A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0154AD1252B39470057827A /* Assets.xcassets */; };
 		E0154AD5252B39470057827A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0154AD4252B39470057827A /* Preview Assets.xcassets */; };
@@ -69,11 +70,13 @@
 		E0C1BFCE257E9D280041238F /* AdverbDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1BFCD257E9D280041238F /* AdverbDictionaryView.swift */; };
 		E0C1BFD1257E9DF40041238F /* AdverbInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1BFD0257E9DF40041238F /* AdverbInfoView.swift */; };
 		E0E97C0C256C2EA5008C73CF /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E97C0B256C2EA5008C73CF /* tests.swift */; };
+		E0EE580925B75CD100500313 /* QuizFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE580825B75CD100500313 /* QuizFinishView.swift */; };
 		E0FDAA3625B305FC00DFB93E /* VocabWrittenInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FDAA3525B305FC00DFB93E /* VocabWrittenInput.swift */; };
 		E0FDAA3925B3060A00DFB93E /* VocabMultipleChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FDAA3825B3060A00DFB93E /* VocabMultipleChoiceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E0057EE725B8B46B00953F75 /* ResultRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRowView.swift; sourceTree = "<group>"; };
 		E0154ACA252B39460057827A /* Latin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Latin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0154ACD252B39460057827A /* LatinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatinApp.swift; sourceTree = "<group>"; };
 		E0154AD1252B39470057827A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,6 +141,7 @@
 		E0C1BFCD257E9D280041238F /* AdverbDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdverbDictionaryView.swift; sourceTree = "<group>"; };
 		E0C1BFD0257E9DF40041238F /* AdverbInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdverbInfoView.swift; sourceTree = "<group>"; };
 		E0E97C0B256C2EA5008C73CF /* tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
+		E0EE580825B75CD100500313 /* QuizFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizFinishView.swift; sourceTree = "<group>"; };
 		E0FDAA3525B305FC00DFB93E /* VocabWrittenInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabWrittenInput.swift; sourceTree = "<group>"; };
 		E0FDAA3825B3060A00DFB93E /* VocabMultipleChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabMultipleChoiceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -404,6 +408,8 @@
 			children = (
 				E04FB9C1259A419700D24C3C /* CorrectView.swift */,
 				E04FB9C8259A462F00D24C3C /* IncorrectView.swift */,
+				E0EE580825B75CD100500313 /* QuizFinishView.swift */,
+				E0057EE725B8B46B00953F75 /* ResultRowView.swift */,
 			);
 			path = resultViews;
 			sourceTree = "<group>";
@@ -616,7 +622,9 @@
 				E0154B95252B7A250057827A /* VerbDictionaryView.swift in Sources */,
 				E0154B5D252B4FCA0057827A /* DecisionView.swift in Sources */,
 				E0154B27252B3DC10057827A /* AdjectiveDictionaryViewView.swift in Sources */,
+				E0057EE825B8B46B00953F75 /* ResultRowView.swift in Sources */,
 				E0154B30252B3E800057827A /* irregularVerbs.swift in Sources */,
+				E0EE580925B75CD100500313 /* QuizFinishView.swift in Sources */,
 				E04FB9C6259A42BD00D24C3C /* InputView.swift in Sources */,
 				E04A3CFF25823146005A21BC /* Quiz.swift in Sources */,
 				E0154B98252B7A6A0057827A /* NounDictionaryView.swift in Sources */,

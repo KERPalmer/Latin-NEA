@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct NounDeclensionFilter: View {
-    @Binding var quiz:Quiz
+    @EnvironmentObject   var quiz:Quiz
     var body: some View {
         List(){
-            Toggle(isOn:$quiz.env.quizSettings.declensionOne){
+            Toggle(isOn:$quiz.settings.declensionOne){
                 Text("First Declension")
             }
-            Toggle(isOn:$quiz.env.quizSettings.declensionTwo){
+            Toggle(isOn:$quiz.settings.declensionTwo){
                 Text("Second Declension")
             }
-            Toggle(isOn:$quiz.env.quizSettings.declensionThree){
+            Toggle(isOn:$quiz.settings.declensionThree){
                 Text("Thrid Declension")
             }
-            Toggle(isOn:$quiz.env.quizSettings.declensionFour){
+            Toggle(isOn:$quiz.settings.declensionFour){
                 Text("Fourth Declension")
             }
-            Toggle(isOn:$quiz.env.quizSettings.declensionFive){
+            Toggle(isOn:$quiz.settings.declensionFive){
                 Text("Fifth Declension")
             }
         }

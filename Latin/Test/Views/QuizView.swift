@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct QuizView: View {
-    @EnvironmentObject var env:Data
-    @State var quiz: Quiz
+    @EnvironmentObject var quiz: Quiz
     var body: some View {
-        if !env.inQuiz{
-            QuizSetupView(quiz: $quiz)
+        if quiz.inQuiz == false{
+            if quiz.isFinished{
+                QuizFinishView()
+            }else{
+                QuizSetupView()
+            }
         }
         else{
-            QuestionView(quiz: $quiz)
+            QuestionView()
         }
     }
 }

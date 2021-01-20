@@ -8,18 +8,32 @@
 import SwiftUI
 
 struct CorrectView: View {
-    @Binding var quiz:Quiz
-    @Binding var isAnswered:Bool
-    @Binding var isCorrect:Bool
+    @EnvironmentObject var quiz:Quiz
     var body: some View {
+        ZStack{
+            Rectangle()
+                .fill(Color.green)
+                .ignoresSafeArea()
             VStack{
+                Spacer()
                 Text(quiz.getQuestion().latinString)
+                Spacer()
                 Text(quiz.getQuestion().latin.get_all_translations())
+                Spacer()
                 Button("next question"){
-                quiz.generateNextQuestion()
-                isAnswered = true
-                isCorrect = false
+                    quiz.generateNextQuestion()
+                    quiz.isAnswered = false
+                    quiz.getQuestion().isCorrect = false
+                }
+                Spacer()
+                Button("Finsh Test"){
+                    quiz.inQuiz = false
+                    quiz.isAnswered = false
+                    quiz.isFinished = true
+                }
+                Spacer()
             }
         }
     }
 }
+

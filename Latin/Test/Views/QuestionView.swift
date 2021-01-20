@@ -8,29 +8,28 @@
 import SwiftUI
 
 struct QuestionView: View {
-    @Binding var quiz:Quiz
+    @EnvironmentObject var quiz:Quiz
     @State var answer: String = ""
-    @State var isCorrect = false
-    @State var isAnswered = false
     var body: some View {
         //TO MUCH STUFF
         ZStack{
-            if isAnswered{
-                if isCorrect{
-                    //CorrectView(quiz: quiz, isAnswered: isAnswered, isCorrect: isCorrect)
+            if quiz.isAnswered{
+                if quiz.getQuestion().isCorrect{
+                    CorrectView()
                 }
                 else{
                     IncorrectView()
                 }
             }else{
-                if quiz.env.quizSettings.vocabOnly{
-                    if quiz.env.quizSettings.multipleChoice{
+                //
+                if quiz.settings.vocabOnly{
+                    if quiz.settings.multipleChoice{
                         VocabMultipleChoiceView()
                     }else{
-                        VocabWrittenInputView(question: quiz.getQuestion() as! VocabQuestion, isCorrect: $isCorrect, isAnswered: $isAnswered)
+                        VocabWrittenInputView(question: quiz.getQuestion() as! VocabQuestion)
                     }
                 }else{
-                    FormInputView(question: quiz.getQuestion()  as! FormQuestion, isCorrect: $isCorrect, isAnswered: $isAnswered)
+                    FormInputView(question: quiz.getQuestion()  as! FormQuestion)
                 }
             }
         }

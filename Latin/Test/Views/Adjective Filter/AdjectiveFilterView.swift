@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct AdjectiveDeclensionFilterView: View {
-    @Binding var quiz : Quiz
+    @EnvironmentObject var quiz : Quiz
     var body: some View {
         List(){
-            Toggle(isOn:$quiz.env.quizSettings.adjectiveTwoOne){
+            Toggle(isOn:$quiz.settings.adjectiveTwoOne){
                 Text("First and Second Declension Adjectives")
             }
-            Toggle(isOn:$quiz.env.quizSettings.adjectiveThree){
+            Toggle(isOn:$quiz.settings.adjectiveThree){
                 Text("First and Second Declension Adjectives")
             }
             

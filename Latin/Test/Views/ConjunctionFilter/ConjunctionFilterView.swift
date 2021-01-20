@@ -11,7 +11,7 @@ struct ConjunctionFilterView: View {
     @Binding var quiz: Quiz
     var body: some View {
         HStack{
-            Toggle(isOn:$quiz.env.quizSettings.conjuctions){
+            Toggle(isOn:$quiz.settings.conjuctions){
                 Text("Conjunctions")
             }
             Spacer()

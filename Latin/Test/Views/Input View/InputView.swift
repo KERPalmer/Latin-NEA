@@ -9,8 +9,7 @@ import SwiftUI
 
 struct FormInputView: View {
     @State var question: FormQuestion
-    @Binding var isCorrect:Bool
-    @Binding var isAnswered: Bool
+    @EnvironmentObject   var quiz:Quiz
 
     
     var body: some View {
@@ -24,8 +23,8 @@ struct FormInputView: View {
             Text("form:")
             TextField(question.formString,text: $question.formAnswer)
             Button("submit"){
-                isCorrect = question.checkAnswer()
-                isAnswered = true
+                question.isCorrect = question.checkAnswer()
+                quiz.isAnswered = true
             }
         }
     }
