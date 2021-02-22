@@ -8,7 +8,6 @@
 import Foundation
 import SQLite3
 // open database and returns an object that you can use to acces the databse
-
 func ConnectDB()->SQLiteDatabase?{
     // the program database
     let db: SQLiteDatabase

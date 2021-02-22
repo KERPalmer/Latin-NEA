@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct FormInputView: View {
-    @State var question: FormQuestion
+    @State var question:Question
     @EnvironmentObject   var quiz:Quiz
-
+    
     
     var body: some View {
         VStack{
@@ -19,13 +19,10 @@ struct FormInputView: View {
             Text(question.latinString)
             Text("vocab:")
             TextField(question.translations[0],text: $question.vocabAnswer)
+            Text(question.formString)
             Spacer()
-            Text("form:")
-            TextField(question.formString,text: $question.formAnswer)
-            Button("submit"){
-                question.isCorrect = question.checkAnswer()
-                quiz.isAnswered = true
-            }
+            FormButtonView()
+            Spacer()
         }
     }
 }

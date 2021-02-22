@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// This protocol makes sure all table class have certain stements 
 protocol SQLTable {
     static var createStatement: String { get }
     static var insertStatement: String { get }

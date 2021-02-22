@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//switches between the login view and the main program
 struct ContentView: View {
     @EnvironmentObject var env:Data
     @State var loaded:Bool=false

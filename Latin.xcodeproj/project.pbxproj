@@ -35,6 +35,8 @@
 		E0154BC2252B9C580057827A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BC1252B9C580057827A /* ContentView.swift */; };
 		E0154BC9252BA2630057827A /* PrepositionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BC8252BA2630057827A /* PrepositionInfoView.swift */; };
 		E0154BD3252BB03A0057827A /* PrepositionDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0154BD2252BB03A0057827A /* PrepositionDictionaryView.swift */; };
+		E041A75F25E2BA5D004B98AE /* FormButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E041A75E25E2BA5D004B98AE /* FormButtonView.swift */; };
+		E041A76325E2BD1F004B98AE /* VerbFormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E041A76225E2BD1F004B98AE /* VerbFormButton.swift */; };
 		E04A3CFF25823146005A21BC /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A3CFE25823146005A21BC /* Quiz.swift */; };
 		E04A3D03258231B4005A21BC /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A3D02258231B4005A21BC /* Question.swift */; };
 		E04A3D0825823388005A21BC /* QuizSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04A3D0725823388005A21BC /* QuizSetupView.swift */; };
@@ -62,6 +64,7 @@
 		E06E27BD258384D600499DF2 /* VerbFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06E27BC258384D600499DF2 /* VerbFilterView.swift */; };
 		E06F40B4257994DE006C1A23 /* conjunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F40B3257994DE006C1A23 /* conjunctions.swift */; };
 		E0726E2E25B60ED700A16E35 /* appEnviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0726E2D25B60ED700A16E35 /* appEnviroment.swift */; };
+		E0973FAF25CC4BBD00CD9846 /* FormTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0973FAE25CC4BBD00CD9846 /* FormTable.swift */; };
 		E0A0882A257FA03200641EC6 /* Confidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A08829257FA03200641EC6 /* Confidence.swift */; };
 		E0B11C1F2530B29700CD3561 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B11C1E2530B29700CD3561 /* Word.swift */; };
 		E0C1BFC2257E74490041238F /* ConjunctionDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1BFC1257E74490041238F /* ConjunctionDictionaryView.swift */; };
@@ -106,6 +109,8 @@
 		E0154BC1252B9C580057827A /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E0154BC8252BA2630057827A /* PrepositionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionInfoView.swift; sourceTree = "<group>"; };
 		E0154BD2252BB03A0057827A /* PrepositionDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionDictionaryView.swift; sourceTree = "<group>"; };
+		E041A75E25E2BA5D004B98AE /* FormButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButtonView.swift; sourceTree = "<group>"; };
+		E041A76225E2BD1F004B98AE /* VerbFormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbFormButton.swift; sourceTree = "<group>"; };
 		E04A3CFE25823146005A21BC /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		E04A3D02258231B4005A21BC /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		E04A3D0725823388005A21BC /* QuizSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSetupView.swift; sourceTree = "<group>"; };
@@ -133,6 +138,7 @@
 		E06E27BC258384D600499DF2 /* VerbFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbFilterView.swift; sourceTree = "<group>"; };
 		E06F40B3257994DE006C1A23 /* conjunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = conjunctions.swift; sourceTree = "<group>"; };
 		E0726E2D25B60ED700A16E35 /* appEnviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appEnviroment.swift; sourceTree = "<group>"; };
+		E0973FAE25CC4BBD00CD9846 /* FormTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTable.swift; sourceTree = "<group>"; };
 		E0A08829257FA03200641EC6 /* Confidence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confidence.swift; sourceTree = "<group>"; };
 		E0B11C1E2530B29700CD3561 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		E0C1BFC1257E74490041238F /* ConjunctionDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConjunctionDictionaryView.swift; sourceTree = "<group>"; };
@@ -325,6 +331,14 @@
 			path = "Adjective Dictionary";
 			sourceTree = "<group>";
 		};
+		E041A76125E2BCFC004B98AE /* FormButtons */ = {
+			isa = PBXGroup;
+			children = (
+				E041A76225E2BD1F004B98AE /* VerbFormButton.swift */,
+			);
+			path = FormButtons;
+			sourceTree = "<group>";
+		};
 		E04A3CFD25823114005A21BC /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +443,7 @@
 				E054DC3D256A9C0600302ADF /* connectDB.swift */,
 				E054DC41256A9C1900302ADF /* Database.swift */,
 				E054DC48256AA0A700302ADF /* table protocal.swift */,
+				E0973FAD25CC4B3400CD9846 /* Form */,
 				E054DC44256A9C3100302ADF /* Profile */,
 				E0A08828257FA00B00641EC6 /* Confidence */,
 			);
@@ -449,6 +464,14 @@
 				E06F40B3257994DE006C1A23 /* conjunctions.swift */,
 			);
 			path = Conjuncions;
+			sourceTree = "<group>";
+		};
+		E0973FAD25CC4B3400CD9846 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				E0973FAE25CC4BBD00CD9846 /* FormTable.swift */,
+			);
+			path = Form;
 			sourceTree = "<group>";
 		};
 		E0A08828257FA00B00641EC6 /* Confidence */ = {
@@ -491,6 +514,8 @@
 				E04FB9C5259A42BD00D24C3C /* InputView.swift */,
 				E0FDAA3525B305FC00DFB93E /* VocabWrittenInput.swift */,
 				E0FDAA3825B3060A00DFB93E /* VocabMultipleChoiceView.swift */,
+				E041A75E25E2BA5D004B98AE /* FormButtonView.swift */,
+				E041A76125E2BCFC004B98AE /* FormButtons */,
 			);
 			path = "Input View";
 			sourceTree = "<group>";
@@ -581,6 +606,8 @@
 				E0154AE6252B3A060057827A /* wordRowView.swift in Sources */,
 				E0154BC2252B9C580057827A /* ContentView.swift in Sources */,
 				E04A3D0825823388005A21BC /* QuizSetupView.swift in Sources */,
+				E041A76325E2BD1F004B98AE /* VerbFormButton.swift in Sources */,
+				E0973FAF25CC4BBD00CD9846 /* FormTable.swift in Sources */,
 				E04DB8AE256E8143000B26CE /* AdjectiveInfoView.swift in Sources */,
 				E0154B0E252B3B910057827A /* DictionaryView.swift in Sources */,
 				E0154B31252B3E800057827A /* irregularNouns.swift in Sources */,
@@ -625,6 +652,7 @@
 				E0057EE825B8B46B00953F75 /* ResultRowView.swift in Sources */,
 				E0154B30252B3E800057827A /* irregularVerbs.swift in Sources */,
 				E0EE580925B75CD100500313 /* QuizFinishView.swift in Sources */,
+				E041A75F25E2BA5D004B98AE /* FormButtonView.swift in Sources */,
 				E04FB9C6259A42BD00D24C3C /* InputView.swift in Sources */,
 				E04A3CFF25823146005A21BC /* Quiz.swift in Sources */,
 				E0154B98252B7A6A0057827A /* NounDictionaryView.swift in Sources */,

@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+//the tab view for the different components of the program
 struct DecisionView:View{
     @EnvironmentObject var env:Data
     @State private var selection = 0
@@ -21,7 +21,7 @@ struct DecisionView:View{
                     }
                 }
                 .tag(0)
-            QuizView().environmentObject(Quiz(enviroment: env))
+            QuizView().environmentObject(Quiz(enviroment: env, storeResults_: true))
                 .tabItem {
                     VStack {
                         Text("Practise")

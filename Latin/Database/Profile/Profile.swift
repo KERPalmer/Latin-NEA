@@ -6,7 +6,10 @@
 //
 import Foundation
 import SQLite3
+
+// This class contains the statements and methods for dealing with a profile SQL Table 
 class Profile: SQLTable {
+    
     var id: Int32
     var Username: NSString
     var Password:NSString // i am aware the password is not at all secure, but since this is on a 'secure' phone it should be okay, i expect the users to know each other
@@ -30,12 +33,12 @@ class Profile: SQLTable {
     }
     static var GetUsernamesQueryStatement: String{
         return"""
-            SELECT Username FROM Profiles"
+            SELECT Username FROM Profiles";
             """
     }
     static var PasswordqueryStatement: String{
         return """
-            SELECT Password FROM Profiles
+            SELECT Password FROM Profiles;
             """
     }
     static var CheckPasswordQueryStatement: String{
@@ -45,8 +48,8 @@ class Profile: SQLTable {
     }
     static var GetUserIDQueryStatement:String{
         return"""
-SELECT id FROM Profiles WHERE Username = (?);
-"""
+        SELECT id FROM Profiles WHERE Username = (?);
+        """
     }
     init(id: Int32, Username: NSString, Password: NSString){
         self.id = id

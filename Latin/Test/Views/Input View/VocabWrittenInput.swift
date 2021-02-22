@@ -9,16 +9,17 @@ import SwiftUI
 
 struct VocabWrittenInputView: View {
     @EnvironmentObject var quiz:Quiz
-    @State var question: VocabQuestion
+    @State var question: Question
 
     var body: some View {
         VStack{
             Text("What is the translation of")
             Spacer()
             Text(question.latinString)
-            TextField(question.latin.translations[0],text: $question.answer)
+            TextField(question.latin.translations[0],text: $question.vocabAnswer)
             Spacer()
             Button("submit"){
+                question.formAnswer = question.formString //this written question doesn't require any form
                 question.isCorrect = question.checkAnswer()
                 quiz.isAnswered = true
             }

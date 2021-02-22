@@ -7,15 +7,19 @@
 
 import Foundation
 class Word:Identifiable{
-    public var id:Int
+    public var id:Int //unique identifier for each word
     public var translations:[String]=[]
     public let fileLine:String
+    public let firstPrincipalPart: String //needed for storing in the table
     @Published public var inQuiz: Bool = true
-    @Published private var translationIndex=0
+    @Published private var translationIndex=0 //determins which translation is shown
     init(line:String,id_:Int){
         self.id=id_
         self.fileLine = line
         let trimmed:String=line.replacingOccurrences(of: "\r", with: "")
+        //set first principal part
+        let commaSplit = trimmed.split(separator: ",", omittingEmptySubsequences: true)
+        firstPrincipalPart = format(str: String(commaSplit[0]))
         //setting the translations
         if trimmed.hasSuffix("\""){
             //multiple translations
@@ -28,7 +32,6 @@ class Word:Identifiable{
         }
         else{
             // 1 translation
-            let commaSplit = trimmed.split(separator: ",", omittingEmptySubsequences: true)
             let size = commaSplit.count
             let translation=commaSplit[size-1]
             translations.append(format(str: String(translation)))
@@ -37,18 +40,18 @@ class Word:Identifiable{
     func get_translation() -> String{
         return translations[translationIndex]
     }
-    func next_translation(){
+    func next_translation(){ // changes the translationIndex so we get the next translation
         translationIndex+=1
         translationIndex %= translations.count
     }
-    func get_all_translations()->String{
+    func get_all_translations()->String{// returns a string with all translations seperated with a slash
     var all = ""
         for translation in translations{
             all = all + "/ " + translation
         }
         return String(all.dropFirst(2))
     }
-    func GetForm(formString:[String]) -> String{
+    func GetForm(formString:[String]) -> String{ // incase get called is called on this class
         return "ERROR: GET FORM CALLED FROM CLASS WITH NO GET FORM OF ITS OWN"
     }
     

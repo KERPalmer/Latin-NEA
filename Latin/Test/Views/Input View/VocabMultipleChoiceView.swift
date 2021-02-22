@@ -8,13 +8,26 @@
 import SwiftUI
 
 struct VocabMultipleChoiceView: View {
+    @EnvironmentObject var quiz:Quiz
+    @State var question: Question
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text("What is the translation of")
+            Spacer()
+            Text(question.latinString)
+            Spacer()
+            HStack{
+                Button(question.translations[0]){
+                    
+                }
+            }
+            
+            Spacer()
+            Button("submit"){
+                question.isCorrect = question.checkAnswer()
+                quiz.isAnswered = true
+            }
+        }
     }
 }
 
-struct VocabMultipleChoiceView_Previews: PreviewProvider {
-    static var previews: some View {
-        VocabMultipleChoiceView()
-    }
-}

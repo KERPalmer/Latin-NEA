@@ -7,21 +7,31 @@
 
 import Foundation
 enum WordTypes: String, CaseIterable{
-    case Verb = "verb"
-    case Noun = "noun"
-    case Adjective = "adjective"
-    case Adverb = "adverb"
-    case Conjunction = "conjunction"
-    case Preposition = "preposition"
+    case Verb = "verb" //action words
+    case Noun = "noun" //names of places people or things
+    case Adjective = "adjective" //describtions of nouns
+    case Adverb = "adverb" // describtions of verbs
+    case Conjunction = "conjunction" //conections between clauses
+    case Preposition = "preposition" //location from another 
+    case Participal = "participal"
     case unknown = "error unknown word type"
 }
-enum NounDeclension: CaseIterable{
-    case First
-    case Second
-    case Third
-    case Fourth
-    case Fifth
-    case unknown
+enum AdjectiveDegree: String, CaseIterable{
+    case positive = "positive"
+    case comparative = "comparative"
+    case superlatative = "superlatative"
+}
+enum AdjectiveDeclension: String, CaseIterable{
+    case TwoOneTwo = "212"
+    case third = "3"
+    case adverb = "adverb"
+}
+enum NounDeclension:String, CaseIterable{
+    case First = "1"
+    case Second = "2"
+    case Third = "3"
+    case Fourth = "4"
+    case Fifth = "5"
 }
 enum caseNum: String, CaseIterable {
     case NomSingular = "nom_s"
@@ -43,7 +53,6 @@ enum VerbConjugation:String, CaseIterable, Encodable{
     case Third = "verb 3"
     case Fourth = "verb 4"
     case Irregular = "verb irregular"
-    case unknown = "error unknown conjugation"
 }
 enum Tense: String, CaseIterable{
     case Present = "pre"

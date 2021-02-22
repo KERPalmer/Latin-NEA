@@ -8,24 +8,43 @@
 import Foundation
 import SwiftUI //for colours
 class Question: Identifiable{
-    public let latin: Word
-    public let latinString: String
-    public let translations: [String]
-    public var answer: String = ""
+    public let latin: Word //the word that will be tested, used to get ID and other forms
+    public let latinString: String //the string that will be shown
+    public let translations: [String] //the english version of the latin word
+    public var formID: Int32
+    public var formAnswer:String = "" //the form answer given by the user
+    public var formString: String = "" //the correct form answer
+    public var vocabAnswer: String = "" // the vocab answer given by the user
+    private var isVocabCorrect: Bool = false
+    private var isFormCorrect: Bool = false
+    
     //isCorrect would be protected but no such protection level
     
     public var isCorrect: Bool = false
     private let correctColor = Color.green
     private let wrongColor = Color.red
     
-    init(latinWord: Word ,wordString: String){
+    init(latinWord: Word,form: [String],db:SQLiteDatabase){
         latin = latinWord
         translations = latin.translations
-        latinString = wordString
-        
+        latinString = latinWord.GetForm(formString: form)
+        for part in form{
+            formString.append(part)
+            formString.append(",")
+        }
+        formString = String(formString.dropLast()) //remove the last comma
+        let NSFormList = form as [NSString]
+        formID = db.GetFromID(formList: NSFormList) ?? -1
     }
     func checkAnswer()->Bool{
-        if translations.contains(answer.lowercased()){
+        vocabAnswer = format(str: vocabAnswer)
+        if translations.contains(vocabAnswer.lowercased()){
+             isVocabCorrect=true
+        }
+        if formAnswer == formString{
+            isFormCorrect = true
+        }
+        if isVocabCorrect && isFormCorrect{
             isCorrect = true
             return true
         }
@@ -38,36 +57,7 @@ class Question: Identifiable{
         return wrongColor
     }
 }
-//the user will type in the vocab and the different forms will be shown, they will select one
-class FormQuestion:Question{
-    public var form: [String] = []
-    public var formString: String = ""
-    public var formAnswer:String = ""
-    public var vocabAnswer:String = ""
-    private var isVocabCorrect:Bool = false
-    private var isFormCorrect:Bool = false
-    init(latinWord:Word,wordString:String, formList:[String]){
-        form = formList
-        for part in form{
-            formString.append(part)
-            formString.append(", ")
-        }
-        super.init(latinWord: latinWord, wordString: wordString)
-    }
-    override func checkAnswer()->Bool{
-        if translations.contains(answer){
-            isVocabCorrect=true
-        }
-        if formAnswer == formString{
-                isFormCorrect = true
-        }
-        if isVocabCorrect && isFormCorrect{
-            isCorrect = true
-            return true
-        }
-        return false
-    }
-}
+
 // 3-4 different answers will be shown, only one is correct
 class MultiplechoiceQuestion:Question{
     

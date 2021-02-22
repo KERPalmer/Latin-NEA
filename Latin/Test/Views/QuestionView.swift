@@ -24,12 +24,12 @@ struct QuestionView: View {
                 //
                 if quiz.settings.vocabOnly{
                     if quiz.settings.multipleChoice{
-                        VocabMultipleChoiceView()
+                        VocabMultipleChoiceView(question: quiz.getQuestion())
                     }else{
-                        VocabWrittenInputView(question: quiz.getQuestion() as! VocabQuestion)
+                        VocabWrittenInputView(question: quiz.getQuestion())
                     }
                 }else{
-                    FormInputView(question: quiz.getQuestion()  as! FormQuestion)
+                    FormInputView(question: quiz.getQuestion())
                 }
             }
         }

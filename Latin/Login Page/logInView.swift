@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SQLite3
+//The Login page. User will enter username and password
 struct logInView: View {
     @EnvironmentObject var env:Data
     @State private var Username:String = ""
@@ -27,7 +28,7 @@ struct logInView: View {
                     }catch{
                         print("set id error")
                     }
-                    
+                    print("logging into profile id \(env.profileID)")
                     env.isLoggedIn.toggle()
                 }
                 else{

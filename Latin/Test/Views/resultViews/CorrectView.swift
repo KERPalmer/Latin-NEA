@@ -27,6 +27,9 @@ struct CorrectView: View {
                 }
                 Spacer()
                 Button("Finsh Test"){
+                    if quiz.storeResults{
+                        quiz.saveAttempts(SQLdb: quiz.SQLdatabase, profileID: quiz.profileID)
+                    }
                     quiz.inQuiz = false
                     quiz.isAnswered = false
                     quiz.isFinished = true

@@ -12,7 +12,15 @@ struct ResultRowView: View {
     var body: some View {
         HStack{
             Text(question.latinString)
-            Text(question.answer)
-        }.background(question.GetColor())
+                .padding(0)
+            Spacer()
+            if question.isCorrect == false{
+                Text(question.vocabAnswer)
+            }
+            Text(question.latin.get_translation())
+                .padding(0)
+        }
+        .padding(0)
+        .background(question.GetColor())
     }
 }

@@ -13,9 +13,7 @@ struct QuizFinishView: View {
         VStack{
         Text("YOU FINISHED")
             List(quiz.questions){ question in
-                HStack{
-                    Text(question.latinString)
-                }
+                ResultRowView(question: question)
             }
         }
         

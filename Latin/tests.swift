@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+// Test view that allows you to see what something does
 struct tests: View {
     @EnvironmentObject var env:Data
     var body: some View {

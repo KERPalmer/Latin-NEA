@@ -47,8 +47,12 @@ class Verb:Word,Codable{
                 perfectParticipal=format(str:splitParts[2])
             }
             // look for conjugation
-            let conjunctionString = format(str:seperated[2])
-            conjugation = VerbConjugation(rawValue: conjunctionString) ?? VerbConjugation.unknown
+            var conjugationString = format(str:seperated[2])
+            //removing the deponent part so we get the right verb conjugation
+            if conjugationString.contains("deponent"){
+                conjugationString.removeLast(9)
+            }
+            conjugation = VerbConjugation(rawValue: conjugationString)!
         }
         else if seperated.count==3{
             //form 2
@@ -78,8 +82,12 @@ class Verb:Word,Codable{
                 perfectParticipal=format(str:splitParts[2])
             }
             // seperate the conjugation and translation
-            let splitTypeAndTrans = seperated[2].split(separator: ",", omittingEmptySubsequences: true).map { String($0) }
-            conjugation = VerbConjugation(rawValue: format(str:splitTypeAndTrans[0]))  ?? VerbConjugation.unknown
+            var splitTypeAndTrans = seperated[2].split(separator: ",", omittingEmptySubsequences: true).map { String($0) }
+            //remove the deponent part its already part of the right subclass
+            if splitTypeAndTrans[0].contains("deponent"){
+                splitTypeAndTrans[0].removeLast(9)
+            }
+            conjugation = VerbConjugation(rawValue: format(str:splitTypeAndTrans[0]))!
         }
         else{
             // prevents crashing
@@ -87,7 +95,7 @@ class Verb:Word,Codable{
             infinitive=""
             future1S=""
             perfectParticipal="null"
-            conjugation = VerbConjugation.unknown
+            conjugation = VerbConjugation.First
             stem="null"
         }
         // stem is drop the "re" and the letter for each conjugation

@@ -39,7 +39,6 @@ class SQLiteDatabase: ObservableObject {
         // must close the pointer when its not used
         sqlite3_close(dbPointer)
     }
-    
     // opens the database and returns a databse class connected to that database
     static func open(path: String) throws -> SQLiteDatabase {
         var db: OpaquePointer?
@@ -69,7 +68,7 @@ class SQLiteDatabase: ObservableObject {
     func prepareStatement(sqlStatement: String) throws -> OpaquePointer? {
         var statement: OpaquePointer?
         // prepares the statment and will throw error when it goes wrong
-        guard sqlite3_prepare_v2(dbPointer, sqlStatement, -1, &statement, nil)
+        guard sqlite3_prepare_v2(dbPointer,sqlStatement, -1, &statement, nil)
                 == SQLITE_OK else {
             print(errorMessage)
             throw SQLiteError.Prepare(message: errorMessage)
@@ -77,7 +76,7 @@ class SQLiteDatabase: ObservableObject {
         return statement
     }
     
-    // creates a new table
+    // creates a new table once given the statement
     func createTable(table: SQLTable.Type) throws {
         let createTableStatement = try prepareStatement(sqlStatement: table.createStatement)
         // will close the statement at the end no matter what
@@ -91,7 +90,7 @@ class SQLiteDatabase: ObservableObject {
         print("\(table) table created.")
     }
     
-    //deletes table
+    //deletes table once statment given
     func dropTable(table: SQLTable.Type) throws{
         //1
         let dropTableStatement = try prepareStatement(sqlStatement: table.dropStatement)
@@ -104,7 +103,31 @@ class SQLiteDatabase: ObservableObject {
         print("\(table) table dropped.")
     }
     
-    // insert a profile
+    //insert a from into the formTable
+    func insertForm(part1:String,part2:String,part3:String, part4:String, part5:String,part6: String, wordType:WordTypes) throws {
+        let insertStatement = try prepareStatement(sqlStatement: Form.insertStatement)
+        // will always finalize the pointer
+        defer {
+            sqlite3_finalize(insertStatement)
+        }
+        guard
+            sqlite3_bind_null(insertStatement, 1) == SQLITE_OK  &&
+            sqlite3_bind_text(insertStatement, 2, part1, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 3, part2, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 4, part3, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 5, part4, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 6, part5, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 7, part6, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 8, wordType.rawValue, -1, nil) == SQLITE_OK
+            
+        else {
+            throw SQLiteError.Bind(message: errorMessage)
+        }
+        guard sqlite3_step(insertStatement) == SQLITE_DONE else {
+            throw SQLiteError.Step(message: errorMessage)
+        }
+    }
+    // insert a profile when a new one is created
     func insertProfile(profile: Profile, insertSQL : String) throws {
         let insertStatement = try prepareStatement(sqlStatement: insertSQL)
         // will always finalize the pointer
@@ -122,21 +145,65 @@ class SQLiteDatabase: ObservableObject {
         guard sqlite3_step(insertStatement) == SQLITE_DONE else {
             throw SQLiteError.Step(message: errorMessage)
         }
-        print("Successfully inserted row.")
+        print("Successfully inserted row into the profile table.")
     }
-    //insert a row into the confidence table
-    func insertConfidence(confidence: Confidence, insertSQL: String)throws{
+    //insert a row into the onfidence table every time a person attemts an unseen combination of word and form
+    func insertConfidence(result:Question, profileID:Int32, insertSQL : String) throws{
+        let resultNum: Int
+        if result.isCorrect{
+            resultNum = 1 //1 for correct 0 for inncorrect
+        }else{
+            resultNum = 0
+        }
         let insertStatement = try prepareStatement(sqlStatement: insertSQL)
-        // will do at the end always
+        // will always finalize the pointer
         defer {
             sqlite3_finalize(insertStatement)
         }
-        guard sqlite3_bind_int(insertStatement, 1, confidence.id) == SQLITE_OK && sqlite3_bind_int(insertStatement, 2, confidence.profile_id) == SQLITE_OK && sqlite3_bind_int(insertStatement, 3, confidence.word_id) == SQLITE_OK && sqlite3_bind_text(insertStatement, 4, confidence.form.utf8String, -1, nil) == SQLITE_OK && sqlite3_bind_int(insertStatement, 5, confidence.attempts[0]) == SQLITE_OK && sqlite3_bind_int(insertStatement, 6, confidence.totalCorrect) == SQLITE_OK && sqlite3_bind_int(insertStatement, 7, confidence.total) == SQLITE_OK
-        else{
+        guard
+            sqlite3_bind_null(insertStatement, 1) == SQLITE_OK &&
+                sqlite3_bind_int(insertStatement,2, profileID) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement,3, result.latin.firstPrincipalPart, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement,4,result.formID ) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 5, Int32(resultNum)) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 6, 0) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 7, 0) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 8, 0) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 9, 0) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 10, 0) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 11, 0) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 12, 0) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 13, 0) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 14, 0) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 15, Int32(resultNum)) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 16, 1) == SQLITE_OK
+        else {
             throw SQLiteError.Bind(message: errorMessage)
         }
+        guard sqlite3_step(insertStatement) == SQLITE_DONE else {
+            throw SQLiteError.Step(message: errorMessage)
+        }
+        print("Successfully inserted \(result.latinString) into the confidence table.")
     }
     //returns all the usernames in the profiles table
+    func checkConfidence(result:Question,profileID:Int32, insertSQL : String) ->Bool{
+        let queryStatement = try? prepareStatement(sqlStatement: Confidence.GetRowIDQueryStatement)            // will always finalize the pointer
+            defer {
+                sqlite3_finalize(queryStatement)
+            }
+            guard
+                sqlite3_bind_int(queryStatement, profileID,1) == SQLITE_OK &&
+                sqlite3_bind_text(queryStatement, 2, result.latin.firstPrincipalPart, -1, nil) == SQLITE_OK &&
+                sqlite3_bind_int(queryStatement, 3, profileID) == SQLITE_OK
+            else{
+                return false
+            }
+        guard sqlite3_step(queryStatement) == SQLITE_ROW else {
+            return false //if an error is thrown there is no row and we have to create a new one
+        }
+        let row_id = try sqlite3_column_int(queryStatement, 0) == SQLITE_ROW
+        return true
+    }
     func GetUsernames()->String?{
         let querysql = Profile.GetUsernamesQueryStatement
         guard let queryStatement = try? prepareStatement(sqlStatement: querysql) else{
@@ -150,6 +217,31 @@ class SQLiteDatabase: ObservableObject {
         }
         let Usernames = String(cString: result) as String
         return Usernames
+    }
+    //gets the formID from the table give the appropiate forms
+    func GetFromID(formList:[NSString])->Int32?{
+        let querysql = Form.GetQueryStatement
+        guard let queryStatement = try? prepareStatement(sqlStatement: querysql) else{
+            return nil
+        }
+        defer {
+            sqlite3_finalize(queryStatement)
+        }
+        //bind all of the forms into the prepared statment
+        for i in 1...formList.count-1{
+            guard sqlite3_bind_text(queryStatement, Int32(i),formList[i].utf8String , -1, nil) == SQLITE_OK else{
+                print(errorMessage)
+                return nil
+                
+            }
+        }
+        //step the statment once all forms entered
+        guard sqlite3_step(queryStatement) == SQLITE_ROW else {
+            return nil
+        }
+        //collect the results
+        let result = sqlite3_column_int(queryStatement, 0)
+        return result
     }
     //returns true if password given matches table
     func CheckPassword(Username: NSString, Password: NSString) -> Bool?{
@@ -166,7 +258,7 @@ class SQLiteDatabase: ObservableObject {
         guard sqlite3_step(queryStatement) == SQLITE_ROW else {
             return nil
         }
-        let id = sqlite3_column_int(queryStatement, 0)
+        //let id = sqlite3_column_int(queryStatement, 0)
         guard let result = sqlite3_column_text(queryStatement, 1) else{
             print("Cannot find username")
             return false
@@ -214,7 +306,7 @@ class SQLiteDatabase: ObservableObject {
         return Profile(id: id, Username: Username, Password: Password)
     }
     //
-    func  QueryProfile(columns:[String]=["*"]){
+    func QueryProfile(columns:[String]=["*"]){
         var columnString:String = ""
         for column in columns{
             columnString = (String(columnString) + "," + column)
@@ -245,6 +337,7 @@ class SQLiteDatabase: ObservableObject {
         }
         sqlite3_finalize(queryStatement)
       }
+    //returns the user'sID number so it can be used later when storing results
     func SetCurrentUserID(username:NSString) throws -> Int32{
         let querySql = Profile.GetUserIDQueryStatement
         guard let queryStatement = try? prepareStatement(sqlStatement: querySql) else {
@@ -262,14 +355,16 @@ class SQLiteDatabase: ObservableObject {
         let id = sqlite3_column_int(queryStatement, 0)
         return id
     }
+    //returns the latest error message
     func GetErrorMessage()->String{
         return errorMessage
     }
+    
 }
 // the errors that will be throws
 enum SQLiteError: Error {
-    case OpenDatabase(message: String)
-    case Prepare(message: String)
-    case Step(message: String)
-    case Bind(message: String)
+    case OpenDatabase(message: String) //error opening the database
+    case Prepare(message: String) //erorr preparing a sql statment
+    case Step(message: String) // error inputing values into the statment
+    case Bind(message: String) // error running the sql statment with inputted values
 }

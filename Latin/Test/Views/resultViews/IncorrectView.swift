@@ -20,7 +20,7 @@ struct IncorrectView: View {
                 Spacer()
                 Text(quiz.getQuestion().latin.get_all_translations())
                 Text("you said")
-                Text(quiz.getQuestion().answer)
+                Text(quiz.getQuestion().vocabAnswer)
                 Spacer()
                 Button("next question"){
                     quiz.generateNextQuestion()
@@ -29,6 +29,9 @@ struct IncorrectView: View {
                 }
                 Spacer()
                 Button("Finsh Test"){
+                    if quiz.storeResults{
+                        quiz.saveAttempts(SQLdb: quiz.SQLdatabase, profileID: quiz.profileID)
+                    }
                     quiz.inQuiz = false
                     quiz.isAnswered = false
                     quiz.isFinished = true
