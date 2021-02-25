@@ -6,6 +6,7 @@
 //
 
 import Foundation
+//THE TOP OF THE WORD CLASS HEIRACHY ALL WORDTYPES STEM OF THIS
 class Word:Identifiable{
     public var id:Int //unique identifier for each word
     public var translations:[String]=[]

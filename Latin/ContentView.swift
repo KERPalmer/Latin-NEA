@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-//switches between the login view and the main program
+//THIS VIEW SEPERATES THE LOGIN PAGE FROM THE REST OF THE PROGRAM
 struct ContentView: View {
     @EnvironmentObject var env:Data
     @State var loaded:Bool=false
@@ -25,9 +25,3 @@ struct ContentView: View {
     }
 }
 
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().padding().environmentObject(Data())
-    }
-}

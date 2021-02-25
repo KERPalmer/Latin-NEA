@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+// A SINGLE PLACE TO CHANGE THE STYLE OF THE ROWS OF VERBS IN THE DICTIONARY VIEW...YOU CAN JAZZZ IT ALL UP HERE
 struct VerbRowView: View{
     var word:String
     var grammar:String

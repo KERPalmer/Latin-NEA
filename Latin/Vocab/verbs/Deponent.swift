@@ -7,6 +7,7 @@
 //
 
 import Foundation
+//DEPONANT VERBS ARE A SPECIAL CASE OF WORDS THEY ACT LIKE ACTIVE VERBS BUT ARE GIVEN IN PASSIVE FORM...WHICH IS VERY ANNOYING
 // deponantVerbs are active verbs but are in passive form...becasue humans are weird
 class DeponantVerb : Verb{
     override func GetImperfect(personNum: PersonNum)->String{

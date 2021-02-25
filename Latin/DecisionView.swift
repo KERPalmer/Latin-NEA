@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-//the tab view for the different components of the program
+//THIS VIEWS PROVIDES THE TABS YOU SEE AT THE BOTTOM OF THE SCREEN. EACH TAB RUN SIMULATEOUSLY AND WHAT YOU DO IN ONE TAB SHOULDNT EFFECT THE OTHERS
 struct DecisionView:View{
     @EnvironmentObject var env:Data
     @State private var selection = 0
@@ -45,16 +45,7 @@ struct DecisionView:View{
                         Text("Stats")
                         Image(systemName: "percent")
                     }
-                }
-                .tag(3)
+                }.tag(3)
         }
-        
-    }
-}
-
-
-struct DecisionView_Previews: PreviewProvider {
-    static var previews: some View {
-        DecisionView()
     }
 }

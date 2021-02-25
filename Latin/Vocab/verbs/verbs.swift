@@ -5,7 +5,7 @@
 //  Created by Kenan Palmer on 04/10/2020.
 //  Copyright © 2020 Kenan Palmer. All rights reserved.
 //
-
+//VERB - DOING WORDS - THIS CLASS HOLDS ALL THE MANY METHODS FOR GETTING THE DIFFERENT FORMS OF THE WORDS
 class Verb:Word,Codable{
     // using the pricipal parts we should in theory be able to derive any tense, person or voice
     public let present1S:String // this is for ease of access, you could just use the function

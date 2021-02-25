@@ -7,7 +7,7 @@
 //
 
 import Foundation
-//remove unwanted commas and whitespaces
+//REMOVE THE WHITESPACES AND COMMAS SO THAT THEY ARE THE SAME WHEN WE COMPARE THEM
 func format(str:String)->String{
     var trim = str
     trim=trim.replacingOccurrences(of: ",", with: "")

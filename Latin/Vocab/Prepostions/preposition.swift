@@ -7,10 +7,11 @@
 //
 
 import Foundation
+//PREPOSITION - THIS CLASS IS FOR PREPOSITIONS AND WILL HANDLE ALL THE METHODS TO GET THE DIFFERENT FORMS
 class Preposition: Word,Codable{
     public let word:String
     public let followedBy:String
-    public var isAccusative:Bool = false
+    public var following: prepositionFollowedBy
     public var isPrefix:Bool = false
     override init(line: String, id_: Int){
         //from 1: word, +ablative?/accusative?(prefix)?, preposition, translation
@@ -20,7 +21,9 @@ class Preposition: Word,Codable{
             isPrefix=true
         }
         if line.contains("accusative"){
-            isAccusative = true
+            following = prepositionFollowedBy.acc
+        }else{
+            following = prepositionFollowedBy.abl
         }
         if line.contains("\""){
             //from 2/3

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//ADJECTIVES 2/1/2 SHOWS ALL THE DIFFERERNT FORMS THESE ADJECTIVES CAN BE IN
 struct AdjectiveOneTwoInfoView: View {
     var adjective:FirstSecondAdjective
     var body: some View {
@@ -509,7 +509,7 @@ struct AdjectiveOneTwoInfoView: View {
         }
     }
 }
-
+//ADJECTIVES 3 SHOWS ALL THE DIFFERERNT FORMS THESE ADJECTIVES CAN BE IN 
 struct AdjectiveThirdInfoView: View {
     var adjective:ThirdAdjective
     var body: some View {

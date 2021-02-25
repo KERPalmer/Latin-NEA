@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+//ADJECTIVES - SHOWS ALL THE ADJECTIVES AND THE LINKS POINT TO THE 3 DIFFERERNT TYPES OF ADJECTIVES EXPANDED VIEW
 struct AdjectiveDictionaryView:View{
     @EnvironmentObject var env:Data
     var body :some View{

@@ -75,6 +75,16 @@ INSERT INTO Confidence (row_id, Profile_id, word, form_id, attempt1, attempt2, a
             SELECT row_id FROM Confidence WHERE Profile_id = (?) AND word = (?) AND form_id = (?);
 """
     }
+    static var SelectAllQueryStatement:String{
+        return """
+            SELECT * FROM Confidence Where row_id = (?)
+            """
+    }
+    static var UpdateQueryStatement: String{
+        return """
+            UPDATE Confidence SET attempt1 = (?), attempt2 = (?), attempt3 = (?), attempt4 = (?), attempt5 = (?), attempt6 = (?), attempt7 = (?), attempt8 = (?), attempt9 = (?), attempt10 = (?), totalCorrect = (?),total = (?) WHERE form_id = (?);
+            """
+    }
     init(id_:Int32 ,profile_id_:Int32,word_:NSString,form_id_:Int32,attempt1_:Int32){
         self.id = id_
         self.profile_id=profile_id_

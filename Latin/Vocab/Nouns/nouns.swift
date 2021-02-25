@@ -8,6 +8,7 @@
 
 import Foundation
 /*
+ THIS CLASS WILL DEAL WITH THE 5 MAIN NOUN DECLENSIONS AND HOLD ALL THE METHODS TO GET THE DIFFERENT FORMS
  a thing place or object that has
  case:
     nominative- subject
@@ -24,12 +25,13 @@ person:
     neuter
  declension:
     1,2,3,4,5
+ 
  */
 class Noun :Word,Codable{
     let nominativeS:String
     let genativeS:String
-    let gender:String
-    let declension:String
+    let gender:Gender
+    let declension: NounDeclension
     override init(line:String,id_:Int) {
         // form 1 :nominative singular,"genative singular, gender", declension,"translation 1,translation 2..."
         // form 2 :nominative singular,"genative singular, gender", declennsion,translation 1
@@ -40,17 +42,17 @@ class Noun :Word,Codable{
             nominativeS=format(str: seperated[0])
             let genativeAndGender:[String]=seperated[1].split(separator: ",", omittingEmptySubsequences: true).map { String($0) }
             genativeS = format(str:genativeAndGender[0])
-            gender=format(str: genativeAndGender[1])
-            declension=format(str: seperated[2])
+            gender=Gender(rawValue: Gender.RawValue(format(str: genativeAndGender[1]))) ?? Gender.male
+            declension=NounDeclension(rawValue: NounDeclension.RawValue(format(str: seperated[2]))) ?? NounDeclension.First
         }
         else{
             //form 2
             nominativeS=format(str: seperated[0])
             let genativeAndGender:[String]=seperated[1].split(separator: ",", omittingEmptySubsequences: true).map { String($0) }
             genativeS = format(str: genativeAndGender[0])
-            gender=format(str: genativeAndGender[1])
+            gender=Gender(rawValue: Gender.RawValue(format(str: genativeAndGender[1]))) ?? Gender.male
             let declensionAndTranslation = seperated[2].split(separator: ",", omittingEmptySubsequences: true).map { String($0) }
-            declension=format(str: declensionAndTranslation[0])
+            declension=NounDeclension(rawValue: NounDeclension.RawValue(format(str: declensionAndTranslation[0])))!
         }
         super.init(line: line, id_: id_)
     }
@@ -58,362 +60,315 @@ class Noun :Word,Codable{
     required init(from decoder: Decoder) throws {
         fatalError("init(from:) has not been implemented")
     }
-    func GetDeclension(choice:String)->String{
+    override func GetForm(formString formList: [String]) -> String {
+        return GetDeclension(choice: caseNum(rawValue: formList[0]) ?? caseNum.NomSingular)
+    }
+    func GetDeclension(choice:caseNum)->String{
         //need to get declension then gender, then
         switch self.declension{
-        case "noun 1":
+        case NounDeclension.First:
             let stem = String(genativeS.dropLast(2))
             //no switch for gender needed, they are all  female except 1and i still follows the declension
-            switch choice.lowercased(){
-            case "nom_s":
+            switch choice{
+            case .NomSingular:
                 return nominativeS
-            case "voc_s":
+            case .VocSingular:
                 return stem + "a"
-            case "acc_s":
+            case .AccSingular:
                 return stem + "am"
-            case "gen_s":
+            case .GenSingular:
                 return genativeS
-            case "dat_s":
+            case .DatSingular:
                 return stem + "ae"
-            case "abl_s":
+            case .AblSingular:
                 return stem + "a"
-            case "nom_p":
+            case .NomPlural:
                 return stem + "ae"
-            case "voc_p":
+            case .VocPlural:
                 return stem + "ae"
-            case "acc_p":
+            case .AccPlural:
                 return stem + "as"
-            case "gen_p":
+            case .GenPlural:
                 return stem + "arum"
-            case "dat_p":
+            case .DatPlural:
                 return stem + "is"
-            case "abl_p":
+            case .AblPlural:
                 return stem + "is"
-            default:
-                return "cant find case/number"
             }
-        case "noun 2":
+        case NounDeclension.Second:
             //no need for female
             switch gender{
-            case"m":
+            case Gender.male:
                 let stem = String(genativeS.dropLast(1))
-                switch choice.lowercased(){
-                case "nom_s":
+                switch choice{
+                case .NomSingular:
                     return nominativeS
-                case "voc_s":
+                case .VocSingular:
                     return stem+"i"
-                case "acc_s":
+                case .AccSingular:
                     return stem + "um"
-                case "gen_s":
+                case .GenSingular:
                     return genativeS
-                case "dat_s":
+                case .DatSingular:
                     return stem + "o"
-                case "abl_s":
+                case .AblSingular:
                     return stem + "o"
-                case "nom_p":
+                case .NomPlural:
                     return stem + "i"
-                case "voc_p":
+                case .VocPlural:
                     return stem + "i"
-                case "acc_p":
+                case .AccPlural:
                     return stem + "os"
-                case "gen_p":
+                case .GenPlural:
                     return stem + "orum"
-                case "dat_p":
+                case .DatPlural:
                     return stem + "is"
-                case "abl_p":
+                case .AblPlural:
                     return stem + "is"
-                default:
-                    return "cant find case/number"
                 }
-            // for castra
-            case"n plural":
+            case .neuter:
                 let stem = String(genativeS.dropLast(2))
-                    switch choice.lowercased(){
-                    case "nom_s":
-                        return "none"
-                    case "voc_s":
-                        return "none"
-                    case "acc_s":
-                        return "none"
-                    case "gen_s":
-                        return "none"
-                    case "dat_s":
-                        return "none"
-                    case "abl_s":
-                        return "none"
-                    case "nom_p":
-                        return nominativeS
-                    case "voc_p":
-                        return stem + "a"
-                    case "acc_p":
-                        return stem + "a"
-                    case "gen_p":
-                        return stem + "arum"
-                    case "dat_p":
-                        return stem + "is"
-                    case "abl_p":
-                        return stem + "is"
-                    default:
-                        return "cant find case/number"
-                    }
-            case"n":
-                let stem = String(genativeS.dropLast(2))
-                switch choice.lowercased(){
-                case "nom_s":
+                switch choice{
+                case .NomSingular:
                     return nominativeS
-                case "voc_s":
+                case .VocSingular:
                     return stem + "um"
-                case "acc_s":
+                case .AccSingular:
                     return stem + "um"
-                case "gen_s":
+                case .GenSingular:
                     return genativeS
-                case "dat_s":
+                case .DatSingular:
                     return stem + "o"
-                case "abl_s":
+                case .AblSingular:
                     return stem + "o"
-                case "nom_p":
+                case .NomPlural:
                     return stem + "a"
-                case "voc_p":
+                case .VocPlural:
                     return stem + "a"
-                case "acc_p":
+                case .AccPlural:
                     return stem + "a"
-                case "gen_p":
+                case .GenPlural:
                     return stem + "arum"
-                case "dat_p":
+                case .DatPlural:
                     return stem + "is"
-                case "abl_p":
+                case .AblPlural:
                     return stem + "is"
-                default:
-                    return "cant find case/number"
                 }
             default:
                 return "error invalid gender"
             }
-        case "noun 3":
+        case NounDeclension.Third:
             switch gender{
-            case "f":
+            case .female:
                 let stem = String(genativeS.dropLast(2))
-                switch choice.lowercased(){
-                case "nom_s":
+                switch choice{
+                case .NomSingular:
                     return nominativeS
-                case "voc_s":
+                case .VocSingular:
                     return nominativeS
-                case "acc_s":
+                case .AccSingular:
                     return stem + "em"
-                case "gen_s":
+                case .GenSingular:
                     return genativeS
-                case "dat_s":
+                case .DatSingular:
                     return stem + "i"
-                case "abl_s":
+                case .AblSingular:
                     return stem + "e"
-                case "nom_p":
+                case .NomPlural:
                     return stem + "es"
-                case "voc_p":
+                case .VocPlural:
                     return stem + "es"
-                case "acc_p":
+                case .AccPlural:
                     return stem + "es"
-                case "gen_p":
+                case .GenPlural:
                     return stem + "um"
-                case "dat_p":
+                case .DatPlural:
                     return stem + "ibus"
-                case "abl_p":
+                case .AblPlural:
                     return stem + "ibus"
-                default:
-                    return "cant find case/number"
                 }
-            case"m":
+            case .male:
                 let stem = String(genativeS.dropLast(2))
-                switch choice.lowercased(){
-                case "nom_s":
+                switch choice{
+                case .NomSingular:
                     return nominativeS
-                case "voc_s":
+                case .VocSingular:
                     return nominativeS
-                case "acc_s":
+                case .AccSingular:
                     return stem + "em"
-                case "gen_s":
+                case .GenSingular:
                     return genativeS
-                case "dat_s":
+                case .DatSingular:
                     return stem + "i"
-                case "abl_s":
+                case .AblSingular:
                     return stem + "e"
-                case "nom_p":
+                case .NomPlural:
                     return stem + "es"
-                case "voc_p":
+                case .VocPlural:
                     return stem + "es"
-                case "acc_p":
+                case .AccPlural:
                     return stem + "es"
-                case "gen_p":
+                case .GenPlural:
                     return stem + "um"
-                case "dat_p":
+                case .DatPlural:
                     return stem + "ibus"
-                case "abl_p":
+                case .AblPlural:
                     return stem + "ibus"
-                default:
-                    return "cant find case/number"
                 }
-            case"n":
+            case .neuter:
                 let stem = String(genativeS.dropLast(2))
-                switch choice.lowercased(){
-                case "nom_s":
+                switch choice{
+                case .NomSingular:
                     return nominativeS
-                case "voc_s":
+                case .VocSingular:
                     return nominativeS
-                case "acc_s":
+                case .AccSingular:
                     return nominativeS
-                case "gen_s":
+                case .GenSingular:
                     return genativeS
-                case "dat_s":
+                case .DatSingular:
                     return stem + "i"
-                case "abl_s":
+                case .AblSingular:
                     return stem + "i"
-                case "nom_p":
+                case .NomPlural:
                     return stem + "a"
-                case "voc_p":
+                case .VocPlural:
                     return stem + "a"
-                case "acc_p":
+                case .AccPlural:
                     return stem + "a"
-                case "gen_p":
+                case .GenPlural:
                     return stem + "ium"
-                case "dat_p":
+                case .DatPlural:
                     return stem + "ibus"
-                case "abl_p":
+                case .AblPlural:
                     return stem + "ibus"
-                default:
-                    return "cant find case/number"
                 }
-            default:
-                return "error invalid gender"
             }
-        case "noun 4":
+        case NounDeclension.Fourth:
             switch gender{
-            case"m":
+            case.male:
                 let stem = String(genativeS.dropLast(2))
-                switch choice.lowercased(){
-                case "nom_s":
+                switch choice{
+                case .NomSingular:
                     return nominativeS
-                case "voc_s":
+                case .VocSingular:
                     return nominativeS
-                case "acc_s":
+                case .AccSingular:
                     return stem + "um"
-                case "gen_s":
+                case .GenSingular:
                     return genativeS
-                case "dat_s":
+                case .DatSingular:
                     return stem + "ui"
-                case "abl_s":
+                case .AblSingular:
                     return stem + "u"
-                case "nom_p":
+                case .NomPlural:
                     return stem + "us"
-                case "voc_p":
+                case .VocPlural:
                     return stem + "us"
-                case "acc_p":
+                case .AccPlural:
                     return stem + "us"
-                case "gen_p":
+                case .GenPlural:
                     return stem + "uum"
-                case "dat_p":
+                case .DatPlural:
                     return stem + "ibus"
-                case "abl_p":
+                case .AblPlural:
                     return stem + "ibus"
-                default:
-                    return "cant find case/number"
                 }
-            case"f":
+            case.female:
                 let stem = String(genativeS.dropLast(2))
-                switch choice.lowercased(){
-                case "nom_s":
+                switch choice{
+                case .NomSingular:
                     return nominativeS
-                case "voc_s":
+                case .VocSingular:
                     return nominativeS
-                case "acc_s":
+                case .AccSingular:
                     return stem + "um"
-                case "gen_s":
+                case .GenSingular:
                     return genativeS
-                case "dat_s":
+                case .DatSingular:
                     return stem + "ui"
-                case "abl_s":
+                case .AblSingular:
                     return stem + "u"
-                case "nom_p":
+                case .NomPlural:
                     return stem + "us"
-                case "voc_p":
+                case .VocPlural:
                     return stem + "us"
-                case "acc_p":
+                case .AccPlural:
                     return stem + "us"
-                case "gen_p":
+                case .GenPlural:
                     return stem + "uum"
-                case "dat_p":
+                case .DatPlural:
                     return stem + "ibus"
-                case "abl_p":
+                case .AblPlural:
                     return stem + "ibus"
-                default:
-                    return "cant find case/number"
                 }
             //no 4th neuter nouns in ocr
             //leaving domum as 4th masc despite in writings it can have different endings
-            case"n":
+            case.neuter:
                 return "not yet implimented"
-            default:
-                return "error invalid gender"
             }
-        case "noun 5":
-            //no need for gender
-            let stem = String(genativeS.dropLast(2))
-                switch choice.lowercased(){
-                case "nom_s":
-                    return nominativeS
-                case "voc_s":
-                    return nominativeS
-                case "acc_s":
-                    return stem + "em"
-                case "gen_s":
-                    return genativeS
-                case "dat_s":
-                    return stem + "ei"
-                case "abl_s":
-                    return stem + "e"
-                case "nom_p":
-                    return stem + "es"
-                case "voc_p":
-                    return stem + "es"
-                case "acc_p":
-                    return stem + "es"
-                case "gen_p":
-                    return stem + "erum"
-                case "dat_p":
-                    return stem + "ebus"
-                case "abl_p":
-                    return stem + "ebus"
-                default:
-                    return "cant find case/number"
-                }
-            case"f":
+        case NounDeclension.Fifth:
+            switch gender{
+            case Gender.male:
                 let stem = String(genativeS.dropLast(2))
-                switch choice.lowercased(){
-                case "nom_s":
+                switch choice{
+                case .NomSingular:
                     return nominativeS
-                case "voc_s":
+                case .VocSingular:
                     return nominativeS
-                case "acc_s":
-                    return stem + "um"
-                case "gen_s":
+                case .AccSingular:
+                    return stem + "em"
+                case .GenSingular:
                     return genativeS
-                case "dat_s":
-                    return stem + "ui"
-                case "abl_s":
-                    return stem + "u"
-                case "nom_p":
-                    return stem + "us"
-                case "voc_p":
-                    return stem + "us"
-                case "acc_p":
-                    return stem + "us"
-                case "gen_p":
-                    return stem + "uum"
-                case "dat_p":
-                    return stem + "ibus"
-                case "abl_p":
-                    return stem + "ibus"
-                default:
-                    return "cant find case/number"
+                case .DatSingular:
+                    return stem + "ei"
+                case .AblSingular:
+                    return stem + "e"
+                case .NomPlural:
+                    return stem + "es"
+                case .VocPlural:
+                    return stem + "es"
+                case .AccPlural:
+                    return stem + "es"
+                case .GenPlural:
+                    return stem + "erum"
+                case .DatPlural:
+                    return stem + "ebus"
+                case .AblPlural:
+                    return stem + "ebus"
                 }
+            case Gender.female:
+                let stem = String(genativeS.dropLast(2))
+                switch choice{
+                case .NomSingular:
+                    return nominativeS
+                case .VocSingular:
+                    return nominativeS
+                case .AccSingular:
+                    return stem + "um"
+                case .GenSingular:
+                    return genativeS
+                case .DatSingular:
+                    return stem + "ui"
+                case .AblSingular:
+                    return stem + "u"
+                case .NomPlural:
+                    return stem + "us"
+                case .VocPlural:
+                    return stem + "us"
+                case .AccPlural:
+                    return stem + "us"
+                case .GenPlural:
+                    return stem + "uum"
+                case .DatPlural:
+                    return stem + "ibus"
+                case .AblPlural:
+                    return stem + "ibus"
+                }
+            default:
+            return"error invalid gender"
+            
+            }
         default:
             return "cant find declension"
         }

@@ -7,6 +7,7 @@
 
 import Foundation
 import SQLite3
+//THIS FUNCTION RESETS THE 3 TABLES USED. THIS SHOULD BE DONE ONCE, WHEN THE PROGRAM START AND IS ONLY RESET ON COMMAND OR WHEN TESTING
 func resetTestDatabase(db:SQLiteDatabase?){
     do {
         try db?.dropTable(table: Profile.self)
@@ -28,7 +29,6 @@ func resetTestDatabase(db:SQLiteDatabase?){
     do {
         try db?.insertProfile(profile: Profile(id: 0, Username: "TEST", Password: "1234"), insertSQL: Profile.insertStatement)
         try db?.insertProfile(profile: Profile(id: 1, Username: "Julius Caesar", Password: "Cutbacks"), insertSQL: Profile.insertStatement)
-        
     } catch {
         print("Fail to insert profile")
         print(db!.GetErrorMessage())
@@ -39,22 +39,24 @@ func resetTestDatabase(db:SQLiteDatabase?){
     IterateAdjectiveForm(db:db!)
     //prepositions
     do {
-        try db?.insertForm(part1: "ablative", part2: " ", part3: " ", part4: " ", part5: " ", part6: " ", wordType: WordTypes.Preposition)
-        try db?.insertForm(part1: "accusative", part2: " ", part3: " ", part4: " ", part5: " ", part6: " ", wordType: WordTypes.Preposition)
+        try db?.insertForm(part1: prepositionFollowedBy.abl.rawValue, part2: "", part3: "", part4: "", part5: "", type: WordTypes.Preposition.rawValue)
+        try db?.insertForm(part1: prepositionFollowedBy.acc.rawValue, part2: "", part3: "", part4: "", part5: "", type: WordTypes.Preposition.rawValue)
     }catch{
         print("failed to insert prepositions")
     }
     //indeclinable-adverbs conjunctions and participals
     do{
-        try db?.insertForm(part1: "indeclinable", part2: " ", part3: " ", part4: " ", part5: " ", part6: " ", wordType: WordTypes.Adverb)
-        try db?.insertForm(part1: "indeclinable", part2: " ", part3: " ", part4: " ", part5: " ", part6: " ", wordType: WordTypes.Conjunction)
-        try db?.insertForm(part1: "indeclinable", part2: " ", part3: " ", part4: " ", part5: " ", part6: " ", wordType: WordTypes.Participal)
+        try db?.insertForm(part1: "indeclinable", part2: "", part3: "", part4: "", part5: "",type: WordTypes.Adverb.rawValue)
+        try db?.insertForm(part1: "indeclinable", part2: "", part3: "", part4: "", part5: "",type: WordTypes.Conjunction.rawValue)
     }catch{
         print("failed to insert indeclinables")
     }
-    print("Successfully inserted row into the Form table.")
+    print("Successfully inserted rows into the Form table.")
     let testProfile = db?.GetProfile(id:0)
     print(testProfile!.Username as Any)
+    print("form test")
+    db?.ReturnForms()
+    print("end of test")
 }
 //will insert each permutation of the verb froms
 // passive perfect and pluperfect require genders
@@ -66,13 +68,17 @@ func IterateVerbForm(db:SQLiteDatabase){
                 for tense in Tense.allCases{
                     for personNum in PersonNum.allCases{
                         do{
-                            if voice == Voice.passive{
+                            if voice == Voice.passive && (tense == Tense.pluperfect || tense == Tense.perfect){
                                 for gender in Gender.allCases{
-                                    try db.insertForm(part1: mood.rawValue, part2: voice.rawValue, part3: tense.rawValue, part4:personNum.rawValue , part5: gender.rawValue,part6: conjnction.rawValue, wordType: WordTypes.Verb)
+                                    try db.insertForm(part1: mood.rawValue, part2: voice.rawValue, part3: tense.rawValue, part4:personNum.rawValue , part5: gender.rawValue,type: conjnction.rawValue)
                                 }
                             }
+                            else if tense == Tense.infinitive{
+                                try db.insertForm(part1: mood.rawValue, part2: voice.rawValue, part3: tense.rawValue, part4:"", part5: "",type:conjnction.rawValue)
+                                
+                            }
                             else {
-                                try db.insertForm(part1: mood.rawValue, part2: voice.rawValue, part3: tense.rawValue, part4:personNum.rawValue , part5: " ",part6:conjnction.rawValue, wordType: WordTypes.Verb)
+                                try db.insertForm(part1: mood.rawValue, part2: voice.rawValue, part3: tense.rawValue, part4:personNum.rawValue , part5: "",type:conjnction.rawValue)
                             }
                         }catch{
                             print("failed to insert verb line")
@@ -89,7 +95,7 @@ func IterateNounForm(db:SQLiteDatabase){
     for nounDeclension in NounDeclension.allCases{
         for caseNum in caseNum.allCases{
             do{
-                try db.insertForm(part1: nounDeclension.rawValue, part2: caseNum.rawValue, part3: " ", part4: " ", part5: " ", part6: " ", wordType: WordTypes.Noun)
+                try db.insertForm(part1:caseNum.rawValue, part2: "", part3: "", part4: "", part5: "",type: nounDeclension.rawValue)
             }catch {
                 print("failed to insert noun line")
             }
@@ -104,7 +110,7 @@ func IterateAdjectiveForm(db:SQLiteDatabase){
             for caseNum in caseNum.allCases{
                 for gender in Gender.allCases{
                     do{
-                        try db.insertForm(part1: degree.rawValue ,part2: adjectiveDeclension.rawValue, part3: caseNum.rawValue, part4: gender.rawValue, part5: " ", part6: " ", wordType: WordTypes.Noun)
+                        try db.insertForm(part1: degree.rawValue ,part2: caseNum.rawValue, part3: gender.rawValue,part4:"", part5: "",type: adjectiveDeclension.rawValue)
                     }catch {
                         print("failed to insert adjective line")
                     }

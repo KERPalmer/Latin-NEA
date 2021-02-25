@@ -19,7 +19,6 @@ struct VocabWrittenInputView: View {
             TextField(question.latin.translations[0],text: $question.vocabAnswer)
             Spacer()
             Button("submit"){
-                question.formAnswer = question.formString //this written question doesn't require any form
                 question.isCorrect = question.checkAnswer()
                 quiz.isAnswered = true
             }

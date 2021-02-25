@@ -7,12 +7,19 @@
 //
 
 import Foundation
+//ADJECTIVES - THIS CLASS WILL DEAL WITH THE 2 ADJECTIVE DECLENSION HANDLE ALL THE METHODS TO GET THE DIFFERENT FORMS
 class Adjective:Word, Codable{
+    public let declension:AdjectiveDeclension
     public var mascNom:String
     override init(line: String, id_: Int){
         let trimmed:String=line.replacingOccurrences(of: "\r", with: "") // remove line break
         let commaSplit=(trimmed.split(separator: ",", omittingEmptySubsequences: true)).map { String($0) }
         self.mascNom=String(format(str: commaSplit[0]))
+        if trimmed.contains("1/2"){
+            declension = AdjectiveDeclension.TwoOneTwo
+        }else{
+            declension = AdjectiveDeclension.third
+        }
         super.init(line: line, id_: id_)
     }
     
@@ -27,7 +34,7 @@ class FirstSecondAdjective:Adjective{
     private let mascStem:String
     private let femStem:String
     private let neuStem:String
-    
+
     override init(line:String,id_:Int){
         let trimmed:String=line.replacingOccurrences(of: "\r", with: "") // remove line break
         let speechSplit=(trimmed.split(separator: "\"", omittingEmptySubsequences: true)).map { String($0) }// seperate parts

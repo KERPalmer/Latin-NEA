@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//SHOWS ALL THE DIFFERENT ADJECTIVES
 struct ConjunctionDictionaryView: View {
     @EnvironmentObject var env: Data
     var body: some View {
@@ -22,11 +22,5 @@ struct ConjunctionDictionaryView: View {
                 }
             }
         }
-    }
-}
-
-struct ConjunctionDictionaryView_Previews: PreviewProvider {
-    static var previews: some View {
-        ConjunctionDictionaryView()
     }
 }

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//ADVERBS - SHOWS ALL THE ROWS FOR THE DIFFERENT ADVERBS
 struct AdverbDictionaryView: View {
     @EnvironmentObject var env: Data
     var body: some View {

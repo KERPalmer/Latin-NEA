@@ -6,6 +6,7 @@
 //
 
 import Foundation
+//ADVERBS - THIS CLASS WILL HANDLE EVERYTHING FOR THE ADVERBS ..... THERE ISNT VERY MUCH 
 class Adverb: Word{
     public let word:String
     override init(line:String, id_ : Int) {

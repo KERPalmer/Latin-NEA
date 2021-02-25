@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//NOUN DICTIONARY - SHOWS ALL THE NOUNS IN A LIST
 struct NounDictionaryView: View {
     @EnvironmentObject var env:Data
     var body: some View{

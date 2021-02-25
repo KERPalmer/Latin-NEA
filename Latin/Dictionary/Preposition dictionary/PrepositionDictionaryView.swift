@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//PREPOSITION DICTIONARY - SHOWS ALL THE PREPOSITIONS AND EVEN SHOWS THE ONES USED AS PREFIXES
 struct PrepositionDictionaryView: View {
     @EnvironmentObject var env:Data
     var body: some View {
@@ -15,13 +15,8 @@ struct PrepositionDictionaryView: View {
                 HStack{
                     Text(preposition.word)
                         .bold()
-                    if (preposition.isAccusative){
-                        Text(" + Accusative")
+                    Text(preposition.followedBy)
                         .bold()
-                    }else{
-                        Text(" + Ablative")
-                        .bold()
-                    }
                     Spacer()
                     if (preposition.isPrefix){
                         Text(" prefix ")

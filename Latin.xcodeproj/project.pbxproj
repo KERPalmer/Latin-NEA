@@ -72,7 +72,6 @@
 		E0C1BFCA257E93B60041238F /* adverb.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1BFC9257E93B60041238F /* adverb.swift */; };
 		E0C1BFCE257E9D280041238F /* AdverbDictionaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1BFCD257E9D280041238F /* AdverbDictionaryView.swift */; };
 		E0C1BFD1257E9DF40041238F /* AdverbInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C1BFD0257E9DF40041238F /* AdverbInfoView.swift */; };
-		E0E97C0C256C2EA5008C73CF /* tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E97C0B256C2EA5008C73CF /* tests.swift */; };
 		E0EE580925B75CD100500313 /* QuizFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EE580825B75CD100500313 /* QuizFinishView.swift */; };
 		E0FDAA3625B305FC00DFB93E /* VocabWrittenInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FDAA3525B305FC00DFB93E /* VocabWrittenInput.swift */; };
 		E0FDAA3925B3060A00DFB93E /* VocabMultipleChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FDAA3825B3060A00DFB93E /* VocabMultipleChoiceView.swift */; };
@@ -146,7 +145,6 @@
 		E0C1BFC9257E93B60041238F /* adverb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adverb.swift; sourceTree = "<group>"; };
 		E0C1BFCD257E9D280041238F /* AdverbDictionaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdverbDictionaryView.swift; sourceTree = "<group>"; };
 		E0C1BFD0257E9DF40041238F /* AdverbInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdverbInfoView.swift; sourceTree = "<group>"; };
-		E0E97C0B256C2EA5008C73CF /* tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
 		E0EE580825B75CD100500313 /* QuizFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizFinishView.swift; sourceTree = "<group>"; };
 		E0FDAA3525B305FC00DFB93E /* VocabWrittenInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabWrittenInput.swift; sourceTree = "<group>"; };
 		E0FDAA3825B3060A00DFB93E /* VocabMultipleChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabMultipleChoiceView.swift; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 				E054DC4C256AC16800302ADF /* TODO */,
 				E0154BC1252B9C580057827A /* ContentView.swift */,
 				E0154B5C252B4FCA0057827A /* DecisionView.swift */,
-				E0E97C0B256C2EA5008C73CF /* tests.swift */,
 				E054DC3C256A9BDC00302ADF /* Database */,
 				E054DC32256A921F00302ADF /* Login Page */,
 				E0154B63252B52350057827A /* Vocab */,
@@ -636,7 +633,6 @@
 				E054DC49256AA0A700302ADF /* table protocal.swift in Sources */,
 				E04FB9C2259A419700D24C3C /* CorrectView.swift in Sources */,
 				E054DC3E256A9C0600302ADF /* connectDB.swift in Sources */,
-				E0E97C0C256C2EA5008C73CF /* tests.swift in Sources */,
 				E04A3D3D258281CE005A21BC /* ConjunctionFilterView.swift in Sources */,
 				E04FB9C9259A462F00D24C3C /* IncorrectView.swift in Sources */,
 				E0154AE2252B39B50057827A /* Background.swift in Sources */,

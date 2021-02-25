@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//ADVERBS ARE VERY SIMPLE THEY DONT CHANGE SO ALL WE NEED IS THE TRANSLATION
 struct AdverbInfoView: View {
     var adv:Adverb
     var body: some View {

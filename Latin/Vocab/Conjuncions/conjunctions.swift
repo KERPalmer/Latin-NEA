@@ -6,6 +6,7 @@
 //
 
 import Foundation
+//CONJUNCTIONS
 class Conjunction: Word {
     public var followedBy: String
     public var word: String

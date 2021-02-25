@@ -42,7 +42,7 @@ caelum ,"caeli, n",noun 2,"sky, heaven"
 capio ,"capere, cepi, captus",verb 3,"take, catch, capture, make (a plan)"
 captivus,"captivi, m",noun 2,"captive, prisoner"
 caput ,"capitis, n",noun 3,head
-castra ,"castrorum, n plural",noun 2,camp
+castra ,"castrorum, n",noun 2,camp
 celer ,"celeris, celere",adjective 3,"quick, fast"
 celo ,"celare, celavi, celatus",verb 1,hide
 cena ,"cenae, f",noun 1,"dinner, meal"
@@ -239,7 +239,6 @@ narro ,"narrare, narravi, narratus",verb 1,"tell, relate"
 nauta ,"nautae, m",noun 1,sailor
 navigo ,"navigare, navigavi",verb 1,sail
 navis ,"navis, f",noun 3,ship
--ne,indeclinable,particle,(introduces question)
 ne ,indeclinable + subjunctive,conjunction,"that ... not, so that ... not, that, lest"
 "nec, neque",indeclinable,conjunction,"and not, nor, neither"
 neco ,"necare, necavi, necatus",verb 1,kill

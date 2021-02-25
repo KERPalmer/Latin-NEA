@@ -7,7 +7,7 @@
 
 import SwiftUI
 import SQLite3
-//The Login page. User will enter username and password
+//The Login page. User will enter username and password and then it will call on the database to make sure they are correct.
 struct logInView: View {
     @EnvironmentObject var env:Data
     @State private var Username:String = ""

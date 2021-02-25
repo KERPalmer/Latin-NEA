@@ -68,7 +68,7 @@ struct VerbFormButton: View {
                         partNum+=1
                     }
                     Button("future") {
-                        appendFormAnswer(part: "future,")
+                        appendFormAnswer(part: "fut,")
                         partNum+=1
                     }
                     Button("infinitive") {

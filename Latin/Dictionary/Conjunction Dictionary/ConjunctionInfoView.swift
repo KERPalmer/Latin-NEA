@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//CONJUNCTIONS DONT CHANGE SO WE CAN JUST SHOW THEIR TRANSLATION AND IF THEY NEEDED TO BE FOLLOWED BY ANYHTING
 struct ConjunctionInfoView: View {
     var conj:Conjunction
     var body: some View {

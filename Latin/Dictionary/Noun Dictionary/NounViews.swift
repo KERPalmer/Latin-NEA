@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+//NOUN DICTIONARY - THIS SHOWS AL LTHE FORMS FOR NOUNS
 struct nounInfoView:View{
     var noun:Noun
     var body:some View{
@@ -28,8 +28,8 @@ struct nounInfoView:View{
                     .frame(width: 20)
             }
             HStack{
-                Text(noun.declension)
-                Text(noun.gender)
+                Text(noun.declension.rawValue)
+                Text(noun.gender.rawValue)
             }
             Text(noun.get_all_translations())
                 .font(.subheadline)
@@ -42,7 +42,7 @@ struct nounInfoView:View{
                 HStack {
                     Spacer()
                         .frame(width: 20)
-                    Text(noun.GetDeclension(choice: "nom_s"))
+                    Text(noun.GetDeclension(choice: caseNum.NomSingular))
                     Spacer()
                         .frame(width: 20)
                     Text("nominative singular")
@@ -54,7 +54,7 @@ struct nounInfoView:View{
                 HStack {
                     Spacer()
                         .frame(width: 20)
-                    Text(noun.GetDeclension(choice: "voc_s"))
+                    Text(noun.GetDeclension(choice: caseNum.VocSingular))
                     Spacer()
                         .frame(width: 20)
                     Text("vocative singular")
@@ -66,7 +66,7 @@ struct nounInfoView:View{
                 HStack {
                     Spacer()
                         .frame(width: 20)
-                    Text(noun.GetDeclension(choice: "acc_s"))
+                    Text(noun.GetDeclension(choice: caseNum.AccSingular))
                     Spacer()
                         .frame(width: 20)
                     Text("accusative singular")
@@ -78,7 +78,7 @@ struct nounInfoView:View{
                 HStack {
                     Spacer()
                         .frame(width: 20)
-                    Text(noun.GetDeclension(choice: "gen_s"))
+                    Text(noun.GetDeclension(choice: caseNum.GenSingular))
                     Spacer()
                         .frame(width: 20)
                     Text("genative singular")
@@ -90,7 +90,7 @@ struct nounInfoView:View{
                 HStack {
                     Spacer()
                         .frame(width: 20)
-                    Text(noun.GetDeclension(choice: "dat_s"))
+                    Text(noun.GetDeclension(choice: caseNum.DatSingular))
                     Spacer()
                         .frame(width: 20)
                     Text("dative singular")
@@ -102,7 +102,7 @@ struct nounInfoView:View{
                 HStack {
                     Spacer()
                         .frame(width: 20)
-                    Text(noun.GetDeclension(choice: "abl_s"))
+                    Text(noun.GetDeclension(choice: caseNum.AblSingular))
                     Spacer()
                         .frame(width: 20)
                     Text("ablative singular")
@@ -120,7 +120,7 @@ struct nounInfoView:View{
                 HStack {
                     Spacer()
                         .frame(width: 20)
-                    Text(noun.GetDeclension(choice: "nom_p"))
+                    Text(noun.GetDeclension(choice: caseNum.NomPlural))
                     Spacer()
                         .frame(width: 20)
                     Text("nominative plural")
@@ -132,7 +132,7 @@ struct nounInfoView:View{
                 HStack {
                     Spacer()
                         .frame(width: 20)
-                    Text(noun.GetDeclension(choice: "voc_p"))
+                    Text(noun.GetDeclension(choice: caseNum.VocPlural))
                     Spacer()
                         .frame(width: 20)
                     Text("vocative plural")
@@ -144,7 +144,7 @@ struct nounInfoView:View{
                 HStack {
                     Spacer()
                         .frame(width: 20)
-                    Text(noun.GetDeclension(choice: "acc_p"))
+                    Text(noun.GetDeclension(choice: caseNum.AccPlural))
                     Spacer()
                         .frame(width: 20)
                     Text("accusative plural")
@@ -156,7 +156,7 @@ struct nounInfoView:View{
                 HStack {
                     Spacer()
                         .frame(width: 20)
-                    Text(noun.GetDeclension(choice: "gen_p"))
+                    Text(noun.GetDeclension(choice: caseNum.GenPlural))
                     Spacer()
                         .frame(width: 20)
                     Text("genative plural")
@@ -168,7 +168,7 @@ struct nounInfoView:View{
                 HStack {
                     Spacer()
                         .frame(width: 20)
-                    Text(noun.GetDeclension(choice: "dat_p"))
+                    Text(noun.GetDeclension(choice: caseNum.DatPlural))
                     Spacer()
                         .frame(width: 20)
                     Text("dative plural")
@@ -180,7 +180,7 @@ struct nounInfoView:View{
                 HStack {
                     Spacer()
                         .frame(width: 20)
-                    Text(noun.GetDeclension(choice: "abl_p"))
+                    Text(noun.GetDeclension(choice: caseNum.AblPlural))
                     Spacer()
                         .frame(width: 20)
                     Text("ablative plural")

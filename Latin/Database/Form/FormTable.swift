@@ -19,7 +19,7 @@ class Form: SQLTable{
     var wordType: WordTypes
     static var insertStatement: String{
         return """
-INSERT INTO Form(form_id,part1,part2,part3,part4,part5,part6,wordType) VALUES(?,?,?,?,?,?,?,?)
+INSERT INTO Form(part1,part2,part3,part4,part5,part6) VALUES(?,?,?,?,?,?);
 """
     }
     static var createStatement: String {

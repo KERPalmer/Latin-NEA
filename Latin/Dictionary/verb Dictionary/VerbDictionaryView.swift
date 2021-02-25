@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//VERB DICTIONARY THIS PROVIDES THE LINKS TO THE DIFFERENT VIEWS OF NORMAL IRREGULAR AND DEPONANT VERBS
 struct VerbDictionaryView: View {
     @EnvironmentObject var env: Data
     var body: some View{

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//PREPOSITIONS - DISPLAYS THE PREPOSITION, ITS TRANSLATION AND WHAT FORM THE NOUN IT IS RELATED TO SHOULD BE IN 
 struct PrepositionInfoView:View{
     var preposition:Preposition
     @State var translationIndex:Int = 0
