@@ -32,8 +32,6 @@ class Quiz: ObservableObject{
         let wordType = settings.GetRandomWordType()
         var formList:[String]
         
-        
-        
         //verb
         if wordType == WordTypes.Verb{
             let conjugation: VerbConjugation = settings.GetRandomConjugation()
@@ -58,13 +56,17 @@ class Quiz: ObservableObject{
                 }
                 formList.append(verb.conjugation.rawValue)
                 //create a newQuestion with the random form and random verb
-                newQuestion = Question(latinWord: verb, form: formList, db: SQLdatabase)
+                if settings.multipleChoice{
+                    newQuestion = MultiplechoiceQuestion(latinWord: verb, form: formList, db: SQLdatabase, quiz: self)
+                }else{
+                    newQuestion = Question(latinWord: verb, form: formList, db: SQLdatabase)
+                }
             }
             //no form required form required, we will use the 1st principal part this will be used 
             else{
                 if settings.multipleChoice{
                     print("creating multiple choice question")
-                    newQuestion = MultiplechoiceQuestion(latinWord: verb, form: [Mood.indicative.rawValue,Voice.active.rawValue,Tense.Present.rawValue,PersonNum.FirstSingular.rawValue,"",conjugation.rawValue], db: SQLdatabase)
+                    newQuestion = MultiplechoiceQuestion(latinWord: verb, form: [Mood.indicative.rawValue,Voice.active.rawValue,Tense.Present.rawValue,PersonNum.FirstSingular.rawValue,"",conjugation.rawValue], db: SQLdatabase,quiz: self)
                 }else{
                     print("creating vocab Question")
                     newQuestion = Question(latinWord: verb, form: [Mood.indicative.rawValue,Voice.active.rawValue,Tense.Present.rawValue,PersonNum.FirstSingular.rawValue,"",conjugation.rawValue], db: SQLdatabase)
@@ -84,7 +86,7 @@ class Quiz: ObservableObject{
             let formList = [casenum.rawValue,"","","","",declension.rawValue]
             //multiple choice question
             if settings.multipleChoice{
-                newQuestion = MultiplechoiceQuestion(latinWord: noun, form: formList, db: SQLdatabase)
+                newQuestion = MultiplechoiceQuestion(latinWord: noun, form: formList, db: SQLdatabase,quiz:self)
             }
             //written question
             else{
@@ -106,7 +108,7 @@ class Quiz: ObservableObject{
                 formList = [AdjectiveDegree.positive.rawValue,caseNum.NomSingular.rawValue,Gender.male.rawValue,"","",adjective.declension.rawValue]
             }
             if settings.multipleChoice{
-                newQuestion = MultiplechoiceQuestion(latinWord: adjective, form: formList, db: SQLdatabase)
+                newQuestion = MultiplechoiceQuestion(latinWord: adjective, form: formList, db: SQLdatabase, quiz:self)
             }
             //written question
             else{
@@ -120,7 +122,7 @@ class Quiz: ObservableObject{
             let preposition = wordDatabase.GetRandomPreposition(followedBy: followedBy!)
             let formList = [followedBy!.rawValue, "","","","",WordTypes.Preposition.rawValue]
             if settings.multipleChoice{
-                newQuestion = MultiplechoiceQuestion(latinWord: preposition, form: formList, db: SQLdatabase)
+                newQuestion = MultiplechoiceQuestion(latinWord: preposition, form: formList, db: SQLdatabase, quiz: self)
             }
             //written question
             else{
@@ -139,7 +141,7 @@ class Quiz: ObservableObject{
                 word = wordDatabase.GetRandomConjuction()
             }
             if settings.multipleChoice{
-                newQuestion = MultiplechoiceQuestion(latinWord: word, form: formList, db: SQLdatabase)
+                newQuestion = MultiplechoiceQuestion(latinWord: word, form: formList, db: SQLdatabase, quiz: self)
             }
             //written question
             else{
@@ -172,5 +174,73 @@ class Quiz: ObservableObject{
                 }
             }
         }
+    }
+    func GetRandomWord(wordType:WordTypes)->Word?{
+        switch wordType {
+        case .Verb:
+            return wordDatabase.GetRandomVerb(conjuguation: VerbConjugation.allCases.randomElement()!)
+        case .Noun:
+            return wordDatabase.GetRandomNoun(Declension: NounDeclension.allCases.randomElement()!)
+        case .Adjective:
+            return wordDatabase.GetRandomAdjective(Declension: AdjectiveDeclension.allCases.randomElement()!)
+        case.Adverb:
+            return wordDatabase.GetRandomAdverb()
+        case.Preposition:
+            return wordDatabase.GetRandomPreposition(followedBy: prepositionFollowedBy.allCases.randomElement()!)
+        case .Conjunction:
+            return wordDatabase.GetRandomConjuction()
+        case .unknown:
+            return nil
+        }
+    }
+    //Get a random form given a word type
+    static func GetRandomForm(wordType:WordTypes)->[String]{
+        var formList:[String]
+        //verb
+        if wordType == WordTypes.Verb{
+            let conjugation: VerbConjugation = VerbConjugation.allCases.randomElement()!
+            print("creating random form and form question")
+            // creates a random form for the verb
+            let mood : Mood = Mood.allCases.randomElement()!
+            let voice : Voice  = Voice.allCases.randomElement()!
+            let tense : Tense = Tense.allCases.randomElement()!
+            let personNum: PersonNum = PersonNum.allCases.randomElement()!
+            let gender: Gender = Gender.allCases.randomElement()!
+            //put the different parts of the form into a string if its infinitive or doesnt need a gender there are gaps
+            if tense == Tense.infinitive{
+                formList = [mood.rawValue, voice.rawValue, tense.rawValue,"",""]
+            }else if voice == Voice.passive && (tense == Tense.perfect || tense == Tense.pluperfect) {
+                formList = [mood.rawValue,voice.rawValue,tense.rawValue,personNum.rawValue,gender.rawValue]
+            }else{
+                formList = [mood.rawValue,voice.rawValue,tense.rawValue,personNum.rawValue,""]
+            }
+            formList.append(conjugation.rawValue)
+        }
+        //NOUNS
+        else if wordType == WordTypes.Noun{
+            let casenum:caseNum = caseNum.allCases.randomElement()!
+            let declension = NounDeclension.allCases.randomElement()!
+            formList = [casenum.rawValue,"","","","",declension.rawValue]
+        }
+        //ADJECTIVES
+        
+        else if wordType == WordTypes.Adjective{
+            let declension = AdjectiveDeclension.allCases.randomElement()
+            let degree: AdjectiveDegree = AdjectiveDegree.allCases.randomElement()!
+            let casenum: caseNum = caseNum.allCases.randomElement()!
+            let gender: Gender = Gender.allCases.randomElement()!
+            formList = [degree.rawValue, casenum.rawValue, gender.rawValue,"","",declension!.rawValue]
+        }
+        
+        //PREPOSITIONS
+        else if wordType == WordTypes.Preposition{
+            let followedBy = prepositionFollowedBy.allCases.randomElement()
+            formList = [followedBy!.rawValue, "","","","",WordTypes.Preposition.rawValue]
+        }
+        //INDECLINABLES - ADVERBS AND CONJUNCTIONS
+        else {
+            formList = ["indeclinable","","","","",wordType.rawValue]
+        }
+    return formList
     }
 }

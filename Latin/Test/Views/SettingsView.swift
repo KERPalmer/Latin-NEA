@@ -10,8 +10,8 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var quiz:Quiz
     var body: some View {
-        VStack{
-            List{
+        List{
+            VStack{
                 Toggle(isOn: $quiz.settings.vocabOnly){
                     Text("vocabulary only")
                 }
@@ -19,7 +19,8 @@ struct SettingsView: View {
                     Text("multiple choice")
                 }
             }
-            List{
+            VStack{
+                Text("word type filter")
                 Toggle(isOn: $quiz.settings.verbs){
                     Text("Test Verbs")
                 }
@@ -40,7 +41,7 @@ struct SettingsView: View {
                 }
             }
             List{
-                Text("Filters")
+                Text("word Filters")
                     .bold()
                 NavigationLink(destination: ConjugationFilterView()){
                     Text("Verb Conjugation Filter")
@@ -53,7 +54,7 @@ struct SettingsView: View {
                 }
                 NavigationLink(destination: AdjectiveDeclensionFilterView()){
                     Text("Adjective Declension Filter")
-                }
+                }.frame(height: 100)
             }
         }
     }

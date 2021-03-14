@@ -21,11 +21,13 @@ enum AdjectiveDegree: String, CaseIterable, Encodable{
     case comparative = "comparative"
     case superlatative = "superlatative"
     case adverb = "adverb"
+    case indeclinable = "indeclinable"
 
 }
 enum AdjectiveDeclension: String, CaseIterable, Encodable{
     case TwoOneTwo = "adjective 212"
     case third = "adjective 3"
+    case indeclinable = "adjective indeclinable"
 }
 enum NounDeclension:String, CaseIterable, Encodable{
     case First = "noun 1"
@@ -34,7 +36,6 @@ enum NounDeclension:String, CaseIterable, Encodable{
     case Fourth = "noun 4"
     case Fifth = "noun 5"
     case irregular = "noun irregular"
-    case adverb = "adjective adverb"
 
 }
 //IT IS ARGUABLE THAT CASE AND NUMBER SHOULD BE SEPERATE BUT NUMBER IS SO SMALL I THOUHGT IT WOULD BE EASIER TO USE IT LIKE THIS.

@@ -7,8 +7,9 @@
 //
 
 import SwiftUI
-
+//THE VIEW FOR DEPONENT VERBS WITH ALL THERE EXPANDED FORMS
 struct DeponentInfoView:View{
+    
     var verb:Verb
     var body:some View{
         VStack{

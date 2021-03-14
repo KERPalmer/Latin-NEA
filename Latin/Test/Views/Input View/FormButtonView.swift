@@ -13,11 +13,11 @@ struct FormButtonView: View {
     var body: some View {
         switch quiz.getQuestion().latin{
         case is Verb: VerbFormButton(partNum: $partNum)
-        //case Noun: NounFormButton()
-        //case Adjective: AdjectiveFormButton()
-        //case Preposition: PrepositionFormButton()
-        //case Conjunction: ConjunctionFormButton()
-        //case Adverb: AdverbFormButton()
+        case is Noun: NounFormButtonView(partNum: $partNum)
+        case is Adjective: AdjectiveFormButtonView(partNum: $partNum)
+        case is Preposition: PrepostionFormButtonView(partNum: $partNum)
+        case is Conjunction: ConjunctionFormButtonView(partNum: $partNum)
+        case is Adverb: AdverbFormButtonView(partNum: $partNum)
         default: EmptyView()
         }
     }

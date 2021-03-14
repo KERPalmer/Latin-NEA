@@ -9,6 +9,7 @@ import SwiftUI
 
 struct IncorrectView: View {
     @EnvironmentObject var quiz:Quiz
+    var question :Question
     var body: some View {
         ZStack{
             Rectangle()
@@ -16,25 +17,36 @@ struct IncorrectView: View {
                 .ignoresSafeArea()
             VStack{
                 Spacer()
-                Text(quiz.getQuestion().latinString)
+                Text(question.latinString)
                 Spacer()
-                Text(quiz.getQuestion().latin.get_all_translations())
+                Text(question.latin.get_all_translations())
                 Text("you said")
-                Text(quiz.getQuestion().vocabAnswer)
+                Text(question.vocabAnswer)
                 Spacer()
-                Button("next question"){
-                    quiz.generateNextQuestion()
-                    quiz.isAnswered = false
-                    quiz.getQuestion().isCorrect = false
-                }
-                Spacer()
-                Button("Finsh Test"){
-                    if quiz.storeResults{
-                        quiz.saveAttempts(SQLdb: quiz.SQLdatabase, profileID: quiz.profileID)
+                if !quiz.settings.vocabOnly{
+                    VStack{
+                        Text("The correct form was:")
+                        Text(question.formString)
+                        Text("You said:")
+                        Text(question.formAnswer)
+                        Text(question.GetFeedBack())
                     }
-                    quiz.inQuiz = false
-                    quiz.isAnswered = false
-                    quiz.isFinished = true
+                }
+                if !quiz.isFinished{
+                    Button("next question"){
+                        quiz.generateNextQuestion()
+                        quiz.isAnswered = false
+                        question.isCorrect = false
+                        }
+                    Spacer()
+                    Button("Finsh Test"){
+                        if quiz.storeResults{
+                            quiz.saveAttempts(SQLdb: quiz.SQLdatabase, profileID: quiz.profileID)
+                        }
+                        quiz.inQuiz = false
+                        quiz.isAnswered = false
+                        quiz.isFinished = true
+                    }
                 }
             }
         }

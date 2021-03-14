@@ -49,4 +49,18 @@ class Preposition: Word,Codable{
     required init(from decoder: Decoder) throws {
         fatalError("init(from:) has not been implemented")
     }
+    override func GetFeedback(formAnswer:String,incorrectForm:String)->[String]{
+        let formAnswerList = incorrectForm.split(separator: ",").map{ String($0) }
+        let formList = formAnswer.split(separator: ",").map{ String($0) }
+        if formAnswerList[0] != formList[0]{
+            if formList[0] == prepositionFollowedBy.abl.rawValue{
+                return ["the preposition was followed by the ablative form, you gave it in the accusative"]
+            }else{
+                return ["the preposition was followed by the accusative form, you gave it in the ablative"]
+            }
+        }
+        else{
+            return [""]
+        }
+    }
 }

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+//THIS VIEW EXPANDS THE VERB AND DISPLAYS THEM IN THEIR DIFFERENT FORMS SO ... THERE ARE A LOT OF THEM 
 struct VerbInfoView: View {
     var verb:Verb
     var body: some View{
@@ -42,14 +43,14 @@ struct VerbInfoView: View {
                                 .bold()
                             Spacer()
                         }
-                        //imperfect active indicitive
+                        //present active indicitive
                         List{
-                            VerbRowView(word: verb.GetPresent(personNum: PersonNum.FirstSingular), grammar: "i am")
-                            VerbRowView(word: verb.GetPresent(personNum: PersonNum.SecondSingular), grammar: "you (singualr) are")
-                            VerbRowView(word: verb.GetPresent(personNum: PersonNum.ThirdSingular), grammar: "he/she/it is")
-                            VerbRowView(word: verb.GetPresent(personNum: PersonNum.FirstSingular), grammar: "we are")
-                            VerbRowView(word: verb.GetPresent(personNum: PersonNum.SecondSingular), grammar: "you (plural) are")
-                            VerbRowView(word: verb.GetPresent(personNum: PersonNum.ThirdSingular), grammar:"they are")
+                            VerbRowView(word: verb.GetPresent(personNum: PersonNum.FirstSingular),formList: [Mood.indicative.rawValue,Voice.active.rawValue,Tense.Present.rawValue,PersonNum.FirstSingular.rawValue,""], grammar: "i am")
+                            VerbRowView(word: verb.GetPresent(personNum: PersonNum.SecondSingular),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.Present.rawValue,PersonNum.SecondSingular.rawValue,""], grammar: "you (singualr) are")
+                            VerbRowView(word: verb.GetPresent(personNum: PersonNum.ThirdSingular),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.Present.rawValue,PersonNum.ThirdSingular.rawValue,""], grammar: "he/she/it is")
+                            VerbRowView(word: verb.GetPresent(personNum: PersonNum.FirstPlural),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.Present.rawValue,PersonNum.FirstPlural.rawValue,""], grammar: "we are")
+                            VerbRowView(word: verb.GetPresent(personNum: PersonNum.SecondPlural),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.Present.rawValue,PersonNum.SecondPlural.rawValue,""], grammar: "you (Plural) are")
+                            VerbRowView(word: verb.GetPresent(personNum: PersonNum.ThirdPlural),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.Present.rawValue,PersonNum.ThirdPlural.rawValue,""], grammar:"they are")
                         }.frame(height: 270)
                         HStack{
                             Spacer()
@@ -58,12 +59,12 @@ struct VerbInfoView: View {
                             Spacer()
                         }
                         List{
-                            VerbRowView(word: verb.GetImperfect(personNum: PersonNum.FirstSingular), grammar:"i was")
-                            VerbRowView(word: verb.GetImperfect(personNum: PersonNum.SecondSingular), grammar:"you (singular) were")
-                            VerbRowView(word: verb.GetImperfect(personNum: PersonNum.ThirdSingular), grammar:"he/she/it was")
-                            VerbRowView(word: verb.GetImperfect(personNum: PersonNum.FirstSingular), grammar:"we were")
-                            VerbRowView(word: verb.GetImperfect(personNum: PersonNum.SecondSingular), grammar:"you (plural) are")
-                            VerbRowView(word: verb.GetImperfect(personNum: PersonNum.ThirdSingular), grammar: "they are")
+                            VerbRowView(word: verb.GetImperfect(personNum: PersonNum.FirstSingular),formList: [Mood.indicative.rawValue,Voice.active.rawValue,Tense.imperfect.rawValue,PersonNum.FirstSingular.rawValue,""], grammar: "i am")
+                            VerbRowView(word: verb.GetPresent(personNum: PersonNum.SecondSingular),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.imperfect.rawValue,PersonNum.SecondSingular.rawValue,""], grammar: "you (singualr) are")
+                            VerbRowView(word: verb.GetImperfect(personNum: PersonNum.ThirdSingular),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.imperfect.rawValue,PersonNum.ThirdSingular.rawValue,""], grammar: "he/she/it is")
+                            VerbRowView(word: verb.GetImperfect(personNum: PersonNum.FirstPlural),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.imperfect.rawValue,PersonNum.FirstPlural.rawValue,""], grammar: "we are")
+                            VerbRowView(word: verb.GetImperfect(personNum: PersonNum.SecondPlural),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.imperfect.rawValue,PersonNum.SecondPlural.rawValue,""], grammar: "you (Plural) are")
+                            VerbRowView(word: verb.GetImperfect(personNum: PersonNum.ThirdPlural),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.imperfect.rawValue,PersonNum.ThirdPlural.rawValue,""], grammar:"they are")
                         }.frame(height: 270)
                         //future active indicitive
                         HStack{
@@ -73,12 +74,12 @@ struct VerbInfoView: View {
                             Spacer()
                         }
                         List{
-                            VerbRowView(word: verb.GetFuture(personNum: PersonNum.FirstSingular), grammar:"i will ")
-                            VerbRowView(word: verb.GetFuture(personNum: PersonNum.SecondSingular), grammar:"you (singular) will")
-                            VerbRowView(word: verb.GetFuture(personNum: PersonNum.ThirdSingular), grammar:"he/she/it will")
-                            VerbRowView(word: verb.GetFuture(personNum: PersonNum.FirstSingular), grammar:"we will")
-                            VerbRowView(word: verb.GetFuture(personNum: PersonNum.SecondSingular), grammar:"you (plural) will")
-                            VerbRowView(word: verb.GetFuture(personNum: PersonNum.ThirdSingular), grammar:"they will")
+                            VerbRowView(word: verb.GetFuture(personNum: PersonNum.FirstSingular),formList: [Mood.indicative.rawValue,Voice.active.rawValue,Tense.future.rawValue,PersonNum.FirstSingular.rawValue,""], grammar: "i am")
+                            VerbRowView(word: verb.GetFuture(personNum: PersonNum.SecondSingular),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.future.rawValue,PersonNum.SecondSingular.rawValue,""], grammar: "you (singualr) are")
+                            VerbRowView(word: verb.GetFuture(personNum: PersonNum.ThirdSingular),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.future.rawValue,PersonNum.ThirdSingular.rawValue,""], grammar: "he/she/it is")
+                            VerbRowView(word: verb.GetFuture(personNum: PersonNum.FirstPlural),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.future.rawValue,PersonNum.FirstPlural.rawValue,""], grammar: "we are")
+                            VerbRowView(word: verb.GetFuture(personNum: PersonNum.SecondPlural),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.future.rawValue,PersonNum.SecondPlural.rawValue,""], grammar: "you (Plural) are")
+                            VerbRowView(word: verb.GetFuture(personNum: PersonNum.ThirdPlural),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.future.rawValue,PersonNum.ThirdPlural.rawValue,""], grammar:"they are")
                         }.frame(height: 270)
                         //perfect active indicitive
                         HStack{
@@ -90,12 +91,12 @@ struct VerbInfoView: View {
                     }
                     VStack{
                         List{
-                            VerbRowView(word: verb.GetPerfect(personNum: PersonNum.FirstSingular), grammar:"I have/ used to")
-                            VerbRowView(word: verb.GetPerfect(personNum: PersonNum.SecondSingular), grammar:"you (singular) had/ used to")
-                            VerbRowView(word: verb.GetPerfect(personNum: PersonNum.ThirdSingular), grammar:"he/she/it had/ used to")
-                            VerbRowView(word: verb.GetPerfect(personNum: PersonNum.FirstSingular), grammar:"we had/ used to")
-                            VerbRowView(word: verb.GetPerfect(personNum: PersonNum.SecondSingular), grammar:"you (plural) had/ used to")
-                            VerbRowView(word: verb.GetPerfect(personNum: PersonNum.ThirdSingular), grammar:"they had/ used to")
+                            VerbRowView(word: verb.GetPerfect(personNum: PersonNum.FirstSingular),formList: [Mood.indicative.rawValue,Voice.active.rawValue,Tense.perfect.rawValue,PersonNum.FirstSingular.rawValue,""], grammar: "i am")
+                            VerbRowView(word: verb.GetPerfect(personNum: PersonNum.SecondSingular),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.perfect.rawValue,PersonNum.SecondSingular.rawValue,""], grammar: "you (singualr) are")
+                            VerbRowView(word: verb.GetPerfect(personNum: PersonNum.ThirdSingular),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.perfect.rawValue,PersonNum.ThirdSingular.rawValue,""], grammar: "he/she/it is")
+                            VerbRowView(word: verb.GetPerfect(personNum: PersonNum.FirstPlural),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.perfect.rawValue,PersonNum.FirstPlural.rawValue,""], grammar: "we are")
+                            VerbRowView(word: verb.GetPerfect(personNum: PersonNum.SecondPlural),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.perfect.rawValue,PersonNum.SecondPlural.rawValue,""], grammar: "you (Plural) are")
+                            VerbRowView(word: verb.GetPerfect(personNum: PersonNum.ThirdPlural),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.perfect.rawValue,PersonNum.ThirdPlural.rawValue,""], grammar:"they are")
                         }.frame(height: 270)
                         // pluperfect active indicitive
                         HStack{
@@ -105,12 +106,14 @@ struct VerbInfoView: View {
                             Spacer()
                         }
                         List{
-                            VerbRowView(word: verb.GetPluperfect(personNum: PersonNum.FirstSingular), grammar:"i had")
-                            VerbRowView(word: verb.GetPluperfect(personNum: PersonNum.SecondSingular), grammar:"you (singular) had")
-                            VerbRowView(word: verb.GetPluperfect(personNum: PersonNum.ThirdSingular), grammar:"he/she/it had")
-                            VerbRowView(word: verb.GetPluperfect(personNum: PersonNum.FirstSingular), grammar:"we had")
-                            VerbRowView(word: verb.GetPluperfect(personNum: PersonNum.SecondSingular), grammar: "you (plural) had")
-                            VerbRowView(word: verb.GetPluperfect(personNum: PersonNum.ThirdSingular), grammar: "they had")
+                            List{
+                                VerbRowView(word: verb.GetPluperfect(personNum: PersonNum.FirstSingular),formList: [Mood.indicative.rawValue,Voice.active.rawValue,Tense.pluperfect.rawValue,PersonNum.FirstSingular.rawValue,""], grammar: "i am")
+                                VerbRowView(word: verb.GetPluperfect(personNum: PersonNum.SecondSingular),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.pluperfect.rawValue,PersonNum.SecondSingular.rawValue,""], grammar: "you (singualr) are")
+                                VerbRowView(word: verb.GetPluperfect(personNum: PersonNum.ThirdSingular),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.pluperfect.rawValue,PersonNum.ThirdSingular.rawValue,""], grammar: "he/she/it is")
+                                VerbRowView(word: verb.GetPluperfect(personNum: PersonNum.FirstPlural),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.pluperfect.rawValue,PersonNum.FirstPlural.rawValue,""], grammar: "we are")
+                                VerbRowView(word: verb.GetPluperfect(personNum: PersonNum.SecondPlural),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.pluperfect.rawValue,PersonNum.SecondPlural.rawValue,""], grammar: "you (Plural) are")
+                                VerbRowView(word: verb.GetPluperfect(personNum: PersonNum.ThirdPlural),formList:[Mood.indicative.rawValue,Voice.active.rawValue,Tense.pluperfect.rawValue,PersonNum.ThirdPlural.rawValue,""], grammar:"they are")
+                            }.frame(height: 270)
                         }.frame(height: 270)
                         HStack{
                             Spacer()
@@ -127,12 +130,12 @@ struct VerbInfoView: View {
                         }
                         // imperfect active subjunctive
                         List{
-                            VerbRowView(word: verb.GetSubjunctivePresent(personNum: PersonNum.FirstSingular), grammar: "\(verb.get_translation())")
-                            VerbRowView(word: verb.GetSubjunctivePresent(personNum: PersonNum.SecondSingular), grammar: "\(verb.get_translation())")
-                            VerbRowView(word: verb.GetSubjunctivePresent(personNum: PersonNum.ThirdSingular), grammar: "\(verb.get_translation())")
-                            VerbRowView(word: verb.GetSubjunctivePresent(personNum: PersonNum.FirstSingular), grammar: "\(verb.get_translation())")
-                            VerbRowView(word: verb.GetSubjunctivePresent(personNum: PersonNum.SecondSingular), grammar: "\(verb.get_translation())")
-                            VerbRowView(word: verb.GetSubjunctivePresent(personNum: PersonNum.ThirdSingular), grammar: "\(verb.get_translation())")
+                            VerbRowView(word: verb.GetSubjunctivePresent(personNum: PersonNum.FirstSingular),formList: [Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.Present.rawValue,PersonNum.FirstSingular.rawValue,""], grammar: "i am")
+                            VerbRowView(word: verb.GetPluperfect(personNum: PersonNum.SecondSingular),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.Present.rawValue,PersonNum.SecondSingular.rawValue,""], grammar: "you (singualr) are")
+                            VerbRowView(word: verb.GetSubjunctivePresent(personNum: PersonNum.ThirdSingular),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.Present.rawValue,PersonNum.ThirdSingular.rawValue,""], grammar: "he/she/it is")
+                            VerbRowView(word: verb.GetSubjunctivePresent(personNum: PersonNum.FirstPlural),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.Present.rawValue,PersonNum.FirstPlural.rawValue,""], grammar: "we are")
+                            VerbRowView(word: verb.GetSubjunctivePresent(personNum: PersonNum.SecondPlural),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.Present.rawValue,PersonNum.SecondPlural.rawValue,""], grammar: "you (Plural) are")
+                            VerbRowView(word: verb.GetSubjunctivePresent(personNum: PersonNum.ThirdPlural),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.Present.rawValue,PersonNum.ThirdPlural.rawValue,""], grammar:"they are")
                         }.frame(height: 270)
                         HStack{
                             Spacer()
@@ -141,12 +144,12 @@ struct VerbInfoView: View {
                             Spacer()
                         }
                         List{
-                            VerbRowView(word: verb.GetSubjunctiveImperfect(personNum: PersonNum.FirstSingular), grammar: "\(verb.get_translation())")
-                            VerbRowView(word: verb.GetSubjunctiveImperfect(personNum: PersonNum.SecondSingular), grammar: "\(verb.get_translation())")
-                            VerbRowView(word: verb.GetSubjunctiveImperfect(personNum: PersonNum.ThirdSingular), grammar: "\(verb.get_translation())")
-                            VerbRowView(word: verb.GetSubjunctiveImperfect(personNum: PersonNum.FirstSingular), grammar: "\(verb.get_translation())")
-                            VerbRowView(word: verb.GetSubjunctiveImperfect(personNum: PersonNum.SecondSingular), grammar: "\(verb.get_translation())")
-                            VerbRowView(word: verb.GetSubjunctiveImperfect(personNum: PersonNum.ThirdSingular), grammar: "\(verb.get_translation())")
+                            VerbRowView(word: verb.GetSubjunctiveImperfect(personNum: PersonNum.FirstSingular),formList: [Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.imperfect.rawValue,PersonNum.FirstSingular.rawValue,""], grammar: "i am")
+                            VerbRowView(word: verb.GetSubjunctiveImperfect(personNum: PersonNum.SecondSingular),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.imperfect.rawValue,PersonNum.SecondSingular.rawValue,""], grammar: "you (singualr) are")
+                            VerbRowView(word: verb.GetSubjunctiveImperfect(personNum: PersonNum.ThirdSingular),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.imperfect.rawValue,PersonNum.ThirdSingular.rawValue,""], grammar: "he/she/it is")
+                            VerbRowView(word: verb.GetSubjunctiveImperfect(personNum: PersonNum.FirstPlural),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.imperfect.rawValue,PersonNum.FirstPlural.rawValue,""], grammar: "we are")
+                            VerbRowView(word: verb.GetSubjunctiveImperfect(personNum: PersonNum.SecondPlural),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.imperfect.rawValue,PersonNum.SecondPlural.rawValue,""], grammar: "you (Plural) are")
+                            VerbRowView(word: verb.GetSubjunctiveImperfect(personNum: PersonNum.ThirdPlural),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.imperfect.rawValue,PersonNum.ThirdPlural.rawValue,""], grammar:"they are")
                         }.frame(height: 270)
                         // perfect active Subjunctive
                         HStack{
@@ -156,12 +159,12 @@ struct VerbInfoView: View {
                             Spacer()
                         }
                         List{
-                            VerbRowView(word: verb.GetSubjunctivePerfect(personNum: PersonNum.FirstSingular), grammar: "\(verb.get_translation())")
-                            VerbRowView(word: verb.GetSubjunctivePerfect(personNum: PersonNum.SecondSingular), grammar: "\(verb.get_translation())")
-                            VerbRowView(word: verb.GetSubjunctivePerfect(personNum: PersonNum.ThirdSingular), grammar: "\(verb.get_translation())")
-                            VerbRowView(word: verb.GetSubjunctivePerfect(personNum: PersonNum.FirstSingular), grammar: "\(verb.get_translation())")
-                            VerbRowView(word: verb.GetSubjunctivePerfect(personNum: PersonNum.SecondSingular), grammar: "\(verb.get_translation())")
-                            VerbRowView(word: verb.GetSubjunctivePerfect(personNum: PersonNum.ThirdSingular), grammar: "\(verb.get_translation())")
+                            VerbRowView(word: verb.GetSubjunctivePerfect(personNum: PersonNum.FirstSingular),formList: [Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.perfect.rawValue,PersonNum.FirstSingular.rawValue,""], grammar: "i am")
+                            VerbRowView(word: verb.GetSubjunctivePerfect(personNum: PersonNum.SecondSingular),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.perfect.rawValue,PersonNum.SecondSingular.rawValue,""], grammar: "you (singualr) are")
+                            VerbRowView(word: verb.GetSubjunctivePerfect(personNum: PersonNum.ThirdSingular),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.perfect.rawValue,PersonNum.ThirdSingular.rawValue,""], grammar: "he/she/it is")
+                            VerbRowView(word: verb.GetSubjunctivePerfect(personNum: PersonNum.FirstPlural),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.perfect.rawValue,PersonNum.FirstPlural.rawValue,""], grammar: "we are")
+                            VerbRowView(word: verb.GetSubjunctivePerfect(personNum: PersonNum.SecondPlural),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.perfect.rawValue,PersonNum.SecondPlural.rawValue,""], grammar: "you (Plural) are")
+                            VerbRowView(word: verb.GetSubjunctivePerfect(personNum: PersonNum.ThirdPlural),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.perfect.rawValue,PersonNum.ThirdPlural.rawValue,""], grammar:"they are")
                         }.frame(height: 270)
                     }
                     VStack{
@@ -174,12 +177,12 @@ struct VerbInfoView: View {
                                 Spacer()
                             }
                             List{
-                                VerbRowView(word: verb.GetSubjunctivePluperfect(personNum: PersonNum.FirstSingular), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetSubjunctivePluperfect(personNum: PersonNum.SecondSingular), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetSubjunctivePluperfect(personNum: PersonNum.ThirdSingular), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetSubjunctivePluperfect(personNum: PersonNum.FirstSingular), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetSubjunctivePluperfect(personNum: PersonNum.SecondSingular), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetSubjunctivePluperfect(personNum: PersonNum.ThirdSingular), grammar: "\(verb.get_translation())")
+                                VerbRowView(word: verb.GetSubjunctivePluperfect(personNum: PersonNum.FirstSingular),formList: [Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.pluperfect.rawValue,PersonNum.FirstSingular.rawValue,""], grammar: "i am")
+                                VerbRowView(word: verb.GetSubjunctivePluperfect(personNum: PersonNum.SecondSingular),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.pluperfect.rawValue,PersonNum.SecondSingular.rawValue,""], grammar: "you (singualr) are")
+                                VerbRowView(word: verb.GetSubjunctivePluperfect(personNum: PersonNum.ThirdSingular),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.pluperfect.rawValue,PersonNum.ThirdSingular.rawValue,""], grammar: "he/she/it is")
+                                VerbRowView(word: verb.GetSubjunctivePluperfect(personNum: PersonNum.FirstPlural),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.pluperfect.rawValue,PersonNum.FirstPlural.rawValue,""], grammar: "we are")
+                                VerbRowView(word: verb.GetSubjunctivePluperfect(personNum: PersonNum.SecondPlural),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.pluperfect.rawValue,PersonNum.SecondPlural.rawValue,""], grammar: "you (Plural) are")
+                                VerbRowView(word: verb.GetSubjunctivePluperfect(personNum: PersonNum.ThirdPlural),formList:[Mood.subjunctive.rawValue,Voice.active.rawValue,Tense.pluperfect.rawValue,PersonNum.ThirdPlural.rawValue,""], grammar:"they are")
                             }.frame(height: 270)
                             // pluperfect active Subjunctive
                             HStack{
@@ -195,12 +198,12 @@ struct VerbInfoView: View {
                                 Spacer()
                             }
                             List{
-                                VerbRowView(word: verb.GetPassiveIndicitivePresent(personNum: PersonNum.FirstSingular), grammar: "i am being")
-                                VerbRowView(word: verb.GetPassiveIndicitivePresent(personNum: PersonNum.SecondSingular), grammar: "you (singular) are being")
-                                VerbRowView(word: verb.GetPassiveIndicitivePresent(personNum: PersonNum.ThirdSingular), grammar: "he/she/it is being")
-                                VerbRowView(word: verb.GetPassiveIndicitivePresent(personNum: PersonNum.FirstSingular), grammar: "we are being")
-                                VerbRowView(word: verb.GetPassiveIndicitivePresent(personNum: PersonNum.SecondSingular), grammar: "you (pural) are being")
-                                VerbRowView(word: verb.GetPassiveIndicitivePresent(personNum: PersonNum.ThirdSingular), grammar: "they are being")
+                                VerbRowView(word: verb.GetPassiveIndicitivePresent(personNum: PersonNum.FirstSingular),formList: [Mood.indicative.rawValue,Voice.passive.rawValue,Tense.Present.rawValue,PersonNum.FirstSingular.rawValue,""], grammar: "i am")
+                                VerbRowView(word: verb.GetPassiveIndicitivePresent(personNum: PersonNum.SecondSingular),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.Present.rawValue,PersonNum.SecondSingular.rawValue,""], grammar: "you (singualr) are")
+                                VerbRowView(word: verb.GetPassiveIndicitivePresent(personNum: PersonNum.ThirdSingular),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.Present.rawValue,PersonNum.ThirdSingular.rawValue,""], grammar: "he/she/it is")
+                                VerbRowView(word: verb.GetPassiveIndicitivePresent(personNum: PersonNum.FirstPlural),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.Present.rawValue,PersonNum.FirstPlural.rawValue,""], grammar: "we are")
+                                VerbRowView(word: verb.GetPassiveIndicitivePresent(personNum: PersonNum.SecondPlural),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.Present.rawValue,PersonNum.SecondPlural.rawValue,""], grammar: "you (Plural) are")
+                                VerbRowView(word: verb.GetPassiveIndicitivePresent(personNum: PersonNum.ThirdPlural),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.Present.rawValue,PersonNum.ThirdPlural.rawValue,""], grammar:"they are")
                             }.frame(height: 270)
                         }
                         HStack{
@@ -210,12 +213,12 @@ struct VerbInfoView: View {
                             Spacer()
                         }
                         List{
-                            VerbRowView(word: verb.GetPassiveIndicitiveImperfect(personNum: PersonNum.FirstSingular), grammar: "i was being")
-                            VerbRowView(word: verb.GetPassiveIndicitiveImperfect(personNum: PersonNum.SecondSingular), grammar: "you (plural) were being")
-                            VerbRowView(word: verb.GetPassiveIndicitiveImperfect(personNum: PersonNum.ThirdSingular), grammar: "he/she/it was being")
-                            VerbRowView(word: verb.GetPassiveIndicitiveImperfect(personNum: PersonNum.FirstSingular), grammar: "we were being")
-                            VerbRowView(word: verb.GetPassiveIndicitiveImperfect(personNum: PersonNum.SecondSingular), grammar: "you (plural) were being")
-                            VerbRowView(word: verb.GetPassiveIndicitiveImperfect(personNum: PersonNum.ThirdSingular), grammar: "they were being")
+                            VerbRowView(word: verb.GetPassiveIndicitiveImperfect(personNum: PersonNum.FirstSingular),formList: [Mood.indicative.rawValue,Voice.passive.rawValue,Tense.imperfect.rawValue,PersonNum.FirstSingular.rawValue,""], grammar: "i am")
+                            VerbRowView(word: verb.GetPassiveIndicitiveImperfect(personNum: PersonNum.SecondSingular),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.imperfect.rawValue,PersonNum.SecondSingular.rawValue,""], grammar: "you (singualr) are")
+                            VerbRowView(word: verb.GetPassiveIndicitiveImperfect(personNum: PersonNum.ThirdSingular),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.imperfect.rawValue,PersonNum.ThirdSingular.rawValue,""], grammar: "he/she/it is")
+                            VerbRowView(word: verb.GetPassiveIndicitiveImperfect(personNum: PersonNum.FirstPlural),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.imperfect.rawValue,PersonNum.FirstPlural.rawValue,""], grammar: "we are")
+                            VerbRowView(word: verb.GetPassiveIndicitiveImperfect(personNum: PersonNum.SecondPlural),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.imperfect.rawValue,PersonNum.SecondPlural.rawValue,""], grammar: "you (Plural) are")
+                            VerbRowView(word: verb.GetPassiveIndicitiveImperfect(personNum: PersonNum.ThirdPlural),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.imperfect.rawValue,PersonNum.ThirdPlural.rawValue,""], grammar:"they are")
                         }.frame(height: 270)
                         HStack{
                             Spacer()
@@ -224,12 +227,12 @@ struct VerbInfoView: View {
                             Spacer()
                         }
                         List{
-                            VerbRowView(word: verb.GetPassiveIndicitiveFuture(personNum: PersonNum.FirstSingular), grammar: "i will be")
-                            VerbRowView(word: verb.GetPassiveIndicitiveFuture(personNum: PersonNum.SecondSingular), grammar: "you (singualr) will be")
-                            VerbRowView(word: verb.GetPassiveIndicitiveFuture(personNum: PersonNum.ThirdSingular), grammar: "he/she/it will be")
-                            VerbRowView(word: verb.GetPassiveIndicitiveFuture(personNum: PersonNum.FirstSingular), grammar: "we will be)")
-                            VerbRowView(word: verb.GetPassiveIndicitiveFuture(personNum: PersonNum.SecondSingular), grammar: "you (plural) will be")
-                            VerbRowView(word: verb.GetPassiveIndicitiveFuture(personNum: PersonNum.ThirdSingular), grammar: "they will be")
+                            VerbRowView(word: verb.GetPassiveIndicitiveFuture(personNum: PersonNum.FirstSingular),formList: [Mood.indicative.rawValue,Voice.passive.rawValue,Tense.future.rawValue,PersonNum.FirstSingular.rawValue,""], grammar: "i am")
+                            VerbRowView(word: verb.GetPassiveIndicitiveFuture(personNum: PersonNum.SecondSingular),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.future.rawValue,PersonNum.SecondSingular.rawValue,""], grammar: "you (singualr) are")
+                            VerbRowView(word: verb.GetPassiveIndicitiveFuture(personNum: PersonNum.ThirdSingular),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.future.rawValue,PersonNum.ThirdSingular.rawValue,""], grammar: "he/she/it is")
+                            VerbRowView(word: verb.GetPassiveIndicitiveFuture(personNum: PersonNum.FirstPlural),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.future.rawValue,PersonNum.FirstPlural.rawValue,""], grammar: "we are")
+                            VerbRowView(word: verb.GetPassiveIndicitiveFuture(personNum: PersonNum.SecondPlural),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.future.rawValue,PersonNum.SecondPlural.rawValue,""], grammar: "you (Plural) are")
+                            VerbRowView(word: verb.GetPassiveIndicitiveFuture(personNum: PersonNum.ThirdPlural),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.future.rawValue,PersonNum.ThirdPlural.rawValue,""], grammar:"they are")
                         }.frame(height: 270)
                         HStack{
                             Spacer()
@@ -238,12 +241,13 @@ struct VerbInfoView: View {
                             Spacer()
                         }
                         List{
-                            VerbRowView(word: verb.GetPassiveIndicitivePerfect(personNum: PersonNum.FirstSingular,gender:"m"), grammar: "i have been")
-                            VerbRowView(word: verb.GetPassiveIndicitivePerfect(personNum: PersonNum.SecondSingular,gender:"m"), grammar: "you (singular) have been")
-                            VerbRowView(word: verb.GetPassiveIndicitivePerfect(personNum: PersonNum.ThirdSingular,gender:"m"), grammar: "he/she/it has been")
-                            VerbRowView(word: verb.GetPassiveIndicitivePerfect(personNum: PersonNum.FirstSingular,gender:"m"), grammar: "we have been)")
-                            VerbRowView(word: verb.GetPassiveIndicitivePerfect(personNum: PersonNum.SecondSingular,gender:"m"), grammar: "you (plural) have been")
-                            VerbRowView(word: verb.GetPassiveIndicitivePerfect(personNum: PersonNum.ThirdSingular,gender:"m"), grammar: "they have been")
+                            VerbRowView(word: verb.GetPassiveIndicitivePerfect(personNum: PersonNum.FirstSingular,gender:"m"),formList: [Mood.indicative.rawValue,Voice.passive.rawValue,Tense.perfect.rawValue,PersonNum.FirstSingular.rawValue,"m"], grammar: "i am")
+                            VerbRowView(word: verb.GetPassiveIndicitivePerfect(personNum: PersonNum.SecondSingular,gender:"m"),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.perfect.rawValue,PersonNum.SecondSingular.rawValue,"m"], grammar: "you (singualr) are")
+                            VerbRowView(word: verb.GetPassiveIndicitivePerfect(personNum: PersonNum.ThirdSingular,gender:"m"),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.perfect.rawValue,PersonNum.ThirdSingular.rawValue,"m"], grammar: "he/she/it is")
+                            VerbRowView(word: verb.GetPassiveIndicitivePerfect(personNum: PersonNum.FirstPlural,gender:"m"),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.perfect.rawValue,PersonNum.FirstPlural.rawValue,"m"], grammar: "we are")
+                            VerbRowView(word: verb.GetPassiveIndicitivePerfect(personNum: PersonNum.SecondPlural,gender:"m"),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.perfect.rawValue,PersonNum.SecondPlural.rawValue,"m"], grammar: "you (Plural) are")
+                            VerbRowView(word: verb.GetPassiveIndicitivePerfect(personNum: PersonNum.ThirdPlural,gender:"m"),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.perfect.rawValue,PersonNum.ThirdPlural.rawValue,"m"], grammar:"they are")
+                        
                         }.frame(height: 270)
                         HStack{
                             Spacer()
@@ -252,12 +256,13 @@ struct VerbInfoView: View {
                             Spacer()
                         }
                         List{
-                            VerbRowView(word: verb.GetPassiveIndicitivePluperfect(personNum: PersonNum.FirstSingular,gender:"m"), grammar: "i had been")
-                            VerbRowView(word: verb.GetPassiveIndicitivePluperfect(personNum: PersonNum.SecondSingular,gender:"m"), grammar: "you (singular) had been")
-                            VerbRowView(word: verb.GetPassiveIndicitivePluperfect(personNum: PersonNum.ThirdSingular,gender:"m"), grammar: "he/she/it had been")
-                            VerbRowView(word: verb.GetPassiveIndicitivePluperfect(personNum: PersonNum.FirstSingular,gender:"m"), grammar: "we had been")
-                            VerbRowView(word: verb.GetPassiveIndicitivePluperfect(personNum: PersonNum.SecondSingular,gender:"m"), grammar: "you (plural) had been")
-                            VerbRowView(word: verb.GetPassiveIndicitivePluperfect(personNum: PersonNum.ThirdSingular,gender:"m"), grammar: "they had been")
+                            VerbRowView(word: verb.GetPassiveIndicitivePluperfect(personNum: PersonNum.FirstSingular,gender:"m"),formList: [Mood.indicative.rawValue,Voice.passive.rawValue,Tense.pluperfect.rawValue,PersonNum.FirstSingular.rawValue,"m"], grammar: "i am")
+                            VerbRowView(word: verb.GetPassiveIndicitivePluperfect(personNum: PersonNum.SecondSingular,gender:"m"),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.pluperfect.rawValue,PersonNum.SecondSingular.rawValue,"m"], grammar: "you (singualr) are")
+                            VerbRowView(word: verb.GetPassiveIndicitivePluperfect(personNum: PersonNum.ThirdSingular,gender:"m"),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.pluperfect.rawValue,PersonNum.ThirdSingular.rawValue,"m"], grammar: "he/she/it is")
+                            VerbRowView(word: verb.GetPassiveIndicitivePluperfect(personNum: PersonNum.FirstPlural,gender:"m"),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.pluperfect.rawValue,PersonNum.FirstPlural.rawValue,"m"], grammar: "we are")
+                            VerbRowView(word: verb.GetPassiveIndicitivePluperfect(personNum: PersonNum.SecondPlural,gender:"m"),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.pluperfect.rawValue,PersonNum.SecondPlural.rawValue,"m"], grammar: "you (Plural) are")
+                            VerbRowView(word: verb.GetPassiveIndicitivePluperfect(personNum: PersonNum.ThirdPlural,gender:"m"),formList:[Mood.indicative.rawValue,Voice.passive.rawValue,Tense.pluperfect.rawValue,PersonNum.ThirdPlural.rawValue,"m"], grammar:"they are")
+                        
                         }.frame(height: 270)
                         
                     }
@@ -276,12 +281,12 @@ struct VerbInfoView: View {
                                 Spacer()
                             }
                             List{
-                                VerbRowView(word: verb.GetPassiveSubjunctivePresent(personNum: PersonNum.FirstSingular), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctivePresent(personNum: PersonNum.SecondSingular), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctivePresent(personNum: PersonNum.ThirdSingular), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctivePresent(personNum: PersonNum.FirstSingular), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctivePresent(personNum: PersonNum.SecondSingular), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctivePresent(personNum: PersonNum.ThirdSingular), grammar: "\(verb.get_translation())")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePresent(personNum: PersonNum.FirstSingular),formList: [Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.Present.rawValue,PersonNum.FirstSingular.rawValue,""], grammar: "i am")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePresent(personNum: PersonNum.SecondSingular),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.Present.rawValue,PersonNum.SecondSingular.rawValue,""], grammar: "you (singualr) are")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePresent(personNum: PersonNum.ThirdSingular),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.Present.rawValue,PersonNum.ThirdSingular.rawValue,""], grammar: "he/she/it is")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePresent(personNum: PersonNum.FirstPlural),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.Present.rawValue,PersonNum.FirstPlural.rawValue,""], grammar: "we are")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePresent(personNum: PersonNum.SecondPlural),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.Present.rawValue,PersonNum.SecondPlural.rawValue,""], grammar: "you (Plural) are")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePresent(personNum: PersonNum.ThirdPlural),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.Present.rawValue,PersonNum.ThirdPlural.rawValue,""], grammar:"they are")
                             }.frame(height: 270)
                             HStack{
                                 Spacer()
@@ -290,12 +295,12 @@ struct VerbInfoView: View {
                                 Spacer()
                             }
                             List{
-                                VerbRowView(word: verb.GetPassiveSubjunctiveImperfect(personNum: PersonNum.FirstSingular), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctiveImperfect(personNum: PersonNum.SecondSingular), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctiveImperfect(personNum: PersonNum.ThirdSingular), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctiveImperfect(personNum: PersonNum.FirstSingular), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctiveImperfect(personNum: PersonNum.SecondSingular), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctiveImperfect(personNum: PersonNum.ThirdSingular), grammar: "\(verb.get_translation())")
+                                VerbRowView(word: verb.GetPassiveSubjunctiveImperfect(personNum: PersonNum.FirstSingular),formList: [Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.imperfect.rawValue,PersonNum.FirstSingular.rawValue,""], grammar: "i am")
+                                VerbRowView(word: verb.GetPassiveSubjunctiveImperfect(personNum: PersonNum.SecondSingular),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.imperfect.rawValue,PersonNum.SecondSingular.rawValue,""], grammar: "you (singualr) are")
+                                VerbRowView(word: verb.GetPassiveSubjunctiveImperfect(personNum: PersonNum.ThirdSingular),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.imperfect.rawValue,PersonNum.ThirdSingular.rawValue,""], grammar: "he/she/it is")
+                                VerbRowView(word: verb.GetPassiveSubjunctiveImperfect(personNum: PersonNum.FirstPlural),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.imperfect.rawValue,PersonNum.FirstPlural.rawValue,""], grammar: "we are")
+                                VerbRowView(word: verb.GetPassiveSubjunctiveImperfect(personNum: PersonNum.SecondPlural),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.imperfect.rawValue,PersonNum.SecondPlural.rawValue,""], grammar: "you (Plural) are")
+                                VerbRowView(word: verb.GetPassiveSubjunctiveImperfect(personNum: PersonNum.ThirdPlural),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.imperfect.rawValue,PersonNum.ThirdPlural.rawValue,""], grammar:"they are")
                             }.frame(height: 270)
                             HStack{
                                 Spacer()
@@ -304,12 +309,12 @@ struct VerbInfoView: View {
                                 Spacer()
                             }
                             List{
-                                VerbRowView(word: verb.GetPassiveSubjunctivePerfect(personNum: PersonNum.FirstSingular, gender: "m"), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctivePerfect(personNum: PersonNum.SecondSingular, gender: "m"), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctivePerfect(personNum: PersonNum.ThirdSingular, gender: "m"), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctivePerfect(personNum: PersonNum.FirstSingular, gender: "m"), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctivePerfect(personNum: PersonNum.SecondSingular, gender: "m"), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctivePerfect(personNum: PersonNum.ThirdSingular, gender: "m"), grammar: "\(verb.get_translation())")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePerfect(personNum: PersonNum.FirstSingular, gender: "m"),formList: [Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.perfect.rawValue,PersonNum.FirstSingular.rawValue,"m"], grammar: "i am")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePerfect(personNum: PersonNum.SecondSingular, gender: "m"),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.perfect.rawValue,PersonNum.SecondSingular.rawValue,"m"], grammar: "you (singualr) are")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePerfect(personNum: PersonNum.ThirdSingular, gender: "m"),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.perfect.rawValue,PersonNum.ThirdSingular.rawValue,"m"], grammar: "he/she/it is")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePerfect(personNum: PersonNum.FirstPlural, gender: "m"),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.perfect.rawValue,PersonNum.FirstPlural.rawValue,"m"], grammar: "we are")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePerfect(personNum: PersonNum.SecondPlural, gender: "m"),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.perfect.rawValue,PersonNum.SecondPlural.rawValue,"m"], grammar: "you (Plural) are")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePerfect(personNum: PersonNum.ThirdPlural, gender: "m"),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.perfect.rawValue,PersonNum.ThirdPlural.rawValue,"m"], grammar:"they are")
                             }.frame(height: 270)
                             HStack{
                                 Spacer()
@@ -318,12 +323,12 @@ struct VerbInfoView: View {
                                 Spacer()
                             }
                             List{
-                                VerbRowView(word: verb.GetPassiveSubjunctivePluperfect(personNum: PersonNum.FirstSingular, gender: "m"), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctivePluperfect(personNum: PersonNum.SecondSingular, gender: "m"), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctivePluperfect(personNum: PersonNum.ThirdSingular, gender: "m"), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctivePluperfect(personNum: PersonNum.FirstSingular, gender: "m"), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctivePluperfect(personNum: PersonNum.SecondSingular, gender: "m"), grammar: "\(verb.get_translation())")
-                                VerbRowView(word: verb.GetPassiveSubjunctivePluperfect(personNum: PersonNum.ThirdSingular, gender: "m"), grammar: "\(verb.get_translation())")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePluperfect(personNum: PersonNum.FirstSingular, gender: "m"),formList: [Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.pluperfect.rawValue,PersonNum.FirstSingular.rawValue,""], grammar: "i am")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePluperfect(personNum: PersonNum.SecondSingular, gender: "m"),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.pluperfect.rawValue,PersonNum.SecondSingular.rawValue,""], grammar: "you (singualr) are")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePluperfect(personNum: PersonNum.ThirdSingular, gender: "m"),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.pluperfect.rawValue,PersonNum.ThirdSingular.rawValue,""], grammar: "he/she/it is")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePluperfect(personNum: PersonNum.FirstPlural, gender: "m"),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.pluperfect.rawValue,PersonNum.FirstPlural.rawValue,""], grammar: "we are")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePluperfect(personNum: PersonNum.SecondPlural, gender: "m"),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.pluperfect.rawValue,PersonNum.SecondPlural.rawValue,""], grammar: "you (Plural) are")
+                                VerbRowView(word: verb.GetPassiveSubjunctivePluperfect(personNum: PersonNum.ThirdPlural, gender: "m"),formList:[Mood.subjunctive.rawValue,Voice.passive.rawValue,Tense.pluperfect.rawValue,PersonNum.ThirdPlural.rawValue,""], grammar:"they are")
                             }.frame(height: 270)
                         }
                     }

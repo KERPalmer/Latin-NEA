@@ -141,7 +141,7 @@ class SQLiteDatabase: ObservableObject {
             sqlite3_finalize(insertStatement)
         }
         guard
-            sqlite3_bind_int(insertStatement, 1, profile.id) == SQLITE_OK  &&
+            sqlite3_bind_null(insertStatement, 1) == SQLITE_OK  &&
                 sqlite3_bind_text(insertStatement, 2, profile.Username.utf8String, -1, nil) == SQLITE_OK &&
                 sqlite3_bind_text(insertStatement, 3, profile.Password.utf8String, -1, nil)
                 == SQLITE_OK
@@ -172,15 +172,15 @@ class SQLiteDatabase: ObservableObject {
             sqlite3_bind_text(insertStatement,3, result.latin.firstPrincipalPart, -1, nil) == SQLITE_OK &&
             sqlite3_bind_int(insertStatement,4,result.formID ) == SQLITE_OK &&
             sqlite3_bind_int(insertStatement, 5, Int32(resultNum)) == SQLITE_OK &&
-            sqlite3_bind_int(insertStatement, 6, 0) == SQLITE_OK &&
-            sqlite3_bind_int(insertStatement, 7, 0) == SQLITE_OK &&
-            sqlite3_bind_int(insertStatement, 8, 0) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 6, -1) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 7, -1) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 8, -1) == SQLITE_OK &&
             sqlite3_bind_int(insertStatement, 9, 0) == SQLITE_OK &&
-            sqlite3_bind_int(insertStatement, 10, 0) == SQLITE_OK &&
-            sqlite3_bind_int(insertStatement, 11, 0) == SQLITE_OK &&
-            sqlite3_bind_int(insertStatement, 12, 0) == SQLITE_OK &&
-            sqlite3_bind_int(insertStatement, 13, 0) == SQLITE_OK &&
-            sqlite3_bind_int(insertStatement, 14, 0) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 10, -1) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 11, -1) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 12, -1) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 13, -1) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 14, -1) == SQLITE_OK &&
             sqlite3_bind_int(insertStatement, 15, resultNum) == SQLITE_OK &&
             sqlite3_bind_int(insertStatement, 16, 1) == SQLITE_OK
         else {
@@ -286,19 +286,17 @@ class SQLiteDatabase: ObservableObject {
         print("successfully updated \(result_word) in the confidence table")
     }
     //returns all the usernames in the database. many used for debugging
-    func GetUsernames()->String?{
-        let querysql = Profile.GetUsernamesQueryStatement
-        guard let queryStatement = try? prepareStatement(sqlStatement: querysql) else{
-            return nil
-        }
+    func printUsernames(){
+        let querysql = "SELECT * FROM Profiles;"
+        let queryStatement = try? prepareStatement(sqlStatement: querysql)
         defer {
             sqlite3_finalize(queryStatement)
         }
-        guard let result = sqlite3_column_text(queryStatement, 0) else{
-            return nil
+        while sqlite3_step(queryStatement) == SQLITE_ROW{
+            print(sqlite3_column_int(queryStatement, 0))
+            print(String(cString: sqlite3_column_text(queryStatement,1)))
+            print(String(cString: sqlite3_column_text(queryStatement,2)))
         }
-        let Usernames = String(cString: result) as String
-        return Usernames
     }
     //gets the formID from the table give the appropiate forms
     func GetFromID(formList:[NSString])->Int32?{
@@ -325,7 +323,6 @@ class SQLiteDatabase: ObservableObject {
         }
         //collect the results
         let result = sqlite3_column_int(queryStatement, 0)
-        print(errorMessage)
         return result
     }
     //prints all the forms so you can easily which form has what ID
@@ -386,6 +383,7 @@ class SQLiteDatabase: ObservableObject {
             return nil
         }
         guard sqlite3_step(queryStatement) == SQLITE_ROW else {
+            print(errorMessage)
             return nil
         }
         // ID COLUMN
@@ -407,6 +405,24 @@ class SQLiteDatabase: ObservableObject {
 
 
         return Profile(id: id, Username: Username, Password: Password)
+    }
+    //returns true if a username is taken
+    func CheckUsername(Username:NSString)->Bool{
+        let querySql = "SELECT id FROM Profiles WHERE Username = (?);"
+        guard let queryStatement = try? prepareStatement(sqlStatement: querySql) else {
+            return false
+        }
+        defer {
+            sqlite3_finalize(queryStatement)
+        }
+        guard sqlite3_bind_text(queryStatement, 1, Username.utf8String, -1, nil) == SQLITE_OK else {
+            return false
+        }
+        //YOU ARE HERE
+        guard sqlite3_step(queryStatement) == SQLITE_ROW else{
+            return false
+        }
+        return true
     }
     //returns the user'sID number so it can be used later when storing results
     func SetCurrentUserID(username:NSString) throws -> Int32{

@@ -14,32 +14,42 @@ struct logInView: View {
     @State private var Password:String = ""
     @State private var inncorrect:Bool=false
     var body: some View {
-        VStack{
-            Text("Login Page")
-            TextField("Username", text: $Username)
-                .padding()
-            TextField("Password", text: $Password)
-                .padding()
-            Button("log in"){
-                if env.db?.CheckPassword(Username: Username as NSString, Password: Password as NSString) == true{
-                    do{
-                        print("correct username and password")
-                        try env.profileID = (env.db?.SetCurrentUserID(username: Username as NSString))!
-                    }catch{
-                        print("set id error")
+        NavigationView{
+            VStack{
+                HStack{
+                    Spacer()
+                    Text("Login Page")
+                    Spacer()
+                    NavigationLink(destination: AddProfileView()){
+                        Image(systemName: "person.badge.plus")
                     }
-                    print("logging into profile id \(env.profileID)")
-                    env.isLoggedIn.toggle()
                 }
-                else{
-                    print("incorrect username or password")
-                    inncorrect=true
+                TextField("Username", text: $Username)
+                    .padding()
+                TextField("Password", text: $Password)
+                    .padding()
+                Button("log in"){
+                    if env.db?.CheckPassword(Username: Username as NSString, Password: Password as NSString) == true{
+                        do{
+                            print("correct username and password")
+                            try env.profileID = (env.db?.SetCurrentUserID(username: Username as NSString))!
+                        }catch{
+                            print("set id error")
+                        }
+                        print("logging into profile id \(env.profileID)")
+                        env.isLoggedIn.toggle()
+                    }
+                    else{
+                        print("incorrect username or password")
+                        inncorrect=true
+                    }
                 }
-            }
-            if inncorrect{
-                Text("The password was inncorrect")
-                    .background(Color.red)
-                    .opacity(0.8)
+                if inncorrect{
+                    Text("The password was inncorrect")
+                        .background(Color.red)
+                        .opacity(0.8)
+                }
+                Spacer()
             }
         }
     }

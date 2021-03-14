@@ -10,12 +10,19 @@ import SwiftUI
 struct QuizFinishView: View {
     @EnvironmentObject var quiz:Quiz
     var body: some View {
-        VStack{
-        Text("YOU FINISHED")
-            List(quiz.questions){ question in
-                ResultRowView(question: question)
+        NavigationView{
+            VStack{
+                Text("YOU FINISHED")
+                List(quiz.questions){ question in
+                    ResultRowView(question: question)
+                }
+                Button("Done"){
+                    quiz.inQuiz = false
+                    quiz.isAnswered = false
+                    quiz.isFinished = false
+                }
             }
-        }
+        }.background(Color.white)
         
     }
 }

@@ -16,7 +16,7 @@ class Profile: SQLTable {
     static var createStatement: String { // the statement for creating a table
       return """
     CREATE TABLE IF NOT EXISTS Profiles(
-    id INT PRIMARY KEY NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     Username CHAR(255),
     Password CHAR(255));
     """
@@ -33,7 +33,7 @@ class Profile: SQLTable {
     }
     static var GetUsernamesQueryStatement: String{
         return"""
-            SELECT Username FROM Profiles";
+            SELECT Username FROM Profiles;
             """
     }
     static var PasswordqueryStatement: String{

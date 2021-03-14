@@ -33,6 +33,7 @@ func resetTestDatabase(db:SQLiteDatabase?){
         print("Fail to insert profile")
         print(db!.GetErrorMessage())
     }
+    db?.printUsernames()
     //inserting forms into the form table
     IterateVerbForm(db:db!)
     IterateNounForm(db:db!)
@@ -52,7 +53,7 @@ func resetTestDatabase(db:SQLiteDatabase?){
         print("failed to insert indeclinables")
     }
     print("Successfully inserted rows into the Form table.")
-    let testProfile = db?.GetProfile(id:0)
+    let testProfile = db?.GetProfile(id:1)
     print(testProfile!.Username as Any)
     print("form test")
     db?.ReturnForms()
@@ -106,15 +107,25 @@ func IterateNounForm(db:SQLiteDatabase){
 //each adjective form has a degree, declension, a case, a number, and a gender. I am including the adverb type as a declension
 func IterateAdjectiveForm(db:SQLiteDatabase){
     for degree in AdjectiveDegree.allCases{
-        for adjectiveDeclension in AdjectiveDeclension.allCases{
-            for caseNum in caseNum.allCases{
-                for gender in Gender.allCases{
-                    do{
-                        try db.insertForm(part1: degree.rawValue ,part2: caseNum.rawValue, part3: gender.rawValue,part4:"", part5: "",type: adjectiveDeclension.rawValue)
-                    }catch {
-                        print("failed to insert adjective line")
+        if (degree != AdjectiveDegree.indeclinable){
+            for adjectiveDeclension in AdjectiveDeclension.allCases{
+                if adjectiveDeclension != .indeclinable{
+                    for caseNum in caseNum.allCases{
+                        for gender in Gender.allCases{
+                            do{
+                                try db.insertForm(part1: degree.rawValue ,part2: caseNum.rawValue, part3: gender.rawValue,part4:"", part5: "",type: adjectiveDeclension.rawValue)
+                            }catch {
+                                print("failed to insert adjective line")
+                            }
+                        }
                     }
                 }
+            }
+        }else{
+            do{
+                try db.insertForm(part1: degree.rawValue ,part2: "", part3: "",part4:"", part5: "",type: AdjectiveDeclension.indeclinable.rawValue)
+            }catch {
+                print("failed to insert adjective line")
             }
         }
     }

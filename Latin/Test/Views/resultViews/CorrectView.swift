@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CorrectView: View {
     @EnvironmentObject var quiz:Quiz
+    var question: Question
     var body: some View {
         ZStack{
             Rectangle()
@@ -16,14 +17,17 @@ struct CorrectView: View {
                 .ignoresSafeArea()
             VStack{
                 Spacer()
-                Text(quiz.getQuestion().latinString)
+                Text(question.latinString)
                 Spacer()
-                Text(quiz.getQuestion().latin.get_all_translations())
+                Text(question.latin.get_all_translations())
                 Spacer()
+                if !quiz.settings.vocabOnly{
+                    Text(question.formString)
+                }
+                if !quiz.isFinished{
                 Button("next question"){
                     quiz.generateNextQuestion()
                     quiz.isAnswered = false
-                    quiz.getQuestion().isCorrect = false
                 }
                 Spacer()
                 Button("Finsh Test"){
@@ -33,6 +37,7 @@ struct CorrectView: View {
                     quiz.inQuiz = false
                     quiz.isAnswered = false
                     quiz.isFinished = true
+                }
                 }
                 Spacer()
             }

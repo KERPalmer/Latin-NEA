@@ -14,4 +14,7 @@ class Adverb: Word{
         word = format(str: String(commaSplit[0]))
         super.init(line: line, id_: id_)
     }
+    override func GetFeedback(formAnswer:String,incorrectForm:String) -> [String] {
+        return ["adverbs are indeclinable, how did you get this wrong"]
+    }
 }

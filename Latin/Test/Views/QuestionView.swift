@@ -15,21 +15,21 @@ struct QuestionView: View {
         ZStack{
             if quiz.isAnswered{
                 if quiz.getQuestion().isCorrect{
-                    CorrectView()
+                    CorrectView(question: quiz.getQuestion())
                 }
                 else{
-                    IncorrectView()
+                    IncorrectView(question: quiz.getQuestion())
                 }
             }else{
                 //
-                if quiz.settings.vocabOnly{
-                    if quiz.settings.multipleChoice{
-                        VocabMultipleChoiceView(question: quiz.getQuestion())
-                    }else{
-                        VocabWrittenInputView(question: quiz.getQuestion())
-                    }
+                if quiz.settings.multipleChoice{
+                    VocabMultipleChoiceView(question: quiz.getQuestion() as! MultiplechoiceQuestion)
                 }else{
-                    FormInputView(question: quiz.getQuestion())
+                    if quiz.settings.vocabOnly{
+                        VocabWrittenInputView(question: quiz.getQuestion())
+                    }else{
+                        FormInputView(question: quiz.getQuestion() as! MultiplechoiceQuestion)
+                    }
                 }
             }
         }

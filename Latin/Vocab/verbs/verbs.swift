@@ -102,7 +102,6 @@ class Verb:Word,Codable{
         stem=String(infinitive.dropLast(3))
         super.init(line: line, id_: id_)
     }
-    
     required init(from decoder: Decoder) throws {
         fatalError("init(from:) has not been implemented")
     }
@@ -1039,4 +1038,110 @@ class Verb:Word,Codable{
             return infinitive+"ntur"
         }
     }
+    override func GetFeedback(formAnswer:String,incorrectForm:String)->[String]{
+        let formAnswerList = incorrectForm.split(separator: ",").map{ String($0) }
+        let formList = formAnswer.split(separator: ",").map{ String($0) }
+        var feedback:[String] = []
+        if formAnswerList[0] != formList[0]{
+            switch Mood.init(rawValue: formList[0])! {
+                case .indicative:
+                    feedback.append("The verb was in the Indicitive form, you said it was in the subjective form")
+                case.subjunctive:
+                    feedback.append("The verb was in the subjunctive form, you said it was in the indicitive form" )
+            }
+        }
+        if formAnswerList[1] != formList[1]{
+        switch Voice.init(rawValue: formList[1])!{
+            case .active:
+                feedback.append("the verb was in the active form, you gave it in the passive")
+            case .passive:
+                feedback.append("the verb was in the passive form you gave it in the active ")
+            }
+        }
+        if formAnswerList[2] != formList[2]{
+            var feedbackPart:String = ""
+            switch Tense.init(rawValue: formList[2])! {
+            case .Present:
+                feedbackPart.append("The verb was in the present tense")
+            case .imperfect:
+                feedbackPart.append("The verb was in the imperfect tense")
+            case .perfect:
+                feedbackPart.append("the verb was in the perfect tense")
+            case .pluperfect:
+                feedbackPart.append("The verb was in the pluperfect tense")
+            case .future:
+                feedbackPart.append("The verb was in the future tense")
+            case .infinitive:
+                feedbackPart.append("The verb was in the infinitive tense")
+            }
+            switch Tense.init(rawValue: formAnswerList[2])! {
+            case .Present:
+                feedbackPart.append("you gave it in the present tense")
+            case .imperfect:
+                feedbackPart.append("you gave it in the imperfect tense")
+            case .perfect:
+                feedbackPart.append("you gave it in the perfect tense")
+            case .pluperfect:
+                feedbackPart.append("you gave it in the pluperfect tense")
+            case .future:
+                feedbackPart.append("you gave it in the future tense")
+            case .infinitive:
+                feedbackPart.append("you gave it in in the infinitive tense")
+            }
+            feedback.append(feedbackPart)
+        }
+        if formAnswerList[3] != formList[3]{
+            var feedbackPart:String = ""
+            switch PersonNum.init(rawValue: formList[3])! {
+            case .FirstSingular:
+                feedbackPart.append("The verb was in the first singular form")
+            
+            case .SecondSingular:
+                feedbackPart.append("The verb was in the second singular form")
+            case .ThirdSingular:
+                feedbackPart.append("The verb was in the third singular form")
+            case .FirstPlural:
+                feedbackPart.append("The verb was in the first plural form")
+            case .SecondPlural:
+                feedbackPart.append("The verb was in the second plural form")
+            case .ThirdPlural:
+                feedbackPart.append("The verb was in the third plural form")
+            }
+            switch PersonNum.init(rawValue: formAnswerList[3])! {
+            case .FirstSingular:
+                feedbackPart.append("you gave it in the first singular form")
+            case .SecondSingular:
+                feedbackPart.append("you gave it in the second singular form")
+            case .ThirdSingular:
+                feedbackPart.append("you gave it in the third singular form")
+            case .FirstPlural:
+                feedbackPart.append("you gave it in the first plural form")
+            case .SecondPlural:
+                feedbackPart.append("you gave it in the second plural form")
+            case .ThirdPlural:
+                feedbackPart.append("you gave it in the third plural form")
+            }
+            feedback.append(feedbackPart)
+        }
+        
+        return feedback
+    }
+    enum Context: String, CaseIterable, Encodable {
+        case indicitve = "The Indicitve mood is used to represent facts or truths such something did occur or will occur"
+        case subjunctive = "The Subjunctive modd is used torepresent many things, such as intent, consequence."
+        case active = "The Active voice is used to show that the action is performed on the object of the sentence by the subject: Bob hit Jim is an example"
+        case passive = "The passive voice is used to show that the action is performed on the subject of the sentence by the object: Jim was hit by bob"
+        case present = "The present tense is used to show that a verb is happening now, at this very moment: Bob hits Jim"
+        case imperfect = "The imperfect tense is used to show an incompleted action or an action that happened once: Bob was hitting Jim."
+        case perfect = "The perfect tense is used to show a completed action or an action that occurs more than once: Bob hit Jim"
+        case pluperfect = "The pluperfect tense is used to show the past's past, we would use 'had' to show it: Bob had hit Jim"
+        case future = "The future tense is used to to show an action that will occur in the future: Bob will hit Jim"
+        case FirstPerson = "The first person realtes to yourself: me myself or i"
+        case inifinitve = "The infinitive tense is used to show action in a timeless sence, it is the abstract action and is translated and to ... : I eat apples, I need to leave"
+        case SecondPerson = "The second person relates to the person or people you are addressing, you, you all"
+        case ThirdPerson = "The third perosn relates to a person or some people you aren't addressing: him, her, it, them"
+        case singular = "there is only one of the person thing or object"
+        case plural = "there is multiple of the perosn thing or object"
+    }
+    
 }

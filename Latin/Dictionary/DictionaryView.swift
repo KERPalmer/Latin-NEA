@@ -44,11 +44,6 @@ struct DictionaryView: View {
                             .bold()
                             .font(.system(size: 20))
                     }
-                    NavigationLink(destination: Text("All")){
-                        Text("All")
-                            .bold()
-                            .font(.system(size: 20))
-                }
                 }.navigationTitle("word types:")
         }
     }

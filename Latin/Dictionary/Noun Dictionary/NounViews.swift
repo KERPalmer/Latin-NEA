@@ -38,158 +38,24 @@ struct nounInfoView:View{
             Text("singular")
                 .bold()
                 .underline()
-            VStack{
-                HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    Text(noun.GetDeclension(choice: caseNum.NomSingular))
-                    Spacer()
-                        .frame(width: 20)
-                    Text("nominative singular")
-                    Spacer()
-                    Text("subject:  \(noun.get_translation())")
-                    Spacer()
-                        .frame(width: 20)
-                }
-                HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    Text(noun.GetDeclension(choice: caseNum.VocSingular))
-                    Spacer()
-                        .frame(width: 20)
-                    Text("vocative singular")
-                    Spacer()
-                    Text( "O  \(noun.get_translation())")
-                    Spacer()
-                        .frame(width: 20)
-                }
-                HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    Text(noun.GetDeclension(choice: caseNum.AccSingular))
-                    Spacer()
-                        .frame(width: 20)
-                    Text("accusative singular")
-                    Spacer()
-                    Text( "object:  \(noun.get_translation())")
-                    Spacer()
-                        .frame(width: 20)
-                }
-                HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    Text(noun.GetDeclension(choice: caseNum.GenSingular))
-                    Spacer()
-                        .frame(width: 20)
-                    Text("genative singular")
-                    Spacer()
-                    Text( "of the   \(noun.get_translation())")
-                    Spacer()
-                        .frame(width: 20)
-                }
-                HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    Text(noun.GetDeclension(choice: caseNum.DatSingular))
-                    Spacer()
-                        .frame(width: 20)
-                    Text("dative singular")
-                    Spacer()
-                    Text( "to/for the   \(noun.get_translation())")
-                    Spacer()
-                        .frame(width: 20)
-                }
-                HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    Text(noun.GetDeclension(choice: caseNum.AblSingular))
-                    Spacer()
-                        .frame(width: 20)
-                    Text("ablative singular")
-                    Spacer()
-                    Text( "by/with/from   \(noun.get_translation())")
-                    Spacer()
-                        .frame(width: 20)
-                }
-            }
-            Spacer()
+            List{
+                NounRowView(nounString: noun.GetDeclension(choice: caseNum.NomSingular), caseNumber: caseNum.NomSingular)
+                NounRowView(nounString: noun.GetDeclension(choice: caseNum.VocSingular), caseNumber: caseNum.VocSingular)
+                NounRowView(nounString: noun.GetDeclension(choice: caseNum.AccSingular), caseNumber: caseNum.AccSingular)
+                NounRowView(nounString: noun.GetDeclension(choice: caseNum.GenSingular), caseNumber: caseNum.GenSingular)
+                NounRowView(nounString: noun.GetDeclension(choice: caseNum.DatSingular), caseNumber: caseNum.DatSingular)
+                NounRowView(nounString: noun.GetDeclension(choice: caseNum.AblSingular), caseNumber: caseNum.AblSingular)
+        }
             Text("plural")
                 .bold()
                 .underline()
-            VStack{
-                HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    Text(noun.GetDeclension(choice: caseNum.NomPlural))
-                    Spacer()
-                        .frame(width: 20)
-                    Text("nominative plural")
-                    Spacer()
-                    Text( "subject:  \(noun.get_translation())")
-                    Spacer()
-                        .frame(width: 20)
-                }
-                HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    Text(noun.GetDeclension(choice: caseNum.VocPlural))
-                    Spacer()
-                        .frame(width: 20)
-                    Text("vocative plural")
-                    Spacer()
-                    Text( "O  \(noun.get_translation())")
-                    Spacer()
-                        .frame(width: 20)
-                }
-                HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    Text(noun.GetDeclension(choice: caseNum.AccPlural))
-                    Spacer()
-                        .frame(width: 20)
-                    Text("accusative plural")
-                    Spacer()
-                    Text( "objects:  \(noun.get_translation())")
-                    Spacer()
-                        .frame(width: 20)
-                }
-                HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    Text(noun.GetDeclension(choice: caseNum.GenPlural))
-                    Spacer()
-                        .frame(width: 20)
-                    Text("genative plural")
-                    Spacer()
-                    Text( "of the   \(noun.get_translation())")
-                    Spacer()
-                        .frame(width: 20)
-                }
-                HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    Text(noun.GetDeclension(choice: caseNum.DatPlural))
-                    Spacer()
-                        .frame(width: 20)
-                    Text("dative plural")
-                    Spacer()
-                    Text( "to/for the \(noun.get_translation())")
-                    Spacer()
-                        .frame(width: 20)
-                }
-                HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    Text(noun.GetDeclension(choice: caseNum.AblPlural))
-                    Spacer()
-                        .frame(width: 20)
-                    Text("ablative plural")
-                    Spacer()
-                    Text( "by/with/from  \(noun.get_translation())")
-                    Spacer()
-                        .frame(width: 20)
-                }
-                Spacer()
+            List{
+                NounRowView(nounString: noun.GetDeclension(choice: caseNum.NomPlural), caseNumber: caseNum.NomPlural)
+                NounRowView(nounString: noun.GetDeclension(choice: caseNum.VocPlural), caseNumber: caseNum.VocPlural)
+                NounRowView(nounString: noun.GetDeclension(choice: caseNum.AccPlural), caseNumber: caseNum.AccPlural)
+                NounRowView(nounString: noun.GetDeclension(choice: caseNum.GenPlural), caseNumber: caseNum.GenPlural)
+                NounRowView(nounString: noun.GetDeclension(choice: caseNum.DatPlural), caseNumber: caseNum.DatPlural)
+                NounRowView(nounString: noun.GetDeclension(choice: caseNum.AblPlural), caseNumber: caseNum.AblPlural)
             }
         }
     }

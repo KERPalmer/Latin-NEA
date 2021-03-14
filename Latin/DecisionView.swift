@@ -29,21 +29,20 @@ struct DecisionView:View{
                     }
                 }
                 .tag(1)
-            Text("test")
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Text("Test")
-                        Image(systemName: "graduationcap")
-                    }
-                }
-                .tag(2)
-            Text("stats")
+            StatsStartView()
                 .font(.title)
                 .tabItem {
                     VStack {
                         Text("Stats")
                         Image(systemName: "percent")
+                    }
+                }.tag(2)
+            Text("Settings")
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Text("Settings")
+                        Image(systemName: "gearshape")
                     }
                 }.tag(3)
         }

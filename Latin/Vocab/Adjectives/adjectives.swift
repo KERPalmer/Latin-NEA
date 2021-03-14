@@ -17,14 +17,137 @@ class Adjective:Word, Codable{
         self.mascNom=String(format(str: commaSplit[0]))
         if trimmed.contains("1/2"){
             declension = AdjectiveDeclension.TwoOneTwo
-        }else{
+        }else if trimmed.contains("3"){
             declension = AdjectiveDeclension.third
+        }else{
+            declension = AdjectiveDeclension.indeclinable
         }
         super.init(line: line, id_: id_)
     }
     
     required init(from decoder: Decoder) throws {
         fatalError("init(from:) has not been implemented")
+    }
+    override func GetFeedback(formAnswer:String,incorrectForm:String)->[String]{
+        let formAnswerList = incorrectForm.split(separator: ",").map{ String($0) }
+        let formList = formAnswer.split(separator: ",").map{ String($0) }
+        var feedback:[String] = []
+        if formAnswerList[0] != formList[0]{
+            var feedbackPart: String = ""
+            switch AdjectiveDegree.init(rawValue: formList[0])! {
+            case .positive:
+                feedbackPart.append("the adjective was in the positive degree")
+            case .comparative:
+                feedbackPart.append("The adjective was in the comparative degree")
+            case .superlatative:
+                feedbackPart.append("The adjective was in the superlatative degree")
+            case .adverb:
+                feedbackPart.append("The adjective was in the adverb degree")
+            case .indeclinable:
+                feedbackPart.append("The adjevtive was indeclinable")
+            }
+            switch AdjectiveDegree.init(rawValue: formAnswerList[0])!{
+            case .positive:
+                feedbackPart.append(", you gave it in the positive degree")
+            case .comparative:
+                feedbackPart.append(", you gave it in the comparative degree")
+            case .superlatative:
+                feedbackPart.append(", you gave it in the superlatative degree")
+            case .adverb:
+                feedbackPart.append(", you gave it in the adverb form")
+            case .indeclinable:
+                feedbackPart.append(", you said it was indeclinable")
+            }
+            feedback.append(feedbackPart)
+        }
+        if formAnswerList[1] != formList[1]{
+            var feedbackPart:String = ""
+            switch caseNum.init(rawValue: formList[1])!{
+            case .NomSingular:
+                feedbackPart.append("the adjective was in the nominative singular form")
+            case .VocSingular:
+                feedbackPart.append("the adjective was in the vocative singular form")
+            case .AccSingular:
+                feedbackPart.append("the adjective was in the accusative singular form")
+            case .GenSingular:
+                feedbackPart.append("the adjective was in the genative singular form")
+            case .DatSingular:
+                feedbackPart.append("the adjective was in the dative singular form")
+            case .AblSingular:
+                feedbackPart.append("the adjective was in the ablative singular form")
+            case .NomPlural:
+                feedbackPart.append("the adjective was in the nominative plural form")
+            case .VocPlural:
+                feedbackPart.append("the adjective was in the vocative plural form")
+            case .AccPlural:
+                feedbackPart.append("the adjective was in the accusative plural form")
+            case .GenPlural:
+                feedbackPart.append("the adjective was in the genative plural form")
+            case .DatPlural:
+                feedbackPart.append("the adjective was in the dative plural form")
+            case .AblPlural:
+                feedbackPart.append("the adjective was in the ablative plural form")
+            }
+            switch caseNum.init(rawValue: formAnswerList[1])!{
+            case .NomSingular:
+                feedbackPart.append("you gave it in the nominative singular")
+            case .VocSingular:
+                feedbackPart.append("you gave it in the vocative singular form")
+            case .AccSingular:
+                feedbackPart.append("you gave it in the accusative singular form")
+            case .GenSingular:
+                feedbackPart.append("you gave it in the genative singular form")
+            case .DatSingular:
+                feedbackPart.append("you gave it in the dative singular form")
+            case .AblSingular:
+                feedbackPart.append("you gave it in the ablative singular form")
+            case .NomPlural:
+                feedbackPart.append("you gave it in the nominative plural form")
+            case .VocPlural:
+                feedbackPart.append("you gave it in the vocative plural form")
+            case .AccPlural:
+                feedbackPart.append("you gave it in the accusative plural form")
+            case .GenPlural:
+                feedbackPart.append("you gave it in the genative plural form")
+            case .DatPlural:
+                feedbackPart.append("you gave it in the dative plural form")
+            case .AblPlural:
+                feedbackPart.append("you gave it in the ablative plural form")
+            }
+            feedback.append(feedbackPart)
+        }
+        if formAnswerList[2] != formList[2]{
+            var feedbackPart:String = ""
+            switch Gender.init(rawValue: formList[2])! {
+            case.male:
+                feedbackPart.append("the adjective was in the male form")
+            case .female:
+                feedbackPart.append("the adjective was in the female form")
+            case .neuter:
+                feedbackPart.append("the adjective was in the neuter form")
+            }
+            switch Gender.init(rawValue: formAnswerList[2])! {
+            case.male:
+                feedbackPart.append("you gave it in the male form")
+            case .female:
+                feedbackPart.append("you gave it was in the female form")
+            case .neuter:
+                feedbackPart.append("you gave it was in the neuter form")
+            }
+            feedback.append(feedbackPart)
+        }
+        return feedback
+    }
+    
+    enum contex:String, CaseIterable, Encodable{
+        case Nom = "The nominaive case is used to show the adjective describes the object of the sentence, normally the thing doing the action or what the sentenced is sentenced around"
+        case Voc = "The vocative case is used to show to adjective describes the person being address. It is normally the same as the nominative case and shown as following an 'O'"
+        case Acc = "The accusative case is used to show that the adjective describes the direct object of the sentence."
+        case Gen = "The genative case is used to show the adjective describing a possession"
+        case Dat = "The dative case is used to show that the adjective is describing an indirect object, we could think of this as the second object of the sentence, it is ususally translated as to or for that object"
+        case Abl = "The ablative case is used to show that the adjective is describing an instrument, it describes how an action is done or by what means. It is translated as 'by, with or from'"
+        case Sing = "The adjective only describes one of the object"
+        case Plural = "The adjective describes more than one object"
     }
 }
 //altus ,"alta, altum",adjective 1/2,"high, deep"
@@ -41,351 +164,299 @@ class FirstSecondAdjective:Adjective{
         // set the genders
         var genders:[String]
         genders=speechSplit[1].split(separator: ",",omittingEmptySubsequences: true).map{ String($0)}
+        if trimmed.contains("plural"){ // if plural only
+            mascStem = String(String(format(str: speechSplit[0])).dropLast(1))
+            self.femStem=String(genders[0].dropLast(2))
+            self.neuStem=String(genders[1].dropLast(1))
+        }else{
         self.mascStem=String(String(format(str: speechSplit[0])).dropLast(2))
-        self.femNom=String(genders[0])
         self.femStem=String(genders[0].dropLast(1))
-        self.neuNom=String(genders[1])
         self.neuStem=String(genders[1].dropLast(2))
+        }
+        self.femNom=String(genders[0])
+        self.neuNom=String(genders[1])
         super.init(line: line, id_: id_)
     }
     
     required init(from decoder: Decoder) throws {
         fatalError("init(from:) has not been implemented")
     }
-    func get_positive(gender: String,caseForm:String,isSingle:Bool = false)->String{
-        switch gender.lowercased(){
-        case "masc":
-            switch caseForm {
-                case "Nom":
-                    if isSingle{
-                        return mascStem + "us"
-                    }else{
-                        return mascStem + "i"
-                    }
-                case  "Voc":
-                    if isSingle{
-                        return mascStem + "e"
-                    }else{
-                        return mascStem + "i"
-                    }
-                case "Acc":
-                    if isSingle{
-                        return mascStem + "um"
-                    }else{
-                        return mascStem + "os"
-                    }
-                case "Gen":
-                    if isSingle{
-                        return mascStem + "i"
-                    }else{
-                        return mascStem + "orum"
-                    }
-                case "Dat":
-                    if isSingle{
-                        return mascStem + "o"
-                    }else{
-                        return mascStem + "is"
-                    }
-                case "Abl":
-                    if isSingle{
-                        return mascStem + "o"
-                    }else{
-                        return mascStem + "is"
-                    }
-                default:
-                    return mascStem + "um"
-                
+    func get_positive(gender: Gender,CaseNum:caseNum)->String{
+        switch gender{
+        case .male:
+            switch CaseNum {
+            case .NomSingular:
+                return mascStem + "us"
+            case .NomPlural:
+                return mascStem + "i"
+            case  .VocSingular:
+                return mascStem + "e"
+            case .VocPlural:
+                return mascStem + "i"
+            case .AccSingular:
+                return mascStem + "um"
+            case .AccPlural:
+                return mascStem + "os"
+            case .GenSingular:
+                return mascStem + "i"
+            case .GenPlural:
+                return mascStem + "orum"
+            case .DatSingular:
+                return mascStem + "o"
+            case .DatPlural:
+                return mascStem + "is"
+            case .AblSingular:
+                return mascStem + "o"
+            case.AblPlural:
+                return mascStem + "is"
             }
-        case "fem":
-            switch caseForm {
-                case "Nom":
-                    if isSingle{
-                        return femStem + "a"
-                    }else{
-                        return femStem + "ae"
-                    }
-                case  "Voc":
-                    if isSingle{
-                        return femStem + "a"
-                    }else{
-                        return mascStem + "as"
-                    }
-                case "Acc":
-                    if isSingle{
-                        return femStem + "am"
-                    }else{
-                        return femStem + "as"
-                    }
-                case "Gen":
-                    if isSingle{
-                        return femStem + "ae"
-                    }else{
-                        return femStem + "arum"
-                    }
-                case "Dat":
-                    if isSingle{
-                        return femStem + "ae"
-                    }else{
-                        return femStem + "is"
-                    }
-                case "Abl":
-                    if isSingle{
-                        return femStem + "a"
-                    }else{
-                        return femStem + "is"
-                    }
-                default:
-                    return femStem + "um"
-                
+        case .female:
+            switch CaseNum {
+            case .NomSingular:
+                return femStem + "a"
+            case .NomPlural:
+                return femStem + "ae"
+            case  .VocSingular:
+                return femStem + "a"
+            case .VocPlural:
+                return femStem + "ae"
+            case .AccSingular:
+                return femStem + "am"
+            case .AccPlural:
+                return femStem + "as"
+            case .GenSingular:
+                return femStem + "ae"
+            case .GenPlural:
+                return femStem + "arum"
+            case .DatSingular:
+                return femStem + "ae"
+            case .DatPlural:
+                return femStem + "is"
+            case .AblSingular:
+                return femStem + "a"
+            case.AblPlural:
+                return femStem + "is"
             }
-            
-        case "neu":
-            switch caseForm {
-                case "Nom":
-                    if isSingle{
-                        return neuStem + "um"
-                    }else{
-                        return neuStem + "a"
-                    }
-                case  "Voc":
-                    if isSingle{
-                        return neuStem + "um"
-                    }else{
-                        return neuStem + "a"
-                    }
-                case "Acc":
-                    if isSingle{
-                        return neuStem + "um"
-                    }else{
-                        return neuStem + "a"
-                    }
-                case "Gen":
-                    if isSingle{
-                        return neuStem + "i"
-                    }else{
-                        return neuStem + "orum"
-                    }
-                case "Dat":
-                    if isSingle{
-                        return neuStem + "o"
-                    }else{
-                        return neuStem + "is"
-                    }
-                case "Abl":
-                    if isSingle{
-                        return neuStem + "o"
-                    }else{
-                        return neuStem + "is"
-                    }
-                default:
-                    return neuStem + "um"
-                
-            }
-        default:
-            return mascStem + "us"
-        }
-    }
-    func get_comparative(gender:String, caseForm:String, isSingle:Bool = false)->String{
-        let comparativeInfix = "ior"
-        let comparativeSuffix = "ius"
-        if isSingle{
-            switch caseForm{
-            case "Nom":
-                if gender == "neu"{
-                    return neuStem + comparativeSuffix
-                }else{
-                    return femStem + comparativeInfix
-                }
-            case "Acc":
-                if gender == "neu"{
-                    return neuStem + comparativeSuffix
-                }else{
-                    return femStem + comparativeInfix + "em"
-                }
-            case "Gen":
-                return femStem + comparativeInfix+"is"
-            case "Dat":
-                return femStem + comparativeInfix + "i"
-            case "Abl":
-                return femStem + comparativeInfix + "e"
-            default:
-                return femStem + comparativeInfix
-            }
-        }else{
-            switch caseForm{
-            case "Nom":
-                if gender == "neu"{
-                    return neuStem + comparativeInfix   + "a"
-                }else{
-                    return femStem + comparativeInfix + "es"
-                }
-            case "Acc":
-                if gender == "neu"{
-                    return neuStem + comparativeSuffix + "a"
-                }else{
-                    return femStem + comparativeInfix + "es"
-                }
-            case "Gen":
-                return femStem + comparativeInfix+"um"
-            case "Dat":
-                return femStem + comparativeInfix + "ibus"
-            case "Abl":
-                return femStem + comparativeInfix + "ibus"
-            default:
-                return femStem + comparativeInfix
+        case .neuter:
+            switch CaseNum {
+            case .NomSingular:
+                return neuStem + "um"
+            case .NomPlural:
+                return neuStem + "a"
+            case  .VocSingular:
+                return neuStem + "um"
+            case .VocPlural:
+                return neuStem + "a"
+            case .AccSingular:
+                return neuStem + "um"
+            case .AccPlural:
+                return neuStem + "a"
+            case .GenSingular:
+                return neuStem + "i"
+            case .GenPlural:
+                return neuStem + "orum"
+            case .DatSingular:
+                return neuStem + "o"
+            case .DatPlural:
+                return neuStem + "is"
+            case .AblSingular:
+                return neuStem + "o"
+            case.AblPlural:
+                return neuStem + "is"
             }
         }
     }
-    func get_superlative(gender:String, caseForm:String, isSingle:Bool = false)->String{
+    func get_comparative(gender:Gender, CaseNum:caseNum)->String{
+        let mascFemEnding = "ior"
+        let neuterEnding = "ius"
+        switch gender{
+        case .male:
+            switch CaseNum {
+            case .NomSingular:
+                return femStem + mascFemEnding
+            case .VocSingular:
+                return femStem + mascFemEnding
+            case .AccSingular:
+                return femStem + mascFemEnding + "em"
+            case .GenSingular:
+                return femStem + mascFemEnding + "is"
+            case .DatSingular:
+                return femStem + mascFemEnding + "i"
+            case .AblSingular:
+                return femStem + mascFemEnding + "e"
+            case .NomPlural:
+                return femStem + mascFemEnding + "es"
+            case .VocPlural:
+                return femStem + mascFemEnding + "es"
+            case .AccPlural:
+                return femStem + mascFemEnding + "es"
+            case .GenPlural:
+                return femStem + mascFemEnding + "um"
+            case .DatPlural:
+                return femStem + mascFemEnding + "ibus"
+            case .AblPlural:
+                return femStem + mascFemEnding + "ibus"
+            }
+        case .female:
+            switch CaseNum {
+            case .NomSingular:
+                return femStem + mascFemEnding
+            case .VocSingular:
+                return femStem + mascFemEnding
+            case .AccSingular:
+                return femStem + mascFemEnding + "em"
+            case .GenSingular:
+                return femStem + mascFemEnding + "is"
+            case .DatSingular:
+                return femStem + mascFemEnding + "i"
+            case .AblSingular:
+                return femStem + mascFemEnding + "e"
+            case .NomPlural:
+                return femStem + mascFemEnding + "es"
+            case .VocPlural:
+                return femStem + mascFemEnding + "es"
+            case .AccPlural:
+                return femStem + mascFemEnding + "es"
+            case .GenPlural:
+                return femStem + mascFemEnding + "um"
+            case .DatPlural:
+                return femStem + mascFemEnding + "ibus"
+            case .AblPlural:
+                return femStem + mascFemEnding + "ibus"
+            }
+        case .neuter:
+            switch CaseNum {
+            case .NomSingular:
+                return neuStem + neuterEnding
+            case .VocSingular:
+                return neuStem + neuterEnding
+            case .AccSingular:
+                return neuStem + neuterEnding
+            case .GenSingular:
+                return femStem + mascFemEnding + "is"
+            case .DatSingular:
+                return femStem + mascFemEnding + "i"
+            case .AblSingular:
+                return femStem + mascFemEnding + "e"
+            case .NomPlural:
+                return femStem + mascFemEnding + "a"
+            case .VocPlural:
+                return femStem + mascFemEnding + "a"
+            case .AccPlural:
+                return femStem + mascFemEnding + "es"
+            case .GenPlural:
+                return femStem + mascFemEnding + "um"
+            case .DatPlural:
+                return femStem + mascFemEnding + "ibus"
+            case .AblPlural:
+                return femStem + mascFemEnding + "ibus"
+            }
+        }
+    }
+    func get_superlative(gender:Gender, CaseNum:caseNum)->String{
         let superlativeInfix = "issim"
-    switch gender{
-    case "fem":
-        switch caseForm{
-        case "Nom":
-            if isSingle{
+        switch gender{
+        case .male:
+            switch CaseNum {
+            case .NomSingular:
+                return femStem + superlativeInfix + "us"
+            case .VocSingular:
+                return femStem + superlativeInfix + "us"
+            case .AccSingular:
+                return femStem + superlativeInfix + "um"
+            case .GenSingular:
+                return femStem + superlativeInfix + "i"
+            case .DatSingular:
+                return femStem + superlativeInfix + "o"
+            case .AblSingular:
+                return femStem + superlativeInfix + "o"
+            case .NomPlural:
+                return femStem + superlativeInfix + "i"
+            case .VocPlural:
+                return femStem + superlativeInfix + "i"
+            case .AccPlural:
+                return femStem + superlativeInfix + "os"
+            case .GenPlural:
+                return femStem + superlativeInfix + "orum"
+            case .DatPlural:
+                return femStem + superlativeInfix + "is"
+            case .AblPlural:
+                return femStem + superlativeInfix + "is"
+            }
+        case .female:
+            switch CaseNum {
+            case .NomSingular:
                 return femStem + superlativeInfix + "a"
-            }
-            else{
-                return femStem + superlativeInfix + "ae"
-            }
-        case "Voc":
-            if isSingle{
+            case .VocSingular:
                 return femStem + superlativeInfix + "a"
-            }
-            else{
-                return femStem + superlativeInfix + "ae"
-            }
-        case "Acc":
-            if isSingle{
+            case .AccSingular:
                 return femStem + superlativeInfix + "am"
-            }
-            else{
+            case .GenSingular:
+                return femStem + superlativeInfix + "ae"
+            case .DatSingular:
+                return femStem + superlativeInfix + "o"
+            case .AblSingular:
+                return femStem + superlativeInfix + "o"
+            case .NomPlural:
+                return femStem + superlativeInfix + "ae"
+            case .VocPlural:
+                return femStem + superlativeInfix + "ae"
+            case .AccPlural:
                 return femStem + superlativeInfix + "as"
-            }
-        case "Gen":
-            if isSingle{
-                return femStem + superlativeInfix + "ae"
-            }
-            else{
+            case .GenPlural:
                 return femStem + superlativeInfix + "arum"
-            }
-        case "Dat":
-            if isSingle{
-                return femStem + superlativeInfix + "ae"
-            }
-            else{
+            case .DatPlural:
+                return femStem + superlativeInfix + "is"
+            case .AblPlural:
                 return femStem + superlativeInfix + "is"
             }
-        case "Abl":
-            if isSingle{
-                return femStem + superlativeInfix + "ae"
-            }
-            else{
+        case .neuter:
+            switch CaseNum {
+            case .NomSingular:
+                return femStem + superlativeInfix + "um"
+            case .VocSingular:
+                return femStem + superlativeInfix + "um"
+            case .AccSingular:
+                return femStem + superlativeInfix + "um"
+            case .GenSingular:
+                return femStem + superlativeInfix + "i"
+            case .DatSingular:
+                return femStem + superlativeInfix + "o"
+            case .AblSingular:
+                return femStem + superlativeInfix + "o"
+            case .NomPlural:
+                return femStem + superlativeInfix + "a"
+            case .VocPlural:
+                return femStem + superlativeInfix + "a"
+            case .AccPlural:
+                return femStem + superlativeInfix + "a"
+            case .GenPlural:
+                return femStem + superlativeInfix + "orum"
+            case .DatPlural:
+                return femStem + superlativeInfix + "is"
+            case .AblPlural:
                 return femStem + superlativeInfix + "is"
             }
-        default:
-            return femStem + superlativeInfix + "a"
         }
-    case "masc":
-        switch caseForm{
-        case "Nom":
-            if isSingle{
-                return mascStem + superlativeInfix + "us"
-            }
-            else{
-                return mascStem + superlativeInfix + "i"
-            }
-        case "Voc":
-            if isSingle{
-                return mascStem + superlativeInfix + "e"
-            }
-            else{
-                return mascStem + superlativeInfix + "i"
-            }
-        case "Acc":
-            if isSingle{
-                return mascStem + superlativeInfix + "um"
-            }
-            else{
-                return mascStem + superlativeInfix + "os"
-            }
-        case "Gen":
-            if isSingle{
-                return mascStem + superlativeInfix + "i"
-            }
-            else{
-                return mascStem + superlativeInfix + "orum"
-            }
-        case "Dat":
-            if isSingle{
-                return mascStem + superlativeInfix + "o"
-            }
-            else{
-                return mascStem + superlativeInfix + "is"
-            }
-        case "Abl":
-            if isSingle{
-                return mascStem + superlativeInfix + "o"
-            }
-            else{
-                return mascStem + superlativeInfix + "is"
-            }
-    default:
-        return mascStem + superlativeInfix + "us"
     }
-    case "neu":
-        switch caseForm{
-        case "Nom":
-            if isSingle{
-                return neuStem + superlativeInfix + "um"
-            }
-            else{
-                return neuStem + superlativeInfix + "a"
-            }
-        case "Voc":
-            if isSingle{
-                return neuStem + superlativeInfix + "um"
-            }
-            else{
-                return neuStem + superlativeInfix + "a"
-            }
-        case "Acc":
-            if isSingle{
-                return neuStem + superlativeInfix + "um"
-            }
-            else{
-                return neuStem + superlativeInfix + "um"
-            }
-        case "Gen":
-            if isSingle{
-                return neuStem + superlativeInfix + "i"
-            }
-            else{
-                return neuStem + superlativeInfix + "orum"
-            }
-        case "Dat":
-            if isSingle{
-                return neuStem + superlativeInfix + "o"
-            }
-            else{
-                return neuStem + superlativeInfix + "is"
-            }
-        case "Abl":
-            if isSingle{
-                return neuStem + superlativeInfix + "i"
-            }
-            else{
-                return neuStem + superlativeInfix + "is"
-            }
-        default:
-            return neuStem + superlativeInfix + "um"
-        }
-    default:
-        return mascStem + superlativeInfix + "us"
-    }
-}
     func get_adverb()->String{
         return femStem + "e"
+    }
+    override func GetForm(formString: [String]) -> String {
+        let gender = Gender.init(rawValue: formString[2]) ?? .male
+        let CaseNum = caseNum.init(rawValue: formString[1]) ?? .NomSingular
+        switch AdjectiveDegree.init(rawValue: formString[0]) ?? .positive{
+        case .positive:
+            return get_positive(gender: gender , CaseNum: CaseNum)
+        case .comparative:
+            return get_comparative(gender: gender, CaseNum: CaseNum)
+        case .superlatative:
+            return get_superlative(gender: gender, CaseNum: CaseNum)
+        case .adverb:
+            return get_adverb()
+        case .indeclinable:
+            return firstPrincipalPart
+        }
     }
 }
 //brevis ,breve,adjective 3,"short, brief" 1      (2 termination)
@@ -415,342 +486,267 @@ class ThirdAdjective:Adjective{
     required init(from decoder: Decoder) throws {
         fatalError("init(from:) has not been implemented")
     }
-    func get_positive(gender: String,caseForm:String,isSingle:Bool = false)->String{
-        switch gender.lowercased(){
-        case "masc":
-            switch caseForm {
-                case "Nom":
-                    if isSingle{
-                        return mascNom
-                    }else{
-                        return stem + "es"
-                    }
-                case  "Voc":
-                    if isSingle{
-                        return mascNom
-                    }else{
-                        return stem + "es"
-                    }
-                case "Acc":
-                    if isSingle{
-                        return stem + "em"
-                    }else{
-                        return stem + "es"
-                    }
-                case "Gen":
-                    if isSingle{
-                        return stem + "is"
-                    }else{
-                        return stem + "ium"
-                    }
-                case "Dat":
-                    if isSingle{
-                        return stem + "i"
-                    }else{
-                        return stem + "ibus"
-                    }
-                case "Abl":
-                    if isSingle{
-                        return stem + "e"
-                    }else{
-                        return stem + "ibus"
-                    }
-                default:
-                    return stem + "is"
-                
+    func get_positive(gender: Gender,CaseNum:caseNum)->String{
+        switch gender{
+        case .male:
+            switch CaseNum {
+            case .NomSingular:
+                return firstPrincipalPart
+            case .NomPlural:
+                return stem + "es"
+            case  .VocSingular:
+                return firstPrincipalPart
+            case .VocPlural:
+                return stem + "es"
+            case .AccSingular:
+                return stem + "em"
+            case .AccPlural:
+                return stem + "is"
+            case .GenSingular:
+                return stem + "is"
+            case .GenPlural:
+                return stem + "ium"
+            case .DatSingular:
+                return stem + "i"
+            case .DatPlural:
+                return stem + "ibus"
+            case .AblSingular:
+                return stem + "i"
+            case.AblPlural:
+                return stem + "ibus"
             }
-        case "fem":
-            switch caseForm {
-                case "Nom":
-                    if isSingle{
-                        return femNom
-                    }else{
-                        return stem + "es"
-                    }
-                case  "Voc":
-                    if isSingle{
-                        return femNom
-                    }else{
-                        return stem + "es"
-                    }
-                case "Acc":
-                    if isSingle{
-                        return stem + "em"
-                    }else{
-                        return stem + "es"
-                    }
-                case "Gen":
-                    if isSingle{
-                        return stem + "is"
-                    }else{
-                        return stem + "ium"
-                    }
-                case "Dat":
-                    if isSingle{
-                        return stem + "i"
-                    }else{
-                        return stem + "ibus"
-                    }
-                case "Abl":
-                    if isSingle{
-                        return stem + "e"
-                    }else{
-                        return stem + "ibus"
-                    }
-                default:
-                    return stem + "um"
-                
+        case .female:
+            switch CaseNum {
+            case .NomSingular:
+                return stem + "is"
+            case .NomPlural:
+                return stem + "es"
+            case  .VocSingular:
+                return stem + "is"
+            case .VocPlural:
+                return stem + "es"
+            case .AccSingular:
+                return stem + "em"
+            case .AccPlural:
+                return stem + "is"
+            case .GenSingular:
+                return stem + "is"
+            case .GenPlural:
+                return stem + "ium"
+            case .DatSingular:
+                return stem + "i"
+            case .DatPlural:
+                return stem + "ibus"
+            case .AblSingular:
+                return stem + "i"
+            case.AblPlural:
+                return stem + "ibus"
             }
-            
-        case "neu":
-            switch caseForm {
-                case "Nom":
-                    if isSingle{
-                        return neuNom
-                    }else{
-                        return stem + "ia"
-                    }
-                case  "Voc":
-                    if isSingle{
-                        return neuNom
-                    }else{
-                        return stem + "a"
-                    }
-                case "Acc":
-                    if isSingle{
-                        return stem + "e"
-                    }else{
-                        return stem + "a"
-                    }
-                case "Gen":
-                    if isSingle{
-                        return stem + "is"
-                    }else{
-                        return stem + "orum"
-                    }
-                case "Dat":
-                    if isSingle{
-                        return stem + "o"
-                    }else{
-                        return stem + "is"
-                    }
-                case "Abl":
-                    if isSingle{
-                        return stem + "o"
-                    }else{
-                        return stem + "is"
-                    }
-                default:
-                    return stem + "um"
-                
-            }
-        default:
-            return stem + "us"
-        }
-    }
-    func get_comparative(gender:String, caseForm:String, isSingle:Bool = false)->String{
-        let comparativeInfix = "ior"
-        let comparativeSuffix = "ius"
-        if isSingle{
-            switch caseForm{
-            case "Nom":
-                if gender == "neu"{
-                    return stem + comparativeSuffix
-                }else{
-                    return stem + comparativeInfix
-                }
-            case "Acc":
-                if gender == "neu"{
-                    return stem + comparativeSuffix
-                }else{
-                    return stem + comparativeInfix + "em"
-                }
-            case "Gen":
-                return stem + comparativeInfix+"is"
-            case "Dat":
-                return stem + comparativeInfix + "i"
-            case "Abl":
-                return stem + comparativeInfix + "e"
-            default:
-                return stem + comparativeInfix
-            }
-        }else{
-            switch caseForm{
-            case "Nom":
-                if gender == "neu"{
-                    return stem + comparativeInfix   + "a"
-                }else{
-                    return stem + comparativeInfix + "es"
-                }
-            case "Acc":
-                if gender == "neu"{
-                    return stem + comparativeSuffix + "a"
-                }else{
-                    return stem + comparativeInfix + "es"
-                }
-            case "Gen":
-                return stem + comparativeInfix+"um"
-            case "Dat":
-                return stem + comparativeInfix + "ibus"
-            case "Abl":
-                return stem + comparativeInfix + "ibus"
-            default:
-                return stem + comparativeInfix
+        case .neuter:
+            switch CaseNum {
+            case .NomSingular:
+                return stem + "e"
+            case .NomPlural:
+                return stem + "ia"
+            case  .VocSingular:
+                return stem + "e"
+            case .VocPlural:
+                return stem + "ia"
+            case .AccSingular:
+                return stem + "e"
+            case .AccPlural:
+                return stem + "ia"
+            case .GenSingular:
+                return stem + "is"
+            case .GenPlural:
+                return stem + "ium"
+            case .DatSingular:
+                return stem + "i"
+            case .DatPlural:
+                return stem + "ibus"
+            case .AblSingular:
+                return stem + "i"
+            case.AblPlural:
+                return stem + "ibus"
             }
         }
     }
-    func get_superlative(gender:String, caseForm:String, isSingle:Bool = false)->String{
+    func get_comparative(gender:Gender, CaseNum:caseNum)->String{
+        let mascFemEnding = "ior"
+        let neuterEnding = "ius"
+        switch gender{
+        case .male:
+            switch CaseNum {
+            case .NomSingular:
+                return stem + mascFemEnding
+            case .VocSingular:
+                return stem + mascFemEnding
+            case .AccSingular:
+                return stem + mascFemEnding + "em"
+            case .GenSingular:
+                return stem + mascFemEnding + "is"
+            case .DatSingular:
+                return stem + mascFemEnding + "i"
+            case .AblSingular:
+                return stem + mascFemEnding + "e"
+            case .NomPlural:
+                return stem + mascFemEnding + "es"
+            case .VocPlural:
+                return stem + mascFemEnding + "es"
+            case .AccPlural:
+                return stem + mascFemEnding + "es"
+            case .GenPlural:
+                return stem + mascFemEnding + "um"
+            case .DatPlural:
+                return stem + mascFemEnding + "ibus"
+            case .AblPlural:
+                return stem + mascFemEnding + "ibus"
+            }
+        case .female:
+            switch CaseNum {
+            case .NomSingular:
+                return stem + mascFemEnding
+            case .VocSingular:
+                return stem + mascFemEnding
+            case .AccSingular:
+                return stem + mascFemEnding + "em"
+            case .GenSingular:
+                return stem + mascFemEnding + "is"
+            case .DatSingular:
+                return stem + mascFemEnding + "i"
+            case .AblSingular:
+                return stem + mascFemEnding + "e"
+            case .NomPlural:
+                return stem + mascFemEnding + "es"
+            case .VocPlural:
+                return stem + mascFemEnding + "es"
+            case .AccPlural:
+                return stem + mascFemEnding + "es"
+            case .GenPlural:
+                return stem + mascFemEnding + "um"
+            case .DatPlural:
+                return stem + mascFemEnding + "ibus"
+            case .AblPlural:
+                return stem + mascFemEnding + "ibus"
+            }
+        case .neuter:
+            switch CaseNum {
+            case .NomSingular:
+                return stem + neuterEnding
+            case .VocSingular:
+                return stem + neuterEnding
+            case .AccSingular:
+                return stem + neuterEnding
+            case .GenSingular:
+                return stem + mascFemEnding + "is"
+            case .DatSingular:
+                return stem + mascFemEnding + "i"
+            case .AblSingular:
+                return stem + mascFemEnding + "e"
+            case .NomPlural:
+                return stem + mascFemEnding + "a"
+            case .VocPlural:
+                return stem + mascFemEnding + "a"
+            case .AccPlural:
+                return stem + mascFemEnding + "es"
+            case .GenPlural:
+                return stem + mascFemEnding + "um"
+            case .DatPlural:
+                return stem + mascFemEnding + "ibus"
+            case .AblPlural:
+                return stem + mascFemEnding + "ibus"
+            }
+        }
+    }
+    func get_superlative(gender:Gender, CaseNum:caseNum)->String{
         let superlativeInfix = "issim"
-    switch gender{
-    case "fem":
-        switch caseForm{
-        case "Nom":
-            if isSingle{
-                return stem + superlativeInfix + "a"
-            }
-            else{
-                return stem + superlativeInfix + "ae"
-            }
-        case "Voc":
-            if isSingle{
-                return stem + superlativeInfix + "a"
-            }
-            else{
-                return stem + superlativeInfix + "ae"
-            }
-        case "Acc":
-            if isSingle{
-                return stem + superlativeInfix + "am"
-            }
-            else{
-                return stem + superlativeInfix + "as"
-            }
-        case "Gen":
-            if isSingle{
-                return stem + superlativeInfix + "ae"
-            }
-            else{
-                return stem + superlativeInfix + "arum"
-            }
-        case "Dat":
-            if isSingle{
-                return stem + superlativeInfix + "ae"
-            }
-            else{
-                return stem + superlativeInfix + "is"
-            }
-        case "Abl":
-            if isSingle{
-                return stem + superlativeInfix + "ae"
-            }
-            else{
-                return stem + superlativeInfix + "is"
-            }
-        default:
-            return stem + superlativeInfix + "a"
-        }
-    case "masc":
-        switch caseForm{
-        case "Nom":
-            if isSingle{
+        switch gender{
+        case .male:
+            switch CaseNum {
+            case .NomSingular:
                 return stem + superlativeInfix + "us"
-            }
-            else{
-                return stem + superlativeInfix + "i"
-            }
-        case "Voc":
-            if isSingle{
-                return stem + superlativeInfix + "e"
-            }
-            else{
-                return stem + superlativeInfix + "i"
-            }
-        case "Acc":
-            if isSingle{
+            case .VocSingular:
+                return stem + superlativeInfix + "us"
+            case .AccSingular:
                 return stem + superlativeInfix + "um"
-            }
-            else{
+            case .GenSingular:
+                return stem + superlativeInfix + "i"
+            case .DatSingular:
+                return stem + superlativeInfix + "o"
+            case .AblSingular:
+                return stem + superlativeInfix + "o"
+            case .NomPlural:
+                return stem + superlativeInfix + "i"
+            case .VocPlural:
+                return stem + superlativeInfix + "i"
+            case .AccPlural:
                 return stem + superlativeInfix + "os"
-            }
-        case "Gen":
-            if isSingle{
-                return stem + superlativeInfix + "i"
-            }
-            else{
+            case .GenPlural:
                 return stem + superlativeInfix + "orum"
-            }
-        case "Dat":
-            if isSingle{
-                return stem + superlativeInfix + "o"
-            }
-            else{
+            case .DatPlural:
+                return stem + superlativeInfix + "is"
+            case .AblPlural:
                 return stem + superlativeInfix + "is"
             }
-        case "Abl":
-            if isSingle{
+        case .female:
+            switch CaseNum {
+            case .NomSingular:
+                return stem + superlativeInfix + "a"
+            case .VocSingular:
+                return stem + superlativeInfix + "a"
+            case .AccSingular:
+                return stem + superlativeInfix + "am"
+            case .GenSingular:
+                return stem + superlativeInfix + "ae"
+            case .DatSingular:
                 return stem + superlativeInfix + "o"
-            }
-            else{
+            case .AblSingular:
+                return stem + superlativeInfix + "o"
+            case .NomPlural:
+                return stem + superlativeInfix + "ae"
+            case .VocPlural:
+                return stem + superlativeInfix + "ae"
+            case .AccPlural:
+                return stem + superlativeInfix + "as"
+            case .GenPlural:
+                return stem + superlativeInfix + "arum"
+            case .DatPlural:
+                return stem + superlativeInfix + "is"
+            case .AblPlural:
                 return stem + superlativeInfix + "is"
             }
-    default:
-        return stem + superlativeInfix + "us"
-    }
-    case "neu":
-        switch caseForm{
-        case "Nom":
-            if isSingle{
+        case .neuter:
+            switch CaseNum {
+            case .NomSingular:
                 return stem + superlativeInfix + "um"
-            }
-            else{
-                return stem + superlativeInfix + "a"
-            }
-        case "Voc":
-            if isSingle{
+            case .VocSingular:
                 return stem + superlativeInfix + "um"
-            }
-            else{
-                return stem + superlativeInfix + "a"
-            }
-        case "Acc":
-            if isSingle{
+            case .AccSingular:
                 return stem + superlativeInfix + "um"
-            }
-            else{
-                return stem + superlativeInfix + "um"
-            }
-        case "Gen":
-            if isSingle{
+            case .GenSingular:
                 return stem + superlativeInfix + "i"
-            }
-            else{
+            case .DatSingular:
+                return stem + superlativeInfix + "o"
+            case .AblSingular:
+                return stem + superlativeInfix + "o"
+            case .NomPlural:
+                return stem + superlativeInfix + "a"
+            case .VocPlural:
+                return stem + superlativeInfix + "a"
+            case .AccPlural:
+                return stem + superlativeInfix + "a"
+            case .GenPlural:
                 return stem + superlativeInfix + "orum"
-            }
-        case "Dat":
-            if isSingle{
-                return stem + superlativeInfix + "o"
-            }
-            else{
+            case .DatPlural:
+                return stem + superlativeInfix + "is"
+            case .AblPlural:
                 return stem + superlativeInfix + "is"
             }
-        case "Abl":
-            if isSingle{
-                return stem + superlativeInfix + "i"
-            }
-            else{
-                return stem + superlativeInfix + "is"
-            }
-        default:
-            return stem + superlativeInfix + "um"
         }
-    default:
-        return stem + superlativeInfix + "us"
     }
-}
     func get_adverb()->String{
         return stem+"ter"
     }
-    
 }
 //quot? ,indeclinable,adjective,how many?
 class IndeclinableAdjective :Adjective{

@@ -27,4 +27,8 @@ class Conjunction: Word {
     required init(from decoder: Decoder) throws {
         fatalError("init(from:) has not been implemented")
     }
+    override func GetFeedback(formAnswer:String,incorrectForm:String) -> [String] {
+        return ["conjunctions are indeclinable, how did you get this wrong"]
+    }
+
 }

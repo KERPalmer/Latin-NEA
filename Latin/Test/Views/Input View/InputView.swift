@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FormInputView: View {
     @State var question:Question
-    @EnvironmentObject   var quiz:Quiz
+    @EnvironmentObject var quiz:Quiz
     
     
     var body: some View {

@@ -10,17 +10,30 @@ import SwiftUI
 struct ResultRowView: View {
     var question: Question
     var body: some View {
-        HStack{
-            Text(question.latinString)
-                .padding(0)
-            Spacer()
-            if question.isCorrect == false{
-                Text(question.vocabAnswer)
+        if question.isCorrect{
+            NavigationLink(destination: CorrectView(question: question)){
+                HStack{
+                    Text(question.latinString)
+                        .padding()
+                    Spacer()
+                    Text(question.latin.get_translation())
+                }                .background(question.GetColor())
+                .ignoresSafeArea()
             }
-            Text(question.latin.get_translation())
-                .padding(0)
         }
-        .padding(0)
-        .background(question.GetColor())
+        else{
+            NavigationLink(destination: IncorrectView(question: question)){
+                HStack{
+                    Text(question.latinString)
+                        .padding()
+                    Spacer()
+                    Text(question.vocabAnswer)
+                    Spacer()
+                    Text(question.latin.get_translation())
+                }
+                .background(question.GetColor())
+                .ignoresSafeArea()
+            }
+        }
     }
 }

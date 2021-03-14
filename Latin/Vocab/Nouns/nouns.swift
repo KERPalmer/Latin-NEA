@@ -373,5 +373,49 @@ class Noun :Word,Codable{
             return "cant find declension"
         }
     }
+    override func GetFeedback(formAnswer:String,incorrectForm:String) -> [String] {
+        let formAnswerList = incorrectForm.split(separator: ",").map{ String($0) }
+        let formList = formAnswer.split(separator: ",").map{ String($0) }
+        var feedback:[String] = []
+        if formAnswerList[0] != formList[0]{
+            switch caseNum.init(rawValue: formList[0])! {
+            case .NomSingular:
+                feedback.append("The noun was in the nominative singular case")
+            case .VocSingular:
+                feedback.append("The noun was in the vocative singular case")
+            case .AccSingular:
+                feedback.append("The noun was in the accusative singular case")
+            case .GenSingular:
+                feedback.append("The noun was in the genative singular case")
+            case .DatSingular:
+                feedback.append("The noun was in the dative singular case")
+            case .AblSingular:
+                feedback.append("The noun was in the ablative singular case")
+            case .NomPlural:
+                feedback.append("The noun was in the nominative plural case")
+            case .VocPlural:
+                feedback.append("The noun was in the vocative plural case")
+            case .AccPlural:
+                feedback.append("The noun was in the accusative plural case")
+            case .GenPlural:
+                feedback.append("The noun was in the general plural case")
+            case .DatPlural:
+                feedback.append("The noun was in the dative plural case")
+            case .AblPlural:
+                feedback.append("The noun was in the ablative plural case")
+            }
+        }
+        return feedback
+    }
+    enum Contex: String, CaseIterable, Encodable{
+        case Nom = "The nominaive case is used to show the subject of the sentence, normally the thing doing the action or what the sentenced is sentenced around"
+        case Voc = "The vocative case is what we might consider the name of the thing. It is normally the same as the nominative case and shown as following an 'O' "
+        case Acc = "The accusative case is the direct object of the sentence, it is usualy what the verb is being done to"
+        case Gen = "The genative is used to show possession"
+        case Dat = "The dative case is used when the noun is an indirect object, we could think of this as the second object of the sentence, it is ususally translated as to or for the object"
+        case Abl = "The ablative case is the instrument case, it describes how an action is done or by what means. It is translated as 'by, with or from'"
+        case Sing = "There is only one of the object"
+        case Plural = "There is more than one of the object "
+    }
 }
 

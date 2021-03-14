@@ -52,8 +52,11 @@ class Word:Identifiable{
         }
         return String(all.dropFirst(2))
     }
-    func GetForm(formString:[String]) -> String{ // incase get called is called on this class
-        return "ERROR: GET FORM CALLED FROM CLASS WITH NO GET FORM OF ITS OWN"
+    func GetForm(formString:[String]) -> String{ //some word types only have one form. so well just return the frist principal part
+            return firstPrincipalPart
+    }
+    func GetFeedback(formAnswer:String,incorrectForm:String)->[String]{
+        preconditionFailure("This method must be overridden") 
     }
     
 }
