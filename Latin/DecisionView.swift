@@ -1,13 +1,9 @@
 //
-//  DecisionView.swift
-//  GCSE Latin Buddy
-//
-//  Created by Kenan Palmer on 04/10/2020.
-//  Copyright © 2020 Kenan Palmer. All rights reserved.
-//
-
-import SwiftUI
+//  ContentView.swift
+//  Latin
+//  Created by Kenan Palmer on 05/10/2020.import SwiftUI
 //THIS VIEWS PROVIDES THE TABS YOU SEE AT THE BOTTOM OF THE SCREEN. EACH TAB RUN SIMULATEOUSLY AND WHAT YOU DO IN ONE TAB SHOULDNT EFFECT THE OTHERS
+import SwiftUI
 struct DecisionView:View{
     @EnvironmentObject var env:Data
     @State private var selection = 0
@@ -29,7 +25,7 @@ struct DecisionView:View{
                     }
                 }
                 .tag(1)
-            StatsStartView()
+            StatsWordView()
                 .font(.title)
                 .tabItem {
                     VStack {
@@ -37,7 +33,7 @@ struct DecisionView:View{
                         Image(systemName: "percent")
                     }
                 }.tag(2)
-            Text("Settings")
+            ProfileSettingsView()
                 .font(.title)
                 .tabItem {
                     VStack {

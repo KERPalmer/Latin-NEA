@@ -17,9 +17,7 @@ struct QuizFinishView: View {
                     ResultRowView(question: question)
                 }
                 Button("Done"){
-                    quiz.inQuiz = false
-                    quiz.isAnswered = false
-                    quiz.isFinished = false
+                    quiz.reset()
                 }
             }
         }.background(Color.white)

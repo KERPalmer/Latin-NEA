@@ -7,140 +7,106 @@
 
 import SwiftUI
 
-struct StatsStartView: View {
-    var body: some View {
-        NavigationView{
-            VStack{
-                Spacer()
-                NavigationLink(destination: StatsWordView()){
-                    VStack{
-                        Text("Statistics")
-                        Text("by word")
-                    }
-                }
-                Spacer()
-                NavigationLink(destination: StatsTypeView()){
-                    VStack{
-                        Text("Statistics")
-                        Text("by word type")
-                    }
-                }
-                Spacer()
-            }
-        }
-    }
-}
 struct StatsWordView: View{
     var body: some View {
-        List{
-            NavigationLink(destination: VerbStatsWordView()){
+            List{
+                NavigationLink(destination: VerbWordSelectionView()){
                 Text("Verbs")
                     .bold()
                     .font(.system(size: 20))
                 
             }
-            NavigationLink(destination: NounStatsWordView()){
+            NavigationLink(destination: NounWordSelectionView()){
                 Text("Nouns")
                     .bold()
                     .font(.system(size: 20))
             }
-            NavigationLink(destination: PrepositionStatsWordView()){
+            NavigationLink(destination: PrepWordSelectionView()){
                 Text("Prepostions")
                     .bold()
                     .font(.system(size: 20))
             }
-            NavigationLink(destination: AdjectiveStatsWordView()){
+            NavigationLink(destination: AdjectiveWordSelectionView()){
                 Text("Adjectives")
                     .bold()
                     .font(.system(size: 20))
             }
-            NavigationLink(destination: AdverbStatsWordView()){
+            NavigationLink(destination: AdverbWordSelectionView()){
                 Text("Adverbs")
                     .bold()
                     .font(.system(size: 20))
             }
-            NavigationLink(destination: ConjunctionStatsWordView()){
+            NavigationLink(destination: ConjunctionWordSelectionView()){
                 Text("Conjunctions")
                     .bold()
                     .font(.system(size: 20))
             }
         }.navigationTitle("by word")
-    }
-}
-struct StatsTypeView: View{
-    var body: some View {
-        NavigationView{
-            List{
-                NavigationLink(destination: VerbStatsTypeView()){
-                    Text("Verbs")
-                        .bold()
-                        .font(.system(size: 20))
-                    
-                }
-                NavigationLink(destination: NounStatsTypeView()){
-                    Text("Nouns")
-                        .bold()
-                        .font(.system(size: 20))
-                }
-                NavigationLink(destination: PrepositionStatsTypeView()){
-                    Text("Prepostions")
-                        .bold()
-                        .font(.system(size: 20))
-                }
-                NavigationLink(destination: AdjectiveStatsTypeView()){
-                    Text("Adjectives")
-                        .bold()
-                        .font(.system(size: 20))
-                }
-                NavigationLink(destination: AdverbStatsTypeView()){
-                    Text("Adverbs")
-                        .bold()
-                        .font(.system(size: 20))
-                }
-                NavigationLink(destination: ConjunctionStatsTypeView()){
-                    Text("Conjunctions")
-                        .bold()
-                        .font(.system(size: 20))
-                }
-            }.navigationTitle("by word types")
         }
     }
-}
-struct StatsDiagramView_Previews: PreviewProvider {
-    static var previews: some View {
-        StatsDiagramView(stats: StatsDiagram(correct: 5, total: 8, lastAttempts: [true, true, true, false, true,true,false,false]))
-    }
-}
+
 struct StatsDiagramView: View{
-    let stats: StatsDiagram
+    let stats: [StatsDiagram]
     var body: some View{
-        VStack(){
-            Text("\(stats.correctAnswers) / \(stats.totalAnswers)")
-            /*List(stats.last10Attempts){ attempt in
-                AnswerSquareView(answer: attempt)
-            }*/
+        ZStack{
+            if (stats.count == 0){
+                Text("no results")
+            }
+            else{
+                List(stats){stat in
+                    VStack{
+                Text("\(stat.correctAnswers) / \(stat.totalAnswers)")
+                        Text(stat.latin)
+                        Text(stat.form)
+                    HStack{
+                        ForEach(stat.last10Attempts, id: \.self){ attempt in
+                            AnswerSquareView(answer: attempt)
+                        }
+                    }
+                    }
+                }
+            }
         }
     }
 }
 struct AnswerSquareView:View{
-    let answer: Bool
+    let answer: Int
     var body: some View{
-        if answer{
+        if answer == 1{
             Rectangle().fill(Color.green)
         }
-        else{
+        else if answer == 0{
             Rectangle().fill(Color.red)
+        }
+        else{
+            Rectangle().fill(Color.gray)
         }
     }
 }
 
-class StatsDiagram{
+struct StatsWordDisplayView: View{
+    let statsDiagrams: [StatsDiagram]
+    var body: some View{
+        Text("Hello")
+    }
+}
+
+
+class StatsDiagram:Codable, Identifiable{
     public let correctAnswers:Int
     public let totalAnswers:Int
-    public let last10Attempts:[Bool]
-    init(correct:Int, total:Int, lastAttempts: [Bool]) {
-        correctAnswers = correct
-        totalAnswers = total
-        last10Attempts=lastAttempts
+    public var last10Attempts:[Int]
+    public var latin: String
+    public var form:String
+    init(correct: Int32, Total: Int32, last10: [Int32], latin:String, form:String) {
+        correctAnswers = Int(correct)
+        totalAnswers = Int(Total)
+        last10Attempts = []
+        self.latin = latin
+        self.form = form
+        
+        for answer in last10{
+            last10Attempts.append(Int(answer))
+        }
     }
 }

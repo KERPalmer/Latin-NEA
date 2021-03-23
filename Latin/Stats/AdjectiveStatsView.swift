@@ -1,27 +1,27 @@
 //
-//  NounStatsView.swift
+//  AdjectiveStatsView.swift
 //  Latin
 //
 //  Created by Kenan Palmer on 04/03/2021.
 //
-
+import Foundation
 import SwiftUI
 
-struct NounWordSelectionView: View {
+struct AdjectiveWordSelectionView: View {
     @EnvironmentObject var env:Data
     var body: some View {
-            List(env.programData.nounClassList){noun in
+            List(env.programData.adjectiveClassList){adj in
                 HStack{
-                    NavigationLink(destination: NounStatsWordView(chosenWord: [noun])){
-                    wordRowView(word:noun.firstPrincipalPart)
+                    NavigationLink(destination: AdjectiveStatsWordView(chosenWord: [adj])){
+                    wordRowView(word:adj.firstPrincipalPart)
                     Spacer()
-                    Text(String(noun.id))
+                    Text(String(adj.id))
                 }
             }
         }
     }
 }
-struct NounStatsWordView:View{
+struct AdjectiveStatsWordView:View{
     @EnvironmentObject var env:Data
     
     @State var chosenWord:[Word]
@@ -33,8 +33,19 @@ struct NounStatsWordView:View{
     @State var gen:Bool = false
     @State var dat:Bool = false
     @State var abl:Bool = false
+    
     @State var singular:Bool = false
     @State var plural:Bool = false
+    
+    @State var positive:Bool = false
+    @State var comparative:Bool = false
+    @State var superlative:Bool = false
+    @State var adverb:Bool = false
+    @State var indelcinable = false
+    
+    @State var male:Bool = false
+    @State var female:Bool = false
+    @State var neuter:Bool = false
     
     @State var nextClicked = false
     @State var SQLFormIDs: [Int32]?
@@ -44,6 +55,24 @@ struct NounStatsWordView:View{
     var body: some View {
         VStack{
         List{
+            List{
+                Text("Degree")
+                Toggle(isOn:$positive){
+                    Text("positive")
+                }
+                Toggle(isOn:$comparative){
+                    Text("comparitive")
+                }
+                Toggle(isOn:$superlative){
+                    Text("superlative")
+                }
+                Toggle(isOn:$adverb){
+                    Text("adverb")
+                }
+                Toggle(isOn:$indelcinable){
+                    Text("adverb")
+                }
+            }.frame(height:300)
             List{
                 Text("Cases")
                 Toggle(isOn:$nom){
@@ -61,7 +90,7 @@ struct NounStatsWordView:View{
                 Toggle(isOn:$abl){
                     Text("ablative")
                 }
-            }.frame(height:350)
+            }.frame(height:300)
             List{
                 Toggle(isOn:$singular){
                     Text("single")
@@ -70,6 +99,17 @@ struct NounStatsWordView:View{
                     Text("plural")
                 }
             }.frame(height:150)
+            List{
+                Toggle(isOn:$male){
+                    Text("male")
+                }
+                Toggle(isOn:$female){
+                    Text("female")
+                }
+                Toggle(isOn:$neuter){
+                    Text("nueter")
+                }
+            }.frame(height: 150)
         }
         HStack{
                 if nextClicked{
@@ -99,8 +139,28 @@ struct NounStatsWordView:View{
         }
     }
     func SetIDs(){
-        if !(nom && acc && voc && gen && dat && abl) && (nom || acc || voc || gen || dat || abl){
+        if !(positive && comparative && superlative && adverb && indelcinable) && (positive || comparative || superlative || adverb || indelcinable){
             SQLFormStatement.append("part1 IN (")
+            if positive{
+                SQLFormStatement.append("'\(AdjectiveDegree.positive.rawValue)',")
+            }
+            if comparative{
+                SQLFormStatement.append("'\(AdjectiveDegree.comparative.rawValue)',")
+            }
+            if superlative{
+                SQLFormStatement.append("'\(AdjectiveDegree.superlatative.rawValue)',")
+            }
+            if adverb{
+                SQLFormStatement.append("'\(AdjectiveDegree.adverb.rawValue)',")
+            }
+            if indelcinable{
+                SQLFormStatement.append("'\(AdjectiveDegree.indeclinable.rawValue)',")
+            }
+            SQLFormStatement = String(SQLFormStatement.dropLast())
+            SQLFormStatement.append(") AND ")
+        }
+        if !(nom && acc && voc && gen && dat && abl) && (nom || acc || voc || gen || dat || abl){
+            SQLFormStatement.append("part2 IN (")
             if nom{
                 if (singular && plural) || !(singular || plural){
                     SQLFormStatement.append("'\(caseNum.NomSingular.rawValue)',")
@@ -176,6 +236,20 @@ struct NounStatsWordView:View{
             SQLFormStatement = String(SQLFormStatement.dropLast())
             SQLFormStatement.append(") AND ")
             
+        }
+        if !(male && female && neuter) && (male || female || neuter){
+            SQLFormStatement.append("part3 IN (")
+            if male{
+                SQLFormStatement.append("'\(Gender.male.rawValue)',")
+            }
+            if female{
+                SQLFormStatement.append("'\(Gender.female.rawValue)',")
+            }
+            if neuter{
+                SQLFormStatement.append("'\(Gender.neuter.rawValue)',")
+            }
+            SQLFormStatement = String(SQLFormStatement.dropLast()) // remove last comma
+            SQLFormStatement.append(") AND ")
         }
         SQLFormStatement = String(SQLFormStatement.dropLast(4))
         SQLFormStatement.append(";")

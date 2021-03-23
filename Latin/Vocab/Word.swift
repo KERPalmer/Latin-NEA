@@ -13,6 +13,7 @@ class Word:Identifiable{
     public let fileLine:String
     public let firstPrincipalPart: String //needed for storing in the table
     @Published public var inQuiz: Bool = true
+    @Published public var CheckStats = false
     @Published private var translationIndex=0 //determins which translation is shown
     init(line:String,id_:Int){
         self.id=id_

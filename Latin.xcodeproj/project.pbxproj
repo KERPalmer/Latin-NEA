@@ -65,6 +65,7 @@
 		E06A48272598F42A00931035 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06A48262598F42A00931035 /* QuestionView.swift */; };
 		E06E27BD258384D600499DF2 /* VerbFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06E27BC258384D600499DF2 /* VerbFilterView.swift */; };
 		E06F40B4257994DE006C1A23 /* conjunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06F40B3257994DE006C1A23 /* conjunctions.swift */; };
+		E072021E2608E5CA003576D7 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072021D2608E5CA003576D7 /* ProfileSettingsView.swift */; };
 		E0726E2E25B60ED700A16E35 /* appEnviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0726E2D25B60ED700A16E35 /* appEnviroment.swift */; };
 		E0973FAF25CC4BBD00CD9846 /* FormTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0973FAE25CC4BBD00CD9846 /* FormTable.swift */; };
 		E0A0882A257FA03200641EC6 /* Confidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A08829257FA03200641EC6 /* Confidence.swift */; };
@@ -152,6 +153,7 @@
 		E06A48262598F42A00931035 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		E06E27BC258384D600499DF2 /* VerbFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbFilterView.swift; sourceTree = "<group>"; };
 		E06F40B3257994DE006C1A23 /* conjunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = conjunctions.swift; sourceTree = "<group>"; };
+		E072021D2608E5CA003576D7 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
 		E0726E2D25B60ED700A16E35 /* appEnviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appEnviroment.swift; sourceTree = "<group>"; };
 		E0973FAE25CC4BBD00CD9846 /* FormTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTable.swift; sourceTree = "<group>"; };
 		E0A08829257FA03200641EC6 /* Confidence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confidence.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				E0154B62252B51C10057827A /* Dictionary */,
 				E04A3CFD25823114005A21BC /* Test */,
 				E0F5D44A25F0FCF7006ED0E1 /* Stats */,
+				E072021C2608E557003576D7 /* Settings */,
 				E0154AE4252B39CB0057827A /* Backgrounds */,
 				E0154AD1252B39470057827A /* Assets.xcassets */,
 				E0154AD6252B39470057827A /* Info.plist */,
@@ -499,6 +502,14 @@
 			path = Conjuncions;
 			sourceTree = "<group>";
 		};
+		E072021C2608E557003576D7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E072021D2608E5CA003576D7 /* ProfileSettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		E0973FAD25CC4B3400CD9846 /* Form */ = {
 			isa = PBXGroup;
 			children = (
@@ -665,6 +676,7 @@
 				E0154BA4252B7CD60057827A /* VerbInfoView.swift in Sources */,
 				E0154BD3252BB03A0057827A /* PrepositionDictionaryView.swift in Sources */,
 				E06F40B4257994DE006C1A23 /* conjunctions.swift in Sources */,
+				E072021E2608E5CA003576D7 /* ProfileSettingsView.swift in Sources */,
 				E0C1BFCA257E93B60041238F /* adverb.swift in Sources */,
 				E04A3D0F258236E1005A21BC /* Forms.swift in Sources */,
 				E04A3D2F258280D4005A21BC /* AdjectiveFilterView.swift in Sources */,

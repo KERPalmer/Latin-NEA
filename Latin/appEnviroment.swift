@@ -4,18 +4,21 @@
 //
 //  Created by Kenan Palmer on 18/01/2021.
 //
+//APPENVIROMENT this will be where the data base and other important data will be stored to be used through out the
+//program that can be accessed from most of the program, there are 3 class that we can restrict the access a part of
+//the program has on the enviroment.
 
 import Foundation
-//APPENVIROMENT this will be where the data base and other important data will be stored to be used through out the program that can be accessed from most of the program, there are 3 class that we can restrict the access a part of the program has on the enviroment.
-
 //this will store all the list of objects of the different word types and hold the methods for retriving them and getting a random
 class ProgramDatabase:ObservableObject{
+    //the lists that store the different words types
     @Published var verbClassList:[Verb]=[]
     @Published var nounClassList:[Noun]=[]
     @Published var prepositionClassList:[Preposition]=[]
     @Published var adjectiveClassList:[Adjective]=[]
     @Published var conjunctionClassList:[Conjunction]=[]
     @Published var adverbClassList:[Adverb]=[]
+    //Takes a file and then initalises a object of the appropiate class and appends it to the appropiate list
     init(file:[String]){
         var id:Int=0
         for line in file{
@@ -59,11 +62,13 @@ class ProgramDatabase:ObservableObject{
             id+=1
         }
     }
+    //print all the verbs mainly used for debugging
     func printVerbs(){
         for verb in self.verbClassList{
             print(verb.present1S)
         }
     }
+    //returns all the verbs, mainly used for debugging
     func GetVerbs()->[Verb]{
         var verbs:[Verb]=[]
         for verb in verbClassList{
@@ -72,6 +77,7 @@ class ProgramDatabase:ObservableObject{
         }
         return verbs
     }
+    //returns a random verb given a verb conjugation
     func GetRandomVerb(conjuguation:VerbConjugation) -> Verb{
         var correctConjunction : [Verb] = []
         // get all the verbs of the desired conjunction
@@ -84,6 +90,7 @@ class ProgramDatabase:ObservableObject{
         let rand = Int.random(in: 0 ..< correctConjunction.count)
         return correctConjunction[rand]
     }
+    //returns a random noun of the given declension
     func GetRandomNoun(Declension:NounDeclension)->Noun{
         var correctDeclension: [Noun] = []
         //get all the nouns of the correct declension
@@ -96,6 +103,7 @@ class ProgramDatabase:ObservableObject{
         let rand = Int.random(in: 0..<correctDeclension.count)
         return correctDeclension[rand]
     }
+    //returns a random adjective given a declension
     func GetRandomAdjective(Declension:AdjectiveDeclension)->Adjective{
         var correctDeclension: [Adjective] = []
         //get all the nouns of the correct declension
@@ -108,6 +116,7 @@ class ProgramDatabase:ObservableObject{
         let rand = Int.random(in: 0..<correctDeclension.count)
         return correctDeclension[rand]
     }
+    //returns a random preposition given a specific followed by case
     func GetRandomPreposition(followedBy:prepositionFollowedBy) -> Preposition{
         var correctFollowing : [Preposition] = []
         //get all the prepositions of the appropiate followings
@@ -136,12 +145,21 @@ class Data: ObservableObject{ //this class will be accessed by most parts of the
     @Published var debug:Bool = true
     @Published var isLoggedIn = false
     @Published var profileID: Int32 = -1
+    @Published var profileUsername: String = "none set"
+    @Published var profilePassword: String = "none set"
     @Published var quizSettings:QuizSettings = QuizSettings()
     init(){
         if debug == true{
             resetTestDatabase(db: db)
             
         }
+    }
+    //it logs out the current user and returns to the login screen
+    func logOut(){
+        profileID = -1
+        profileUsername = "none set"
+        profilePassword = "none set"
+        isLoggedIn = false
     }
 }
 // read the data from the file. Should be under GCSE latin.csv
@@ -211,6 +229,7 @@ class QuizSettings: ObservableObject{// a template of the quiz settings, these w
     @Published public var adjectiveAdverb:Bool = false
     init(){
     }
+    //returns a random word type
     func GetRandomWordType()->WordTypes{
         let fin = false
         while !fin {
@@ -230,6 +249,7 @@ class QuizSettings: ObservableObject{// a template of the quiz settings, these w
             }
         }
     }
+    //returns a random tense
     func GetRandomTense()->Tense{
         let fin = false
         while !fin {
@@ -249,9 +269,11 @@ class QuizSettings: ObservableObject{// a template of the quiz settings, these w
             }
         }
     }
+    //returns a random PersonNum
     func GetRandomPersonNum()->PersonNum{
         return PersonNum.allCases.randomElement()!
     }
+    //returns a random conjugation
     func GetRandomConjugation()->VerbConjugation{
         let fin = false
         while !fin {
@@ -267,6 +289,7 @@ class QuizSettings: ObservableObject{// a template of the quiz settings, these w
             }
         }
     }
+    //returns a random Mood
     func GetRandomMood()-> Mood{
         let fin = false
         while !fin{
@@ -278,6 +301,7 @@ class QuizSettings: ObservableObject{// a template of the quiz settings, these w
             }
         }
     }
+    //returns a random voice
     func GetRandomVoice() -> Voice{
         let fin = false
         while !fin{
@@ -290,6 +314,7 @@ class QuizSettings: ObservableObject{// a template of the quiz settings, these w
             }
         }
     }
+    //returns a random gender
     func GetRandomGender()->Gender{
         let fin = false
         while !fin{
@@ -305,6 +330,7 @@ class QuizSettings: ObservableObject{// a template of the quiz settings, these w
             }
         }
     }
+    //returns a random noun declension
     func GetRandomNounDeclension() -> NounDeclension{
         let fin = false
         while !fin{
@@ -327,9 +353,11 @@ class QuizSettings: ObservableObject{// a template of the quiz settings, these w
             }
         }
     }
+    //return random casenum
     func GetRandomCaseNum() -> caseNum{
         return caseNum.allCases.randomElement() ?? caseNum.NomSingular
     }
+    //return random adjective declension
     func GetRandomAdjectiveDeclension() -> AdjectiveDeclension{
         let fin = false
         while !fin{
@@ -345,6 +373,7 @@ class QuizSettings: ObservableObject{// a template of the quiz settings, these w
             }
         }
     }
+    //returns random adjective degree
     func GetRandomDegree()->AdjectiveDegree{
         let fin = false
         while !fin{

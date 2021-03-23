@@ -175,7 +175,7 @@ class SQLiteDatabase: ObservableObject {
             sqlite3_bind_int(insertStatement, 6, -1) == SQLITE_OK &&
             sqlite3_bind_int(insertStatement, 7, -1) == SQLITE_OK &&
             sqlite3_bind_int(insertStatement, 8, -1) == SQLITE_OK &&
-            sqlite3_bind_int(insertStatement, 9, 0) == SQLITE_OK &&
+            sqlite3_bind_int(insertStatement, 9, -1) == SQLITE_OK &&
             sqlite3_bind_int(insertStatement, 10, -1) == SQLITE_OK &&
             sqlite3_bind_int(insertStatement, 11, -1) == SQLITE_OK &&
             sqlite3_bind_int(insertStatement, 12, -1) == SQLITE_OK &&
@@ -189,7 +189,7 @@ class SQLiteDatabase: ObservableObject {
         guard sqlite3_step(insertStatement) == SQLITE_DONE else {
             throw SQLiteError.Step(message: errorMessage)
         }
-        print("Successfully inserted \(result.latinString) into the confidence table with form_id \(result.formID) and profile ID \(profileID)")
+        print("Successfully inserted \(result.latin.firstPrincipalPart) into the confidence table with form_id \(result.formID) and profile ID \(profileID)")
     }
     //returns all the usernames in the profiles table
     func checkConfidence(result:Question,profileID:Int32, insertSQL : String) ->Int32{
@@ -217,7 +217,7 @@ class SQLiteDatabase: ObservableObject {
     // in this function we retieve all the data, shift the attmpts down by one and increase total number of attmepts and update total correct
     func UpdateConfidence(row_id:Int32,result:Question)throws{
         // GET THE RESULTS
-        let SelectQueryStatement = try? prepareStatement(sqlStatement: Confidence.SelectAllQueryStatement)
+        let SelectQueryStatement = try? prepareStatement(sqlStatement: Confidence.GetRow)
         defer{
             sqlite3_finalize(SelectQueryStatement)
         }
@@ -242,7 +242,7 @@ class SQLiteDatabase: ObservableObject {
         let result_correct_attempts = sqlite3_column_int(SelectQueryStatement, 14)
         let result_total_attempts = sqlite3_column_int(SelectQueryStatement, 15)
 
-        print("\(result_row_ID) | \(result_profile_ID) | \(result_word) | \(result_form_ID) | \(result_attempt[0]) | \(result_attempt[1]) | \(result_attempt[2]) | \(result_attempt[3]) | \(result_attempt[4]) | \(result_attempt[5]) | \(result_attempt[6]) | \(result_attempt[7]) | \(result_attempt[8])| \(result_attempt[9])| \(result_correct_attempts) | \(result_total_attempts)")
+        print("BEFORE :\(result_row_ID) | \(result_profile_ID) | \(result_word) | \(result_form_ID) | \(result_attempt[0]) | \(result_attempt[1]) | \(result_attempt[2]) | \(result_attempt[3]) | \(result_attempt[4]) | \(result_attempt[5]) | \(result_attempt[6]) | \(result_attempt[7]) | \(result_attempt[8])| \(result_attempt[9])| \(result_correct_attempts) | \(result_total_attempts)")
         
         //PREPARE THE NEW ROW
         let new_total_attempts = result_total_attempts + 1
@@ -262,7 +262,7 @@ class SQLiteDatabase: ObservableObject {
         defer{
             sqlite3_finalize(updateQueryStatement)
         }
-        //UPDATE Confidence SET attempt1 = (?), attempt2 = (?), attempt3 = (?), attempt4 = (?), attempt5 = (?), attempt6 = (?), attempt7 = (?), attempt8 = (?), attempt9 = (?), attempt10 = (?), totalCorrect = (?),total = (?) WHERE form_id = (?);
+        //UPDATE Confidence SET attempt1 = (?), attempt2 = (?), attempt3 = (?), attempt4 = (?), attempt5 = (?), attempt6 = (?), attempt7 = (?), attempt8 = (?), attempt9 = (?), attempt10 = (?), totalCorrect = (?),total = (?) WHERE row_id = (?);
         
         for i in 0...9{
                 guard sqlite3_bind_int(updateQueryStatement, Int32(i+1), newRow[i]) == SQLITE_OK
@@ -271,9 +271,9 @@ class SQLiteDatabase: ObservableObject {
                 }
             }
         guard
-            sqlite3_bind_int(updateQueryStatement, 10, new_total_attempts ) == SQLITE_OK &&
-            sqlite3_bind_int(updateQueryStatement, 11, new_correct_attempts) == SQLITE_OK &&
-            sqlite3_bind_int(updateQueryStatement, 12, row_id) == SQLITE_OK
+            sqlite3_bind_int(updateQueryStatement, 11, new_total_attempts ) == SQLITE_OK &&
+            sqlite3_bind_int(updateQueryStatement, 12, new_correct_attempts) == SQLITE_OK &&
+            sqlite3_bind_int(updateQueryStatement, 13, row_id) == SQLITE_OK
             
         else{
             throw SQLiteError.Bind(message: errorMessage)
@@ -285,6 +285,9 @@ class SQLiteDatabase: ObservableObject {
         }
         print("successfully updated \(result_word) in the confidence table")
     }
+    //returns a list of stats digram with a given query statement
+    //func GetStatsDiagrams(word:Word,formID:Int32,ProfileID:Int32)throws->(StatsDiagram){}
+
     //returns all the usernames in the database. many used for debugging
     func printUsernames(){
         let querysql = "SELECT * FROM Profiles;"
@@ -324,6 +327,86 @@ class SQLiteDatabase: ObservableObject {
         //collect the results
         let result = sqlite3_column_int(queryStatement, 0)
         return result
+    }
+    //gets all the form ids given a query statement
+    func GetStatsForms(query:String)->[Int32]{
+        guard let queryStatement = try? prepareStatement(sqlStatement: query) else{
+            return []
+        }
+        defer {
+            sqlite3_finalize(queryStatement)
+        }
+
+        //step the statment once all forms entered
+        var formIDs: [Int32] = []
+        while sqlite3_step(queryStatement) == SQLITE_ROW{
+            //append all results
+            formIDs.append(sqlite3_column_int(queryStatement, 0))
+        }
+        //collect the results
+        return formIDs
+    }
+    // returs a string of the different form parts given an id
+    func GetForm(id:Int32) -> [String]{
+        let querySql = Form.GetFormFromId
+        guard let queryStatement = try? prepareStatement(sqlStatement: querySql) else {
+            print(errorMessage)
+            return []
+        }
+        defer {
+            sqlite3_finalize(queryStatement)
+        }
+        guard sqlite3_bind_int(queryStatement, 1, id) == SQLITE_OK else {
+            print(errorMessage)
+            return []
+        }
+        guard sqlite3_step(queryStatement) == SQLITE_ROW else {
+            print(errorMessage)
+            return []
+        }
+        // ID COLUMN
+        //let id = sqlite3_column_int(queryStatement, 0)
+        //comine the different form parts
+        var combined: [String] = []
+        for i in 1...6{
+            combined.append(String(cString: sqlite3_column_text(queryStatement, Int32(i))))
+        }
+        return combined
+    }
+    func GetDiagrams(words:[Word], formIDs:[Int32], profileID:Int32)->[StatsDiagram]?{
+        var statsDiagrams: [StatsDiagram] = []
+        for word in words{
+            for formID in formIDs{
+                let NSWord: NSString = word.firstPrincipalPart as NSString
+                let queryStatement = try? prepareStatement(sqlStatement: Confidence.SelectAllQueryStatement)
+                guard sqlite3_bind_int(queryStatement, 1, profileID) == SQLITE_OK &&
+                sqlite3_bind_int(queryStatement, 2, formID)  == SQLITE_OK &&
+                sqlite3_bind_text(queryStatement, 3, NSWord.utf8String, -1, nil) == SQLITE_OK
+                else{
+                    print(errorMessage)
+                    return nil
+                }
+                while sqlite3_step(queryStatement) == SQLITE_ROW{
+                    /*
+                    let result_row_ID = sqlite3_column_int(queryStatement,0)
+                    let result_profile_ID = sqlite3_column_int(queryStatement,1)
+                    let result_word = String(cString: sqlite3_column_text(queryStatement,2))
+                    let result_form_ID = sqlite3_column_int(queryStatement, 3)
+ */
+                    var result_attempt:[Int32] = [] //the first column is most recent the last is the 10th
+                    for i in (4...13){
+                        result_attempt.append(sqlite3_column_int(queryStatement, Int32(i)))
+                    }
+                    let result_correct_attempts = sqlite3_column_int(queryStatement, 14)
+                    let result_total_attempts = sqlite3_column_int(queryStatement, 15)
+                    let formList = GetForm(id: formID)
+                    statsDiagrams.append(StatsDiagram(correct: result_correct_attempts, Total: result_total_attempts, last10: result_attempt,latin: word.GetForm(formString: formList),form: formList.joined(separator: ",")))
+                    print(result_correct_attempts, result_total_attempts, result_attempt)
+                }
+            }
+        }
+        print(errorMessage)
+        return statsDiagrams
     }
     //prints all the forms so you can easily which form has what ID
     func ReturnForms(){
@@ -447,6 +530,94 @@ class SQLiteDatabase: ObservableObject {
         return errorMessage
     }
     
+    
+    
+    //Updates the users username given an id
+    func UpdateUsername(profile_id:Int32, username:String)->Bool{
+        let querySql = "UPDATE Profiles SET username = (?) WHERE id = (?)"
+        let NSUsername = username as NSString
+        guard let queryStatement = try? prepareStatement(sqlStatement: querySql) else {
+            return false
+        }
+        defer {
+            sqlite3_finalize(queryStatement)
+        }
+        
+        guard
+            sqlite3_bind_text(queryStatement, 1, NSUsername.utf8String, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_int(queryStatement, 2, profile_id) == SQLITE_OK else {
+            return false
+        }
+        guard sqlite3_step(queryStatement) == SQLITE_DONE else{
+            print(errorMessage)
+            return false
+        }
+        return true
+    }
+
+//updates the password
+    func UpdatePassword(profile_id:Int32, password:String)->Bool{
+    let querySql = "UPDATE Profiles SET password = (?) WHERE id = (?)"
+    let NSPassword = password as NSString
+    guard let queryStatement = try? prepareStatement(sqlStatement: querySql) else {
+        return false
+    }
+    defer {
+        sqlite3_finalize(queryStatement)
+    }
+    
+    guard
+        sqlite3_bind_text(queryStatement, 1, NSPassword.utf8String, -1, nil) == SQLITE_OK &&
+        sqlite3_bind_int(queryStatement, 2, profile_id) == SQLITE_OK else {
+        return false
+    }
+    guard sqlite3_step(queryStatement) == SQLITE_DONE else{
+        return false
+    }
+    return true
+}
+    
+//reset progress by deleting all rows with the profile id given
+    func ResetProgress(profile_id:Int32)->Bool{
+            let querySql = Confidence.DeleteUserRowsStatement
+        guard let queryStatement = try? prepareStatement(sqlStatement: querySql) else {
+            return false
+        }
+        defer {
+            sqlite3_finalize(queryStatement)
+        }
+        
+        guard
+            sqlite3_bind_int(queryStatement, 1, profile_id) == SQLITE_OK else {
+            return false
+        }
+        guard sqlite3_step(queryStatement) == SQLITE_DONE else{
+            return false
+        }
+        return true
+    }
+    func DeleteUser(profile_id:Int32)->Bool{
+        if !ResetProgress(profile_id:profile_id){
+            return false
+        }
+        //delete from profile table
+        let ProfileQuerySql = Profile.DeleteUser
+        guard let profileQueryStatement = try? prepareStatement(sqlStatement: ProfileQuerySql) else {
+            return false
+        }
+        defer {
+            sqlite3_finalize(profileQueryStatement)
+        }
+        
+        guard
+            sqlite3_bind_int(profileQueryStatement, 1, profile_id) == SQLITE_OK else {
+            return false
+        }
+        guard sqlite3_step(profileQueryStatement) == SQLITE_DONE else{
+            return false
+        }
+        return true
+    }
 }
 // the types errors that will be throws
 enum SQLiteError: Error {

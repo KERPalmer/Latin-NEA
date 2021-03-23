@@ -7,31 +7,55 @@
 
 import SwiftUI
 
-struct AdverbStatsWordView: View {
+
+struct AdverbWordSelectionView: View {
     @EnvironmentObject var env:Data
+    @State var statsDiagrams:[StatsDiagram]?
     var body: some View {
-        VStack{
-            NavigationLink(
-                destination: Text("All"),
-                label: {
-                    HStack{
-                        Spacer()
-                        Text("All")
-                    }
-                })
-            List(env.programData.adverbClassList){adverb in
+        List(env.programData.adverbClassList){adv in
+            NavigationLink(destination: AdverbStatsWordView(chosenWord: [adv])){
                 HStack{
-                    wordRowView(word:adverb.firstPrincipalPart)
+                    Text(adv.firstPrincipalPart)
                     Spacer()
-                    Text(String(adverb.id))
+                    Text(String(adv.id))
                 }
             }
         }
     }
 }
-struct AdverbStatsTypeView: View {
+struct AdverbStatsWordView:View{
     @EnvironmentObject var env:Data
-    var body: some View {
-        Text("TYPES")
+    
+    @State var chosenWord:[Word]
+    @State var chosenForms: [String] = []
+    
+    @State var nextClicked = false
+    @State var SQLFormIDs: [Int32]?
+    @State var SQLFormStatement:String = "SELECT form_id From Form Where part6 = \(WordTypes.Adverb.rawValue)"
+    @State var StatsDiagrams: [StatsDiagram]?
+    
+    var body: some View{
+        VStack{
+            Text(chosenWord[0].firstPrincipalPart)
+            Text(chosenWord[0].get_translation())
+            if  !nextClicked{
+            Button("Get stats"){
+                StatsDiagrams = GetStatsDiagram(word: chosenWord[0])
+                nextClicked = true
+            }
+            }else{
+                NavigationLink(destination:StatsDiagramView(stats: StatsDiagrams ?? [])){
+                    Text("View Results")
+                }
+            }
+        }
+    }
+    func GetFormIDs(env:Data)->[Int32]{
+        return env.db?.GetStatsForms(query: "SELECT form_id From Form Where part6 = '\(WordTypes.Adverb.rawValue)'") ?? []
+    }
+    func GetStatsDiagram(word:Word)->[StatsDiagram]{
+        let formIDs = GetFormIDs(env: env)
+        return env.db?.GetDiagrams(words: chosenWord, formIDs: formIDs, profileID: env.profileID) ?? []
     }
 }
+

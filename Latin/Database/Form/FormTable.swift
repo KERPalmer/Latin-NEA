@@ -54,6 +54,9 @@ INSERT INTO Form(part1,part2,part3,part4,part5,part6) VALUES(?,?,?,?,?,?);
             part6 = (?);
             """
     }
+    static var GetFormFromId:String{
+        return "SELECT * FROM form WHERE form_id = (?);"
+    }
     init(id_: Int32, part1_:NSString, part2_:NSString, part3_:NSString, part4_:NSString, part5_:NSString,part6_:NSString, wordType_:WordTypes){
         id = id_
         part1 = part1_

@@ -175,6 +175,13 @@ class Quiz: ObservableObject{
             }
         }
     }
+    func reset(){
+        questionNum = -1
+        questions = []
+        inQuiz = false
+        isAnswered = false
+        isFinished = false
+    }
     func GetRandomWord(wordType:WordTypes)->Word?{
         switch wordType {
         case .Verb:

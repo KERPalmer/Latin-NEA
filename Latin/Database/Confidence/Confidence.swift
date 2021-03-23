@@ -67,7 +67,7 @@ INSERT INTO Confidence (row_id, Profile_id, word, form_id, attempt1, attempt2, a
     static var GetAttemptsQueryStatement: String{
         return """
             SELECT attempt1 , attempt2, attempt3, attempt4, attempt5, attempt6, attempt7, attempt8, attempt9, attempt10
-            WHERE Profile_id = (?), form_id = (?), word = (?)
+            WHERE Profile_id = (?), form_id = (?), word = (?);
             """
     }
     static var GetRowIDQueryStatement: String{
@@ -77,12 +77,22 @@ INSERT INTO Confidence (row_id, Profile_id, word, form_id, attempt1, attempt2, a
     }
     static var SelectAllQueryStatement:String{
         return """
-            SELECT * FROM Confidence Where row_id = (?)
+            SELECT * FROM Confidence WHERE Profile_id = (?) AND form_id = (?) AND word = (?);
+            """
+    }
+    static var GetRow:String{
+        return """
+            SELECT * FROM Confidence WHERE row_id = (?);
             """
     }
     static var UpdateQueryStatement: String{
         return """
-            UPDATE Confidence SET attempt1 = (?), attempt2 = (?), attempt3 = (?), attempt4 = (?), attempt5 = (?), attempt6 = (?), attempt7 = (?), attempt8 = (?), attempt9 = (?), attempt10 = (?), totalCorrect = (?),total = (?) WHERE form_id = (?);
+            UPDATE Confidence SET attempt1 = (?), attempt2 = (?), attempt3 = (?), attempt4 = (?), attempt5 = (?), attempt6 = (?), attempt7 = (?), attempt8 = (?), attempt9 = (?), attempt10 = (?), totalCorrect = (?),total = (?) WHERE row_id = (?);
+            """
+    }
+    static var DeleteUserRowsStatement: String{
+        return """
+            DELETE FROM Confidence WHERE Profile_id = (?)
             """
     }
     init(id_:Int32 ,profile_id_:Int32,word_:NSString,form_id_:Int32,attempt1_:Int32){

@@ -36,7 +36,9 @@ struct logInView: View {
                         }catch{
                             print("set id error")
                         }
-                        print("logging into profile id \(env.profileID)")
+                        print("logging into profile id \(env.profileID): \(Username)")
+                        env.profileUsername = Username
+                        env.profilePassword = Password
                         env.isLoggedIn.toggle()
                     }
                     else{

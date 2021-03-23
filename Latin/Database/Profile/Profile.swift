@@ -51,6 +51,11 @@ class Profile: SQLTable {
         SELECT id FROM Profiles WHERE Username = (?);
         """
     }
+    static var DeleteUser:String{
+        return """
+            Delete From Profiles WHERE id = (?)
+            """
+    }
     init(id: Int32, Username: NSString, Password: NSString){
         self.id = id
         self.Username = Username

@@ -17,9 +17,9 @@ struct ResultRowView: View {
                         .padding()
                     Spacer()
                     Text(question.latin.get_translation())
-                }                .background(question.GetColor())
-                .ignoresSafeArea()
-            }
+                }
+            }.background(question.GetColor())
+            .ignoresSafeArea()
         }
         else{
             NavigationLink(destination: IncorrectView(question: question)){

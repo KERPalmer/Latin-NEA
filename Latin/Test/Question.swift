@@ -10,7 +10,7 @@ import SwiftUI
 //THE QUESTION DATABASE HOLD THE INFOMATION ABOUT ONE QUESTION. IT WILL BE CREATED BY THE QUIZ, DISPLAYED TO THE USER AND THEN PASSED TO THE SQLDATABASE TO STORE THE RESULTS
 
 // A QUESTION WHERE IT IS WRITTEN IN 
-class Question: Identifiable{
+class Question: Identifiable, ObservableObject{
     public let latin: Word //the word that will be tested, used to get ID and other forms
     public let latinString: String //the string that will be shown
     public let translations: [String] //the english version of the latin word
@@ -54,7 +54,7 @@ class Question: Identifiable{
     }
     func checkAnswer()->Bool{
         vocabAnswer = format(str: vocabAnswer)
-        if translations.contains(vocabAnswer.lowercased()){
+        if translations.contains(vocabAnswer.lowercased()) || translations.contains(vocabAnswer){
              isVocabCorrect=true
         }
         if formAnswer == formString{
@@ -84,8 +84,7 @@ class Question: Identifiable{
         return wrongColor
     }
     func GetFeedBack()-> String{
-        
-        let feedback =  latin.GetFeedback(formAnswer: formString, incorrectForm: formAnswer).joined(separator: "/r")
+        let feedback =  latin.GetFeedback(formAnswer: formString, incorrectForm: formAnswer).joined(separator: "\n")
         return feedback
     }
 }
