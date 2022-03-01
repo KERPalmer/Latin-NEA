@@ -1,4 +1,7 @@
+Created by Kenan Palmer for my non exam assessment for Alevel computer science
 
-DEPONENTS
-log out
-// if time at end
+This is an IOS application using swift, swiftUI and mySQL that has 3 main functions
+- fully conjugate and decine latin words
+- provide customisable quiz for the user
+- store results and display them according the users input, using Sqlite3
+
