@@ -40,6 +40,7 @@ struct ResetUsername: View{
             TextField("new username", text: $username)
             Button("reset username"){
                 let NSUsername = username as NSString
+                invalid = false
                 if (env.db!.CheckUsername(Username: NSUsername)){
                     invalid = true
                 }

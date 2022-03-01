@@ -3,11 +3,10 @@
 //  Latin
 //
 //  Created by Kenan Palmer on 22/11/2020.
-//
+// OPENS THE DATABASE AND CREATES A CONNECT AND WILL RETURN NIL IF IT CANNOT
 
 import Foundation
 import SQLite3
-// OPENS THE DATABASE AND CREATES A CONNECT AND WILL RETURN NIL IF IT CANNOT 
 func ConnectDB()->SQLiteDatabase?{
     // the program database
     let db: SQLiteDatabase

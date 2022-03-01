@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StatsWordView: View{
     var body: some View {
+        NavigationView{
             List{
                 NavigationLink(destination: VerbWordSelectionView()){
                 Text("Verbs")
@@ -44,6 +45,7 @@ struct StatsWordView: View{
         }.navigationTitle("by word")
         }
     }
+}
 
 struct StatsDiagramView: View{
     let stats: [StatsDiagram]
@@ -83,14 +85,6 @@ struct AnswerSquareView:View{
         }
     }
 }
-
-struct StatsWordDisplayView: View{
-    let statsDiagrams: [StatsDiagram]
-    var body: some View{
-        Text("Hello")
-    }
-}
-
 
 class StatsDiagram:Codable, Identifiable{
     public let correctAnswers:Int

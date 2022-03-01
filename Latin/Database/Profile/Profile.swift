@@ -3,16 +3,13 @@
 //  Latin
 //
 //  Created by Kenan Palmer on 22/11/2020.
-//
+// This class contains the statements and methods for dealing with a profile SQL Table
 import Foundation
 import SQLite3
-
-// This class contains the statements and methods for dealing with a profile SQL Table 
 class Profile: SQLTable {
-    
-    var id: Int32
-    var Username: NSString
-    var Password:NSString // i am aware the password is not at all secure, but since this is on a 'secure' phone it should be okay, i expect the users to know each other
+    @Published var username:NSString
+    @Published var password:NSString
+    @Published var id:Int32
     static var createStatement: String { // the statement for creating a table
       return """
     CREATE TABLE IF NOT EXISTS Profiles(
@@ -58,7 +55,7 @@ class Profile: SQLTable {
     }
     init(id: Int32, Username: NSString, Password: NSString){
         self.id = id
-        self.Username = Username
-        self.Password=Password
+        self.username = Username
+        self.password = Password
     }
 }

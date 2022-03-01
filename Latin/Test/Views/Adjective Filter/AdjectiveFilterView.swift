@@ -15,7 +15,7 @@ struct AdjectiveDeclensionFilterView: View {
                 Text("First and Second Declension Adjectives")
             }
             Toggle(isOn:$quiz.settings.adjectiveThree){
-                Text("First and Second Declension Adjectives")
+                Text("Third Declension Adjectives")
             }
             
         }

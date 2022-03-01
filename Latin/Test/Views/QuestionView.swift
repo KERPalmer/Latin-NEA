@@ -28,7 +28,7 @@ struct QuestionView: View {
                     if quiz.settings.vocabOnly{
                         VocabWrittenInputView(question: quiz.getQuestion())
                     }else{
-                        FormInputView(question: quiz.getQuestion() as! MultiplechoiceQuestion)
+                        FormInputView(question: quiz.getQuestion())
                     }
                 }
             }

@@ -4,20 +4,11 @@
 //
 //  Created by Kenan Palmer on 08/12/2020.
 //
-
+//This class contains all of the statements and methods for dealing with the confidence table
 import Foundation
 import SQLite3
-//This class contains all of the statements and methods for dealing with the confidence table
+
 class Confidence: SQLTable{
-    
-    var id: Int32
-    var profile_id: Int32
-    var word: NSString
-    var form_id: Int32
-    var attempts: [Int32]
-    var totalCorrect: Int32
-    var total:Int32
-    
     static var insertStatement: String{
         return """
 INSERT INTO Confidence (row_id, Profile_id, word, form_id, attempt1, attempt2, attempt3, attempt4, attempt5, attempt6, attempt7, attempt8, attempt9, attempt10, totalCorrect,total) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
@@ -94,19 +85,6 @@ INSERT INTO Confidence (row_id, Profile_id, word, form_id, attempt1, attempt2, a
         return """
             DELETE FROM Confidence WHERE Profile_id = (?)
             """
-    }
-    init(id_:Int32 ,profile_id_:Int32,word_:NSString,form_id_:Int32,attempt1_:Int32){
-        self.id = id_
-        self.profile_id=profile_id_
-        self.word=word_
-        self.form_id = form_id_
-        self.attempts=[attempt1_]
-        if attempt1_ == 1{
-            totalCorrect = 1
-        }else{
-            totalCorrect = 0
-        }
-        self.total=1
     }
     
 }

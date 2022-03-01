@@ -6,19 +6,18 @@
 //
 
 import Foundation
-//
+/*
 //  Database.swift
 //  Profile sql
 //
 //  Created by Kenan Palmer on 24/10/2020.
-//
-
-import Foundation
-import SQLite3
-/* THIS CLASS COMMUNICATES WITH THE SQLDATABASE ALL SELCTION INSERTION CREATION UPDATES AND DELETES WILL BE EXECUTED HERE. THE REST OF THE PROGRAM ACCESSES THE DATABASE THROUGH HERE THE FIRST FEW FUCNTIONS SHOW WHAT THE GENERAL STRUCTURE OF THE PROGRAM IS BUT I OMITTED THOSE COMMENTS FROM THE OTHER FUNCTIONS BECAUSE IT WAS UNEEDED IF YOU DONT UNDERSTAND WHY IVE DONE SOMETHING, YOU SHOULD BE ABLE TO UNDERSTAND ON A QUICK SQL GOOGLE SEARCH
+    THIS CLASS COMMUNICATES WITH THE SQLDATABASE ALL SELCTION INSERTION CREATION UPDATES AND DELETES WILL BE EXECUTED HERE. THE REST OF THE PROGRAM ACCESSES THE DATABASE THROUGH HERE THE FIRST FEW FUCNTIONS SHOW WHAT THE GENERAL STRUCTURE OF THE PROGRAM IS BUT I OMITTED THOSE COMMENTS FROM THE OTHER FUNCTIONS BECAUSE IT WAS UNEEDED IF YOU DONT UNDERSTAND WHY IVE DONE SOMETHING, YOU SHOULD BE ABLE TO UNDERSTAND ON A QUICK SQL GOOGLE SEARCH
  
  THE DIFFERENCE BETWEEN SQLITE_DONE AND SQLITE_ROW CONFUSED ME FOR A BIT. SQLITE_DONE BE GIVEN IF NO ROW IS RETURNED. SQLITE_ROW WILL BE GIVEN IF SOMETHING IS RETURNED FORM THE QUERY
  */
+
+import Foundation
+import SQLite3
 class SQLiteDatabase: ObservableObject {
     // the pointer to the database
     private let dbPointer: OpaquePointer?
@@ -142,8 +141,8 @@ class SQLiteDatabase: ObservableObject {
         }
         guard
             sqlite3_bind_null(insertStatement, 1) == SQLITE_OK  &&
-                sqlite3_bind_text(insertStatement, 2, profile.Username.utf8String, -1, nil) == SQLITE_OK &&
-                sqlite3_bind_text(insertStatement, 3, profile.Password.utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 2, profile.username.utf8String, -1, nil) == SQLITE_OK &&
+                sqlite3_bind_text(insertStatement, 3, profile.password.utf8String, -1, nil)
                 == SQLITE_OK
         else {
             throw SQLiteError.Bind(message: errorMessage)

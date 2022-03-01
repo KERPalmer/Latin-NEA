@@ -54,8 +54,11 @@ struct SettingsView: View {
                 }
                 NavigationLink(destination: AdjectiveDeclensionFilterView()){
                     Text("Adjective Declension Filter")
-                }.frame(height: 100)
-            }
+                }
+                NavigationLink(destination: AdjectiveDegreeFilterView()){
+                    Text("Adjective Degree filter")
+                }
+            }.frame(height: 300)
         }
     }
 }

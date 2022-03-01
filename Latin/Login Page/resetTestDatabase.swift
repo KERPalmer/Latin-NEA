@@ -54,7 +54,7 @@ func resetTestDatabase(db:SQLiteDatabase?){
     }
     print("Successfully inserted rows into the Form table.")
     let testProfile = db?.GetProfile(id:1)
-    print(testProfile!.Username as Any)
+    print(testProfile!.username as Any)
     print("form test")
     db?.ReturnForms()
     print("end of test")

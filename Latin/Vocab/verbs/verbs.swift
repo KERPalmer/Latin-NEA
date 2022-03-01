@@ -1090,7 +1090,8 @@ class Verb:Word,Codable{
             }
             feedback.append(feedbackPart)
         }
-        if formAnswerList[3] != formList[3]{
+        if (formAnswerList.count > 3) && (formList.count > 3){
+        if (formAnswerList[3] != formList[3]) {
             var feedbackPart:String = ""
             switch PersonNum.init(rawValue: formList[3])! {
             case .FirstSingular:
@@ -1123,12 +1124,12 @@ class Verb:Word,Codable{
             }
             feedback.append(feedbackPart)
         }
-        
+        }
         return feedback
     }
     enum Context: String, CaseIterable, Encodable {
         case indicitve = "The Indicitve mood is used to represent facts or truths such something did occur or will occur"
-        case subjunctive = "The Subjunctive modd is used torepresent many things, such as intent, consequence."
+        case subjunctive = "The Subjunctive mood is used to represent many things, such as intent, consequence."
         case active = "The Active voice is used to show that the action is performed on the object of the sentence by the subject: Bob hit Jim is an example"
         case passive = "The passive voice is used to show that the action is performed on the subject of the sentence by the object: Jim was hit by bob"
         case present = "The present tense is used to show that a verb is happening now, at this very moment: Bob hits Jim"
